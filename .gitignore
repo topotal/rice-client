@@ -1,0 +1,9 @@
+build/
+node_modules/
+npm-debug.log
+app/views/
+app/controllers/
+app/styles/
+app/models/
+Resources/
+appify/
