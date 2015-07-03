@@ -36,6 +36,7 @@ function compile(yaml) {
     json = json.replace(/['"]expr(.+?)['"]/gi, 'expr$1');
     json = json.replace(/['"]Ti(.+?)['"]/gi, 'Ti$1');
     json = json.replace(/['"]Titanium(.+?)['"]/gi, 'Titanium$1');
+    json = json.replace(/['"]Alloy(.+?)['"]/gi, 'Alloy$1');
 
     return json;
 }
@@ -55,8 +56,6 @@ gulp.task('styles', function(){
                     { bare: true }
                 )
             );
-            // tishadow run
-            exec('ts run --update');
         }
     });
 });

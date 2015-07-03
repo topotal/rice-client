@@ -28,8 +28,5 @@ gulp.task('views', function(){
             pretty: true
         }))
         .pipe(changeExtensionFromHtmlToXml())
-        .pipe(gulp.dest('./app/views/'))
-        .pipe(shell([
-            'ts run --update'
-        ]));
+        .pipe(gulp.dest('./app/views/'));
 });

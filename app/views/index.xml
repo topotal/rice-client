@@ -1,0 +1,11 @@
+
+<Alloy>
+  <TabGroup id="tabgroup">
+    <Tab id="tab1" title="タイムライン" icon="">
+      <Require type="view" src="timeline"></Require>
+    </Tab>
+    <Tab id="tab2" title="銘柄" icon="">
+      <Window title="銘柄"></Window>
+    </Tab>
+  </TabGroup>
+</Alloy>

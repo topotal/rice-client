@@ -8,8 +8,5 @@ var shell = require('gulp-shell');
 gulp.task('babel', function(){
     return gulp.src('./src/**/*.js')
         .pipe(babel())
-        .pipe(gulp.dest('./app/'))
-        .pipe(shell([
-            'ts run --update'
-        ]));
+        .pipe(gulp.dest('./app/'));
 });

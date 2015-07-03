@@ -1,0 +1,19 @@
+
+<Alloy>
+  <Window id="win" title="タイムライン">
+    <ListView id="timeline" defaultItemTemplate="default">
+      <Templates>
+        <ItemTemplate id="default_temp" name="default">
+          <View class="row_box">
+            <ImageView bindId="image"></ImageView>
+            <Label bindId="test"></Label>
+          </View>
+        </ItemTemplate>
+      </Templates>
+      <ListSection id="main_section"></ListSection>
+    </ListView>
+    <View id="cook_button">
+      <Label>+</Label>
+    </View>
+  </Window>
+</Alloy>

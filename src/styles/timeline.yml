@@ -1,2 +1,31 @@
-'TableView':
-  rowHeight: 200
+'ListView':
+  backgroundColor: '#69C474'
+
+'ListView[platform=ios]':
+  separatorStyle: Ti.UI.iPhone.ListViewSeparatorStyle.NONE
+
+'#default_temp':
+  height: Alloy.CFG.Width
+  backgroundColor: 'transparent'
+
+'.row_box':
+  top: 10
+  bottom: 10
+  width: 200
+  height: 200
+  borderRadius: 5
+  backgroundColor: '#FFF'
+
+
+'#cook_button':
+  right: 20
+  bottom: 20
+  width: 50
+  height: 50
+  backgroundColor: '#CFC'
+
+'#cook_button Label':
+  color: '#FFF'
+
+'ImageView':
+  backgroundColor: '#F00'
