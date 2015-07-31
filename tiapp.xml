@@ -1,17 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?><ti:app xmlns:ti="http://ti.appcelerator.org">
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
     <id>com.sawazen.rice</id>
-    <name>alloy-test</name>
+    <name>rice</name>
     <version>1.0</version>
-    <publisher>not specified</publisher>
-    <url/>
-    <description/>
-    <copyright>not specified</copyright>
+    <publisher>sawadatakayoshi</publisher>
+    <url>http://xn--38j8bv87v8z2b18b.com</url>
+    <description>undefined</description>
+    <copyright>2014 by topotal.com</copyright>
     <icon>appicon.png</icon>
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
-    <guid>9a18f567-60d2-4645-9a28-0a00fc2d15b7</guid>
+    <guid>c805efa2-2c59-4287-8a63-6b3c3805755e</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
+    <property name="app-siteurl" type="string">http://xn--38j8bv87v8z2b18b.com</property>
+    <property name="app-apiurl" type="string">http://xn--38j8bv87v8z2b18b.com/api/v1/</property>
+    <property name="tw-consumer-key" type="string">b295Wl5UAWNwIQ9hnucU32Clc</property>
+    <property name="tw-consumer-secret" type="string">ZAUFf6Jv4CNivbi3iUyL6sqXwDrUMs8MA9ljM8AkUMjfp3FvuC</property>
     <ios>
         <plist>
             <dict>
@@ -32,20 +37,43 @@
                 <false/>
                 <key>UIStatusBarHidden</key>
                 <false/>
-                <!-- ステータスバーを白色に -->
                 <key>UIStatusBarStyle</key>
-                <string>UIStatusBarStyleLightContent</string>
+                <string>UIStatusBarStyleDefault</string>
             </dict>
+            <key>UILaunchImages</key>
+            <array>
+                <dict>
+                    <key>UILaunchImageMinimumOSVersion</key>
+                    <string>8.0</string>
+                    <key>UILaunchImageName</key>
+                    <string>Default-667h</string>
+                    <key>UILaunchImageOrientation</key>
+                    <string>Portrait</string>
+                    <key>UILaunchImageSize</key>
+                    <string>{375, 667}</string>
+                </dict>
+                <dict>
+                    <key>UILaunchImageMinimumOSVersion</key>
+                    <string>8.0</string>
+                    <key>UILaunchImageName</key>
+                    <string>Default-736h</string>
+                    <key>UILaunchImageOrientation</key>
+                    <string>Portrait</string>
+                    <key>UILaunchImageSize</key>
+                    <string>{414, 736}</string>
+                </dict>
+            </array>
         </plist>
     </ios>
-    <android xmlns:android="http://schemas.android.com/apk/res/android">
-        <manifest>
-            <application android:theme="@style/Theme.Blue"/>
-        </manifest>
-    </android>
+    <iphone>
+        <orientations device="iphone">
+            <!-- 縦向き固定 -->
+            <orientation>Ti.UI.PORTRAIT</orientation>
+        </orientations>
+    </iphone>
+    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
     <mobileweb>
-        <precache>
-        </precache>
+        <precache/>
         <splash>
             <enabled>true</enabled>
             <inline-css-images>true</inline-css-images>
@@ -53,16 +81,14 @@
         <theme>default</theme>
     </mobileweb>
     <modules>
-        <module platform="commonjs" version="0.7.0">superagent</module>
     </modules>
     <deployment-targets>
-        <target device="android">true</target>
+        <target device="tizen">false</target>
+        <target device="android">false</target>
         <target device="blackberry">false</target>
         <target device="ipad">false</target>
         <target device="iphone">true</target>
         <target device="mobileweb">false</target>
     </deployment-targets>
     <sdk-version>3.5.1.GA</sdk-version>
-    <plugins><plugin version="1.0">ti.alloy</plugin>
-    </plugins>
 </ti:app>
