@@ -1,6 +1,6 @@
 
 <Alloy>
-  <Window id="win" title="タイムライン">
+  <Window id="win">
     <ListView id="timeline" defaultItemTemplate="default">
       <Templates>
         <ItemTemplate id="default_temp" name="default">
@@ -12,8 +12,8 @@
       </Templates>
       <ListSection id="main_section"></ListSection>
     </ListView>
-    <View id="cook_button">
-      <Label>+</Label>
+    <View id="cook_button" onClick="onCook">
+      <Label class="plus">+</Label>
     </View>
   </Window>
 </Alloy>

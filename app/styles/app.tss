@@ -1,7 +1,7 @@
 {
   "Window": {
     "backgroundColor": "#FFF",
-    "barColor": "#65D073",
+    "barColor": "#B5CB35",
     TitleAttributes: {
       "color": "#FFF"
     }

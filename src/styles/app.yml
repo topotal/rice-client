@@ -1,6 +1,6 @@
 'Window':
     backgroundColor: '#FFF'
-    barColor: '#65D073'
+    barColor: '#B5CB35'
     titleAttributes:
       color: '#FFF'
 

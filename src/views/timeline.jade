@@ -1,5 +1,5 @@
 Alloy
-  Window#win(title='タイムライン')
+  Window#win
     ListView#timeline(
       defaultItemTemplate='default'
     )
@@ -9,5 +9,5 @@ Alloy
             ImageView(bindId='image')
             Label(bindId='test')
       ListSection#main_section
-    View#cook_button
-      Label +
+    View#cook_button(onClick='onCook')
+      Label.plus +

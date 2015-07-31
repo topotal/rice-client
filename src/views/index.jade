@@ -1,6 +1,5 @@
 Alloy
-  TabGroup#tabgroup
-    Tab#tab1(title='タイムライン', icon='')
-      Require(type='view', src='timeline')
-    Tab#tab2(title='銘柄', icon='')
-      Window(title='銘柄')
+  NavigationWindow#ios_base(platform="ios")
+    Require(type='view', src='timeline')
+  Window#android_base(platform="android")
+    Label andorid
