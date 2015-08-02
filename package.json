@@ -6,16 +6,22 @@
   "author": "sawa-zen",
   "license": "ISC",
   "scripts": {
+    "build": "npm run build:alloy && npm run build:js && npm run build:yaml && npm run build:jade",
     "build:alloy": "babel src/alloy.js --out-file app/alloy.js",
     "build:js": "babel src/controllers --out-dir app/controllers",
     "build:yaml": "kabuto src/styles --dir app/styles",
     "build:jade": "jade src/views --out app/views --extension xml --pretty",
-    "build": "npm run build:alloy && npm run build:js && npm run build:yaml && npm run build:jade"
+    "watch": "npm run watch:alloy & npm run watch:js & npm run watch:yaml & npm run watch:jade",
+    "watch:alloy": "babel --watch src/alloy.js --out-file app/alloy.js",
+    "watch:js": "watch 'npm run build:js' src/controllers",
+    "watch:yaml": "watch 'npm run build:yaml' src/styles",
+    "watch:jade": "watch 'npm run build:jade' src/views"
   },
   "dependencies": {
     "babel": "^5.5.8",
     "jade": "^1.11.0",
-    "kabuto": "^0.1.10"
+    "kabuto": "^0.1.10",
+    "watch": "^0.16.0"
   },
   "repository": {
     "type": "git",
