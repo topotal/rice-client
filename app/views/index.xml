@@ -1,9 +1,0 @@
-
-<Alloy>
-  <NavigationWindow id="ios_base" platform="ios">
-    <Require type="view" src="timeline"></Require>
-  </NavigationWindow>
-  <Window id="android_base" platform="android">
-    <Label>andorid</Label>
-  </Window>
-</Alloy>

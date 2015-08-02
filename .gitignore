@@ -3,3 +3,8 @@ node_modules/
 npm-debug.log
 Resources/
 appify/
+app/alloy.js
+app/controllers/*
+app/styles/*
+app/views/*
+!.gitkeep

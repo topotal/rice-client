@@ -3,16 +3,26 @@
   "version": "1.0.0",
   "description": "Welcome to your Appcelerator Titanium Mobile Project",
   "main": "index.js",
-  "author": "",
+  "author": "sawa-zen",
   "license": "ISC",
-  "devDependencies": {
+  "scripts": {
+    "build:alloy": "babel src/alloy.js --out-file app/alloy.js",
+    "build:js": "babel src/controllers --out-dir app/controllers",
+    "build:yaml": "kabuto src/styles --dir app/styles",
+    "build:jade": "jade src/views --out app/views --extension xml --pretty",
+    "build": "npm run build:alloy && npm run build:js && npm run build:yaml && npm run build:jade"
+  },
+  "dependencies": {
     "babel": "^5.5.8",
-    "gulp-babel": "^5.1.0",
-    "gulp-jade": "^1.0.1",
-    "gulp-shell": "^0.4.2",
     "jade": "^1.11.0",
-    "js-yaml": "^3.3.1",
-    "map-stream": "0.0.5",
-    "wrench": "^1.5.8"
-  }
+    "kabuto": "^0.1.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/topotal/rice-client"
+  },
+  "bugs": {
+    "url": "https://github.com/topotal/rice-client/issues"
+  },
+  "homepage": "http://sawa-zen.com"
 }
