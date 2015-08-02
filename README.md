@@ -1,59 +1,39 @@
-最高のごはん app
-====
+# 最高のごはん app
 
-土鍋炊飯を全力でサポート
+土鍋炊飯支援アプリ
 
-<!--
 ## Description
 
-## Demo
--->
+土鍋炊飯好きのためのスマートフォン用土鍋炊飯支援アプリケーションです。
+日々の炊飯を記録して腕を磨こう！
 
 ## Requirement
 
-[Titanium](http://docs.appcelerator.com/platform/latest/#!/guide/Titanium_Command-Line_Interface_Reference)、[TiShadow](http://tishadow.yydigital.com/)、[gulp](http://gulpjs.com/)の環境が最前提としてあるので各種インストール
-
-```bash
-$ npm install -g titanium
-$ npm install -g alloy
-$ npm install -g tishadow
-$ npm install -g gulp
-```
-
-## Install
-
-開発上必要となる module を一括インストール
-
-```
-$ cd [プロジェクトroot]
-$ npm install
-```
+- Titanium
+- Alloy
 
 ## Usage
 
-[TiShadow](http://tishadow.yydigital.com/) 環境をまずは整えます。</br>
+1. 必要な node モジュールのインストール
+  ```
+  $ npm install
+  ```
 
-TiShadow サーバーを起動
+1. ファイルをコンパイル
+  ```
+  $ npm run build
+  ```
 
+1. アプリをビルド
+  ```
+  $ ti build -p ios
+  ```
+
+## Install
 ```
-$ tishadow server
-```
-
-別のペインで appify アプリをビルドしてシミュレータを起動
-
-```
-$ cd [プロジェクトroot]
-$ mkdir appify
-$ tishadow appify -d appify -o [自分のpcのlocalIP]
-$ ti build -p ios -d appify
-```
-
-gulpでsrc配下をwatchして即時反映
-
-```
-$ gulp watch
+$ git clone git@github.com:topotal/rice-client.git
 ```
 
 ## Author
 
-[sawa-zen](https://github.com/sawa-zen)
+[@sawa-zen](https://github.com/sawa-zen)

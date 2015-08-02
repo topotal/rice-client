@@ -1,3 +1,13 @@
 Alloy
-  Window(title='タイムライン')
-    TableView
+  Window#win
+    ListView#timeline(
+      defaultItemTemplate='default'
+    )
+      Templates
+        ItemTemplate#default_temp(name='default')
+          View.row_box
+            ImageView(bindId='image')
+            Label(bindId='test')
+      ListSection#main_section
+    View#cook_button(onClick='onCook')
+      Label.plus +

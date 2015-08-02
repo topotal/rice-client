@@ -1,2 +1,3 @@
-'.hoge':
-    top: 100
+'TabGroup[platform=ios]':
+  backgroundColor: '#FFF'
+  tintColor: '#B5CB35'

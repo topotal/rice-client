@@ -1,0 +1,42 @@
+'Window':
+  titleImage: '/images/icon_rice.png'
+
+'ListView':
+  backgroundColor: '#FFFCEE'
+
+'ListView[platform=ios]':
+  separatorStyle: 'none'
+
+'#default_temp':
+  selectionStyle: 'none'
+  height: Alloy.CFG.Width
+  backgroundColor: 'transparent'
+
+'.row_box':
+  top: 10
+  left: 10
+  right: 10
+  bottom: 10
+  borderRadius: 10
+  backgroundColor: '#FFF'
+
+
+
+# 炊飯ボタン
+'#cook_button':
+  right: 20
+  bottom: 20
+  width: 50
+  height: 50
+  borderRadius: 24
+  backgroundColor: '#E74C3C'
+
+'.plus':
+  width: 50
+  height: 50
+  font: 
+    fontSize: 28
+    fontWeight: 'bold'
+  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+  color: '#FFFFFF'
+
