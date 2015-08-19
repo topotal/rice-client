@@ -1,9 +1,6 @@
 'Window':
   titleImage: '/images/icon_rice.png'
 
-'ListView':
-  backgroundColor: '#FFFCEE'
-
 '.header_view':
   height: 5
 
@@ -12,11 +9,12 @@
 
 'ListView[platform=ios]':
   separatorStyle: 'none'
+  backgroundColor: 'transparent'
 
 '#default_temp':
   selectionStyle: 'none'
-  height: 210
   backgroundColor: 'transparent'
+  height: 210
 
 '.row_box':
   top: 5
@@ -70,7 +68,7 @@
   left: 5
   right: 5
   bottom: 5
-  backgroundColor: '#00F'
+  backgroundColor: '#CCC'
 
 '.rice_image':
    width: 300

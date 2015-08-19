@@ -32,4 +32,6 @@ _.each(data, (itemData) => {
   });
 });
 
-$.main_section.setItems(items);
+_.delay(() => {
+  $.main_section.setItems(items);
+}, 300);
