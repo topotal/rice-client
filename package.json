@@ -7,7 +7,6 @@
   "license": "ISC",
   "scripts": {
     "build": "npm run build:alloy && npm run build:js && npm run build:yaml && npm run build:jade",
-    "build:alloy": "babel src/alloy.js --out-file app/alloy.js",
     "build:js": "babel src/controllers --out-dir app/controllers",
     "build:yaml": "kabuto src/styles --dir app/styles",
     "build:jade": "jade src/views --out app/views --extension xml --pretty",

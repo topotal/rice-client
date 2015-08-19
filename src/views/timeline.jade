@@ -1,13 +1,19 @@
 Alloy
   Window#win
-    ListView#timeline(
-      defaultItemTemplate='default'
-    )
+    ListView#timeline(defaultItemTemplate='default')
+      HeaderView
+        View.header_view
+      FooterView
+        View.footer_view
       Templates
         ItemTemplate#default_temp(name='default')
           View.row_box
-            ImageView(bindId='image')
-            Label(bindId='test')
+            View.header
+              View.user
+                ImageView.icon(bindId='icon')
+                Label.name(bindId='name')
+                Label.time 1h
+              View.star
+            View.image_box
+              ImageView.rice_image(bindId='image')
       ListSection#main_section
-    View#cook_button(onClick='onCook')
-      Label.plus +

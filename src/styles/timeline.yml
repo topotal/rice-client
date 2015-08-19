@@ -4,39 +4,75 @@
 'ListView':
   backgroundColor: '#FFFCEE'
 
+'.header_view':
+  height: 5
+
+'.footer_view':
+  height: 5
+
 'ListView[platform=ios]':
   separatorStyle: 'none'
 
 '#default_temp':
   selectionStyle: 'none'
-  height: Alloy.CFG.Width
+  height: 210
   backgroundColor: 'transparent'
 
 '.row_box':
-  top: 10
+  top: 5
   left: 10
   right: 10
-  bottom: 10
-  borderRadius: 10
+  bottom: 5
   backgroundColor: '#FFF'
+  viewShadowColor: '#55000000'
+  viewShadowOffset: {width: 0, height: 1}
 
+'.header':
+  top: 0
+  left: 5
+  right: 5
+  height: 57
 
+'.user':
+  left: 5
+  width: Ti.UI.SIZE
+  height: 32
+  layout: 'horizontal'
 
-# 炊飯ボタン
-'#cook_button':
-  right: 20
-  bottom: 20
-  width: 50
-  height: 50
-  borderRadius: 24
-  backgroundColor: '#E74C3C'
+'.icon':
+  left: 0
+  width: 32
+  height: 32
+  borderRadius: 5
+  backgroundColor: Alloy.CFG.LIGHT_GRAY
+  defaultImage: ''
 
-'.plus':
-  width: 50
-  height: 50
-  font: 
-    fontSize: 28
-    fontWeight: 'bold'
-  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
-  color: '#FFFFFF'
+'.name':
+  left: 5
+  height: 32
+  color: Alloy.CFG.GREEN
+  textAlign: 'left'
+  font: { fontSize: 14 }
 
+'.time':
+  left: 5
+  color: Alloy.CFG.LIGHT_GRAY
+  font: { fontSize: 14 }
+
+'.star':
+  right: 5
+  width: 20
+  height: 20
+  backgroundColor: '#0F0'
+
+'.image_box':
+  top: 57
+  left: 5
+  right: 5
+  bottom: 5
+  backgroundColor: '#00F'
+
+'.rice_image':
+   width: 300
+   height: 300
+   backgroundColor: '#F00'
