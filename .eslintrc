@@ -30,6 +30,7 @@
     "Ti": true,
     "Titanium": true,
     "Alloy": true,
+    "exports": true,
     "OS_IOS": true,
     "OS_ANDROID": true
   }
