@@ -8,3 +8,7 @@ if (OS_IOS) {
     })).open();
 }
 $.index.open();
+
+$.index.addEventListener('close', () => {
+  $.destroy();
+});

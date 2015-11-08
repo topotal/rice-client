@@ -1,3 +1,10 @@
 'TableView[platform=ios]':
   separatorStyle: 'none'
   backgroundColor: 'transparent'
+  rowHeight: 210
+
+'.headerView':
+  height: 5
+
+'.footerView':
+  height: 5

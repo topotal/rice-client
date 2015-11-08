@@ -1,6 +1,7 @@
 // rowの生成
-exports.createRow = () => {
-  return Alloy.createController('timelineTableRow').getView();
+exports.createRow = (data) => {
+  var row = Alloy.createController('timelineTableRow', data).getView();
+  return row;
 };
 
 exports.setData = (list) => {
