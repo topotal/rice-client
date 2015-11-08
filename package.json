@@ -16,7 +16,7 @@
     "watch:alloy": "babel --watch src/alloy.js --out-file app/alloy.js",
     "watch:models": "watch 'npm run build:models' src/models",
     "watch:controllers": "watch 'npm run build:controllers' src/controllers",
-    "watch:styles": "watch 'npm run build:styles && tishadow run' src/styles",
+    "watch:styles": "watch 'npm run build:styles' src/styles",
     "watch:views": "watch 'npm run build:views' src/views"
   },
   "dependencies": {
