@@ -1,8 +1,7 @@
-## 最高のごはん
+# 最高のごはん app
 
-土鍋炊飯支援アプリケーション
-
-![socket-io-demo](readme.png)
+土鍋炊飯支援アプリ
+![rice.app](readme.png)
 
 ## Description
 
@@ -13,7 +12,30 @@
 
 ## Requirement
 
-- Titanium CLI
+- Titanium
+- Alloy
+
+## Usage
+
+1. 必要な node モジュールのインストール
+  ```
+  $ npm install
+  ```
+
+1. ファイルをコンパイル
+  ```
+  $ npm run build
+  ```
+
+1. アプリをビルド
+  ```
+  $ ti build -p ios
+  ```
+
+## Install
+```
+$ git clone git@github.com:topotal/rice-client.git
+```
 
 ## Author
 

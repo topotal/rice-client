@@ -1,0 +1,36 @@
+{
+  "name": "alloy-test",
+  "version": "1.0.0",
+  "description": "Welcome to your Appcelerator Titanium Mobile Project",
+  "main": "index.js",
+  "author": "sawa-zen",
+  "license": "ISC",
+  "scripts": {
+    "build": "npm run build:alloy && npm run build:controllers && npm run build:styles && npm run build:views && npm run build:models",
+    "build:alloy": "babel src/alloy.js --out-file app/alloy.js",
+    "build:models": "babel src/models --out-dir app/models",
+    "build:controllers": "babel src/controllers --out-dir app/controllers",
+    "build:styles": "kabuto src/styles --dir app/styles",
+    "build:views": "jade src/views --out app/views --extension xml --pretty",
+    "watch": "npm run watch:alloy & npm run watch:controllers & npm run watch:styles & npm run watch:views & npm run watch:models",
+    "watch:alloy": "babel --watch src/alloy.js --out-file app/alloy.js",
+    "watch:models": "watch 'npm run build:models' src/models",
+    "watch:controllers": "watch 'npm run build:controllers' src/controllers",
+    "watch:styles": "watch 'npm run build:styles && tishadow run' src/styles",
+    "watch:views": "watch 'npm run build:views' src/views"
+  },
+  "dependencies": {
+    "babel": "^5.5.8",
+    "jade": "^1.11.0",
+    "kabuto": "^0.1.10",
+    "watch": "^0.16.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/topotal/rice-client"
+  },
+  "bugs": {
+    "url": "https://github.com/topotal/rice-client/issues"
+  },
+  "homepage": "http://sawa-zen.com"
+}

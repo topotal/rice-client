@@ -1,0 +1,17 @@
+{
+	"global": {}, 
+	"env:development": {
+    "API_URL": "rice.localhost"
+  }, 
+	"env:test": {
+    "API_URL": "rice.sawa-zen.com"
+  }, 
+	"env:production": {
+    "API_URL": "rice.sawa-zen.com"
+  }, 
+	"os:android": {},
+	"os:blackberry": {},
+	"os:ios": {},
+	"os:mobileweb": {},
+	"dependencies": {}
+}
