@@ -1,15 +1,45 @@
-var hideButtonAnimate = Ti.UI.createAnimation();
-hideButtonAnimate.bottom = -60;
-hideButtonAnimate.duration = 300;
-hideButtonAnimate.curve = Ti.UI.ANIMATION_CURVE_EASE_OUT;
-var isScrolling = false;
+// 炊飯ボタン表示アニメーション
+var showButtonAnimate = Ti.UI.createAnimation({
+  bottom: 32,
+  duration: 300,
+  curve: Ti.UI.ANIMATION_CURVE_EASE_OUT
+});
+showButtonAnimate.addEventListener('complete', function() {
+  cookButtonShowing = false;
+});
 
-var onScroll = (e) => {
-  if(isScrolling) {
+// 炊飯ボタン非表示アニメーション
+var hideButtonAnimate = Ti.UI.createAnimation({
+  bottom: -60,
+  duration: 300,
+  curve: Ti.UI.ANIMATION_CURVE_EASE_OUT
+});
+hideButtonAnimate.addEventListener('complete', function() {
+  cookButtonHiding = false;
+});
+
+var cookButtonShowing = false;
+var onScrollEnd = (e) => {
+  if(cookButtonShowing) {
     return;
   }
 
-  isScrolling = true;
+  // 一番上に来た時のみ炊飯ボタンを表示させる
+  if(e.contentOffset.y !== 0) {
+    return;
+  };
+
+  cookButtonShowing = true;
+  $.cookButton.animate(showButtonAnimate);
+};
+$.table.getView().addEventListener('scrollend', onScrollEnd);
+
+var cookButtonHiding = false;
+var onScroll = () => {
+  if(cookButtonHiding) {
+    return;
+  }
+  cookButtonHiding = true;
   $.cookButton.animate(hideButtonAnimate);
 };
 $.table.getView().addEventListener('scroll', onScroll);
