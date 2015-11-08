@@ -1,3 +1,8 @@
 'Window':
   titleImage: '/images/icon_rice.png'
 
+'#cookButton':
+  bottom: 32
+  width: 60
+  height: 60
+  backgroundColor: '#00F'
