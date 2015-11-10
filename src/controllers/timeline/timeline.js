@@ -1,7 +1,7 @@
 // 炊飯ボタン表示アニメーション
 var showButtonAnimate = Ti.UI.createAnimation({
-  bottom: 32,
-  duration: 300,
+  bottom: 10,
+  duration: 250,
   curve: Ti.UI.ANIMATION_CURVE_EASE_OUT
 });
 showButtonAnimate.addEventListener('complete', function() {
@@ -10,8 +10,8 @@ showButtonAnimate.addEventListener('complete', function() {
 
 // 炊飯ボタン非表示アニメーション
 var hideButtonAnimate = Ti.UI.createAnimation({
-  bottom: -60,
-  duration: 300,
+  bottom: -100,
+  duration: 250,
   curve: Ti.UI.ANIMATION_CURVE_EASE_OUT
 });
 hideButtonAnimate.addEventListener('complete', function() {
@@ -27,7 +27,7 @@ var onScrollEnd = (e) => {
   // 一番上に来た時のみ炊飯ボタンを表示させる
   if(e.contentOffset.y !== 0) {
     return;
-  };
+  }
 
   cookButtonShowing = true;
   $.cookButton.animate(showButtonAnimate);
