@@ -67,3 +67,9 @@ _.each(data, (rowData) => {
   rows.push($.table.createRow(rowData));
 });
 $.table.setData(rows);
+
+
+$.cookButton.addEventListener('click', () => {
+  var cookPage = Alloy.createController('cook/cook').getView();
+  cookPage.open();
+});
