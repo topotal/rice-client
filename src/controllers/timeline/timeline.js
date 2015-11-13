@@ -1,3 +1,5 @@
+import PageManager from 'pageManager';
+
 // 炊飯ボタン表示アニメーション
 var showButtonAnimate = Ti.UI.createAnimation({
   bottom: 10,
@@ -70,6 +72,5 @@ $.table.setData(rows);
 
 
 $.cookButton.addEventListener('click', () => {
-  var cookPage = Alloy.createController('cook/cook').getView();
-  cookPage.open();
+  PageManager.instance.goToPage('cook/cook');
 });
