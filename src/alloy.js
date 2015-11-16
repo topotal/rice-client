@@ -20,7 +20,6 @@ Alloy.Globals = {
 
     var defaultWin = Alloy.createController(name + '/' + defaultWinName + '/window').getView();
     var newNavWin = Alloy.createController(name + '/navWin').getView();
-    newNavWin.name = name;
     newNavWin.window = defaultWin;
     Alloy.Globals.currentNavWinName = name;
     Alloy.Globals.navWinStack[name] = {
@@ -52,7 +51,7 @@ Alloy.Globals = {
   openWindow: (name) => {
     var newWinPath = Alloy.Globals.currentNavWinName + '/' + name + '/window';
     var newWin = Alloy.createController(newWinPath).getView();
-    Alloy.Globals.currentNavWin.openWindow(newWin);
+    Alloy.Globals.navWinStack[Alloy.Globals.currentNavWinName].navWin.openWindow(newWin);
   }
 
 };
