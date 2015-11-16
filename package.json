@@ -6,14 +6,8 @@
   "author": "sawa-zen",
   "license": "ISC",
   "scripts": {
-    "build": "npm run build:alloy && npm run build:controllers && npm run build:models",
-    "build:alloy": "babel src/alloy.js --out-file app/alloy.js",
-    "build:models": "babel src/models --out-dir app/models",
-    "build:controllers": "babel src/controllers --out-dir app/controllers",
-    "watch": "npm run watch:alloy & npm run watch:controllers & npm run watch:models",
-    "watch:alloy": "babel --watch src/alloy.js --out-file app/alloy.js",
-    "watch:models": "watch 'npm run build:models' src/models",
-    "watch:controllers": "watch 'npm run build:controllers' src/controllers"
+    "build": "babel src --out-dir app",
+    "watch": "babel --watch src --out-dir app"
   },
   "dependencies": {
     "babel": "^5.5.8",

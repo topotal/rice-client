@@ -67,3 +67,8 @@ _.each(data, (rowData) => {
   rows.push($.table.createRow(rowData));
 });
 $.table.setData(rows);
+
+
+$.cookButton.addEventListener('click', () => {
+  Alloy.Globals.openNavWindow('cook', 'start', { modal: true });
+});
