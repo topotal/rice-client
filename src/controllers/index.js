@@ -1,1 +1,1 @@
-Alloy.Globals.openNavWindow('main');
+Alloy.Globals.openNavWindow('main', 'timeline');

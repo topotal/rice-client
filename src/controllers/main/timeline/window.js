@@ -70,5 +70,5 @@ $.table.setData(rows);
 
 
 $.cookButton.addEventListener('click', () => {
-  //Alloy.Globals.openWindow('cook/cook');
+  Alloy.Globals.openNavWindow('cook', 'start', { modal: true });
 });
