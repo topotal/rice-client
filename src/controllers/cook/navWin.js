@@ -1,3 +1,0 @@
-function onCloseButton() {
-  $.win.close();
-}
