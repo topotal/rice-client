@@ -2,13 +2,9 @@
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _TiWindow = require('./tiWrapp/TiWindow');
+var _NavWinManager = require('./manager/NavWinManager');
 
-var _TiWindow2 = _interopRequireDefault(_TiWindow);
-
-var _Hoge = require('./Hoge');
-
-var _Hoge2 = _interopRequireDefault(_Hoge);
+var _NavWinManager2 = _interopRequireDefault(_NavWinManager);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27,7 +23,7 @@ var App = function () {
   function App() {
     _classCallCheck(this, App);
 
-    console.log('const');
+    new _NavWinManager2.default();
   }
 
   /**
@@ -37,12 +33,7 @@ var App = function () {
 
   _createClass(App, [{
     key: 'start',
-    value: function start() {
-      console.log('start');
-      var window = new _TiWindow2.default({
-        backgroundColor: '#FF0000'
-      });
-    }
+    value: function start() {}
   }]);
 
   return App;

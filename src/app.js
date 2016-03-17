@@ -1,5 +1,4 @@
-import TiWindow from './tiWrapp/TiWindow';
-import Hoge from './Hoge';
+import NavWinManager from './manager/NavWinManager';
 
 /**
  * メインアプリクラス
@@ -10,17 +9,13 @@ class App {
    * コンストラクター
    */
   constructor() {
-    console.log('const');
+    new NavWinManager();
   }
 
   /**
    * アプリをスタート
    */
   start() {
-    console.log('start');
-    let window = new TiWindow({
-      backgroundColor: '#FF0000'
-    });
   }
 
 }
