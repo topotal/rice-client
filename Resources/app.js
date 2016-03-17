@@ -1,64 +1,52 @@
-// this sets the background color of the master UIView (when there are no windows/tab groups on it)
-Titanium.UI.setBackgroundColor('#000');
+'use strict';
 
-// create tab group
-var tabGroup = Titanium.UI.createTabGroup();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _TiWindow = require('./tiWrapp/TiWindow');
 
-//
-// create base UI tab and root window
-//
-var win1 = Titanium.UI.createWindow({  
-    title:'Tab 1',
-    backgroundColor:'#fff'
-});
-var tab1 = Titanium.UI.createTab({  
-    icon:'KS_nav_views.png',
-    title:'Tab 1',
-    window:win1
-});
+var _TiWindow2 = _interopRequireDefault(_TiWindow);
 
-var label1 = Titanium.UI.createLabel({
-	color:'#999',
-	text:'I am Window 1',
-	font:{fontSize:20,fontFamily:'Helvetica Neue'},
-	textAlign:'center',
-	width:'auto'
-});
+var _Hoge = require('./Hoge');
 
-win1.add(label1);
+var _Hoge2 = _interopRequireDefault(_Hoge);
 
-//
-// create controls tab and root window
-//
-var win2 = Titanium.UI.createWindow({  
-    title:'Tab 2',
-    backgroundColor:'#fff'
-});
-var tab2 = Titanium.UI.createTab({  
-    icon:'KS_nav_ui.png',
-    title:'Tab 2',
-    window:win2
-});
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var label2 = Titanium.UI.createLabel({
-	color:'#999',
-	text:'I am Window 2',
-	font:{fontSize:20,fontFamily:'Helvetica Neue'},
-	textAlign:'center',
-	width:'auto'
-});
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-win2.add(label2);
+/**
+ * メインアプリクラス
+ */
+
+var App = function () {
+
+  /**
+   * コンストラクター
+   */
+
+  function App() {
+    _classCallCheck(this, App);
+
+    console.log('const');
+  }
+
+  /**
+   * アプリをスタート
+   */
 
 
+  _createClass(App, [{
+    key: 'start',
+    value: function start() {
+      console.log('start');
+      var window = new _TiWindow2.default({
+        backgroundColor: '#FF0000'
+      });
+    }
+  }]);
 
-//
-//  add tabs
-//
-tabGroup.addTab(tab1);  
-tabGroup.addTab(tab2);  
+  return App;
+}();
 
-
-// open tab group
-tabGroup.open();
+var app = new App();
+app.start();

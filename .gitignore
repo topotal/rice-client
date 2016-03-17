@@ -1,12 +1,6 @@
 build/
 node_modules/
 npm-debug.log
-Resources/
+Resources/**/*.js
 appify/
-app/alloy.js
-app/models/*
-app/controllers/*
-app/styles/*
-app/views/*
-app/lib/*
 !.gitkeep
