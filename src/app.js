@@ -1,4 +1,5 @@
-import NavWinManager from './manager/NavWinManager';
+import NavWinManager from './managers/NavWinManager';
+import MainNav from './components/mainNav/MainNav';
 
 /**
  * メインアプリクラス
@@ -9,13 +10,15 @@ class App {
    * コンストラクター
    */
   constructor() {
-    new NavWinManager();
+    this.navWinManager = NavWinManager.getInstance();
+    this.mainNav = new MainNav();
   }
 
   /**
    * アプリをスタート
    */
   start() {
+    this.mainNav.open();
   }
 
 }
