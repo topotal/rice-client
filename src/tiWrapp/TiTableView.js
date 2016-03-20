@@ -17,14 +17,11 @@ export default class TiTableView {
    * @param data rowのデータ
    */
   setData(data) {
-    //let tiObjData = [];
-    //_.each(data, (row) => {
-    //  tiObjData.push(row.tiObj);
-    //});
-    //this.tiObj.setData(tiObjData);
-    console.log(data[0].tiObj);
-    this.tiObj.appendRow(data[0].tiObj);
-    //this.tiObj.appendRow(data[0].tiObj);
+    let tiObjData = [];
+    _.each(data, (row) => {
+      tiObjData.push(row.tiObj);
+    });
+    this.tiObj.setData(tiObjData);
   }
 
   /**
@@ -33,6 +30,14 @@ export default class TiTableView {
    */
   setBackgroundColor(color) {
     this.tiObj.setBackgroundColor(color);
+  }
+
+  /**
+   * デフォルトのrowの高さを設定します。
+   * @param height 高さ
+   */
+  setRowHeight(height) {
+    this.tiObj.setRowHeight(height);
   }
 
 }

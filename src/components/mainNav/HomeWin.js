@@ -30,9 +30,12 @@ export default class HomeWin extends TiWindow {
    * 装飾の初期化
    */
   _initDecoration() {
+    this.setTranslucent(false);
     this.setTitleImage('assets/images/nav_title.png');
     this.setBarColor(DesignParam.COLOR.GREEN);
-    this.setBackgroundColor(DesignParam.COLOR.LIGHT_YELLOW);
+    this.setHideShadow(true);
+    this.setShadowImage('assets/images/transparent.png');
+    this.setBackgroundColor(DesignParam.COLOR.GREEN);
     this.setStatusBarStyle(Ti.UI.iPhone.StatusBar.LIGHT_CONTENT);
   }
 

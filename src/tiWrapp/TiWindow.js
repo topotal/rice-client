@@ -45,4 +45,35 @@ export default class TiWindow {
     this.tiObj.setStatusBarStyle(style);
   }
 
+  /**
+   * navBarを透過させるか設定します。
+   */
+  setTranslucent(bool) {
+    this.tiObj.setTranslucent(bool);
+  }
+
+  /**
+   * navBarの影の画像を設定します。
+   * @param path
+   */
+  setShadowImage(path) {
+    this.tiObj.setShadowImage(path);
+  }
+
+  /**
+   * navBarの背景画像を設定します。
+   * @param path
+   */
+  setBarImage(path) {
+    this.tiObj.setBarImage(path);
+  }
+
+  /**
+   * navBarの影の隠すか設定します。
+   * @param bool
+   */
+  setHideShadow(bool) {
+    this.tiObj.setHideShadow(bool);
+  }
+
 }

@@ -8,9 +8,6 @@ export default class RecordTable extends TiTableView {
    */
   constructor() {
     super();
-    //super({
-    //  rowHeight: 200
-    //});
 
     // 見栄え処理
     this._initDecoration();
@@ -24,6 +21,7 @@ export default class RecordTable extends TiTableView {
    * 装飾の初期化
    */
   _initDecoration() {
+    this.setRowHeight(this._rowHeight);
     this.setBackgroundColor('transparent');
   }
 }

@@ -4,12 +4,13 @@
   "description": "土鍋炊飯支援アプリ ![rice.app](readme.png)",
   "main": "index.js",
   "scripts": {
-    "postinstall": "mkdir appify && tishadow appify -d ./appify",
+    "postinstall": "mkdir appify && npm run tishadow:appify",
     "start": "npm run watch & npm run tishadow:build & npm run tishadow:server",
     "build": "ti build -p ios -T simulator --log-level debug --device-id AA4A38E8-41D6-4E40-9B79-C7523707D5E5",
     "watch": "npm run watch:js & npm run watch:tishadow",
     "watch:js": "babel src -d Resources --watch",
     "watch:tishadow": "watch 'npm run tishadow:run' Resources -d",
+    "tishadow:appify": "tishadow appify -d ./appify",
     "tishadow:server": "tishadow server",
     "tishadow:build": "ti build -p ios -T simulator -d ./appify --log-level error --device-id AA4A38E8-41D6-4E40-9B79-C7523707D5E5",
     "tishadow:run": "tishadow run"
