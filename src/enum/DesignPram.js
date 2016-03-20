@@ -1,5 +1,6 @@
 exports.COLOR = {
   WHITE: '#FFFFFF',
   GREEN: '#BCCC14',
-  ORANGE: '#FF9B00'
+  ORANGE: '#FF9B00',
+  LIGHT_YELLOW: '#FDFFF5'
 };

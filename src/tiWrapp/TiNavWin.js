@@ -7,7 +7,21 @@ export default class TiNavWin {
    * コンストラクター
    */
   constructor(prop) {
-    return Ti.UI.iOS.createNavigationWindow(prop);
+    this.tiObj = Ti.UI.iOS.createNavigationWindow(prop);
+  }
+
+  /**
+   * navWinを開きます。
+   */
+  open() {
+    this.tiObj.open();
+  }
+
+  /**
+   * windowをセットします。
+   */
+  setWindow(window) {
+    this.tiObj.setWindow(window.tiObj);
   }
 
 }

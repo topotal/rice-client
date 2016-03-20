@@ -1,5 +1,4 @@
 import TiNavWin from '../../tiWrapp/TiNavWin';
-import * as DesignParam from '../../enum/DesignPram';
 import WinManager from '../../managers/WinManager';
 import HomeWin from './HomeWin';
 
@@ -16,8 +15,6 @@ export default class MainNav extends TiNavWin {
 
     // window管理マネージャー
     this.winManager = new WinManager();
-
-    console.info(DesignParam.COLOR);
 
     // ホーム
     let homeWin = new HomeWin();
