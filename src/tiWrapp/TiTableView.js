@@ -40,5 +40,20 @@ export default class TiTableView {
     this.tiObj.setRowHeight(height);
   }
 
-}
+  /**
+   * セパレーターの色を設定します。
+   * @param color
+   */
+  setSeparatorColor(color) {
+    this.tiObj.setSeparatorColor(color);
+  }
 
+  /**
+   * タップした時に色をつけるか指定します。
+   * @param bool
+   */
+  setAllowsSelection(bool) {
+    this.tiObj.setAllowsSelection(bool);
+  }
+
+}

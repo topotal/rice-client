@@ -33,4 +33,12 @@ export default class TiTableViewRow {
     this.tiObj.add(view.tiObj);
   }
 
+  /**
+   * タップした時の色のスタイルを設定します。
+   * @param style
+   */
+  setSelectionStyle(style) {
+    this.tiObj.setSelectionStyle(style);
+  }
+
 }

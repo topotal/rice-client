@@ -28,6 +28,8 @@ export default class RecordRow extends TiTableViewRow {
    */
   _initDecoration() {
     this.setHeight(80);
+    console.log(Ti.UI.iOS.TableViewCellSelectionStyle);
+    //this.setSelectionStyle(Ti.UI.iOS.TableViewCellSelectionStyle.NONE);
     this.setBackgroundColor('transparent');
   }
 

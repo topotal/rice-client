@@ -13,6 +13,13 @@ export default class RecordTable extends TiTableView {
     this._initDecoration();
 
     this.setData([
+      new RecordRow(),
+      new RecordRow(),
+      new RecordRow(),
+      new RecordRow(),
+      new RecordRow(),
+      new RecordRow(),
+      new RecordRow(),
       new RecordRow()
     ]);
   }
@@ -22,6 +29,8 @@ export default class RecordTable extends TiTableView {
    */
   _initDecoration() {
     this.setRowHeight(this._rowHeight);
+    this.setAllowsSelection(false);
     this.setBackgroundColor('transparent');
+    this.setSeparatorColor('transparent');
   }
 }

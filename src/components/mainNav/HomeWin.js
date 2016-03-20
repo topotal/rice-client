@@ -33,6 +33,7 @@ export default class HomeWin extends TiWindow {
     this.setTranslucent(false);
     this.setTitleImage('assets/images/nav_title.png');
     this.setBarColor(DesignParam.COLOR.GREEN);
+    this.setBarImage('assets/images/transparent.png');
     this.setHideShadow(true);
     this.setShadowImage('assets/images/transparent.png');
     this.setBackgroundColor(DesignParam.COLOR.GREEN);
