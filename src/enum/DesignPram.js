@@ -1,3 +1,4 @@
+// 色系
 exports.COLOR = {
   WHITE: '#FFFFFF',
   GREEN: '#BCCC14',
@@ -5,4 +6,11 @@ exports.COLOR = {
   LIGHT_YELLOW: '#FDFFF5',
   BLUE: '#7EC2CE',
   BLACK: '#626262'
+};
+
+// 画像系
+let pathHead = 'assets/images/';
+exports.IMAGE = {
+  STAR_ON: pathHead + 'star_on.png',
+  STAR_OFF: pathHead + 'star_off.png',
 };

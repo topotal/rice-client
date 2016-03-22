@@ -2,11 +2,16 @@ import TiTableViewRow from '../../../tiWrapp/TiTableViewRow';
 import * as DesignParam from '../../../enum/DesignPram';
 import TiView from '../../../tiWrapp/TiView';
 import TiLabel from '../../../tiWrapp/TiLabel';
+import StarRating from '../../common/StarRating';
 
+/**
+ * 炊飯記録のRowクラスです。
+ */
 export default class RecordRow extends TiTableViewRow {
 
   /**
    * コンストラクター
+   * @constructor
    */
   constructor() {
     super();
@@ -16,11 +21,20 @@ export default class RecordRow extends TiTableViewRow {
 
     // ラッパー
     let wrapper = this._createWrapper();
+    wrapper.setLeft(10);
+    wrapper.setRight(10);
     this.add(wrapper);
 
     // 日付
     let date = this._createDate();
+    date.setLeft(10);
     wrapper.add(date);
+
+    // 5段階評価
+    let starRating = new StarRating();
+    starRating.setTop(12);
+    starRating.setLeft(70);
+    wrapper.add(starRating);
   }
 
   /**
@@ -28,8 +42,6 @@ export default class RecordRow extends TiTableViewRow {
    */
   _initDecoration() {
     this.setHeight(80);
-    console.log(Ti.UI.iOS.TableViewCellSelectionStyle);
-    //this.setSelectionStyle(Ti.UI.iOS.TableViewCellSelectionStyle.NONE);
     this.setBackgroundColor('transparent');
   }
 
@@ -38,8 +50,6 @@ export default class RecordRow extends TiTableViewRow {
    */
   _createWrapper() {
     let view = new TiView({
-      left: 10,
-      right: 10,
       height: 70,
       borderRadius: 3,
       backgroundColor: DesignParam.COLOR.LIGHT_YELLOW,
@@ -57,7 +67,6 @@ export default class RecordRow extends TiTableViewRow {
    */
   _createDate() {
     let view = new TiView({
-      left: 10,
       width: 50,
       height: 50,
       borderRadius: 3,
