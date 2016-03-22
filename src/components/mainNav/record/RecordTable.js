@@ -12,15 +12,29 @@ export default class RecordTable extends TiTableView {
     // 見栄え処理
     this._initDecoration();
 
+    let sampleData = {
+      id: 5,
+      date: '2016-03-23 23:20:33',
+      brand: {
+        id: 10,
+        district: '魚沼産',
+        name: 'コシヒカリ'
+      },
+      temperature: 23,
+      humidity: 20,
+      rate: 4
+    };
+
     this.setData([
-      new RecordRow(),
-      new RecordRow(),
-      new RecordRow(),
-      new RecordRow(),
-      new RecordRow(),
-      new RecordRow(),
-      new RecordRow(),
-      new RecordRow()
+      new RecordRow(sampleData),
+      new RecordRow(sampleData),
+      new RecordRow(sampleData),
+      new RecordRow(sampleData),
+      new RecordRow(sampleData),
+      new RecordRow(sampleData),
+      new RecordRow(sampleData),
+      new RecordRow(sampleData),
+      new RecordRow(sampleData)
     ]);
   }
 

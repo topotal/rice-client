@@ -3,6 +3,7 @@ import * as DesignParam from '../../../enum/DesignPram';
 import TiView from '../../../tiWrapp/TiView';
 import TiLabel from '../../../tiWrapp/TiLabel';
 import StarRating from '../../common/StarRating';
+import moment from 'libs/moment';
 
 /**
  * 炊飯記録のRowクラスです。
@@ -12,9 +13,13 @@ export default class RecordRow extends TiTableViewRow {
   /**
    * コンストラクター
    * @constructor
+   * @param data
    */
-  constructor() {
+  constructor(data) {
     super();
+
+    // データ
+    this.data = data;
 
     // 見栄え処理
     this._initDecoration();
@@ -24,17 +29,6 @@ export default class RecordRow extends TiTableViewRow {
     wrapper.setLeft(10);
     wrapper.setRight(10);
     this.add(wrapper);
-
-    // 日付
-    let date = this._createDate();
-    date.setLeft(10);
-    wrapper.add(date);
-
-    // 5段階評価
-    let starRating = new StarRating();
-    starRating.setTop(12);
-    starRating.setLeft(70);
-    wrapper.add(starRating);
   }
 
   /**
@@ -59,6 +53,24 @@ export default class RecordRow extends TiTableViewRow {
       },
       viewShadowRadius: 0
     });
+
+    // 日付
+    let date = this._createDate();
+    date.setLeft(10);
+    view.add(date);
+
+    // 5段階評価
+    let starRating = new StarRating(this.data.rate);
+    starRating.setTop(12);
+    starRating.setLeft(70);
+    view.add(starRating);
+
+    // ブランド
+    let brand = this._createBrand();
+    brand.setLeft(70);
+    brand.setBottom(10);
+    view.add(brand);
+
     return view;
   }
 
@@ -76,7 +88,7 @@ export default class RecordRow extends TiTableViewRow {
     // 年/月
     let yearAndMonth = new TiLabel({
       top: 7,
-      text: '2016/03',
+      text: moment(this.data.date).format('YYYY/MM'),
       font: {
         fontSize: 9
       },
@@ -87,7 +99,7 @@ export default class RecordRow extends TiTableViewRow {
     // 日
     let day = new TiLabel({
       bottom: 6,
-      text: '25',
+      text: moment(this.data.date).format('DD'),
       font: {
         fontSize: 21,
         fontWeight: 'bold'
@@ -95,6 +107,46 @@ export default class RecordRow extends TiTableViewRow {
       color: DesignParam.COLOR.WHITE
     });
     view.add(day);
+
+    return view;
+  }
+
+  /**
+   * 銘柄名を生成します。
+   */
+  _createBrand() {
+    let maxWidth = 160;
+
+    let view = new TiView({
+      width: maxWidth,
+      height: 30
+    });
+
+    let district = new TiLabel({
+      top: 0,
+      width: maxWidth,
+      height: 9,
+      text: this.data.brand.district,
+      font: {
+        fontSize: 9,
+        fontWeight: 'bold'
+      },
+      color: DesignParam.COLOR.BLACK
+    });
+    view.add(district);
+
+    let name = new TiLabel({
+      bottom: 0,
+      width: maxWidth,
+      height: 14,
+      text: this.data.brand.name,
+      font: {
+        fontSize: 14,
+        fontWeight: 'bold'
+      },
+      color: DesignParam.COLOR.BLACK
+    });
+    view.add(name);
 
     return view;
   }

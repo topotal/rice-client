@@ -55,6 +55,13 @@ export default class StarRating extends TiView {
    */
   setValue(value) {
     this._value = value;
+    for(let index=0; index<5; index++) {
+      if(index < this._value) {
+        this._stars[index].on();
+      } else {
+        this._stars[index].off();
+      }
+    }
   }
 
 }

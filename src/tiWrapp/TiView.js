@@ -43,6 +43,14 @@ export default class TiView {
   }
 
   /**
+   * Bottom値を設定します。
+   * @param bottom
+   */
+  setBottom(bottom) {
+    this.tiObj.setBottom(bottom);
+  }
+
+  /**
    * Right値を設定します。
    * @param right
    */

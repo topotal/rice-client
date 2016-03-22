@@ -1,4 +1,4 @@
-import {_} from 'libs/lodash.min';
+import {_} from 'libs/lodash';
 
 /**
  * TiのTableViewのラップクラス
