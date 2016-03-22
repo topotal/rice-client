@@ -18,6 +18,13 @@ export default class TiNavWin {
   }
 
   /**
+   * navWinを閉じます。
+   */
+  close() {
+    this.tiObj.close();
+  }
+
+  /**
    * windowをセットします。
    */
   setWindow(window) {

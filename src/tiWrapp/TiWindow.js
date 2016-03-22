@@ -1,20 +1,24 @@
+import TiView from './TiView';
+
 /**
  * windowクラスのラップ
  */
-export default class TiWindow {
+export default class TiWindow extends TiView {
 
   /**
    * コンストラクター
    */
   constructor(prop) {
-    this.tiObj = Ti.UI.createWindow(prop);
+    super(prop);
   }
 
   /**
-   * viewをaddします。
+   * tiObjをセットします。
+   * @override
+   * @param prop
    */
-  add(view) {
-    this.tiObj.add(view.tiObj);
+  setTiObj(prop) {
+    this.tiObj = Ti.UI.createWindow(prop);
   }
 
   /**

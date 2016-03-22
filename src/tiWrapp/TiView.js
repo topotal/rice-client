@@ -5,6 +5,8 @@ export default class TiView {
 
   /**
    * コンストラクター
+   * @constructor
+   * @param prop
    */
   constructor(prop) {
     this.setTiObj(prop);
@@ -84,10 +86,11 @@ export default class TiView {
 
   /**
    * イベントリスナーを追加します。
+   * @param name
    * @param event
    */
-  addEventListener(event) {
-    this.tiObj.addEventListener(event);
+  addEventListener(name, event) {
+    this.tiObj.addEventListener(name, event);
   }
 
   /**
