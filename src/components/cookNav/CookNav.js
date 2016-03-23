@@ -10,8 +10,8 @@ export default class CookNav extends TiNavWin {
    * コンストラクター
    * @constructor
    */
-  constructor() {
-    super();
+  constructor(prop) {
+    super(prop);
 
     // ホーム
     let prepareWin = new PrepareWin();
