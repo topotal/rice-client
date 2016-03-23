@@ -43,7 +43,6 @@ export default class RecordTable extends TiTableView {
    */
   _initDecoration() {
     this.setRowHeight(this._rowHeight);
-    this.setAllowsSelection(false);
     this.setBackgroundColor('transparent');
     this.setSeparatorColor('transparent');
   }

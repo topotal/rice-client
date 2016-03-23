@@ -16,10 +16,12 @@ export default class RecordRow extends TiTableViewRow {
    * @param data
    */
   constructor(data) {
-    super();
+    super({
+      data: data
+    });
 
     // データ
-    this.data = data;
+    this._data = data;
 
     // 見栄え処理
     this._initDecoration();
@@ -36,6 +38,7 @@ export default class RecordRow extends TiTableViewRow {
    */
   _initDecoration() {
     this.setHeight(80);
+    this.setSelectionStyle(Ti.UI.iPhone.TableViewCellSelectionStyle.NONE);
     this.setBackgroundColor('transparent');
   }
 
@@ -60,7 +63,7 @@ export default class RecordRow extends TiTableViewRow {
     view.add(date);
 
     // 5段階評価
-    let starRating = new StarRating(this.data.rate);
+    let starRating = new StarRating(this._data.rate);
     starRating.setTop(12);
     starRating.setLeft(70);
     view.add(starRating);
@@ -88,7 +91,7 @@ export default class RecordRow extends TiTableViewRow {
     // 年/月
     let yearAndMonth = new TiLabel({
       top: 7,
-      text: moment(this.data.date).format('YYYY/MM'),
+      text: moment(this._data.date).format('YYYY/MM'),
       font: {
         fontSize: 9
       },
@@ -99,7 +102,7 @@ export default class RecordRow extends TiTableViewRow {
     // 日
     let day = new TiLabel({
       bottom: 6,
-      text: moment(this.data.date).format('DD'),
+      text: moment(this._data.date).format('DD'),
       font: {
         fontSize: 21,
         fontWeight: 'bold'
@@ -126,7 +129,7 @@ export default class RecordRow extends TiTableViewRow {
       top: 0,
       width: maxWidth,
       height: 9,
-      text: this.data.brand.district,
+      text: this._data.brand.district,
       font: {
         fontSize: 9,
         fontWeight: 'bold'
@@ -139,7 +142,7 @@ export default class RecordRow extends TiTableViewRow {
       bottom: 0,
       width: maxWidth,
       height: 14,
-      text: this.data.brand.name,
+      text: this._data.brand.name,
       font: {
         fontSize: 14,
         fontWeight: 'bold'
@@ -149,6 +152,14 @@ export default class RecordRow extends TiTableViewRow {
     view.add(name);
 
     return view;
+  }
+
+  /**
+   * rowのデータを取得します。
+   * @return data
+   */
+  getRowData() {
+    return this._data;
   }
 
 }

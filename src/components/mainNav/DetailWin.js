@@ -2,18 +2,15 @@ import TiWindow from '../../tiWrapp/TiWindow';
 import * as DesignParam from '../../enum/DesignPram';
 
 /**
- * 炊飯準備ウィンドウクラスです。
+ * 詳細画面のウィンドウクラス
  */
-export default class PrepareWin extends TiWindow {
+export default class DetailWin extends TiWindow {
 
   /**
    * コンストラクター
-   * @constructor
    */
-  constructor() {
-    super({
-      modal: true
-    });
+  constructor(prop) {
+    super(prop);
 
     // 見栄え処理
     this._initDecoration();
@@ -24,8 +21,7 @@ export default class PrepareWin extends TiWindow {
    */
   _initDecoration() {
     this.setTranslucent(false);
-    this.setTitleImage('assets/images/cook_title.png');
-    this.setBarColor(DesignParam.COLOR.ORANGE);
+    this.setBarColor(DesignParam.COLOR.GREEN);
     this.setBarImage('assets/images/transparent.png');
     this.setHideShadow(true);
     this.setShadowImage('assets/images/transparent.png');
@@ -34,3 +30,4 @@ export default class PrepareWin extends TiWindow {
   }
 
 }
+

@@ -1,14 +1,23 @@
 import {_} from 'libs/lodash';
+import TiView from '../tiWrapp/TiView';
 
 /**
  * TiのTableViewのラップクラス
  */
-export default class TiTableView {
+export default class TiTableView extends TiView {
 
   /**
    * コンストラクター
    */
   constructor(prop) {
+    super(prop);
+  }
+
+  /**
+   * tiObjをセットします。
+   * @param prop
+   */
+  setTiObj(prop) {
     this.tiObj = Ti.UI.createTableView(prop);
   }
 
@@ -22,14 +31,6 @@ export default class TiTableView {
       tiObjData.push(row.tiObj);
     });
     this.tiObj.setData(tiObjData);
-  }
-
-  /**
-   * 背景色を追加します。
-   * @param color 色
-   */
-  setBackgroundColor(color) {
-    this.tiObj.setBackgroundColor(color);
   }
 
   /**

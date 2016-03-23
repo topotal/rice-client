@@ -1,8 +1,9 @@
-//import _ from 'libs/lodash';
+import {_} from 'libs/lodash';
 
 /**
  * NavigationWindowの管理クラス
  */
+let instance = null;
 export default class NavWinManager {
 
   /**
@@ -10,7 +11,7 @@ export default class NavWinManager {
    * @return NavWinManager
    */
   static getInstance() {
-    return this._instance || new NavWinManager(true);
+    return instance || new NavWinManager(true);
   }
 
   /**
@@ -26,7 +27,7 @@ export default class NavWinManager {
     // navWinの格納配列
     this.navWins = [];
     // インスタンス
-    this._instance = this;
+    instance = this;
   }
 
   /**
@@ -48,6 +49,17 @@ export default class NavWinManager {
    */
   remove(id) {
     console.log(id);
+  }
+
+  /**
+   * 指定されたidのnavWinを取得します。
+   * @param id
+   */
+  getNavWin(id) {
+    let navWinData = _.find(this.navWins, (data) => {
+      return data.id === id;
+    });
+    return navWinData.navWin;
   }
 
   /**

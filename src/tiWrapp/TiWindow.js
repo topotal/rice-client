@@ -80,4 +80,11 @@ export default class TiWindow extends TiView {
     this.tiObj.setHideShadow(bool);
   }
 
+  /**
+   * windowを開きます。
+   */
+  open(prop) {
+    this.tiObj.open(prop);
+  }
+
 }

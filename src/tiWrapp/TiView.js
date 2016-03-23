@@ -14,7 +14,6 @@ export default class TiView {
 
   /**
    * tiObjをセットします。
-   * @override
    * @param prop
    */
   setTiObj(prop) {
@@ -100,6 +99,14 @@ export default class TiView {
    */
   fireEvent(name, event) {
     this.tiObj.fireEvent(name, event);
+  }
+
+  /**
+   * 背景色を追加します。
+   * @param color 色
+   */
+  setBackgroundColor(color) {
+    this.tiObj.setBackgroundColor(color);
   }
 
 }

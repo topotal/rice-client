@@ -4,6 +4,7 @@ import * as DesignParam from '../../enum/DesignPram';
 import RecordTable from './record/RecordTable';
 import NavWinManager from '../../managers/NavWinManager';
 import CookNav from '../cookNav/CookNav';
+import DetailWin from './DetailWin';
 
 /**
  * ホーム画面のウィンドウクラス
@@ -51,6 +52,14 @@ export default class HomeWin extends TiWindow {
    */
   _createRecord() {
     let table = new RecordTable();
+    table.addEventListener('click', function(e) {
+      e.cancelBubble = true;
+      let rowData = e.row.data;
+      let win = new DetailWin(rowData.id);
+      let navWinManager = NavWinManager.getInstance();
+      let navWin = navWinManager.getNavWin('main');
+      navWin.openWindow(win);
+    });
     return table;
   }
 
@@ -75,7 +84,6 @@ export default class HomeWin extends TiWindow {
       modal: true
     });
     cookNavWin.open();
-    console.info('click');
   }
 
 }
