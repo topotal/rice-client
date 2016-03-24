@@ -1,5 +1,6 @@
 import TiWindow from '../../tiWrapp/TiWindow';
 import * as DesignParam from '../../enum/DesignPram';
+import ColorButton from '../common/ColorButton';
 
 /**
  * 炊飯準備ウィンドウクラスです。
@@ -17,6 +18,18 @@ export default class PrepareWin extends TiWindow {
 
     // 見栄え処理
     this._initDecoration();
+
+    let startButton = new ColorButton(
+      DesignParam.COLOR.GREEN,
+      '炊飯をはじめる',
+      {
+        left: 10,
+        right: 10,
+        bottom: 10,
+        height: 60
+      }
+    );
+    this.add(startButton);
   }
 
   /**
