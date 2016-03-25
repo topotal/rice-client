@@ -1,7 +1,7 @@
-# 最高のごはん app
+# Best Rice
 
 土鍋炊飯支援アプリ
-![rice.app](readme.png)
+![rice.app](github_readme.png)
 
 ## Description
 
@@ -13,7 +13,6 @@
 ## Requirement
 
 - Titanium
-- Alloy
 
 ## Usage
 
@@ -22,15 +21,11 @@
   $ npm install
   ```
 
-1. ファイルをコンパイル
+1. Watchとビルド
   ```
-  $ npm run build
+  $ npm start
   ```
 
-1. アプリをビルド
-  ```
-  $ ti build -p ios
-  ```
 
 ## Install
 ```
