@@ -74,8 +74,11 @@ export default class NavWinManager {
    * navWinを閉じます
    * @param id
    */
-  close(id) {
-    console.log(id);
+  closeNavWin(id) {
+    let navWinData = _.remove(this.navWins, (data) => {
+      return data.id === id;
+    });
+    navWinData[0].navWin.close();
   }
 
 }

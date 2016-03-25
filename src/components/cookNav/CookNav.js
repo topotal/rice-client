@@ -1,5 +1,6 @@
 import TiNavWin from '../../tiWrapp/TiNavWin';
 import PrepareWin from './PrepareWin';
+import NavWinManager from '../../managers/NavWinManager';
 
 /**
  * 炊飯のnavWindowクラスです。
@@ -17,9 +18,8 @@ export default class CookNav extends TiNavWin {
     let prepareWin = new PrepareWin();
     this.setWindow(prepareWin);
 
-    prepareWin.addEventListener('click', () => {
-      this.close();
-    });
+    let navWinManager = NavWinManager.getInstance();
+    navWinManager.add('cook', this);
   }
 
 }
