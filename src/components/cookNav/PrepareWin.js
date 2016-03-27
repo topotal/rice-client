@@ -3,6 +3,8 @@ import {_} from 'libs/lodash';
 import * as DesignParam from '../../enum/DesignPram';
 import ColorButton from '../common/ColorButton';
 import NavWinManager from '../../managers/NavWinManager';
+import CookWin from './CookWin';
+import WeatherInfo from './WeatherInfo';
 
 /**
  * 炊飯準備ウィンドウクラスです。
@@ -13,14 +15,18 @@ export default class PrepareWin extends TiWindow {
    * コンストラクター
    * @constructor
    */
-  constructor() {
-    super({
-      modal: true
-    });
+  constructor(prop) {
+    super(prop);
 
     // 見栄え処理
     this._initDecoration();
 
+    // 気温湿度表示
+    let weatherInfo = new WeatherInfo();
+    weatherInfo.setTop(0);
+    this.add(weatherInfo);
+
+    // 炊飯スタートボタン
     let startButton = this._createStartButton();
     startButton.setLeft(10);
     startButton.setRight(10);
@@ -63,7 +69,9 @@ export default class PrepareWin extends TiWindow {
    */
   _onClickStart() {
     let navWinManager = NavWinManager.getInstance();
-    navWinManager.closeNavWin('cook');
+    let navWin = navWinManager.getNavWin('cook');
+    let cookWin = new CookWin();
+    navWin.openWindow(cookWin);
   }
 
 }

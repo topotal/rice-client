@@ -16,8 +16,6 @@ export default class MainNav extends TiNavWin {
 
     let navWinManager = NavWinManager.getInstance();
     navWinManager.add('main', this);
-    // window管理マネージャー
-    this.winManager = new WinManager();
 
     // ホーム
     let homeWin = new HomeWin();
