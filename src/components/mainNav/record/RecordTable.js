@@ -68,7 +68,7 @@ export default class RecordTable extends TiTableView {
    */
   _createHeaderView() {
     let view = new TiView({
-      height: 5
+      height: 8
     });
     return view;
   }
@@ -79,11 +79,12 @@ export default class RecordTable extends TiTableView {
    */
   _createFooterView() {
     let view = new TiView({
-      height: 80
+      height: 60
     });
 
     // お米君画像
     let image = new TiImageView({
+      top: 12,
       image: DesignParam.IMAGE.FOOTER_VIEW
     });
     view.add(image);
