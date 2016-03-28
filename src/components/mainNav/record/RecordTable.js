@@ -1,6 +1,12 @@
 import TiTableView from '../../../tiWrapp/TiTableView';
+import TiView from '../../../tiWrapp/TiView';
+import TiImageView from '../../../tiWrapp/TiImageView';
 import RecordRow from './RecordRow';
+import DesignParam from '../../../enum/DesignPram';
 
+/**
+ * 炊飯記録テーブルクラスです。
+ */
 export default class RecordTable extends TiTableView {
 
   /**
@@ -25,6 +31,7 @@ export default class RecordTable extends TiTableView {
       rate: 4
     };
 
+    // 仮データをセットします。
     this.setData([
       new RecordRow(sampleData),
       new RecordRow(sampleData),
@@ -36,6 +43,14 @@ export default class RecordTable extends TiTableView {
       new RecordRow(sampleData),
       new RecordRow(sampleData)
     ]);
+
+    // ヘッダーをセット
+    let headerView = this._createHeaderView();
+    this.setHeaderView(headerView);
+
+    // フッターをセット
+    let footerView = this._createFooterView();
+    this.setFooterView(footerView);
   }
 
   /**
@@ -46,4 +61,34 @@ export default class RecordTable extends TiTableView {
     this.setBackgroundColor('transparent');
     this.setSeparatorColor('transparent');
   }
+
+  /**
+   * ヘッダーを生成します。
+   * @return TiView
+   */
+  _createHeaderView() {
+    let view = new TiView({
+      height: 5
+    });
+    return view;
+  }
+
+  /**
+   * フッターを生成します。
+   * @return TiView
+   */
+  _createFooterView() {
+    let view = new TiView({
+      height: 80
+    });
+
+    // お米君画像
+    let image = new TiImageView({
+      image: DesignParam.IMAGE.FOOTER_VIEW
+    });
+    view.add(image);
+
+    return view;
+  }
+
 }

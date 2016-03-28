@@ -13,5 +13,6 @@ let pathHead = 'assets/images/';
 exports.IMAGE = {
   STAR_ON: pathHead + 'star_on.png',
   STAR_OFF: pathHead + 'star_off.png',
-  COOK_BUTTON: pathHead + 'cook_button.png'
+  COOK_BUTTON: pathHead + 'cook_button.png',
+  FOOTER_VIEW: pathHead + 'footer_view.png'
 };

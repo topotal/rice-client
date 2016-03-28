@@ -57,4 +57,20 @@ export default class TiTableView extends TiView {
     this.tiObj.setAllowsSelection(bool);
   }
 
+  /**
+   * ヘッダービューを設定します。
+   * @param TiView
+   */
+  setHeaderView(view) {
+    this.tiObj.setHeaderView(view.tiObj);
+  }
+
+  /**
+   * フッタービューを設定します。
+   * @param TiView
+   */
+  setFooterView(view) {
+    this.tiObj.setFooterView(view.tiObj);
+  }
+
 }
