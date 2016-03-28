@@ -2,12 +2,11 @@ import * as DesignParam from '../../enum/DesignPram';
 import NavWinManager from '../../managers/NavWinManager';
 import TiWindow from '../../tiWrapp/TiWindow';
 import ColorButton from '../common/ColorButton';
-import CompleteWin from './CompleteWin';
 
 /**
- * 炊飯画面クラスです。
+ * 炊飯完了画面クラスです。
  */
-export default class CookWin extends TiWindow {
+export default class CompleteWin extends TiWindow {
 
   /**
    * コンストラクター
@@ -19,13 +18,13 @@ export default class CookWin extends TiWindow {
     // 見栄え処理
     this._initDecoration();
 
-    // 切り替えボタン
-    let changeButton = this._createChangeButton();
-    changeButton.setLeft(10);
-    changeButton.setRight(10);
-    changeButton.setBottom(10);
-    this.add(changeButton);
-    changeButton.addEventListener('click', () => this._openCompleteWin());
+    // 記録に残すボタン
+    let saveButton = this._createSaveButton();
+    saveButton.setLeft(10);
+    saveButton.setRight(10);
+    saveButton.setBottom(10);
+    this.add(saveButton);
+    saveButton.addEventListener('click', () => this._onClickSaveButton());
   }
 
   /**
@@ -37,18 +36,18 @@ export default class CookWin extends TiWindow {
     this.setBarColor(DesignParam.COLOR.ORANGE);
     this.setBarImage('assets/images/transparent.png');
     this.setShadowImage('assets/images/navbar_shadow.png');
-    this.setBackgroundColor(DesignParam.COLOR.LIGHT_YELLOW);
+    this.setBackgroundColor(DesignParam.COLOR.ORANGE);
     this.setStatusBarStyle(Ti.UI.iPhone.StatusBar.LIGHT_CONTENT);
   }
 
   /**
-   * 切り替えボタンを生成します。
+   * 記録に残すボタンを生成します。
    * @return ColorButton
    */
-  _createChangeButton() {
+  _createSaveButton() {
     let button = new ColorButton(
       DesignParam.COLOR.GREEN,
-      '切り替える',
+      '記録に残す',
       {
         height: 60
       }
@@ -57,13 +56,11 @@ export default class CookWin extends TiWindow {
   }
 
   /**
-   * 完了画面を開きます。
+   * 記録に残すボタン押下ハンドラーです。
    */
-  _openCompleteWin() {
+  _onClickSaveButton() {
     let navWinManager = NavWinManager.getInstance();
-    let cookNavWin = navWinManager.getNavWin('cook');
-    let completeWin = new CompleteWin();
-    cookNavWin.openWindow(completeWin);
+    navWinManager.closeNavWin('cook');
   }
 
 }

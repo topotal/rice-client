@@ -41,8 +41,7 @@ export default class HomeWin extends TiWindow {
     this.setTitleImage('assets/images/nav_title.png');
     this.setBarColor(DesignParam.COLOR.GREEN);
     this.setBarImage('assets/images/transparent.png');
-    this.setHideShadow(true);
-    this.setShadowImage('assets/images/transparent.png');
+    this.setShadowImage('assets/images/navbar_shadow.png');
     this.setBackgroundColor(DesignParam.COLOR.GREEN);
     this.setStatusBarStyle(Ti.UI.iPhone.StatusBar.LIGHT_CONTENT);
   }

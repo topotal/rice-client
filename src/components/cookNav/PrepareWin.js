@@ -43,8 +43,7 @@ export default class PrepareWin extends TiWindow {
     this.setTitleImage('assets/images/cook_title.png');
     this.setBarColor(DesignParam.COLOR.ORANGE);
     this.setBarImage('assets/images/transparent.png');
-    this.setHideShadow(true);
-    this.setShadowImage('assets/images/transparent.png');
+    this.setShadowImage('assets/images/navbar_shadow.png');
     this.setBackgroundColor(DesignParam.COLOR.LIGHT_YELLOW);
     this.setStatusBarStyle(Ti.UI.iPhone.StatusBar.LIGHT_CONTENT);
   }
