@@ -17,20 +17,30 @@ export default class HomeWin extends TiWindow {
   constructor(prop) {
     super(prop);
 
+    // スクロール値
+    this._scrollNum = 0;
+    // 炊飯ボタンが表示されているかどうか
+    this._cookButtonIsShow = false;
+
     // 見栄え処理
     this._initDecoration();
 
     // 炊飯記録一覧
     this._record = this._createRecord();
     this.add(this._record);
+    this._record.addEventListener('scroll', (e) => this._onScroll(e));
 
     // 炊飯ボタン
     this._cookButton = this._createButton();
-    this._cookButton.setBottom(32);
+    this._cookButton.setBottom(-80);
     this.add(this._cookButton);
+    this._showCookButton();
 
     // 炊飯ボタンのクリックイベント
     this._cookButton.addEventListener('click', (e) => this._onClickHandler(e));
+
+    // windowが開いたあとに炊飯ボタンを表示させます。
+    this.addEventListener('open', () => this._onOpen());
   }
 
   /**
@@ -75,6 +85,19 @@ export default class HomeWin extends TiWindow {
   }
 
   /**
+   * スクロール時のハンドラーです。
+   * @param e
+   */
+  _onScroll(e) {
+    this._scrollNum = e.contentOffset.y;
+    if(this._scrollNum <= 0) {
+      this._showCookButton();
+    } else {
+      this._hideCookButton();
+    }
+  }
+
+  /**
    * 炊飯ボタン押下時のハンドラーです。
    */
   _onClickHandler(e) {
@@ -83,6 +106,40 @@ export default class HomeWin extends TiWindow {
       modal: true
     });
     cookNavWin.open();
+  }
+
+  /**
+   * windowが開いたあとのハンドラーです。
+   */
+  _onOpen() {
+  }
+
+  /**
+   * 炊飯ボタンを隠します。
+   */
+  _hideCookButton() {
+    if(!this._cookButtonIsShow) {
+      return;
+    }
+    this._cookButtonIsShow = false;
+    let animation = Ti.UI.createAnimation();
+    animation.bottom = -80;
+    animation.duration = 300;
+    this._cookButton.animate(animation);
+  }
+
+  /**
+   * 炊飯ボタンを表示します。
+   */
+  _showCookButton() {
+    if(this._cookButtonIsShow) {
+      return;
+    }
+    this._cookButtonIsShow = true;
+    let animation = Ti.UI.createAnimation();
+    animation.bottom = 32;
+    animation.duration = 300;
+    this._cookButton.animate(animation);
   }
 
 }

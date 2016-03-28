@@ -109,4 +109,12 @@ export default class TiView {
     this.tiObj.setBackgroundColor(color);
   }
 
+  /**
+   * アニメーションさせます。
+   * @param animation
+   */
+  animate(animation) {
+    this.tiObj.animate(animation);
+  }
+
 }
