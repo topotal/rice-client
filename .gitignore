@@ -5,3 +5,4 @@ Resources/**/*.js
 !Resources/libs/*.js
 appify/
 !.gitkeep
+dist/

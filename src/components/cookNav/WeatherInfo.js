@@ -27,8 +27,8 @@ export default class WeatherInfo extends TiView {
    */
   _initDecoration() {
     this.setWidth(Ti.UI.FILL);
-    this.setHeight(120);
-    this.setBackgroundColor(DesignParam.COLOR.ORANGE);
+    this.setHeight(80);
+    this.setBackgroundColor(DesignParam.COLOR.BLUE);
   }
 
   /**
@@ -38,8 +38,7 @@ export default class WeatherInfo extends TiView {
   _createTemperature() {
     let view = new TiView({
       width: 121,
-      height: 79,
-      backgroundColor: '#FFFFFF'
+      height: 79
     });
     return view;
   }

@@ -73,4 +73,11 @@ export default class TiTableView extends TiView {
     this.tiObj.setFooterView(view.tiObj);
   }
 
+  /**
+   * リフレッシュコントロールを設定します。
+   * @param control
+   */
+  setRefreshControl(control) {
+    this.tiObj.setRefreshControl(control);
+  }
 }

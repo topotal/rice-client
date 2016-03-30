@@ -51,6 +51,13 @@ export default class RecordTable extends TiTableView {
     // フッターをセット
     let footerView = this._createFooterView();
     this.setFooterView(footerView);
+
+    // リフレッシュコントロール
+    this.refreshControl = this._createRefreshControl();
+    this.setRefreshControl(this.refreshControl);
+    this.refreshControl.addEventListener('refreshstart', () => {
+      setTimeout(() => { this.refreshControl.endRefreshing(); }, 1000);
+    });
   }
 
   /**
@@ -90,6 +97,17 @@ export default class RecordTable extends TiTableView {
     view.add(image);
 
     return view;
+  }
+
+  /**
+   * リフレッシュコントロールを生成します。
+   * @return Ti.UI.RefreshControl
+   */
+  _createRefreshControl() {
+    let control = Ti.UI.createRefreshControl({
+      tintColor: DesignParam.COLOR.LIGHT_YELLOW
+    });
+    return control;
   }
 
 }
