@@ -1,13 +1,17 @@
+import EventDispatcher from '../EventDispatcher';
+
 /**
  * コレクションのベースクラスです。
  */
-export default class BaseCollection {
+export default class BaseCollection extends EventDispatcher {
 
   /**
    * コンストラクター
    * @constructor
    */
   constructor() {
+    super();
+    // コレクション
     this._collection = [];
   }
 
@@ -17,6 +21,15 @@ export default class BaseCollection {
    */
   setCollection(collection) {
     this._collection = collection;
+    // コレクションの変更イベントを発火
+    this.fireEvent('chage');
+  }
+
+  /**
+   * コレクションを取得します。
+   */
+  getCollection() {
+    return this._collection;
   }
 
   /**
@@ -24,6 +37,8 @@ export default class BaseCollection {
    */
   pushModel(model) {
     this._collection.push(model);
+    // コレクションの変更イベントを発火
+    this.fireEvent('chage');
   }
 
 }
