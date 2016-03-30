@@ -1,6 +1,5 @@
 import TiNavWin from '../../tiWrapp/TiNavWin';
 import NavWinManager from '../../managers/NavWinManager';
-import WinManager from '../../managers/WinManager';
 import HomeWin from './HomeWin';
 
 /**
