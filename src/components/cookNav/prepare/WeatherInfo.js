@@ -1,6 +1,8 @@
 import * as DesignParam from '../../../enum/DesignPram';
+import DeviceInfo from '../../../enum/DeviceInfo';
 import TiView from '../../../tiWrapp/TiView';
 import TiLabel from '../../../tiWrapp/TiLabel';
+import TiImageView from '../../../tiWrapp/TiImageView';
 
 /**
  * 気温湿度の表示クラス
@@ -22,10 +24,20 @@ export default class WeatherInfo extends TiView {
     locale.setTop(10);
     this.add(locale);
 
+    // 温度湿度の位置
+    let posX = DeviceInfo.getWidth() / 2 + 10;
+
     // 温度表示
     let tempreture = this._createTemperature();
-    tempreture.setLeft(30);
+    tempreture.setTop(28);
+    tempreture.setRight(posX);
     this.add(tempreture);
+
+    // 湿度表示
+    let humidity = this._createHumidity();
+    humidity.setTop(28);
+    humidity.setLeft(posX);
+    this.add(humidity);
   }
 
   /**
@@ -59,9 +71,91 @@ export default class WeatherInfo extends TiView {
    */
   _createTemperature() {
     let view = new TiView({
-      width: 121,
-      height: 79
+      width: 84,
+      height: 46
     });
+
+    // アイコン
+    let icon = new TiImageView({
+      left: 0,
+      width: 25,
+      height: 30,
+      image: DesignParam.IMAGE.TEMPERATURE
+    });
+    view.add(icon);
+
+    // 値
+    let value = new TiLabel({
+      left: 23,
+      color: DesignParam.COLOR.WHITE,
+      text: '25',
+      font: {
+        fontSize: 36,
+        fontWeight: 'bold'
+      }
+    });
+    view.add(value);
+
+    // 単位
+    let unit = new TiLabel({
+      right: 0,
+      bottom: 8,
+      color: DesignParam.COLOR.WHITE,
+      text: '℃',
+      font: {
+        fontSize: 13,
+        fontWeight: 'bold'
+      }
+    });
+    view.add(unit);
+
+    return view;
+  }
+
+  /**
+   * 湿度表示を生成します。
+   * @return TiView
+   */
+  _createHumidity() {
+    let view = new TiView({
+      width: 84,
+      height: 46
+    });
+
+    // アイコン
+    let icon = new TiImageView({
+      left: 0,
+      width: 25,
+      height: 30,
+      image: DesignParam.IMAGE.HUMIDITY
+    });
+    view.add(icon);
+
+    // 値
+    let value = new TiLabel({
+      left: 23,
+      color: DesignParam.COLOR.WHITE,
+      text: '32',
+      font: {
+        fontSize: 36,
+        fontWeight: 'bold'
+      }
+    });
+    view.add(value);
+
+    // 単位
+    let unit = new TiLabel({
+      right: 0,
+      bottom: 8,
+      color: DesignParam.COLOR.WHITE,
+      text: '％',
+      font: {
+        fontSize: 13,
+        fontWeight: 'bold'
+      }
+    });
+    view.add(unit);
+
     return view;
   }
 
