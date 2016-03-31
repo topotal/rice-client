@@ -38,9 +38,6 @@ export default class HomeWin extends TiWindow {
 
     // 炊飯ボタンのクリックイベント
     this._cookButton.addEventListener('click', (e) => this._onClickHandler(e));
-
-    // windowが開いたあとに炊飯ボタンを表示させます。
-    this.addEventListener('open', () => this._onOpen());
   }
 
   /**
@@ -106,12 +103,6 @@ export default class HomeWin extends TiWindow {
       modal: true
     });
     cookNavWin.open();
-  }
-
-  /**
-   * windowが開いたあとのハンドラーです。
-   */
-  _onOpen() {
   }
 
   /**
