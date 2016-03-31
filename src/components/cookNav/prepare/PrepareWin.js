@@ -1,9 +1,9 @@
-import TiWindow from '../../tiWrapp/TiWindow';
+import TiWindow from '../../../tiWrapp/TiWindow';
 import {_} from 'libs/lodash';
-import * as DesignParam from '../../enum/DesignPram';
-import ColorButton from '../common/ColorButton';
-import NavWinManager from '../../managers/NavWinManager';
-import CookWin from './CookWin';
+import * as DesignParam from '../../../enum/DesignPram';
+import ColorButton from '../../common/ColorButton';
+import NavWinManager from '../../../managers/NavWinManager';
+import CookWin from '../CookWin';
 import WeatherInfo from './WeatherInfo';
 
 /**

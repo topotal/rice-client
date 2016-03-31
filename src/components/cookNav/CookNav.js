@@ -1,5 +1,5 @@
 import TiNavWin from '../../tiWrapp/TiNavWin';
-import PrepareWin from './PrepareWin';
+import PrepareWin from './prepare/PrepareWin';
 import NavWinManager from '../../managers/NavWinManager';
 
 /**

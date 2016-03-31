@@ -1,5 +1,5 @@
-import * as DesignParam from '../../enum/DesignPram';
-import TiView from '../../tiWrapp/TiView';
+import * as DesignParam from '../../../enum/DesignPram';
+import TiView from '../../../tiWrapp/TiView';
 
 /**
  * 気温湿度の表示クラス
