@@ -29,8 +29,8 @@ export default class TiNavWin {
    * @param win
    * @param option
    */
-  openWindow(win, option) {
-    this.tiObj.openWindow(win.tiObj, option);
+  openWindow(win) {
+    this.tiObj.openWindow(win.tiObj);
   }
 
   /**

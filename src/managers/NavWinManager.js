@@ -3,31 +3,16 @@ import {_} from 'libs/lodash';
 /**
  * NavigationWindowの管理クラス
  */
-let instance = null;
 export default class NavWinManager {
 
   /**
-   * インスタンスを返却します。
-   * @return NavWinManager
-   */
-  static getInstance() {
-    return instance || new NavWinManager(true);
-  }
-
-  /**
    * コンストラクターです。
-   * @param fromThisClass getInstance経由かどうかの真偽値
+   * @constructor
    */
-  constructor(fromThisClass) {
-    // getInstance経由で無ければ処理しない
-    if(!fromThisClass) {
-      return false;
+  constructor() {
+    if(!Ti.App.navWins) {
+      Ti.App.navWins = [];
     }
-
-    // navWinの格納配列
-    this.navWins = [];
-    // インスタンス
-    instance = this;
   }
 
   /**
@@ -40,7 +25,9 @@ export default class NavWinManager {
       id: id,
       navWin: navWin
     };
-    this.navWins.push(data);
+    let navWins = Ti.App.navWins;
+    navWins.push(data);
+    Ti.App.navWins = navWins;
   }
 
   /**
@@ -56,7 +43,7 @@ export default class NavWinManager {
    * @param id
    */
   getNavWin(id) {
-    let navWinData = _.find(this.navWins, (data) => {
+    let navWinData = _.find(Ti.App.navWins, (data) => {
       return data.id === id;
     });
     return navWinData.navWin;
@@ -75,7 +62,7 @@ export default class NavWinManager {
    * @param id
    */
   closeNavWin(id) {
-    let navWinData = _.remove(this.navWins, (data) => {
+    let navWinData = _.remove(Ti.App.navWins, (data) => {
       return data.id === id;
     });
     navWinData[0].navWin.close();

@@ -1,5 +1,4 @@
 import * as DesignParam from '../../enum/DesignPram';
-import NavWinManager from '../../managers/NavWinManager';
 import TiWindow from '../../tiWrapp/TiWindow';
 import ColorButton from '../common/ColorButton';
 import CompleteWin from './CompleteWin';
@@ -60,10 +59,8 @@ export default class CookWin extends TiWindow {
    * 完了画面を開きます。
    */
   _openCompleteWin() {
-    let navWinManager = NavWinManager.getInstance();
-    let cookNavWin = navWinManager.getNavWin('cook');
     let completeWin = new CompleteWin();
-    cookNavWin.openWindow(completeWin);
+    app.cookNav.openWindow(completeWin);
   }
 
 }

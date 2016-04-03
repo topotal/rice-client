@@ -1,5 +1,4 @@
 import * as DesignParam from '../../enum/DesignPram';
-import NavWinManager from '../../managers/NavWinManager';
 import TiWindow from '../../tiWrapp/TiWindow';
 import ColorButton from '../common/ColorButton';
 
@@ -59,8 +58,7 @@ export default class CompleteWin extends TiWindow {
    * 記録に残すボタン押下ハンドラーです。
    */
   _onClickSaveButton() {
-    let navWinManager = NavWinManager.getInstance();
-    navWinManager.closeNavWin('cook');
+    app.cookNav.close();
   }
 
 }

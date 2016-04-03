@@ -2,7 +2,6 @@ import TiWindow from '../../../tiWrapp/TiWindow';
 import {_} from 'libs/lodash';
 import * as DesignParam from '../../../enum/DesignPram';
 import ColorButton from '../../common/ColorButton';
-import NavWinManager from '../../../managers/NavWinManager';
 import CookWin from '../CookWin';
 import WeatherInfo from './WeatherInfo';
 
@@ -67,10 +66,8 @@ export default class PrepareWin extends TiWindow {
    * スタートボタン押下時のハンドラーです。
    */
   _onClickStart() {
-    let navWinManager = NavWinManager.getInstance();
-    let navWin = navWinManager.getNavWin('cook');
     let cookWin = new CookWin();
-    navWin.openWindow(cookWin);
+    app.cookNav.openWindow(cookWin);
   }
 
 }

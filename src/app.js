@@ -1,5 +1,5 @@
-import NavWinManager from './managers/NavWinManager';
 import MainNav from './components/mainNav/MainNav';
+import CookNav from './components/cookNav/CookNav';
 
 /**
  * メインアプリクラス
@@ -10,8 +10,8 @@ class App {
    * コンストラクター
    */
   constructor() {
-    this.navWinManager = NavWinManager.getInstance();
     this.mainNav = new MainNav();
+    this.cookNav = new CookNav();
   }
 
   /**

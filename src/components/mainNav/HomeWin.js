@@ -2,8 +2,6 @@ import TiWindow from '../../tiWrapp/TiWindow';
 import TiImageView from '../../tiWrapp/TiImageView';
 import * as DesignParam from '../../enum/DesignPram';
 import RecordTable from './record/RecordTable';
-import NavWinManager from '../../managers/NavWinManager';
-import CookNav from '../cookNav/CookNav';
 import DetailWin from './DetailWin';
 
 /**
@@ -62,9 +60,7 @@ export default class HomeWin extends TiWindow {
       e.cancelBubble = true;
       let rowData = e.row.data;
       let win = new DetailWin(rowData.id);
-      let navWinManager = NavWinManager.getInstance();
-      let navWin = navWinManager.getNavWin('main');
-      navWin.openWindow(win);
+      app.mainNav.openWindow(win);
     });
     return table;
   }
@@ -99,10 +95,7 @@ export default class HomeWin extends TiWindow {
    */
   _onClickHandler(e) {
     e.cancelBubble = true;
-    let cookNavWin = new CookNav({
-      modal: true
-    });
-    cookNavWin.open();
+    app.cookNav.open();
   }
 
   /**
