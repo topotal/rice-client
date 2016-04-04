@@ -16,5 +16,7 @@ exports.IMAGE = {
   COOK_BUTTON: pathHead + 'cook_button.png',
   FOOTER_VIEW: pathHead + 'footer_view.png',
   TEMPERATURE: pathHead + 'temperature.png',
-  HUMIDITY: pathHead + 'humidity.png'
+  HUMIDITY: pathHead + 'humidity.png',
+  BRAND: pathHead + 'brand.png',
+  ROW_ARROW: pathHead + 'row_arrow.png'
 };

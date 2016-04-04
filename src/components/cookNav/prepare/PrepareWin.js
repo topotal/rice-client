@@ -4,6 +4,7 @@ import * as DesignParam from '../../../enum/DesignPram';
 import ColorButton from '../../common/ColorButton';
 import CookWin from '../CookWin';
 import WeatherInfo from './WeatherInfo';
+import SelectInputView from '../../form/SelectInputView';
 
 /**
  * 炊飯準備ウィンドウクラスです。
@@ -24,6 +25,12 @@ export default class PrepareWin extends TiWindow {
     let weatherInfo = new WeatherInfo();
     weatherInfo.setTop(0);
     this.add(weatherInfo);
+
+    // 銘柄選択
+    let brand = new SelectInputView();
+    brand.setLeft(10);
+    brand.setRight(10);
+    this.add(brand);
 
     // 炊飯スタートボタン
     let startButton = this._createStartButton();

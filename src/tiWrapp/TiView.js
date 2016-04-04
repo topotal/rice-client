@@ -117,4 +117,28 @@ export default class TiView {
     this.tiObj.animate(animation);
   }
 
+  /**
+   * ボーダーの幅を設定します。
+   * @param width
+   */
+  setBorderWidth(width) {
+    this.tiObj.setBorderWidth(width);
+  }
+
+  /**
+   * ボーダーの色を設定します。
+   * @param color
+   */
+  setBorderColor(color) {
+    this.tiObj.setBorderColor(color);
+  }
+
+  /**
+   * ボーダーの丸角を設定します。
+   * @param radius
+   */
+  setBorderRadius(radius) {
+    this.tiObj.setBorderRadius(radius);
+  }
+
 }
