@@ -1,4 +1,5 @@
 import TiWindow from '../../../tiWrapp/TiWindow';
+import TiView from '../../../tiWrapp/TiView';
 import {_} from 'libs/lodash';
 import * as DesignParam from '../../../enum/DesignPram';
 import ColorButton from '../../common/ColorButton';
@@ -26,11 +27,12 @@ export default class PrepareWin extends TiWindow {
     weatherInfo.setTop(0);
     this.add(weatherInfo);
 
-    // 銘柄選択
-    let brand = new SelectInputView();
-    brand.setLeft(10);
-    brand.setRight(10);
-    this.add(brand);
+    // フォームグループ
+    let formGroup = this._createFormGroup();
+    formGroup.setTop(183);
+    formGroup.setLeft(10);
+    formGroup.setRight(10);
+    this.add(formGroup);
 
     // 炊飯スタートボタン
     let startButton = this._createStartButton();
@@ -67,6 +69,31 @@ export default class PrepareWin extends TiWindow {
       }
     );
     return button;
+  }
+
+  /**
+   * フォームグループを生成します。
+   * @return TiView
+   */
+  _createFormGroup() {
+    let view = new TiView();
+
+    // 銘柄選択
+    let brand = new SelectInputView();
+    brand.setTop(0);
+    view.add(brand);
+
+    // 合数選択
+    let quantity = new SelectInputView();
+    quantity.setTop(60);
+    view.add(quantity);
+
+    // 水量選択
+    let water = new SelectInputView();
+    water.setTop(120);
+    view.add(water);
+
+    return view;
   }
 
   /**
