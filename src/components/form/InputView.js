@@ -9,24 +9,11 @@ export default class InputView extends TiView {
    * コンストラクター
    * @constructor
    */
-  constructor(name, value, prop) {
+  constructor(prop) {
     super(prop);
 
-    this._name = '';
-    this._value = null;
-
-    // 名前のセット
-    this.setName(name);
-    // 値のセット
-    this.setValue(value);
-  }
-
-  /**
-   * 名前をセットします。
-   * @param name
-   */
-  setName(name) {
-    this._name = name;
+    this._name = prop.name || '';
+    this._value = prop.value || null;
   }
 
   /**
