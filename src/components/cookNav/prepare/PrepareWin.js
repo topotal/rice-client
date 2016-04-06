@@ -79,17 +79,23 @@ export default class PrepareWin extends TiWindow {
     let view = new TiView();
 
     // 銘柄選択
-    let brand = new SelectInputView();
+    let brand = new SelectInputView({
+      iconPath: DesignParam.IMAGE.BRAND
+    });
     brand.setTop(0);
     view.add(brand);
 
     // 合数選択
-    let quantity = new SelectInputView();
+    let quantity = new SelectInputView({
+      iconPath: DesignParam.IMAGE.QUANTITY
+    });
     quantity.setTop(60);
     view.add(quantity);
 
     // 水量選択
-    let water = new SelectInputView();
+    let water = new SelectInputView({
+      iconPath: DesignParam.IMAGE.WATER
+    });
     water.setTop(120);
     view.add(water);
 

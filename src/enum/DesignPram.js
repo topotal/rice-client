@@ -18,5 +18,7 @@ exports.IMAGE = {
   TEMPERATURE: pathHead + 'temperature.png',
   HUMIDITY: pathHead + 'humidity.png',
   BRAND: pathHead + 'brand.png',
+  QUANTITY: pathHead + 'quantity.png',
+  WATER: pathHead + 'water.png',
   ROW_ARROW: pathHead + 'row_arrow.png'
 };

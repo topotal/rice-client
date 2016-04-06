@@ -12,8 +12,11 @@ export default class SelectInputView extends InputView {
    * コンストラクター
    * @constructor
    */
-  constructor() {
-    super();
+  constructor(prop) {
+    super(prop);
+
+    // アイコンパス
+    this._iconPath = prop.iconPath;
 
     // 見栄え処理
     this._initDecoration();
@@ -53,7 +56,7 @@ export default class SelectInputView extends InputView {
     let view = new TiImageView({
       width: 30,
       height: 30,
-      image: DesignParam.IMAGE.BRAND
+      image: this._iconPath
     });
     return view;
   }
