@@ -10,6 +10,10 @@ var _CookNav = require('./components/cookNav/CookNav');
 
 var _CookNav2 = _interopRequireDefault(_CookNav);
 
+var _BaseService = require('./service/BaseService');
+
+var _BaseService2 = _interopRequireDefault(_BaseService);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29,6 +33,8 @@ var App = function () {
 
     this.mainNav = new _MainNav2.default();
     this.cookNav = new _CookNav2.default();
+
+    new _BaseService2.default();
   }
 
   /**

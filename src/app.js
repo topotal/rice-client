@@ -1,5 +1,6 @@
 import MainNav from './components/mainNav/MainNav';
 import CookNav from './components/cookNav/CookNav';
+import BaseService from './service/BaseService';
 
 /**
  * メインアプリクラス
@@ -12,6 +13,8 @@ class App {
   constructor() {
     this.mainNav = new MainNav();
     this.cookNav = new CookNav();
+
+    new BaseService();
   }
 
   /**
