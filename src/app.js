@@ -14,7 +14,8 @@ class App {
     this.mainNav = new MainNav();
     this.cookNav = new CookNav();
 
-    new BaseService();
+    let service = new BaseService();
+    service.load();
   }
 
   /**

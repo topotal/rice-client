@@ -34,7 +34,8 @@ var App = function () {
     this.mainNav = new _MainNav2.default();
     this.cookNav = new _CookNav2.default();
 
-    new _BaseService2.default();
+    var service = new _BaseService2.default();
+    service.load();
   }
 
   /**

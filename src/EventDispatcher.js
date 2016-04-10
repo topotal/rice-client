@@ -44,7 +44,7 @@ export default class EventDispatcher {
    */
   fireEvent(type, param) {
     let listeners = this._listeners[type];
-    let length = listener.length;
+    let length = listeners ? listeners.length : 0;
     for(let i=0; i<length; i++) {
       listeners[i](param);
     }
