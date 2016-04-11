@@ -113,7 +113,7 @@ export default class PrepareWin extends TiWindow {
    */
   _onClickStart() {
     let cookWin = new CookWin();
-    app.cookNav.openWindow(cookWin);
+    app.getNavWin('cook').openWindow(cookWin);
   }
 
 }

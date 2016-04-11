@@ -60,7 +60,7 @@ export default class HomeWin extends TiWindow {
       e.cancelBubble = true;
       let rowData = e.row.data;
       let win = new DetailWin(rowData.id);
-      app.mainNav.openWindow(win);
+      app.getNavWin('main').openWindow(win);
     });
     return table;
   }
@@ -95,7 +95,7 @@ export default class HomeWin extends TiWindow {
    */
   _onClickHandler(e) {
     e.cancelBubble = true;
-    app.cookNav.open();
+    app.openNavWin('cook');
   }
 
   /**

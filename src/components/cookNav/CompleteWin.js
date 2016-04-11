@@ -58,7 +58,7 @@ export default class CompleteWin extends TiWindow {
    * 記録に残すボタン押下ハンドラーです。
    */
   _onClickSaveButton() {
-    app.cookNav.close();
+    app.getNavWin('cook').close();
   }
 
 }

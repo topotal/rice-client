@@ -60,7 +60,7 @@ export default class CookWin extends TiWindow {
    */
   _openCompleteWin() {
     let completeWin = new CompleteWin();
-    app.cookNav.openWindow(completeWin);
+    app.getNavWin('cook').openWindow(completeWin);
   }
 
 }
