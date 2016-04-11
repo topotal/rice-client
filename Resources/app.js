@@ -29,6 +29,8 @@ var App = function () {
 
     // navWinのリスト
     this._navWinList = [];
+    // 開いているnavWinのスタック
+    this._stackOpenNavWin = [];
     // 初期navWindowの準備
     this._init();
   }
@@ -54,6 +56,7 @@ var App = function () {
     /**
      * 指定したnavWindowを返却します。
      * @param name
+     * @return TiNavWindow
      */
 
   }, {
@@ -77,28 +80,34 @@ var App = function () {
   }, {
     key: 'openNavWin',
     value: function openNavWin(name) {
-      console.info('~~~~~~~~~~~~~~', name);
       var navWin = this.getNavWin(name);
-      console.info(navWin);
       navWin.open();
+      this._stackOpenNavWin.push(navWin);
     }
 
     /**
      * 指定したnavWindowを閉じます。
+     * @param name
      */
 
   }, {
     key: 'closeNavWin',
-    value: function closeNavWin() {}
+    value: function closeNavWin(name) {
+      var navWin = this.getNavWin(name);
+      navWin.close();
+      this._stackOpenNavWin.pop();
+    }
 
     /**
      * 現在開いているnavWindowを返却します。
+     * @return TiNavWindow
      */
 
   }, {
     key: 'getCurrentNavWin',
     value: function getCurrentNavWin() {
-      return;
+      var navWin = this._stackOpenNavWin[this._stackOpenNavWin.length - 1];
+      return navWin;
     }
   }]);
 

@@ -12,6 +12,8 @@ class App {
   constructor() {
     // navWinのリスト
     this._navWinList = [];
+    // 開いているnavWinのスタック
+    this._stackOpenNavWin = [];
     // 初期navWindowの準備
     this._init();
   }
@@ -33,6 +35,7 @@ class App {
   /**
    * 指定したnavWindowを返却します。
    * @param name
+   * @return TiNavWindow
    */
   getNavWin(name) {
     let navWin = null;
@@ -50,23 +53,28 @@ class App {
    * @param name
    */
   openNavWin(name) {
-    console.info('~~~~~~~~~~~~~~', name);
     let navWin = this.getNavWin(name);
-    console.info(navWin);
     navWin.open();
+    this._stackOpenNavWin.push(navWin);
   }
 
   /**
    * 指定したnavWindowを閉じます。
+   * @param name
    */
-  closeNavWin() {
+  closeNavWin(name) {
+    let navWin = this.getNavWin(name);
+    navWin.close();
+    this._stackOpenNavWin.pop();
   }
 
   /**
    * 現在開いているnavWindowを返却します。
+   * @return TiNavWindow
    */
   getCurrentNavWin() {
-    return;
+    let navWin = this._stackOpenNavWin[this._stackOpenNavWin.length-1];
+    return navWin;
   }
 
 }
