@@ -87,4 +87,11 @@ export default class TiWindow extends TiView {
     this.tiObj.open(prop);
   }
 
+  /**
+   * windowを閉じます。
+   */
+  close(prop) {
+    this.tiObj.close(prop);
+  }
+
 }

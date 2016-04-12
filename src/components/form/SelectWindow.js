@@ -40,6 +40,7 @@ export default class SelectWindow extends TiWindow {
    */
   _onClickTable(e) {
     console.info(e);
+    this.close();
   }
 
 }
