@@ -1,6 +1,6 @@
 import TiWindow from '../../tiWrapp/TiWindow';
-import TiTableView from '../../tiWrapp/TiTableView';
 import * as DesignParam from '../../enum/DesignPram';
+import SelectTable from './SelectTable';
 
 /**
  * 選択画面クラス
@@ -18,7 +18,7 @@ export default class SelectWindow extends TiWindow {
     this._initDecoration();
 
     // テーブル
-    let table = this._createTable();
+    let table = new SelectTable();
     this.add(table);
     table.addEventListener('click', (e) => this._onClickTable(e));
   }
@@ -33,20 +33,6 @@ export default class SelectWindow extends TiWindow {
     this.setShadowImage('assets/images/navbar_shadow.png');
     this.setBackgroundColor(DesignParam.COLOR.LIGHT_YELLOW);
     this.setStatusBarStyle(Ti.UI.iPhone.StatusBar.LIGHT_CONTENT);
-  }
-
-  /**
-   * テーブルを生成します。
-   * @return TiTableView
-   */
-  _createTable() {
-    let table = new TiTableView();
-
-    table.setData([{
-      title: '魚沼産 コシヒカリ'
-    }]);
-
-    return table;
   }
 
   /**

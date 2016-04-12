@@ -1,13 +1,13 @@
-import TiTableView from '../../../tiWrapp/TiTableView';
-import TiView from '../../../tiWrapp/TiView';
-import TiImageView from '../../../tiWrapp/TiImageView';
-import RecordRow from './RecordRow';
-import DesignParam from '../../../enum/DesignPram';
+import TiTableView from '../../tiWrapp/TiTableView';
+import TiView from '../../tiWrapp/TiView';
+import TiImageView from '../../tiWrapp/TiImageView';
+import DesignParam from '../../enum/DesignPram';
+import RecordRow from '../mainNav/record/RecordRow';
 
 /**
- * 炊飯記録テーブルクラスです。
+ * セレクト用のテーブルクラスです。
  */
-export default class RecordTable extends TiTableView {
+export default class SelectTable extends TiTableView {
 
   /**
    * コンストラクター
@@ -51,13 +51,6 @@ export default class RecordTable extends TiTableView {
     // フッターをセット
     let footerView = this._createFooterView();
     this.setFooterView(footerView);
-
-    // リフレッシュコントロール
-    this.refreshControl = this._createRefreshControl();
-    this.setRefreshControl(this.refreshControl);
-    this.refreshControl.addEventListener('refreshstart', () => {
-      setTimeout(() => { this.refreshControl.endRefreshing(); }, 1000);
-    });
   }
 
   /**
@@ -97,16 +90,4 @@ export default class RecordTable extends TiTableView {
 
     return view;
   }
-
-  /**
-   * リフレッシュコントロールを生成します。
-   * @return Ti.UI.RefreshControl
-   */
-  _createRefreshControl() {
-    let control = Ti.UI.createRefreshControl({
-      tintColor: DesignParam.COLOR.LIGHT_YELLOW
-    });
-    return control;
-  }
-
 }
