@@ -2,6 +2,7 @@ import TiImageView from '../../tiWrapp/TiImageView';
 import TiLabel from '../../tiWrapp/TiLabel';
 import InputView from './InputView';
 import * as DesignParam from '../../enum/DesignPram';
+import SelectWindow from './SelectWindow';
 
 /**
  * セレクトボックスのクラスです。
@@ -35,6 +36,13 @@ export default class SelectInputView extends InputView {
     let arrow = this._createArrow();
     arrow.setRight(16);
     this.add(arrow);
+
+    let win = new SelectWindow();
+
+    this.addEventListener('click', () => {
+      let navWin = app.getCurrentNavWin();
+      navWin.openWindow(win);
+    });
   }
 
   /**
