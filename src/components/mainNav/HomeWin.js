@@ -32,10 +32,12 @@ export default class HomeWin extends TiWindow {
     this._cookButton = this._createButton();
     this._cookButton.setBottom(-80);
     this.add(this._cookButton);
-    this._showCookButton();
 
     // 炊飯ボタンのクリックイベント
     this._cookButton.addEventListener('click', (e) => this._onClickHandler(e));
+
+    // ウィンドウを開いた時のイベントを監視
+    this.addEventListener('open', () => this._onOpen());
   }
 
   /**
@@ -124,6 +126,13 @@ export default class HomeWin extends TiWindow {
     animation.bottom = 32;
     animation.duration = 300;
     this._cookButton.animate(animation);
+  }
+
+  /**
+   * windowが開いた時のハンドラーです。
+   */
+  _onOpen() {
+    this._showCookButton();
   }
 
 }
