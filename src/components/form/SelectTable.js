@@ -2,7 +2,7 @@ import TiTableView from '../../tiWrapp/TiTableView';
 import TiView from '../../tiWrapp/TiView';
 import TiImageView from '../../tiWrapp/TiImageView';
 import DesignParam from '../../enum/DesignPram';
-import RecordRow from '../mainNav/record/RecordRow';
+import SelectTableRow from './SelectTableRow';
 
 /**
  * セレクト用のテーブルクラスです。
@@ -33,15 +33,15 @@ export default class SelectTable extends TiTableView {
 
     // 仮データをセットします。
     this.setData([
-      new RecordRow(sampleData),
-      new RecordRow(sampleData),
-      new RecordRow(sampleData),
-      new RecordRow(sampleData),
-      new RecordRow(sampleData),
-      new RecordRow(sampleData),
-      new RecordRow(sampleData),
-      new RecordRow(sampleData),
-      new RecordRow(sampleData)
+      new SelectTableRow(sampleData),
+      new SelectTableRow(sampleData),
+      new SelectTableRow(sampleData),
+      new SelectTableRow(sampleData),
+      new SelectTableRow(sampleData),
+      new SelectTableRow(sampleData),
+      new SelectTableRow(sampleData),
+      new SelectTableRow(sampleData),
+      new SelectTableRow(sampleData)
     ]);
 
     // ヘッダーをセット

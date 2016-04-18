@@ -17,8 +17,6 @@ export default class RecordRow extends PopRow {
    */
   constructor(data) {
     super(data);
-    // 中の要素を生成
-    this._initContent();
   }
 
   /**

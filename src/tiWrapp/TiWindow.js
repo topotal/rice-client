@@ -22,10 +22,27 @@ export default class TiWindow extends TiView {
   }
 
   /**
+   * navBarのタイトルを設定します。
+   * @param title
+   */
+  setTitle(title) {
+    this.tiObj.setTitle(title);
+  }
+
+  /**
    * navBarのタイトル画像を設定します。
+   * @param titlePath
    */
   setTitleImage(imagePath) {
     this.tiObj.setTitleImage(imagePath);
+  }
+
+  /**
+   * ナビゲーションバーのtintColorを設定します。
+   * @param color
+   */
+  setNavTintColor(color) {
+    this.tiObj.setNavTintColor(color);
   }
 
   /**

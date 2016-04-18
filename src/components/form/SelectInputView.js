@@ -37,12 +37,11 @@ export default class SelectInputView extends InputView {
     arrow.setRight(16);
     this.add(arrow);
 
-    let win = new SelectWindow();
+    // 選択ウィンドウ
+    this._win = new SelectWindow(DesignParam.COLOR.ORANGE);
 
-    this.addEventListener('click', () => {
-      let navWin = app.getCurrentNavWin();
-      navWin.openWindow(win);
-    });
+    // クリックを監視
+    this.addEventListener('click', () => this._onClick());
   }
 
   /**
@@ -96,6 +95,14 @@ export default class SelectInputView extends InputView {
       image: DesignParam.IMAGE.ROW_ARROW
     });
     return view;
+  }
+
+  /**
+   * クリック時のハンドラーです。
+   */
+  _onClick() {
+    let navWin = app.getCurrentNavWin();
+    navWin.openWindow(this._win);
   }
 
 }

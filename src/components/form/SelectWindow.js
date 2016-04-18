@@ -1,18 +1,21 @@
-import TiWindow from '../../tiWrapp/TiWindow';
-import * as DesignParam from '../../enum/DesignPram';
+import BaseWindow from '../common/BaseWindow';
 import SelectTable from './SelectTable';
 
 /**
  * 選択画面クラス
  */
-export default class SelectWindow extends TiWindow {
+export default class SelectWindow extends BaseWindow {
 
   /**
    * コンストラクター
    * @constructor
+   * @param color テーマカラー
    */
-  constructor() {
+  constructor(color) {
     super();
+
+    // テーマカラー
+    this._color = color;
 
     // 見栄え処理
     this._initDecoration();
@@ -27,12 +30,9 @@ export default class SelectWindow extends TiWindow {
    * 装飾の初期化
    */
   _initDecoration() {
-    this.setTranslucent(false);
-    this.setBarColor(DesignParam.COLOR.BLACK);
-    this.setBarImage('assets/images/transparent.png');
-    this.setShadowImage('assets/images/navbar_shadow.png');
-    this.setBackgroundColor(DesignParam.COLOR.LIGHT_YELLOW);
-    this.setStatusBarStyle(Ti.UI.iPhone.StatusBar.LIGHT_CONTENT);
+    this.setTitle('銘柄');
+    this.setBarColor(this._color);
+    this.setBackgroundColor(this._color);
   }
 
   /**

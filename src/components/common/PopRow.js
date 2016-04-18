@@ -25,6 +25,9 @@ export default class PopRow extends TiTableViewRow {
     this.wrapper.setLeft(10);
     this.wrapper.setRight(10);
     this.add(this.wrapper);
+
+    // 中の要素を生成
+    this._initContent();
   }
 
   /**
