@@ -13,6 +13,8 @@ export default class SelectTableRow extends PopRow {
    */
   constructor(data) {
     super(data);
+
+    this.setHeight(60);
   }
 
   /**

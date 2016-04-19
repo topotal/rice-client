@@ -22,8 +22,10 @@ export default class PopRow extends TiTableViewRow {
 
     // ラッパー
     this.wrapper = this._createWrapper();
+    this.wrapper.setTop(5);
     this.wrapper.setLeft(10);
     this.wrapper.setRight(10);
+    this.wrapper.setBottom(5);
     this.add(this.wrapper);
 
     // 中の要素を生成
@@ -44,7 +46,6 @@ export default class PopRow extends TiTableViewRow {
    */
   _createWrapper() {
     let view = new TiView({
-      height: 70,
       borderRadius: 3,
       backgroundColor: DesignParam.COLOR.LIGHT_YELLOW,
       viewShadowColor: 'rgba(0, 0, 0, 0.4)',
