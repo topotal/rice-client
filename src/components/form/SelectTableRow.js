@@ -1,4 +1,5 @@
 import TiLabel from '../../tiWrapp/TiLabel';
+import TiImageView from '../../tiWrapp/TiImageView';
 import DesignParam from '../../enum/DesignPram';
 import PopRow from '../common/PopRow';
 
@@ -13,18 +14,24 @@ export default class SelectTableRow extends PopRow {
    */
   constructor(data) {
     super(data);
-
-    this.setHeight(60);
   }
 
   /**
    * 中の要素を生成します。
    */
   _initContent() {
+    // 高さを60に変更
+    this.setHeight(60);
+
     // テキスト
     let text = this._createText();
     text.setLeft(20);
     this.wrapper.add(text);
+
+    // チェックマーク
+    this._checkMark = this._createCheckMark();
+    this._checkMark.setRight(20);
+    this.wrapper.add(this._checkMark);
   }
 
   /**
@@ -47,7 +54,7 @@ export default class SelectTableRow extends PopRow {
    * 右矢印を生成します。
    * @return TiImageView
    */
-  _createArrow() {
+  _createCheckMark() {
     let view = new TiImageView({
       width: 11,
       height: 17,

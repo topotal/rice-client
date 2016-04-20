@@ -11,6 +11,9 @@ export default class TiTableView extends TiView {
    */
   constructor(prop) {
     super(prop);
+
+    // row格納用配列
+    this._data = [];
   }
 
   /**
@@ -31,6 +34,15 @@ export default class TiTableView extends TiView {
       tiObjData.push(row.tiObj);
     });
     this.tiObj.setData(tiObjData);
+    this._data = data;
+  }
+
+  /**
+   * Rowのデータを取得します。
+   * @return Array
+   */
+  getData() {
+    return this._data;
   }
 
   /**

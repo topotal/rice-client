@@ -13,11 +13,14 @@ export default class BaseWindow extends TiWindow {
    */
   constructor(param) {
     super(_.extend({
-      navTintColor: DesignParam.WHITE,
+      navTintColor: DesignParam.COLOR.WHITE,
       translucent: false,
-      barImage: 'assets/images/traslusent.png',
+      barImage: 'assets/images/transparent.png',
       shadowImage: 'assets/images/navbar_shadow.png',
-      statusBarStyle: Ti.UI.iPhone.StatusBar.LIGHT_CONTENT
+      statusBarStyle: Ti.UI.iPhone.StatusBar.LIGHT_CONTENT,
+      titleAttributes: {
+        color: '#FFFFFF'
+      }
     }, param || {}));
   }
 

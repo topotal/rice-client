@@ -1,3 +1,4 @@
+import {_} from 'libs/lodash';
 import TiTableView from '../../tiWrapp/TiTableView';
 import TiView from '../../tiWrapp/TiView';
 import TiImageView from '../../tiWrapp/TiImageView';
@@ -41,6 +42,9 @@ export default class SelectTable extends TiTableView {
       new SelectTableRow(sampleData),
       new SelectTableRow(sampleData),
       new SelectTableRow(sampleData),
+      new SelectTableRow(sampleData),
+      new SelectTableRow(sampleData),
+      new SelectTableRow(sampleData),
       new SelectTableRow(sampleData)
     ]);
 
@@ -51,6 +55,9 @@ export default class SelectTable extends TiTableView {
     // フッターをセット
     let footerView = this._createFooterView();
     this.setFooterView(footerView);
+
+    // クリックを監視
+    this.addEventListener('click', () => this._onClick());
   }
 
   /**
@@ -89,5 +96,15 @@ export default class SelectTable extends TiTableView {
     view.add(image);
 
     return view;
+  }
+
+  /**
+   * クリック時のハンドラーです。
+   */
+  _onClick() {
+    let data = this.getData();
+    _.each(data, (row) => {
+      //console.info(row.data.id);
+    });
   }
 }
