@@ -16,7 +16,6 @@ export default class SelectInputView extends InputView {
   constructor(prop) {
     super(prop);
 
-    // アイコンパス
     this._iconPath = prop.iconPath;
 
     // 見栄え処理
@@ -27,10 +26,15 @@ export default class SelectInputView extends InputView {
     icon.setLeft(9);
     this.add(icon);
 
-    // テキスト
-    let text = this._createText();
-    text.setLeft(50);
-    this.add(text);
+    // 値のテキスト
+    this._valueLabel = this._createValueLabel();
+    this._valueLabel.setLeft(50);
+    this.add(this._valueLabel);
+
+    // プレースホルダ
+    this._placeholderLabel = this._createPlaceholderLabel();
+    this._placeholderLabel.setLeft(50);
+    this.add(this._placeholderLabel);
 
     // 右矢印
     let arrow = this._createArrow();
@@ -39,9 +43,13 @@ export default class SelectInputView extends InputView {
 
     // 選択ウィンドウ
     this._win = new SelectWindow(DesignParam.COLOR.ORANGE);
+    this._win.addEventListener('disided', () => this._onDisided());
 
     // クリックを監視
     this.addEventListener('click', () => this._onClick());
+
+    // 初期値のセット
+    this.setValue(this._value);
   }
 
   /**
@@ -69,10 +77,10 @@ export default class SelectInputView extends InputView {
   }
 
   /**
-   * テキストを生成します。
+   * 値のテキストを生成します。
    * @return TiLabel
    */
-  _createText() {
+  _createValueLabel() {
     let label = new TiLabel({
       text: '魚沼産 コシヒカリ',
       color: DesignParam.COLOR.BLACK,
@@ -98,11 +106,55 @@ export default class SelectInputView extends InputView {
   }
 
   /**
+   * プレースホルダーを生成します。
+   * @return TiLabel
+   */
+  _createPlaceholderLabel() {
+    let label = new TiLabel({
+      text: '銘柄を選択してください',
+      color: DesignParam.COLOR.GRAY,
+      font: {
+        fontSize: 14,
+        fontWeight: 'bold'
+      }
+    });
+    return label;
+  }
+
+  /**
+   * 値選択時のハンドラーです。
+   */
+  _onDisided() {
+    this.setValue(0);
+  }
+
+  /**
    * クリック時のハンドラーです。
    */
   _onClick() {
     let navWin = app.getCurrentNavWin();
     navWin.openWindow(this._win);
+  }
+
+  /**
+   * 値をセットします。
+   * @override
+   * @param value
+   */
+  setValue(value) {
+
+    console.info('setValue', value);
+
+    if(value !== null) {
+      this._valueLabel.setText('魚沼産 コシヒカリ');
+      this._valueLabel.setVisible(true);
+      this._placeholderLabel.setVisible(false);
+    } else {
+      this._valueLabel.setVisible(false);
+      this._placeholderLabel.setVisible(true);
+    }
+
+    super.setValue(value);
   }
 
 }

@@ -84,7 +84,6 @@ export default class PrepareWin extends TiWindow {
       iconPath: DesignParam.IMAGE.BRAND
     });
     brand.setTop(0);
-    brand.setValue(2);
     view.add(brand);
 
     // 合数選択
@@ -93,7 +92,6 @@ export default class PrepareWin extends TiWindow {
       iconPath: DesignParam.IMAGE.QUANTITY
     });
     quantity.setTop(60);
-    quantity.setValue(3);
     view.add(quantity);
 
     // 水量選択
@@ -102,7 +100,6 @@ export default class PrepareWin extends TiWindow {
       iconPath: DesignParam.IMAGE.WATER
     });
     water.setTop(120);
-    water.setValue(650);
     view.add(water);
 
     return view;

@@ -141,4 +141,12 @@ export default class TiView {
     this.tiObj.setBorderRadius(radius);
   }
 
+  /**
+   * 表示非表示を設定します。
+   * @param visible
+   */
+  setVisible(visible) {
+    this.tiObj.setVisible(visible);
+  }
+
 }

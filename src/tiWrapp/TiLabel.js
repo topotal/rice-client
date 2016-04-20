@@ -21,5 +21,13 @@ export default class TiLabel extends TiView {
     this.tiObj = Ti.UI.createLabel(prop);
   }
 
+  /**
+   * テキストをセットします。
+   * @param text
+   */
+  setText(text) {
+    this.tiObj.setText(text);
+  }
+
 }
 

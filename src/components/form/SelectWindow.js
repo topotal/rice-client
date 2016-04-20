@@ -40,6 +40,7 @@ export default class SelectWindow extends BaseWindow {
    */
   _onClickTable(e) {
     console.info(e);
+    this.fireEvent('disided');
     this.close();
   }
 

@@ -5,7 +5,8 @@ exports.COLOR = {
   ORANGE: '#FF9B00',
   LIGHT_YELLOW: '#FDFFF5',
   BLUE: '#7EC2CE',
-  BLACK: '#626262'
+  BLACK: '#626262',
+  GRAY: '#CCCCCC'
 };
 
 // 画像系
