@@ -27,14 +27,14 @@ export default class SelectInputView extends InputView {
     this.add(icon);
 
     // 値のテキスト
-    this._valueLabel = this._createValueLabel();
-    this._valueLabel.setLeft(50);
-    this.add(this._valueLabel);
+    this._displayValue = this._createDisplayValue();
+    this._displayValue.setLeft(50);
+    this.add(this._displayValue);
 
     // プレースホルダ
-    this._placeholderLabel = this._createPlaceholderLabel();
-    this._placeholderLabel.setLeft(50);
-    this.add(this._placeholderLabel);
+    this._placeholder = this._createPlaceholder();
+    this._placeholder.setLeft(50);
+    this.add(this._placeholder);
 
     // 右矢印
     let arrow = this._createArrow();
@@ -80,7 +80,7 @@ export default class SelectInputView extends InputView {
    * 値のテキストを生成します。
    * @return TiLabel
    */
-  _createValueLabel() {
+  _createDisplayValue() {
     let label = new TiLabel({
       text: '魚沼産 コシヒカリ',
       color: DesignParam.COLOR.BLACK,
@@ -109,7 +109,7 @@ export default class SelectInputView extends InputView {
    * プレースホルダーを生成します。
    * @return TiLabel
    */
-  _createPlaceholderLabel() {
+  _createPlaceholder() {
     let label = new TiLabel({
       text: '銘柄を選択してください',
       color: DesignParam.COLOR.GRAY,
@@ -146,12 +146,12 @@ export default class SelectInputView extends InputView {
     console.info('setValue', value);
 
     if(value !== null) {
-      this._valueLabel.setText('魚沼産 コシヒカリ');
-      this._valueLabel.setVisible(true);
-      this._placeholderLabel.setVisible(false);
+      this._displayValue.setText('魚沼産 コシヒカリ');
+      this._displayValue.setVisible(true);
+      this._placeholder.setVisible(false);
     } else {
-      this._valueLabel.setVisible(false);
-      this._placeholderLabel.setVisible(true);
+      this._displayValue.setVisible(false);
+      this._placeholder.setVisible(true);
     }
 
     super.setValue(value);
