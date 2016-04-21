@@ -17,6 +17,7 @@ export default class SelectInputView extends InputView {
     super(prop);
 
     this._iconPath = prop.iconPath;
+    this._placeholderText = prop.placeholderText || '選択してください';
 
     // 見栄え処理
     this._initDecoration();
@@ -111,7 +112,7 @@ export default class SelectInputView extends InputView {
    */
   _createPlaceholder() {
     let label = new TiLabel({
-      text: '銘柄を選択してください',
+      text: this._placeholderText,
       color: DesignParam.COLOR.GRAY,
       font: {
         fontSize: 14,

@@ -81,7 +81,8 @@ export default class PrepareWin extends TiWindow {
     // 銘柄選択
     let brand = new SelectInputView({
       name: 'brand',
-      iconPath: DesignParam.IMAGE.BRAND
+      iconPath: DesignParam.IMAGE.BRAND,
+      placeholderText: '銘柄を選択してください'
     });
     brand.setTop(0);
     view.add(brand);
@@ -89,7 +90,8 @@ export default class PrepareWin extends TiWindow {
     // 合数選択
     let quantity = new SelectInputView({
       name: 'quantity',
-      iconPath: DesignParam.IMAGE.QUANTITY
+      iconPath: DesignParam.IMAGE.QUANTITY,
+      placeholderText: '合数を選択してください'
     });
     quantity.setTop(60);
     view.add(quantity);
@@ -97,7 +99,8 @@ export default class PrepareWin extends TiWindow {
     // 水量選択
     let water = new SelectInputView({
       name: 'water',
-      iconPath: DesignParam.IMAGE.WATER
+      iconPath: DesignParam.IMAGE.WATER,
+      placeholderText: '水量を選択してください'
     });
     water.setTop(120);
     view.add(water);
