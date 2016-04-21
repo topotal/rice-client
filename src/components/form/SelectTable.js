@@ -57,7 +57,7 @@ export default class SelectTable extends TiTableView {
     this.setFooterView(footerView);
 
     // クリックを監視
-    this.addEventListener('click', () => this._onClick());
+    this.addEventListener('click', (event) => this._onClick(event));
   }
 
   /**
@@ -100,11 +100,21 @@ export default class SelectTable extends TiTableView {
 
   /**
    * クリック時のハンドラーです。
+   * @param event
    */
-  _onClick() {
+  _onClick(event) {
     let data = this.getData();
     _.each(data, (row) => {
-      //console.info(row.data.id);
+
+      // row以外は処理しない
+      if(!row.getRowData) { return; }
+
+      // 同じidのrowであればチェックを付ける
+      if(event.row.data.id === row.getRowData().id) {
+        row.check();
+      } else {
+        row.unCheck();
+      }
     });
   }
 }

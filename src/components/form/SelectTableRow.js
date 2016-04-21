@@ -31,6 +31,7 @@ export default class SelectTableRow extends PopRow {
     // チェックマーク
     this._checkMark = this._createCheckMark();
     this._checkMark.setRight(20);
+    this._checkMark.setVisible(false);
     this.wrapper.add(this._checkMark);
   }
 
@@ -56,10 +57,24 @@ export default class SelectTableRow extends PopRow {
    */
   _createCheckMark() {
     let view = new TiImageView({
-      width: 11,
-      height: 17,
-      image: DesignParam.IMAGE.ROW_ARROW
+      width: 24,
+      height: 18,
+      image: DesignParam.IMAGE.CHECK
     });
     return view;
+  }
+
+  /**
+   * チェックをつけます。
+   */
+  check() {
+    this._checkMark.setVisible(true);
+  }
+
+  /**
+   * チェックを外します。
+   */
+  unCheck() {
+    this._checkMark.setVisible(false);
   }
 }
