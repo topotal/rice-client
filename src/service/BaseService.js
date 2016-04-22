@@ -12,28 +12,22 @@ export default class BaseService extends EventDispatcher {
    */
   constructor(url, method) {
     super();
-    this._url = 'https://randomuser.me/api/';
-    this._method = method || 'GET';
+    this._url = url;
+    this._method = method;
   }
 
   /**
-   * ロード
+   * 通信開始
    * @param param
    */
   load() {
-
     var client = Ti.Network.createHTTPClient({
       // レスポンスを受け取れた時
-      onload: (e) => {
-        console.info(client.responseText);
-        console.info(JSON.stringify(e, null, '--->'));
-        this.fireEvent('complete');
-      },
+      onload: (e) => this.onLoad(e),
       // エラーの場合
-      onerror: (e) => {
-        Ti.API.debug(e.error);
-      },
-      timeout: 5000
+      onerror: (e) => this.onError(e),
+      // タイムアウトを15秒に設定
+      timeout: 15000
     });
 
     // Prepare the connection.
@@ -42,4 +36,15 @@ export default class BaseService extends EventDispatcher {
     client.send();
   }
 
+  /**
+   * レスポンスを受け取れた時のハンドラーです。
+   * overrideして使用してください。
+   */
+  onLoad() {}
+
+  /**
+   * レスポンスを受け取れなかった時のハンドラーです。
+   * overrideして使用してください。
+   */
+  onError() {}
 }
