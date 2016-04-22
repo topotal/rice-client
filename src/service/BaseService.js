@@ -23,9 +23,14 @@ export default class BaseService extends EventDispatcher {
   load() {
     var client = Ti.Network.createHTTPClient({
       // レスポンスを受け取れた時
-      onload: (e) => this.onLoad(e),
-      // エラーの場合
-      onerror: (e) => this.onError(e),
+      onload: () => {
+        var response = JSON.parse(client.responseText);
+        this.onLoad(response);
+      },
+      // 通信エラーの場合
+      onerror: () => {
+        this.onError();
+      },
       // タイムアウトを15秒に設定
       timeout: 15000
     });

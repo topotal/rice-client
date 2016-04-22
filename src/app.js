@@ -1,5 +1,6 @@
 import MainNav from './components/mainNav/MainNav';
 import CookNav from './components/cookNav/CookNav';
+import GetBlandsService from './service/GetBlandsService';
 
 /**
  * メインアプリクラス
@@ -30,6 +31,9 @@ class App {
       name: 'cook',
       navWin: new CookNav()
     });
+
+    var service = new GetBlandsService();
+    service.load();
   }
 
   /**
