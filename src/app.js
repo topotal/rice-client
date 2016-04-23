@@ -33,6 +33,9 @@ class App {
     });
 
     var service = new GetBlandsService();
+    service.addEventListener('success', (e) => {
+      console.info('success^^^^^^^^', e);
+    });
     service.load();
   }
 

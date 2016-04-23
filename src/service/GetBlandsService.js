@@ -1,5 +1,6 @@
 import BaseService from './BaseService';
 import ApiPath from '../enum/ApiPath';
+import GetBlandsResponse from '../models/vo/GetBrandsResponse';
 
 /**
  * 銘柄一覧取得サービスクラスです。
@@ -20,7 +21,14 @@ export default class GetBlandsService extends BaseService {
    * @param response
    */
   onLoad(response) {
-    console.info(response);
+    var data = new GetBlandsResponse(response);
+    if(data.getStatus() === 200) {
+      // 成功イベントを発火
+      this.fireEvent('success', {data: data});
+    } else {
+      // エラーイベントを発火
+      this.fireEvent('error', {data: data});
+    }
   }
 
   /**
@@ -28,5 +36,7 @@ export default class GetBlandsService extends BaseService {
    * @override
    */
   onError() {
+    // 成功イベントを発火
+    this.fireEvent('failure');
   }
 }

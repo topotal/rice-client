@@ -1,3 +1,5 @@
+import {_} from 'libs/lodash';
+
 /**
  * イベントクラスです。
  */
@@ -42,11 +44,13 @@ export default class EventDispatcher {
    * @param type
    * @param param
    */
-  fireEvent(type, param) {
+  fireEvent(type, param = {}) {
     let listeners = this._listeners[type];
     let length = listeners ? listeners.length : 0;
     for(let i=0; i<length; i++) {
-      listeners[i](param);
+      listeners[i](_.extend(param, {
+        target: this
+      }));
     }
   }
 
