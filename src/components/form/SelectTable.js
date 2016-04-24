@@ -4,7 +4,7 @@ import TiView from '../../tiWrapp/TiView';
 import TiImageView from '../../tiWrapp/TiImageView';
 import DesignParam from '../../enum/DesignPram';
 import SelectTableRow from './SelectTableRow';
-import GetBlandsService from '../../service/GetBlandsService';
+import GetSelectService from '../../service/GetSelectService';
 
 /**
  * セレクト用のテーブルクラスです。
@@ -21,8 +21,10 @@ export default class SelectTable extends TiTableView {
   /**
    * コンストラクター
    */
-  constructor() {
+  constructor(apiPath) {
     super();
+
+    this._apiPath = apiPath;
 
     // 見栄え処理
     this._initDecoration();
@@ -36,7 +38,7 @@ export default class SelectTable extends TiTableView {
     this.setFooterView(footerView);
 
     // サービス
-    this._service = new GetBlandsService();
+    this._service = new GetSelectService(this._apiPath);
     this._service.addEventListener('success', (event) => this._onSuccess(event));
   }
 

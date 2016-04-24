@@ -1,18 +1,18 @@
 import BaseService from './BaseService';
-import ApiPath from '../enum/ApiPath';
 import GetBlandsResponse from '../models/vo/GetBrandsResponse';
 
 /**
  * 銘柄一覧取得サービスクラスです。
  */
-export default class GetBlandsService extends BaseService {
+export default class GetSelectService extends BaseService {
 
   /**
    * コンストラクター
    * @constructor
+   * @param apiPath
    */
-  constructor() {
-    super(ApiPath.BLANDS, 'GET');
+  constructor(apiPath) {
+    super(apiPath, 'GET');
   }
 
   /**

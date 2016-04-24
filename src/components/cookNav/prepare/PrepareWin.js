@@ -6,6 +6,7 @@ import ColorButton from '../../common/ColorButton';
 import CookWin from '../CookWin';
 import WeatherInfo from './WeatherInfo';
 import SelectInputView from '../../form/SelectInputView';
+import ApiPath from '../../../enum/ApiPath';
 
 /**
  * 炊飯準備ウィンドウクラスです。
@@ -81,6 +82,7 @@ export default class PrepareWin extends TiWindow {
     // 銘柄選択
     let brand = new SelectInputView({
       name: 'brand',
+      apiPath: ApiPath.BRANDS,
       iconPath: DesignParam.IMAGE.BRAND,
       placeholderText: '銘柄を選択してください'
     });
@@ -90,6 +92,7 @@ export default class PrepareWin extends TiWindow {
     // 合数選択
     let quantity = new SelectInputView({
       name: 'quantity',
+      apiPath: ApiPath.QUANTITY,
       iconPath: DesignParam.IMAGE.QUANTITY,
       placeholderText: '合数を選択してください'
     });
@@ -99,6 +102,7 @@ export default class PrepareWin extends TiWindow {
     // 水量選択
     let water = new SelectInputView({
       name: 'water',
+      apiPath: ApiPath.WATER,
       iconPath: DesignParam.IMAGE.WATER,
       placeholderText: '水量を選択してください'
     });

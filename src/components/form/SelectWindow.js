@@ -18,7 +18,7 @@ export default class SelectWindow extends BaseWindow {
    * @constructor
    * @param color テーマカラー
    */
-  constructor(color) {
+  constructor(apiPath, color) {
     super();
 
     // テーマカラー
@@ -28,7 +28,7 @@ export default class SelectWindow extends BaseWindow {
     this._initDecoration();
 
     // テーブル
-    this._table = new SelectTable();
+    this._table = new SelectTable(apiPath);
     this._table.addEventListener('select', () => this._onSelectTable());
     this.add(this._table);
 
