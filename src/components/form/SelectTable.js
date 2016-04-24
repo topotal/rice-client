@@ -4,6 +4,7 @@ import TiView from '../../tiWrapp/TiView';
 import TiImageView from '../../tiWrapp/TiImageView';
 import DesignParam from '../../enum/DesignPram';
 import SelectTableRow from './SelectTableRow';
+import GetBlandsService from '../../service/GetBlandsService';
 
 /**
  * セレクト用のテーブルクラスです。
@@ -29,6 +30,11 @@ export default class SelectTable extends TiTableView {
 
     // クリックを監視
     this.addEventListener('click', (event) => this._onClick(event));
+
+    // サービス
+    this._service = new GetBlandsService();
+    this._service.addEventListener('success', (event) => this._onSuccess(event));
+    this._service.load();
   }
 
   /**
@@ -81,11 +87,24 @@ export default class SelectTable extends TiTableView {
       if(!row.getRowData) { return; }
 
       // 同じidのrowであればチェックを付ける
-      if(event.row.data.id === row.getRowData().id) {
+      console.info('------------', event);
+      if(event.row.data._id === row.getRowData().getId()) {
         row.check();
       } else {
         row.unCheck();
       }
     });
+  }
+
+  /**
+   * サービス成功時のハンドラーです。
+   */
+  _onSuccess(event) {
+    let data = event.data.getBrands();
+    let rows = [];
+    for(var index = 0; index < data.length; index++) {
+      rows.push(new SelectTableRow(data[index]));
+    }
+    this.setData(rows);
   }
 }

@@ -41,7 +41,7 @@ export default class SelectTableRow extends PopRow {
    */
   _createText() {
     let label = new TiLabel({
-      text: '魚沼産 コシヒカリ',
+      text: this._data.getTitle(),
       color: DesignParam.COLOR.BLACK,
       font: {
         fontSize: 14,
