@@ -7,6 +7,13 @@ import SelectTable from './SelectTable';
 export default class SelectWindow extends BaseWindow {
 
   /**
+   * 値を取得します。
+   */
+  getValue() {
+    return this._value;
+  }
+
+  /**
    * コンストラクター
    * @constructor
    * @param color テーマカラー
@@ -21,9 +28,12 @@ export default class SelectWindow extends BaseWindow {
     this._initDecoration();
 
     // テーブル
-    let table = new SelectTable();
-    this.add(table);
-    table.addEventListener('click', (e) => this._onClickTable(e));
+    this._table = new SelectTable();
+    this._table.addEventListener('select', () => this._onSelectTable());
+    this.add(this._table);
+
+    // ウィンドウオープンを監視
+    this.addEventListener('open', () => this._onOpen());
   }
 
   /**
@@ -36,11 +46,18 @@ export default class SelectWindow extends BaseWindow {
   }
 
   /**
-   * テーブルのクリック時のハンドラーです。
+   * ウィンドウオープン時のハンドラーです。
    */
-  _onClickTable(e) {
-    console.info(e);
-    this.fireEvent('disided');
+  _onOpen() {
+    this._table.initLoad();
+  }
+
+  /**
+   * 選択時のハンドラーです。
+   */
+  _onSelectTable() {
+    this._value = this._table.getValue();
+    this.fireEvent('select');
     this.close();
   }
 

@@ -44,7 +44,7 @@ export default class SelectInputView extends InputView {
 
     // 選択ウィンドウ
     this._win = new SelectWindow(DesignParam.COLOR.ORANGE);
-    this._win.addEventListener('disided', () => this._onDisided());
+    this._win.addEventListener('select', () => this._onSelect());
 
     // クリックを監視
     this.addEventListener('click', () => this._onClick());
@@ -125,8 +125,8 @@ export default class SelectInputView extends InputView {
   /**
    * 値選択時のハンドラーです。
    */
-  _onDisided() {
-    this.setValue(0);
+  _onSelect() {
+    this.setValue(this._win.getValue());
   }
 
   /**
@@ -144,10 +144,8 @@ export default class SelectInputView extends InputView {
    */
   setValue(value) {
 
-    console.info('setValue', value);
-
     if(value !== null) {
-      this._displayValue.setText('魚沼産 コシヒカリ');
+      this._displayValue.setText(value.getTitle());
       this._displayValue.setVisible(true);
       this._placeholder.setVisible(false);
     } else {

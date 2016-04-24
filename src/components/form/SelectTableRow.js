@@ -9,11 +9,19 @@ import PopRow from '../common/PopRow';
 export default class SelectTableRow extends PopRow {
 
   /**
+   * インデックスを返します。
+   */
+  getIndex() {
+    return this._index;
+  }
+
+  /**
    * コンストラクター
    * @constructor
    */
-  constructor(data) {
+  constructor(index, data) {
     super(data);
+    this._index = index;
   }
 
   /**

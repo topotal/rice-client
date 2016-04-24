@@ -12,7 +12,8 @@ export default class PopRow extends TiTableViewRow {
    * @constructor
    */
   constructor(data) {
-    super({data: data});
+
+    super({value: data});
 
     // データ
     this._data = data;
