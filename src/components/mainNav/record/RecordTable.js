@@ -3,6 +3,7 @@ import TiView from '../../../tiWrapp/TiView';
 import TiImageView from '../../../tiWrapp/TiImageView';
 import RecordRow from './RecordRow';
 import DesignParam from '../../../enum/DesignPram';
+import GetCookRecoadsService from '../../../service/GetCookRecoadsService';
 
 /**
  * 炊飯記録テーブルクラスです。
@@ -18,32 +19,6 @@ export default class RecordTable extends TiTableView {
     // 見栄え処理
     this._initDecoration();
 
-    let sampleData = {
-      id: 5,
-      date: '2016-03-23 23:20:33',
-      brand: {
-        id: 10,
-        district: '魚沼産',
-        name: 'コシヒカリ'
-      },
-      temperature: 23,
-      humidity: 20,
-      rate: 4
-    };
-
-    // 仮データをセットします。
-    this.setData([
-      new RecordRow(sampleData),
-      new RecordRow(sampleData),
-      new RecordRow(sampleData),
-      new RecordRow(sampleData),
-      new RecordRow(sampleData),
-      new RecordRow(sampleData),
-      new RecordRow(sampleData),
-      new RecordRow(sampleData),
-      new RecordRow(sampleData)
-    ]);
-
     // ヘッダーをセット
     let headerView = this._createHeaderView();
     this.setHeaderView(headerView);
@@ -58,6 +33,10 @@ export default class RecordTable extends TiTableView {
     this.refreshControl.addEventListener('refreshstart', () => {
       setTimeout(() => { this.refreshControl.endRefreshing(); }, 1000);
     });
+
+    // サービス
+    this._service = new GetCookRecoadsService();
+    this._service.addEventListener('success', (event) => this._onSuccess(event));
   }
 
   /**
@@ -66,6 +45,13 @@ export default class RecordTable extends TiTableView {
   _initDecoration() {
     this.setBackgroundColor('transparent');
     this.setSeparatorColor('transparent');
+  }
+
+  /**
+   * 初回ロード
+   */
+  initLoad() {
+    this._service.load();
   }
 
   /**
@@ -109,4 +95,35 @@ export default class RecordTable extends TiTableView {
     return control;
   }
 
+  /**
+   * サービス成功時のハンドラーです。
+   * @param event
+   */
+  _onSuccess(event) {
+    let data = event.data.getRecoads();
+    let rows = [];
+    for(var index = 0; index < data.length; index++) {
+      rows.push(this._createRow(index, data[index]));
+    }
+    this.setData(rows);
+  }
+
+  /**
+   * SelectTableRowを生成します。
+   * @param index
+   * @param data
+   */
+  _createRow(index, data) {
+    var row = new RecordRow(index, data);
+    row.addEventListener('click', () => this._onClickRow({
+      data: data
+    }));
+
+    // すでに選択している値があればレ点をつける
+    if(this._value && this._value.getId() === data.getId()) {
+      row.check();
+    }
+
+    return row;
+  }
 }

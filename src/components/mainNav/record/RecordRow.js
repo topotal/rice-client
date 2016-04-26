@@ -89,24 +89,12 @@ export default class RecordRow extends PopRow {
       height: 30
     });
 
-    let district = new TiLabel({
-      top: 0,
-      width: maxWidth,
-      height: 9,
-      text: this._data.brand.district,
-      font: {
-        fontSize: 9,
-        fontWeight: 'bold'
-      },
-      color: DesignParam.COLOR.BLACK
-    });
-    view.add(district);
-
+    console.info(this);
     let name = new TiLabel({
       bottom: 0,
       width: maxWidth,
       height: 14,
-      text: this._data.brand.name,
+      text: 'aaa', //this._data.getBrand().getTitle,
       font: {
         fontSize: 14,
         fontWeight: 'bold'

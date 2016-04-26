@@ -133,6 +133,7 @@ export default class HomeWin extends TiWindow {
    */
   _onOpen() {
     this._showCookButton();
+    this._record.initLoad();
   }
 
 }
