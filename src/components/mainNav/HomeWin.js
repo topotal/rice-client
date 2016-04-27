@@ -25,7 +25,7 @@ export default class HomeWin extends TiWindow {
 
     // 炊飯記録一覧
     this._recoad = new RecoadTable();
-    this._recoad.addEventListener('click_row', () => this._onClickRow());
+    this._recoad.addEventListener('select', () => this._onSelectRow());
     this._recoad.addEventListener('scroll', (e) => this._onScroll(e));
     this.add(this._recoad);
 
@@ -69,8 +69,9 @@ export default class HomeWin extends TiWindow {
   /**
    * Rowクリック時のハンドラーです。
    */
-  _onClickRow() {
-
+  _onSelectRow() {
+    let win = new DetailWin(1);
+    app.getNavWin('main').openWindow(win);
   }
 
   /**
