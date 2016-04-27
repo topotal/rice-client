@@ -114,7 +114,7 @@ export default class RecordTable extends TiTableView {
    * @param data
    */
   _createRow(index, data) {
-    var row = new RecordRow(index, data);
+    var row = new RecordRow(data);
     row.addEventListener('click', () => this._onClickRow({
       data: data
     }));

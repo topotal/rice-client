@@ -89,12 +89,11 @@ export default class RecordRow extends PopRow {
       height: 30
     });
 
-    console.info(this);
     let name = new TiLabel({
       bottom: 0,
       width: maxWidth,
       height: 14,
-      text: 'aaa', //this._data.getBrand().getTitle,
+      text: this.getRowData().getBrand().getTitle(),
       font: {
         fontSize: 14,
         fontWeight: 'bold'
