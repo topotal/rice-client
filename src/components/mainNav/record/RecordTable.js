@@ -28,11 +28,9 @@ export default class RecordTable extends TiTableView {
     this.setFooterView(footerView);
 
     // リフレッシュコントロール
-    this.refreshControl = this._createRefreshControl();
-    this.setRefreshControl(this.refreshControl);
-    this.refreshControl.addEventListener('refreshstart', () => {
-      setTimeout(() => { this.refreshControl.endRefreshing(); }, 1000);
-    });
+    this._refreshControl = this._createRefreshControl();
+    this._refreshControl.addEventListener('refreshstart', () => this._onRefresh());
+    this.setRefreshControl(this._refreshControl);
 
     // サービス
     this._service = new GetCookRecordsService();
@@ -96,10 +94,18 @@ export default class RecordTable extends TiTableView {
   }
 
   /**
+   * リフレッシュ時のハンドラーです。
+   */
+  _onRefresh() {
+    this.initLoad();
+  }
+
+  /**
    * サービス成功時のハンドラーです。
    * @param event
    */
   _onSuccess(event) {
+    this._refreshControl.endRefreshing();
     let data = event.data.getRecords();
     let rows = [];
     for(var index = 0; index < data.length; index++) {
