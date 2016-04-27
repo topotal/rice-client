@@ -1,7 +1,7 @@
 /**
  * 炊飯記録のバリューオブジェクト
  */
-export default class CookRecoad {
+export default class CookRecord {
 
   /**
    * IDを取得します。

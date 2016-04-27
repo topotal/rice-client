@@ -1,11 +1,11 @@
 import {_} from 'libs/lodash';
 import Brand from './Brand';
-import CookRecoad from './CookRecoad';
+import CookRecord from './CookRecoad';
 
 /**
  * 炊飯記録一覧取得APIのレスポンスデータです。
  */
-export default class GetCookRecoadsResponse {
+export default class GetCookRecordsResponse {
 
   /**
    * ステータスを返します。
@@ -17,8 +17,8 @@ export default class GetCookRecoadsResponse {
   /**
    * 炊飯記録を返します。
    */
-  getRecoads() {
-    return this._recoads;
+  getRecords() {
+    return this._records;
   }
 
   /**
@@ -28,18 +28,19 @@ export default class GetCookRecoadsResponse {
    */
   constructor(response) {
     response = response || {};
-    response.recoads = response.recoads || [];
+    console.info('||||||||||||||||', response);
+    response.records = response.records || [];
 
     this._status = response.status;
-    this._recoads = [];
+    this._records = [];
 
-    _.each(response.recoads, (recoad) => {
-      this._recoads.push(new CookRecoad(
-        recoad.id,
-        new Brand(recoad.brand.id, recoad.brand.title),
-        recoad.rate,
-        recoad.createdAt,
-        recoad.updatedAt
+    _.each(response.records, (record) => {
+      this._records.push(new CookRecord(
+        record.id,
+        new Brand(record.brand.id, record.brand.title),
+        record.rate,
+        record.createdAt,
+        record.updatedAt
       ));
     });
   }

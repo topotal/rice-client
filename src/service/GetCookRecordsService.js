@@ -1,11 +1,11 @@
 import BaseService from './BaseService';
-import GetCookRecoadsResponse from '../models/vo/GetCookRecoadsResponse';
+import GetCookRecordsResponse from '../models/vo/GetCookRecordsResponse';
 import ApiPath from '../enum/ApiPath';
 
 /**
  * 炊飯記録一覧取得サービスクラスです。
  */
-export default class GetCookRecoadsService extends BaseService {
+export default class GetCookRecordsService extends BaseService {
 
   /**
    * コンストラクター
@@ -13,7 +13,7 @@ export default class GetCookRecoadsService extends BaseService {
    * @param apiPath
    */
   constructor() {
-    super(ApiPath.COOK_RECOADS, 'GET');
+    super(ApiPath.COOK_RECORDS, 'GET');
   }
 
   /**
@@ -22,7 +22,7 @@ export default class GetCookRecoadsService extends BaseService {
    * @param response
    */
   onLoad(response) {
-    var data = new GetCookRecoadsResponse(response);
+    var data = new GetCookRecordsResponse(response);
     if(data.getStatus() === 200) {
       // 成功イベントを発火
       this.fireEvent('success', {data: data});

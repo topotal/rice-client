@@ -1,14 +1,14 @@
 import TiTableView from '../../../tiWrapp/TiTableView';
 import TiView from '../../../tiWrapp/TiView';
 import TiImageView from '../../../tiWrapp/TiImageView';
-import RecoadRow from './RecoadRow';
+import RecordRow from './RecordRow';
 import DesignParam from '../../../enum/DesignPram';
-import GetCookRecoadsService from '../../../service/GetCookRecoadsService';
+import GetCookRecordsService from '../../../service/GetCookRecordsService';
 
 /**
  * 炊飯記録テーブルクラスです。
  */
-export default class RecoadTable extends TiTableView {
+export default class RecordTable extends TiTableView {
 
   /**
    * コンストラクター
@@ -35,7 +35,7 @@ export default class RecoadTable extends TiTableView {
     });
 
     // サービス
-    this._service = new GetCookRecoadsService();
+    this._service = new GetCookRecordsService();
     this._service.addEventListener('success', (event) => this._onSuccess(event));
   }
 
@@ -100,7 +100,7 @@ export default class RecoadTable extends TiTableView {
    * @param event
    */
   _onSuccess(event) {
-    let data = event.data.getRecoads();
+    let data = event.data.getRecords();
     let rows = [];
     for(var index = 0; index < data.length; index++) {
       rows.push(this._createRow(index, data[index]));
@@ -114,7 +114,7 @@ export default class RecoadTable extends TiTableView {
    * @param data
    */
   _createRow(index, data) {
-    var row = new RecoadRow(data);
+    var row = new RecordRow(data);
     row.addEventListener('click', () => this._onClickRow());
     // すでに選択している値があればレ点をつける
     if(this._value && this._value.getId() === data.getId()) {

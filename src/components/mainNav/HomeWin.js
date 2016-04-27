@@ -1,7 +1,7 @@
 import TiWindow from '../../tiWrapp/TiWindow';
 import TiImageView from '../../tiWrapp/TiImageView';
 import * as DesignParam from '../../enum/DesignPram';
-import RecoadTable from './recoad/RecoadTable';
+import RecordTable from './record/RecordTable';
 import DetailWin from './DetailWin';
 
 /**
@@ -24,10 +24,10 @@ export default class HomeWin extends TiWindow {
     this._initDecoration();
 
     // 炊飯記録一覧
-    this._recoad = new RecoadTable();
-    this._recoad.addEventListener('select', () => this._onSelectRow());
-    this._recoad.addEventListener('scroll', (e) => this._onScroll(e));
-    this.add(this._recoad);
+    this._record = new RecordTable();
+    this._record.addEventListener('select', () => this._onSelectRow());
+    this._record.addEventListener('scroll', (e) => this._onScroll(e));
+    this.add(this._record);
 
     // 炊飯ボタン
     this._cookButton = this._createButton();
@@ -128,7 +128,7 @@ export default class HomeWin extends TiWindow {
    */
   _onOpen() {
     this._showCookButton();
-    this._recoad.initLoad();
+    this._record.initLoad();
   }
 
 }
