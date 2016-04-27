@@ -1,14 +1,14 @@
 import TiTableView from '../../../tiWrapp/TiTableView';
 import TiView from '../../../tiWrapp/TiView';
 import TiImageView from '../../../tiWrapp/TiImageView';
-import RecordRow from './RecordRow';
+import RecoadRow from './RecoadRow';
 import DesignParam from '../../../enum/DesignPram';
 import GetCookRecoadsService from '../../../service/GetCookRecoadsService';
 
 /**
  * 炊飯記録テーブルクラスです。
  */
-export default class RecordTable extends TiTableView {
+export default class RecoadTable extends TiTableView {
 
   /**
    * コンストラクター
@@ -114,11 +114,7 @@ export default class RecordTable extends TiTableView {
    * @param data
    */
   _createRow(index, data) {
-    var row = new RecordRow(data);
-    row.addEventListener('click', () => this._onClickRow({
-      data: data
-    }));
-
+    var row = new RecoadRow(data);
     // すでに選択している値があればレ点をつける
     if(this._value && this._value.getId() === data.getId()) {
       row.check();

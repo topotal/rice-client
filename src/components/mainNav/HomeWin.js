@@ -1,7 +1,7 @@
 import TiWindow from '../../tiWrapp/TiWindow';
 import TiImageView from '../../tiWrapp/TiImageView';
 import * as DesignParam from '../../enum/DesignPram';
-import RecordTable from './record/RecordTable';
+import RecoadTable from './recoad/RecoadTable';
 import DetailWin from './DetailWin';
 
 /**
@@ -24,9 +24,10 @@ export default class HomeWin extends TiWindow {
     this._initDecoration();
 
     // 炊飯記録一覧
-    this._record = this._createRecord();
-    this.add(this._record);
-    this._record.addEventListener('scroll', (e) => this._onScroll(e));
+    this._recoad = new RecoadTable();
+    this._recoad.addEventListener('click_row', () => this._onClickRow());
+    this._recoad.addEventListener('scroll', (e) => this._onScroll(e));
+    this.add(this._recoad);
 
     // 炊飯ボタン
     this._cookButton = this._createButton();
@@ -54,20 +55,6 @@ export default class HomeWin extends TiWindow {
   }
 
   /**
-   * 炊飯記録一覧を生成します。
-   */
-  _createRecord() {
-    let table = new RecordTable();
-    table.addEventListener('click', function(e) {
-      e.cancelBubble = true;
-      let rowData = e.row.data;
-      let win = new DetailWin(rowData.id);
-      app.getNavWin('main').openWindow(win);
-    });
-    return table;
-  }
-
-  /**
    * 炊飯ボタンを生成します。
    */
   _createButton() {
@@ -77,6 +64,13 @@ export default class HomeWin extends TiWindow {
       backgroundImage: DesignParam.IMAGE.COOK_BUTTON
     });
     return button;
+  }
+
+  /**
+   * Rowクリック時のハンドラーです。
+   */
+  _onClickRow() {
+
   }
 
   /**
@@ -133,7 +127,7 @@ export default class HomeWin extends TiWindow {
    */
   _onOpen() {
     this._showCookButton();
-    this._record.initLoad();
+    this._recoad.initLoad();
   }
 
 }
