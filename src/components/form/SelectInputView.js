@@ -18,6 +18,7 @@ export default class SelectInputView extends InputView {
 
     this._apiPath = prop.apiPath;
     this._iconPath = prop.iconPath;
+    this._title = prop.title;
     this._placeholderText = prop.placeholderText || '選択してください';
 
     // 見栄え処理
@@ -44,7 +45,7 @@ export default class SelectInputView extends InputView {
     this.add(arrow);
 
     // 選択ウィンドウ
-    this._win = new SelectWindow(this._apiPath, DesignParam.COLOR.ORANGE);
+    this._win = new SelectWindow(this._apiPath, DesignParam.COLOR.ORANGE, this._title);
     this._win.addEventListener('select', () => this._onSelect());
 
     // クリックを監視

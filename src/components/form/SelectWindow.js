@@ -18,11 +18,11 @@ export default class SelectWindow extends BaseWindow {
    * @constructor
    * @param color テーマカラー
    */
-  constructor(apiPath, color) {
+  constructor(apiPath, color, title) {
     super();
 
-    // テーマカラー
     this._color = color;
+    this._title = title;
 
     // 見栄え処理
     this._initDecoration();
@@ -40,7 +40,7 @@ export default class SelectWindow extends BaseWindow {
    * 装飾の初期化
    */
   _initDecoration() {
-    this.setTitle('銘柄');
+    this.setTitle(this._title || 'タイトル');
     this.setBarColor(this._color);
     this.setBackgroundColor(this._color);
   }
