@@ -29,7 +29,7 @@ export default class RecordRow extends PopRow {
     this.wrapper.add(date);
 
     // 5段階評価
-    let starRating = new StarRating(this._data.rate);
+    let starRating = new StarRating(this.getRowData().getRate());
     starRating.setTop(12);
     starRating.setLeft(70);
     this.wrapper.add(starRating);
