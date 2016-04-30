@@ -28,7 +28,6 @@ export default class GetCookRecordsResponse {
    */
   constructor(response) {
     response = response || {};
-    console.info('||||||||||||||||', response);
     response.records = response.records || [];
 
     this._status = response.status;
@@ -39,8 +38,8 @@ export default class GetCookRecordsResponse {
         record.id,
         new Brand(record.brand.id, record.brand.title),
         record.rate,
-        record.createdAt,
-        record.updatedAt
+        record.created_at,
+        record.updated_at
       ));
     });
   }

@@ -55,7 +55,7 @@ export default class RecordRow extends PopRow {
     // 年/月
     let yearAndMonth = new TiLabel({
       top: 7,
-      text: moment(this._data.date).format('YYYY/MM'),
+      text: moment(this.getRowData().getCreatedAt()).format('YYYY/MM'),
       font: {
         fontSize: 9
       },
@@ -66,7 +66,7 @@ export default class RecordRow extends PopRow {
     // 日
     let day = new TiLabel({
       bottom: 6,
-      text: moment(this._data.date).format('DD'),
+      text: moment(this.getRowData().getCreatedAt()).format('DD'),
       font: {
         fontSize: 21,
         fontWeight: 'bold'
