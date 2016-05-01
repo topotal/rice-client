@@ -1,12 +1,12 @@
-import * as DesignParam from '../../enum/DesignPram';
-import TiWindow from '../../tiWrapp/TiWindow';
-import ColorButton from '../common/ColorButton';
-import CompleteWin from './CompleteWin';
+import * as DesignParam from '../../../enum/DesignPram';
+import BaseWindow from '../../common/BaseWindow';
+import ColorButton from '../../common/ColorButton';
+import CompleteWin from './../CompleteWin';
 
 /**
  * 炊飯画面クラスです。
  */
-export default class CookWin extends TiWindow {
+export default class CookWin extends BaseWindow {
 
   /**
    * コンストラクター
@@ -31,13 +31,9 @@ export default class CookWin extends TiWindow {
    * 装飾の初期化
    */
   _initDecoration() {
-    this.setTranslucent(false);
     this.setTitleImage('assets/images/cook_title.png');
     this.setBarColor(DesignParam.COLOR.ORANGE);
-    this.setBarImage('assets/images/transparent.png');
-    this.setShadowImage('assets/images/navbar_shadow.png');
     this.setBackgroundColor(DesignParam.COLOR.LIGHT_YELLOW);
-    this.setStatusBarStyle(Ti.UI.iPhone.StatusBar.LIGHT_CONTENT);
   }
 
   /**

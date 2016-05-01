@@ -3,7 +3,7 @@ import TiView from '../../../tiWrapp/TiView';
 import {_} from 'libs/lodash';
 import * as DesignParam from '../../../enum/DesignPram';
 import ColorButton from '../../common/ColorButton';
-import CookWin from '../CookWin';
+import CookWin from '../cook/CookWin';
 import WeatherInfo from './WeatherInfo';
 import SelectInputView from '../../form/SelectInputView';
 import ApiPath from '../../../enum/ApiPath';
