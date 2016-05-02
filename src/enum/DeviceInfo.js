@@ -22,4 +22,26 @@ export default class DeviceInfo {
     return Ti.Platform.displayCaps.platformHeight;
   }
 
+  /**
+   * ステータスバー分の高さを取得します。
+   */
+  static getStatusBarHeight() {
+    return 20;
+  }
+
+  /**
+   * ナビゲーションバー分の高さを返します。
+   */
+  static getNavBarHeight() {
+    return 44;
+  }
+
+  /**
+   * ヘッダー分の高さを取得します。
+   * @return number
+   */
+  static getHeaderHeight() {
+    return DeviceInfo.getStatusBarHeight() + DeviceInfo.getNavBarHeight();
+  }
+
 }

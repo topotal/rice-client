@@ -2,6 +2,7 @@ import * as DesignParam from '../../../enum/DesignPram';
 import BaseWindow from '../../common/BaseWindow';
 import ColorButton from '../../common/ColorButton';
 import CompleteWin from './../CompleteWin';
+import Timeline from './Timeline';
 
 /**
  * 炊飯画面クラスです。
@@ -17,6 +18,11 @@ export default class CookWin extends BaseWindow {
 
     // 見栄え処理
     this._initDecoration();
+
+    // タイムライン
+    this._timeline = new Timeline();
+    this._timeline.setTop(0);
+    this.add(this._timeline);
 
     // 切り替えボタン
     let changeButton = this._createChangeButton();
