@@ -31,6 +31,8 @@ export default class CookWin extends BaseWindow {
     changeButton.setBottom(10);
     this.add(changeButton);
     changeButton.addEventListener('click', () => this._openCompleteWin());
+
+    this._timeline.start();
   }
 
   /**
@@ -61,6 +63,7 @@ export default class CookWin extends BaseWindow {
    * 完了画面を開きます。
    */
   _openCompleteWin() {
+    this._timeline.reset();
     let completeWin = new CompleteWin();
     app.getNavWin('cook').openWindow(completeWin);
   }
