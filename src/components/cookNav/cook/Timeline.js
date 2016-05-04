@@ -1,6 +1,7 @@
 import TiView from '../../../tiWrapp/TiView';
 import TiLabel from '../../../tiWrapp/TiLabel';
 import DeviceInfo from '../../../enum/DeviceInfo';
+import moment from 'libs/moment';
 
 /**
  * 炊飯タイムラインクラスです。
@@ -75,7 +76,8 @@ export default class Timeline extends TiView {
    */
   _increment() {
     this._count++;
-    this._mainTimerText.setText(this._count);
+    let time = moment(this._count).format('mm:ss:SS');
+    this._mainTimerText.setText(time);
   }
 
 }
