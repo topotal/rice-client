@@ -2,7 +2,7 @@ import * as DesignParam from '../../../enum/DesignPram';
 import BaseWindow from '../../common/BaseWindow';
 import ColorButton from '../../common/ColorButton';
 import CompleteWin from './../CompleteWin';
-import Timeline from './Timeline';
+import CookTimer from './CookTimer';
 
 /**
  * 炊飯画面クラスです。
@@ -20,7 +20,7 @@ export default class CookWin extends BaseWindow {
     this._initDecoration();
 
     // タイムライン
-    this._timeline = new Timeline();
+    this._timeline = new CookTimer();
     this._timeline.setTop(0);
     this.add(this._timeline);
 

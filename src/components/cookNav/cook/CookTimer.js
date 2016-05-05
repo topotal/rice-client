@@ -6,7 +6,7 @@ import moment from 'libs/moment';
 /**
  * 炊飯タイムラインクラスです。
  */
-export default class Timeline extends TiView {
+export default class CookTimer extends TiView {
 
   /**
    * コンストラクター
@@ -45,11 +45,16 @@ export default class Timeline extends TiView {
     var view = new TiView({
       width: Ti.UI.FILL,
       height: 60,
-      backgroundColor: '#FF0000'
+      backgroundColor: '#FF0000',
+      border: 1,
+      borderColor: ''
     });
 
     this._mainTimerText = new TiLabel({
-      color: '#000000'
+      color: '#000000',
+      font: {
+        fontSize: 24
+      }
     });
     view.add(this._mainTimerText);
 
