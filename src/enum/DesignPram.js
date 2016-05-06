@@ -22,5 +22,6 @@ exports.IMAGE = {
   QUANTITY: pathHead + 'quantity.png',
   WATER: pathHead + 'water.png',
   ROW_ARROW: pathHead + 'row_arrow.png',
-  CHECK: pathHead + 'check.png'
+  CHECK: pathHead + 'check.png',
+  TIMER: pathHead + 'timer.png'
 };
