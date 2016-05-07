@@ -1,8 +1,6 @@
 import TiView from '../../../tiWrapp/TiView';
-import TiLabel from '../../../tiWrapp/TiLabel';
 import DeviceInfo from '../../../enum/DeviceInfo';
-import DesignParam from '../../../enum/DesignPram';
-import moment from 'libs/moment';
+import CookTimerMain from './CookTimerMain';
 
 /**
  * 炊飯タイムラインクラスです。
@@ -23,7 +21,7 @@ export default class CookTimer extends TiView {
     this._initDecoration();
 
     // メインタイマー
-    this._mainTimer = this._createMainTimer();
+    this._mainTimer = new CookTimerMain();
     this._mainTimer.setBottom(0);
     this.add(this._mainTimer);
   }
@@ -37,58 +35,6 @@ export default class CookTimer extends TiView {
       DeviceInfo.getHeight() - controllerHeight - DeviceInfo.getHeaderHeight();
     this.setHeight(height);
     this.setBackgroundColor('#00FFFF');
-  }
-
-  /**
-   * メインタイマーを生成します。
-   */
-  _createMainTimer() {
-    var view = new TiView({
-      width: Ti.UI.FILL,
-      height: 60,
-      backgroundColor: DesignParam.COLOR.WHITE
-    });
-
-    // 上ボーダー
-    var topBorder = new TiView({
-      top: 0,
-      width: Ti.UI.FILL,
-      height: 1,
-      backgroundColor: DesignParam.COLOR.GRAY
-    });
-    view.add(topBorder);
-
-    // タイマーアイコン
-    var icon = new TiView({
-      left: ((DeviceInfo.getWidth() - 140) / 2),
-      width: 22,
-      height: 22,
-      backgroundImage: DesignParam.IMAGE.TIMER
-    });
-    view.add(icon);
-
-    // タイマーの数字
-    this._mainTimerText = new TiLabel({
-      left: ((DeviceInfo.getWidth() - 140) / 2) + 32,
-      text: '00:00:00',
-      textAlign: 'left',
-      color: DesignParam.COLOR.BLACK,
-      font: {
-        fontSize: 24
-      }
-    });
-    view.add(this._mainTimerText);
-
-    // 下ボーダー
-    var bottomBorder = new TiView({
-      bottom: 0,
-      width: Ti.UI.FILL,
-      height: 1,
-      backgroundColor: DesignParam.COLOR.GRAY
-    });
-    view.add(bottomBorder);
-
-    return view;
   }
 
   /**
@@ -111,8 +57,7 @@ export default class CookTimer extends TiView {
    */
   _increment() {
     this._count+=1000;
-    let time = moment('00:00:00', 'HH:mm:ss').milliseconds(this._count).format('HH:mm:ss');
-    this._mainTimerText.setText(time);
+    this._mainTimer.setMilliseconds(this._count);
   }
 
 }
