@@ -1,5 +1,5 @@
 import TiImageView from '../../tiWrapp/TiImageView';
-import * as DesignParam from '../../enum/DesignPram';
+import * as DesignParam from '../../enum/DesignParam';
 
 /**
  * ひとつ分の星のクラスです。

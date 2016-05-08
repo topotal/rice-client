@@ -2,7 +2,7 @@ import {_} from 'libs/lodash';
 import TiTableView from '../../tiWrapp/TiTableView';
 import TiView from '../../tiWrapp/TiView';
 import TiImageView from '../../tiWrapp/TiImageView';
-import DesignParam from '../../enum/DesignPram';
+import DesignParam from '../../enum/DesignParam';
 import SelectTableRow from './SelectTableRow';
 import GetSelectService from '../../service/GetSelectService';
 

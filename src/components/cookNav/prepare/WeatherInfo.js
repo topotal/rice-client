@@ -1,4 +1,4 @@
-import * as DesignParam from '../../../enum/DesignPram';
+import * as DesignParam from '../../../enum/DesignParam';
 import DeviceInfo from '../../../enum/DeviceInfo';
 import TiView from '../../../tiWrapp/TiView';
 import TiLabel from '../../../tiWrapp/TiLabel';

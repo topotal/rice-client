@@ -1,7 +1,7 @@
 import TiWindow from '../../../tiWrapp/TiWindow';
 import TiView from '../../../tiWrapp/TiView';
 import {_} from 'libs/lodash';
-import * as DesignParam from '../../../enum/DesignPram';
+import * as DesignParam from '../../../enum/DesignParam';
 import ColorButton from '../../common/ColorButton';
 import CookWin from '../cook/CookWin';
 import WeatherInfo from './WeatherInfo';

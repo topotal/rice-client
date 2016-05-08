@@ -1,4 +1,4 @@
-import * as DesignParam from '../../enum/DesignPram';
+import * as DesignParam from '../../enum/DesignParam';
 import TiWindow from '../../tiWrapp/TiWindow';
 import ColorButton from '../common/ColorButton';
 

@@ -2,7 +2,7 @@ import TiTableView from '../../../tiWrapp/TiTableView';
 import TiView from '../../../tiWrapp/TiView';
 import TiImageView from '../../../tiWrapp/TiImageView';
 import RecordRow from './RecordRow';
-import DesignParam from '../../../enum/DesignPram';
+import DesignParam from '../../../enum/DesignParam';
 import GetCookRecordsService from '../../../service/GetCookRecordsService';
 
 /**

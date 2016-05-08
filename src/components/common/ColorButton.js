@@ -1,6 +1,6 @@
 import TiView from '../../tiWrapp/TiView';
 import TiLabel from '../../tiWrapp/TiLabel';
-import * as DesignParam from '../../enum/DesignPram';
+import * as DesignParam from '../../enum/DesignParam';
 
 /**
  * カラフルな丸角ボタンクラスです。

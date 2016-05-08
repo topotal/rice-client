@@ -1,6 +1,6 @@
 import {_} from 'libs/lodash';
 import TiWindow from '../../tiWrapp/TiWindow';
-import DesignParam from '../../enum/DesignPram';
+import DesignParam from '../../enum/DesignParam';
 
 /**
  * Windowのベースクラス

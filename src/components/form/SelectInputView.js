@@ -1,7 +1,7 @@
 import TiImageView from '../../tiWrapp/TiImageView';
 import TiLabel from '../../tiWrapp/TiLabel';
 import InputView from './InputView';
-import * as DesignParam from '../../enum/DesignPram';
+import * as DesignParam from '../../enum/DesignParam';
 import SelectWindow from './SelectWindow';
 
 /**

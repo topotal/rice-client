@@ -1,6 +1,6 @@
 import TiWindow from '../../tiWrapp/TiWindow';
 import TiImageView from '../../tiWrapp/TiImageView';
-import * as DesignParam from '../../enum/DesignPram';
+import * as DesignParam from '../../enum/DesignParam';
 import RecordTable from './record/RecordTable';
 import DetailWin from './DetailWin';
 

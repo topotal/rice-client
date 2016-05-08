@@ -1,6 +1,6 @@
 import TiLabel from '../../tiWrapp/TiLabel';
 import TiImageView from '../../tiWrapp/TiImageView';
-import DesignParam from '../../enum/DesignPram';
+import DesignParam from '../../enum/DesignParam';
 import PopRow from '../common/PopRow';
 
 /**

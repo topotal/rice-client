@@ -2,7 +2,7 @@ import TiView from '../../../tiWrapp/TiView';
 import TiLabel from '../../../tiWrapp/TiLabel';
 import moment from 'libs/moment';
 import DeviceInfo from '../../../enum/DeviceInfo';
-import DesignParam from '../../../enum/DesignPram';
+import DesignParam from '../../../enum/DesignParam';
 
 /**
  * タイマーのメイン部分

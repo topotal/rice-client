@@ -1,6 +1,6 @@
 import TiTableViewRow from '../../tiWrapp/TiTableViewRow';
 import TiView from '../../tiWrapp/TiView';
-import DesignParam from '../../enum/DesignPram';
+import DesignParam from '../../enum/DesignParam';
 
 /**
  * ポップ調のRowクラス

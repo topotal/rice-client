@@ -1,5 +1,5 @@
 import TiTableView from '../../../tiWrapp/TiTableView';
-import DesignParam from '../../../enum/DesignPram';
+import DesignParam from '../../../enum/DesignParam';
 
 /**
  * 炊飯記録のテーブルクラスです。

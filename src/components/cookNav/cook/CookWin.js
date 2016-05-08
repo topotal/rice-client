@@ -1,4 +1,4 @@
-import * as DesignParam from '../../../enum/DesignPram';
+import * as DesignParam from '../../../enum/DesignParam';
 import BaseWindow from '../../common/BaseWindow';
 import ColorButton from '../../common/ColorButton';
 import CompleteWin from './../CompleteWin';

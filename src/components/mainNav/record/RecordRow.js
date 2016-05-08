@@ -1,4 +1,4 @@
-import * as DesignParam from '../../../enum/DesignPram';
+import * as DesignParam from '../../../enum/DesignParam';
 import TiView from '../../../tiWrapp/TiView';
 import TiLabel from '../../../tiWrapp/TiLabel';
 import StarRating from '../../common/StarRating';

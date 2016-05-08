@@ -1,5 +1,5 @@
 import TiWindow from '../../tiWrapp/TiWindow';
-import * as DesignParam from '../../enum/DesignPram';
+import * as DesignParam from '../../enum/DesignParam';
 
 /**
  * 詳細画面のウィンドウクラス
