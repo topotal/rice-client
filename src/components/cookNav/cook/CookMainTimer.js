@@ -34,7 +34,7 @@ export default class CookMainTimer extends TiView {
     this._initDecoration();
 
     let textWidth = 140;
-    let textLeft = (DeviceInfo.getWidth() - textWidth) / 2;
+    let textLeft = (DeviceInfo.WIDTH - textWidth) / 2;
 
     // 上ボーダー
     let topBorder = this._createBorder();

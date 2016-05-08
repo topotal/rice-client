@@ -1,16 +1,10 @@
 export default class DeviceInfo {
 
   /**
-   * コンストラクター
-   * @constructor
-   */
-  constructor() {}
-
-  /**
    * 画面幅を取得します。
    * @return number
    */
-  static getWidth() {
+  static get WIDTH() {
     return Ti.Platform.displayCaps.platformWidth;
   }
 
@@ -18,7 +12,7 @@ export default class DeviceInfo {
    * 画面高を取得します。
    * @return number
    */
-  static getHeight() {
+  static get HEIGHT() {
     return Ti.Platform.displayCaps.platformHeight;
   }
 
@@ -26,22 +20,22 @@ export default class DeviceInfo {
    * ステータスバーとヘッダー分を引いた画面高を取得します。
    */
   static get CONTENT_HEIGHT() {
-    let deviceH = DeviceInfo.getHeight();
-    let headerH = DeviceInfo.getHeaderHeight();
+    let deviceH = DeviceInfo.HEIGHT;
+    let headerH = DeviceInfo.HEADER_HEIGHT;
     return deviceH - headerH;
   }
 
   /**
    * ステータスバー分の高さを取得します。
    */
-  static getStatusBarHeight() {
+  static get STATUS_BAR_HEIGHT() {
     return 20;
   }
 
   /**
    * ナビゲーションバー分の高さを返します。
    */
-  static getNavBarHeight() {
+  static get NAV_BAR_HEIGHT() {
     return 44;
   }
 
@@ -49,8 +43,8 @@ export default class DeviceInfo {
    * ヘッダー分の高さを取得します。
    * @return number
    */
-  static getHeaderHeight() {
-    return DeviceInfo.getStatusBarHeight() + DeviceInfo.getNavBarHeight();
+  static get HEADER_HEIGHT() {
+    return DeviceInfo.STATUS_BAR_HEIGHT + DeviceInfo.NAV_BAR_HEIGHT;
   }
 
 }

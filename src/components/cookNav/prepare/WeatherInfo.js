@@ -25,7 +25,7 @@ export default class WeatherInfo extends TiView {
     this.add(locale);
 
     // 温度湿度の位置
-    let posX = DeviceInfo.getWidth() / 2 + 10;
+    let posX = DeviceInfo.WIDTH / 2 + 10;
 
     // 温度表示
     let tempreture = this._createTemperature();
