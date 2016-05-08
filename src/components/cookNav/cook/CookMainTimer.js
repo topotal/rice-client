@@ -7,7 +7,18 @@ import DesignParam from '../../../enum/DesignPram';
 /**
  * タイマーのメイン部分
  */
-export default class CookTimerMain extends TiView {
+export default class CookMainTimer extends TiView {
+
+  /** 高さ */
+  static get HEIGHT() { return 60; }
+
+  /**
+   * 経過秒数を返却します。
+   * @return number
+   */
+  get seconds() {
+    return this._secounds;
+  }
 
   /**
    * コンストラクター
@@ -15,6 +26,9 @@ export default class CookTimerMain extends TiView {
    */
   constructor() {
     super();
+
+    this._timerId = null;
+    this._secounds = 0;
 
     // 見栄え処理
     this._initDecoration();
@@ -33,9 +47,9 @@ export default class CookTimerMain extends TiView {
     this.add(icon);
 
     // タイマーの数字
-    this._mainTimerText = this._createMainText();
-    this._mainTimerText.setLeft(textLeft + 32);
-    this.add(this._mainTimerText);
+    this._timerText = this._createMainText();
+    this._timerText.setLeft(textLeft + 32);
+    this.add(this._timerText);
 
     // 下ボーダー
     let bottomBorder = this._createBorder();
@@ -48,7 +62,7 @@ export default class CookTimerMain extends TiView {
    */
   _initDecoration() {
     this.setWidth(Ti.UI.FILL);
-    this.setHeight(60);
+    this.setHeight(CookMainTimer.HEIGHT);
     this.setBackgroundColor(DesignParam.COLOR.WHITE);
   }
 
@@ -92,12 +106,28 @@ export default class CookTimerMain extends TiView {
   }
 
   /**
-   * ミリ秒でカウントをセットします。
-   * @param milliseconds
+   * タイマーをスタートさせます。
    */
-  setMilliseconds(milliseconds) {
-     let zeroMoment = moment('00:00:00', 'HH:mm:ss');
-     let nowMoment = zeroMoment.milliseconds(milliseconds);
-     this._mainTimerText.setText(nowMoment.format('HH:mm:ss'));
+  start() {
+    this._timer = setInterval(() => this._increment(), 1000);
   }
+
+  /**
+   * タイマーをリセットします。
+   */
+  reset() {
+    this._secounds = 0;
+    clearInterval(this._timer);
+  }
+
+  /**
+   * タイマーのカウントを進めます。
+   */
+  _increment() {
+    this._secounds+=1;
+    let zeroMoment = moment('00:00:00', 'HH:mm:ss');
+    let nowMoment = zeroMoment.seconds(this._secounds);
+    this._timerText.setText(nowMoment.format('HH:mm:ss'));
+  }
+
 }

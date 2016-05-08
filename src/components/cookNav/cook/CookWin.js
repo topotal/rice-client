@@ -2,7 +2,8 @@ import * as DesignParam from '../../../enum/DesignPram';
 import BaseWindow from '../../common/BaseWindow';
 import ColorButton from '../../common/ColorButton';
 import CompleteWin from './../CompleteWin';
-import CookTimer from './CookTimer';
+import CookMainTimer from './CookMainTimer';
+import CookTimerTable from './CookTimerTable';
 
 /**
  * 炊飯画面クラスです。
@@ -19,10 +20,15 @@ export default class CookWin extends BaseWindow {
     // 見栄え処理
     this._initDecoration();
 
-    // タイムライン
-    this._timeline = new CookTimer();
-    this._timeline.setTop(0);
-    this.add(this._timeline);
+    // 履歴テーブル
+    this._timerTable = new CookTimerTable();
+    this._timerTable.setBottom(CookMainTimer.HEIGHT + 220);
+    this.add(this._timerTable);
+
+    // メインタイマー
+    this._mainTimer = new CookMainTimer();
+    this._mainTimer.setBottom(220);
+    this.add(this._mainTimer);
 
     // 切り替えボタン
     let changeButton = this._createChangeButton();
@@ -32,7 +38,8 @@ export default class CookWin extends BaseWindow {
     this.add(changeButton);
     changeButton.addEventListener('click', () => this._openCompleteWin());
 
-    this._timeline.start();
+    // タイマーをスタートさせる
+    this._mainTimer.start();
   }
 
   /**
@@ -63,7 +70,6 @@ export default class CookWin extends BaseWindow {
    * 完了画面を開きます。
    */
   _openCompleteWin() {
-    this._timeline.reset();
     let completeWin = new CompleteWin();
     app.getNavWin('cook').openWindow(completeWin);
   }

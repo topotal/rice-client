@@ -23,6 +23,15 @@ export default class DeviceInfo {
   }
 
   /**
+   * ステータスバーとヘッダー分を引いた画面高を取得します。
+   */
+  static get CONTENT_HEIGHT() {
+    let deviceH = DeviceInfo.getHeight();
+    let headerH = DeviceInfo.getHeaderHeight();
+    return deviceH - headerH;
+  }
+
+  /**
    * ステータスバー分の高さを取得します。
    */
   static getStatusBarHeight() {
