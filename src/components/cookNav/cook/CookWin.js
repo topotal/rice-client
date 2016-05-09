@@ -1,7 +1,6 @@
 import * as DesignParam from '../../../enum/DesignParam';
 import BaseWindow from '../../common/BaseWindow';
-import ColorButton from '../../common/ColorButton';
-import CompleteWin from './../CompleteWin';
+//import CompleteWin from './../CompleteWin';
 import CookMainTimer from './CookMainTimer';
 import CookTimerTable from './CookTimerTable';
 
@@ -30,13 +29,10 @@ export default class CookWin extends BaseWindow {
     this._mainTimer.setBottom(220);
     this.add(this._mainTimer);
 
-    // 切り替えボタン
-    let changeButton = this._createChangeButton();
-    changeButton.setLeft(10);
-    changeButton.setRight(10);
-    changeButton.setBottom(10);
-    this.add(changeButton);
-    changeButton.addEventListener('click', () => this._openCompleteWin());
+    // 炊飯モード切り替えボタン群
+    this._modeButtons = new CookModeButtons();
+    this._modeButtons.setBottom(0);
+    this.add(this._modeButtons);
 
     // タイマーをスタートさせる
     this._mainTimer.start();
@@ -51,27 +47,12 @@ export default class CookWin extends BaseWindow {
     this.setBackgroundColor(DesignParam.COLOR.LIGHT_YELLOW);
   }
 
-  /**
-   * 切り替えボタンを生成します。
-   * @return ColorButton
-   */
-  _createChangeButton() {
-    let button = new ColorButton(
-      DesignParam.COLOR.GREEN,
-      '切り替える',
-      {
-        height: 60
-      }
-    );
-    return button;
-  }
-
-  /**
-   * 完了画面を開きます。
-   */
-  _openCompleteWin() {
-    let completeWin = new CompleteWin();
-    app.getNavWin('cook').openWindow(completeWin);
-  }
+  ///**
+  // * 完了画面を開きます。
+  // */
+  //_openCompleteWin() {
+  //  let completeWin = new CompleteWin();
+  //  app.getNavWin('cook').openWindow(completeWin);
+  //}
 
 }
