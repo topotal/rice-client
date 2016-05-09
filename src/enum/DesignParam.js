@@ -4,6 +4,7 @@ exports.COLOR = {
   GREEN: '#BCCC14',
   ORANGE: '#FF9B00',
   RED: '#E74C3C',
+  YELLOW: '#F1C40F',
   LIGHT_YELLOW: '#FDFFF5',
   BLUE: '#7EC2CE',
   DEEP_BLUE: '#3498DB',

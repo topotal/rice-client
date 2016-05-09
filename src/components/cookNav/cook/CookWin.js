@@ -3,6 +3,7 @@ import BaseWindow from '../../common/BaseWindow';
 //import CompleteWin from './../CompleteWin';
 import CookMainTimer from './CookMainTimer';
 import CookTimerTable from './CookTimerTable';
+import CookModeButtons from './CookModeButtons';
 
 /**
  * 炊飯画面クラスです。
