@@ -4,6 +4,7 @@ import DesignParam from '../../../enum/DesignParam';
 import DeviceInfo from '../../../enum/DeviceInfo';
 import CookMode from '../../../models/vo/CookMode';
 import ColorButton from '../../common/ColorButton';
+import CookModeButton from './CookModeButton';
 
 /**
  * 炊飯モード切り替えボタン群クラスです。
@@ -16,11 +17,22 @@ export default class CookModeButtons extends TiView {
   }
 
   /**
+   * カレントモード
+   * @return CookMode
+   */
+  get currentMode() {
+    return this._currentMode;
+  }
+
+  /**
    * コンストラクター
    * @constructor
    */
   constructor() {
     super();
+
+    this._currentMode = null;
+    this._modeButtons = [];
 
     // 見栄え処理
     this._initDecoration();
@@ -59,6 +71,7 @@ export default class CookModeButtons extends TiView {
       button.setLeft((index % 3) * (buttonWidth + margin) + margin);
       button.setTop((Math.floor(index / 3) * (buttonHeight + margin)) + margin);
       this.add(button);
+      this._modeButtons.push(button);
     });
   }
 
@@ -68,6 +81,33 @@ export default class CookModeButtons extends TiView {
    * @return ColorButton
    */
   _createButton(mode) {
-    return new ColorButton(mode.color, mode.buttonText);
+    let button = new CookModeButton(mode);
+    console.info("^^~~~~~~~~~~~~~~~~");
+    console.info(button);
+    button.addEventListener('wclick', (event) => this._onClickModeButton(event));
+    return button;
+  }
+
+  /**
+   * モードボタン押下時のハンドラーです。
+   * @param event
+   */
+  _onClickModeButton(event) {
+    var target = event.target;
+    console.info('^^^^^^^^^^^^^^^^^^^^^');
+    console.info(target);
+    if(!target._mode) {
+      return;
+    }
+    this._currentMode = target.mode;
+    _.each(this._modeButtons, (modeButton) => {
+      console.info('====================');
+      console.info(target._mode, modeButton.mode);
+      if(target._mode == modeButton.mode) {
+        modeButton.setOpacity(1);
+      } else {
+        modeButton.setOpacity(0.5);
+      }
+    });
   }
 }

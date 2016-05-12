@@ -1,7 +1,9 @@
+import EventDispatcher from '../EventDispatcher';
+
 /**
  * Viewクラスのラップ
  */
-export default class TiView {
+export default class TiView extends EventDispatcher {
 
   /**
    * コンストラクター
@@ -9,6 +11,7 @@ export default class TiView {
    * @param prop
    */
   constructor(prop) {
+    super();
     this.setTiObj(prop);
   }
 
@@ -18,7 +21,13 @@ export default class TiView {
    */
   setTiObj(prop) {
     this.tiObj = Ti.UI.createView(prop);
+    this.tiObj.addEventListener('click', () => this._onTiClick());
   }
+
+  /**
+   * イベント
+   */
+  _onTiClick() { this.fireEvent('wclick', { target: this }); }
 
   /**
    * viewを追加します。
@@ -84,24 +93,7 @@ export default class TiView {
   }
 
   /**
-   * イベントリスナーを追加します。
-   * @param name
-   * @param event
-   */
-  addEventListener(name, event) {
-    this.tiObj.addEventListener(name, event);
-  }
-
-  /**
-   * イベントを発火させます。
-   * @param name
-   * @param event
-   */
-  fireEvent(name, event) {
-    this.tiObj.fireEvent(name, event);
-  }
-
-  /**
+   *
    * 背景色を追加します。
    * @param color 色
    */
@@ -147,6 +139,14 @@ export default class TiView {
    */
   setVisible(visible) {
     this.tiObj.setVisible(visible);
+  }
+
+  /**
+   * 透明度を設定します。
+   * @param opacity
+   */
+  setOpacity(opacity) {
+    this.tiObj.setOpacity(opacity);
   }
 
 }
