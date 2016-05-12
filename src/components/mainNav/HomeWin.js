@@ -26,7 +26,7 @@ export default class HomeWin extends TiWindow {
     // 炊飯記録一覧
     this._record = new RecordTable();
     this._record.addEventListener('select', () => this._onSelectRow());
-    this._record.addEventListener('scroll', (e) => this._onScroll(e));
+    this._record.addEventListener('wscroll', (e) => this._onScroll(e));
     this.add(this._record);
 
     // 炊飯ボタン
@@ -35,7 +35,7 @@ export default class HomeWin extends TiWindow {
     this.add(this._cookButton);
 
     // 炊飯ボタンのクリックイベント
-    this._cookButton.addEventListener('click', (e) => this._onClickHandler(e));
+    this._cookButton.addEventListener('wclick', (e) => this._onClickHandler(e));
 
     // ウィンドウを開いた時のイベントを監視
     this.addEventListener('open', () => this._onOpen());

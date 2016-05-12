@@ -41,7 +41,7 @@ export default class PrepareWin extends TiWindow {
     startButton.setRight(10);
     startButton.setBottom(10);
     this.add(startButton);
-    startButton.addEventListener('click', _.bind(this._onClickStart, this));
+    startButton.addEventListener('wclick', _.bind(this._onClickStart, this));
   }
 
   /**

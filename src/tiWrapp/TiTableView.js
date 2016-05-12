@@ -14,6 +14,8 @@ export default class TiTableView extends TiView {
 
     // row格納用配列
     this._data = [];
+
+    this.tiObj.addEventListener('scroll', (event) => this._onTiScroll(event));
   }
 
   /**
@@ -23,6 +25,11 @@ export default class TiTableView extends TiView {
   setTiObj(prop) {
     this.tiObj = Ti.UI.createTableView(prop);
   }
+
+  /**
+   * イベント
+   */
+  _onTiScroll(event) { this.fireEvent('wscroll', event); }
 
   /**
    * Rowをセットします。

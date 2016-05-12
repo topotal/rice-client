@@ -13,6 +13,7 @@ export default class TiView extends EventDispatcher {
   constructor(prop) {
     super();
     this.setTiObj(prop);
+    this.tiObj.addEventListener('click', () => this._onTiClick());
   }
 
   /**
@@ -21,7 +22,6 @@ export default class TiView extends EventDispatcher {
    */
   setTiObj(prop) {
     this.tiObj = Ti.UI.createView(prop);
-    this.tiObj.addEventListener('click', () => this._onTiClick());
   }
 
   /**
