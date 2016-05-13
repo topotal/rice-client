@@ -10,6 +10,7 @@ export default class TiWindow extends TiView {
    */
   constructor(prop) {
     super(prop);
+    this.tiObj.addEventListener('open', (event) => this._onOpen(event));
   }
 
   /**
@@ -20,6 +21,11 @@ export default class TiWindow extends TiView {
   setTiObj(prop) {
     this.tiObj = Ti.UI.createWindow(prop);
   }
+
+  /**
+   * イベント
+   */
+  _onOpen(event) { this.fireEvent('wopen', event); }
 
   /**
    * navBarのタイトルを設定します。

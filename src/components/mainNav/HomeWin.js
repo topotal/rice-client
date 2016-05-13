@@ -38,7 +38,7 @@ export default class HomeWin extends TiWindow {
     this._cookButton.addEventListener('wclick', (e) => this._onClickHandler(e));
 
     // ウィンドウを開いた時のイベントを監視
-    this.addEventListener('open', () => this._onOpen());
+    this.addEventListener('wopen', () => this._onOpen());
   }
 
   /**
