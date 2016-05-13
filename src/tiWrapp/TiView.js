@@ -149,4 +149,28 @@ export default class TiView extends EventDispatcher {
     this.tiObj.setOpacity(opacity);
   }
 
+  /**
+   * シャドウの色を設定します。
+   * @param color
+   */
+  setViewShadowColor(color) {
+    this.tiObj.setViewShadowColor(color);
+  }
+
+  /**
+   * シャドウのオフセットを設定します。
+   * @param offset
+   */
+  setViewShadowOffset(offset) {
+    this.tiObj.setViewShadowOffset(offset);
+  }
+
+  /**
+   * シャドウの半径をぼかしを設定します。
+   * @param radius
+   */
+  setViewShadowRadius(radius) {
+    this.tiObj.setViewShadowRadius(radius);
+  }
+
 }

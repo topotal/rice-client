@@ -8,6 +8,22 @@ import * as DesignParam from '../../enum/DesignParam';
 export default class ColorButton extends TiView {
 
   /**
+   * タッチ可能かどうかの真偽値
+   */
+  get touchEnabled() {
+    return this._touchEnabled;
+  }
+
+  set touchEnabled(bool) {
+    this._touchEnabled = bool;
+    if(this._touchEnabled) {
+      this.setOpacity(1);
+    } else {
+      this.setOpacity(0.5);
+    }
+  }
+
+  /**
    * コンストラクター
    * @constructor
    * @param color
@@ -16,21 +32,17 @@ export default class ColorButton extends TiView {
    */
   constructor(color, text, prop) {
     super(prop);
-    // 見栄えの処理
-    this._initDecoration();
 
     this._color = color;
     this._text = text;
+    this._touchEnabled = true;
 
     // ラッパー
     this._wrapper = this._createWrapper();
     this.add(this._wrapper);
-  }
 
-  /**
-   * 装飾の初期化
-   */
-  _initDecoration() {
+    // 初期状態として引いておく
+    this.pull();
   }
 
   /**
@@ -42,13 +54,13 @@ export default class ColorButton extends TiView {
       top: 0,
       left: 0,
       right: 0,
-      bottom: 2,
+      //bottom: 2,
       borderRadius: 3,
       backgroundColor: this._color,
-      viewShadowColor: 'rgba(0, 0, 0, 0.4)',
-      viewShadowOffset: {
-        x: 0, y: 2
-      },
+      //viewShadowColor: 'rgba(0, 0, 0, 0.4)',
+      //viewShadowOffset: {
+      //  x: 0, y: 2
+      //},
       viewShadowRadius: 0
     });
 
@@ -64,6 +76,28 @@ export default class ColorButton extends TiView {
     view.add(text);
 
     return view;
+  }
+
+  /**
+   * 押し込む
+   */
+  push() {
+    this._wrapper.setTop(2);
+    this._wrapper.setBottom(0);
+    this._wrapper.setViewShadowColor('rgba(0, 0, 0, 0)');
+    this._wrapper.setViewShadowOffset({x: 0, y: 2});
+    this._wrapper.setViewShadowRadius(0);
+  }
+
+  /**
+   * 引く
+   */
+  pull() {
+    this._wrapper.setTop(0);
+    this._wrapper.setBottom(2);
+    this._wrapper.setViewShadowColor('rgba(0, 0, 0, 0.4)');
+    this._wrapper.setViewShadowOffset({x: 0, y: 2});
+    this._wrapper.setViewShadowRadius(0);
   }
 
 }

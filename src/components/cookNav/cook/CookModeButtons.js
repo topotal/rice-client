@@ -82,8 +82,6 @@ export default class CookModeButtons extends TiView {
    */
   _createButton(mode) {
     let button = new CookModeButton(mode);
-    console.info("^^~~~~~~~~~~~~~~~~");
-    console.info(button);
     button.addEventListener('wclick', (event) => this._onClickModeButton(event));
     return button;
   }
@@ -94,19 +92,12 @@ export default class CookModeButtons extends TiView {
    */
   _onClickModeButton(event) {
     var target = event.target;
-    console.info('^^^^^^^^^^^^^^^^^^^^^');
-    console.info(target);
-    if(!target._mode) {
-      return;
-    }
     this._currentMode = target.mode;
     _.each(this._modeButtons, (modeButton) => {
-      console.info('====================');
-      console.info(target._mode, modeButton.mode);
       if(target._mode == modeButton.mode) {
-        modeButton.setOpacity(1);
+        modeButton.push();
       } else {
-        modeButton.setOpacity(0.5);
+        modeButton.pull();
       }
     });
   }
