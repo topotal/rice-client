@@ -121,7 +121,7 @@ export default class RecordTable extends TiTableView {
    */
   _createRow(index, data) {
     var row = new RecordRow(data);
-    row.addEventListener('click', () => this._onClickRow());
+    row.addEventListener('wclick', () => this._onClickRow());
     // すでに選択している値があればレ点をつける
     if(this._value && this._value.getId() === data.getId()) {
       row.check();
