@@ -32,7 +32,7 @@ export default class RecordTable extends TiTableView {
     this._refreshControl = new TiRefreshControl({
       tintColor: DesignParam.COLOR.LIGHT_YELLOW
     });
-    this._refreshControl.addEventListener('refreshstart', () => this._onRefresh());
+    this._refreshControl.addEventListener('wrefreshstart', () => this._onRefresh());
     this.setRefreshControl(this._refreshControl);
 
     // サービス
