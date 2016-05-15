@@ -97,6 +97,6 @@ export default class TiTableView extends TiView {
    * @param control
    */
   setRefreshControl(control) {
-    this.tiObj.setRefreshControl(control);
+    this.tiObj.setRefreshControl(control.tiObj);
   }
 }

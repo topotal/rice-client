@@ -4,6 +4,7 @@ import TiImageView from '../../../tiWrapp/TiImageView';
 import RecordRow from './RecordRow';
 import DesignParam from '../../../enum/DesignParam';
 import GetCookRecordsService from '../../../service/GetCookRecordsService';
+import TiRefreshControl from '../../../tiWrapp/TiRefreshControl';
 
 /**
  * 炊飯記録テーブルクラスです。
@@ -28,7 +29,9 @@ export default class RecordTable extends TiTableView {
     this.setFooterView(footerView);
 
     // リフレッシュコントロール
-    this._refreshControl = this._createRefreshControl();
+    this._refreshControl = new TiRefreshControl({
+      tintColor: DesignParam.COLOR.LIGHT_YELLOW
+    });
     this._refreshControl.addEventListener('refreshstart', () => this._onRefresh());
     this.setRefreshControl(this._refreshControl);
 
@@ -80,17 +83,6 @@ export default class RecordTable extends TiTableView {
     view.add(image);
 
     return view;
-  }
-
-  /**
-   * リフレッシュコントロールを生成します。
-   * @return Ti.UI.RefreshControl
-   */
-  _createRefreshControl() {
-    let control = Ti.UI.createRefreshControl({
-      tintColor: DesignParam.COLOR.LIGHT_YELLOW
-    });
-    return control;
   }
 
   /**
