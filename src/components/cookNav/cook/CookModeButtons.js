@@ -46,6 +46,7 @@ export default class CookModeButtons extends TiView {
     this._changeButton.setLeft(10);
     this._changeButton.setRight(10);
     this._changeButton.setBottom(10);
+    this._changeButton.addEventListener('wclick', () => this._onClickChangeButton());
     this.add(this._changeButton);
   }
 
@@ -100,5 +101,13 @@ export default class CookModeButtons extends TiView {
         modeButton.pull();
       }
     });
+  }
+
+  /**
+   * 切り替えボタンクリック時のハンドラーです。
+   */
+  _onClickChangeButton() {
+    // 変更イベントを発火
+    this.fireEvent('change');
   }
 }

@@ -33,6 +33,7 @@ export default class CookWin extends BaseWindow {
     // 炊飯モード切り替えボタン群
     this._modeButtons = new CookModeButtons();
     this._modeButtons.setBottom(0);
+    this._modeButtons.addEventListener('change', () => this._onChangeMode());
     this.add(this._modeButtons);
 
     // タイマーをスタートさせる
@@ -55,5 +56,12 @@ export default class CookWin extends BaseWindow {
   //  let completeWin = new CompleteWin();
   //  app.getNavWin('cook').openWindow(completeWin);
   //}
+
+  /**
+   * モード切り替え時のハンドラーです。
+   */
+  _onChangeMode() {
+    console.info(this._modeButtons.currentMode);
+  }
 
 }
