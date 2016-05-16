@@ -1,5 +1,6 @@
 import TiTableView from '../../../tiWrapp/TiTableView';
 import DesignParam from '../../../enum/DesignParam';
+import CookTimerRow from './CookTimerRow';
 
 /**
  * 炊飯記録のテーブルクラスです。
@@ -23,7 +24,17 @@ export default class CookTimerTable extends TiTableView {
   _initDecoration() {
     this.setWidth(Ti.UI.FILL);
     this.setHeight(Ti.UI.FILL);
+    this.setRowHeight(60);
     this.setBackgroundColor(DesignParam.COLOR.WHITE);
+  }
+
+  /**
+   * Rowを追加します。
+   */
+  pushRow() {
+    var row = new CookTimerRow();
+    this.appendRow(row);
+    this.scrollToIndex(this.getData().length-1);
   }
 
 }

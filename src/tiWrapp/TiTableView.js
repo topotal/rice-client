@@ -99,4 +99,23 @@ export default class TiTableView extends TiView {
   setRefreshControl(control) {
     this.tiObj.setRefreshControl(control.tiObj);
   }
+
+  /**
+   * rowを追加します。
+   * @param row
+   * @param animation
+   */
+  appendRow(row, animation) {
+    this._data.push(row);
+    this.tiObj.appendRow(row.tiObj, animation);
+  }
+
+  /**
+   * 指定したインデックスのRowへスクロールします。
+   * @param index
+   * @param animation
+   */
+  scrollToIndex(index, animation) {
+    this.tiObj.scrollToIndex(index, animation);
+  }
 }
