@@ -21,6 +21,9 @@ export default class CookModeButton extends ColorButton {
     super(mode.color, mode.buttonText);
 
     this._mode = mode;
+
+    this.autoPush = false;
+    this.autoPull = false;
   }
 
 }

@@ -14,6 +14,8 @@ export default class TiView extends EventDispatcher {
     super();
     this.setTiObj(prop);
     this.tiObj.addEventListener('click', (event) => this._onTiClick(event));
+    this.tiObj.addEventListener('touchstart', (event) => this._onTiTouchStart(event));
+    this.tiObj.addEventListener('touchend', (event) => this._onTiTouchEnd(event));
   }
 
   /**
@@ -28,6 +30,8 @@ export default class TiView extends EventDispatcher {
    * イベント
    */
   _onTiClick() { this.fireEvent('wclick', { target: this }); }
+  _onTiTouchStart() { this.fireEvent('wtouchstart', { target: this }); }
+  _onTiTouchEnd() { this.fireEvent('wtouchend', { target: this }); }
 
   /**
    * viewを追加します。

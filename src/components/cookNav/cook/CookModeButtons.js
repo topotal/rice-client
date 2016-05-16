@@ -82,7 +82,7 @@ export default class CookModeButtons extends TiView {
    */
   _createButton(mode) {
     let button = new CookModeButton(mode);
-    button.addEventListener('wclick', (event) => this._onClickModeButton(event));
+    button.addEventListener('wtouchstart', (event) => this._onClickModeButton(event));
     return button;
   }
 
