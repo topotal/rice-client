@@ -31,6 +31,7 @@ export default class CookModeButtons extends TiView {
   constructor() {
     super();
 
+    this._selectMode = null;
     this._currentMode = null;
     this._modeButtons = [];
 
@@ -93,7 +94,8 @@ export default class CookModeButtons extends TiView {
    */
   _onClickModeButton(event) {
     var target = event.target;
-    this._currentMode = target.mode;
+    // 選択モードを更新
+    this._selectMode = target.mode;
     _.each(this._modeButtons, (modeButton) => {
       if(target._mode == modeButton.mode) {
         modeButton.push();
@@ -107,6 +109,12 @@ export default class CookModeButtons extends TiView {
    * 切り替えボタンクリック時のハンドラーです。
    */
   _onClickChangeButton() {
+    // 同じモードだった場合は処理させない
+    if(this._currentMode == this._selectMode) {
+      return;
+    }
+    // カレントを更新
+    this._currentMode = this._selectMode;
     // 変更イベントを発火
     this.fireEvent('change');
   }
