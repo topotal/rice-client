@@ -1,5 +1,6 @@
 import TiTableViewRow from '../../../tiWrapp/TiTableViewRow';
-import TiView from '../../../tiWrapp/TiView';
+import TiLabel from '../../../tiWrapp/TiLabel';
+import DesignParam from '../../../enum/DesignParam';
 
 /**
  * 炊飯記録のRowクラスです。
@@ -16,12 +17,10 @@ export default class CookTimerRow extends TiTableViewRow {
     // 見栄え処理
     this._initDecoration();
 
-    var hoge = new TiView({
-      width: 10,
-      height: 10,
-      backgroundColor: '#FF0'
-    });
-    this.add(hoge);
+    // 秒数
+    this._time = this._createTime();
+    this._time.setRight(20);
+    this.add(this._time);
   }
 
   /**
@@ -30,6 +29,20 @@ export default class CookTimerRow extends TiTableViewRow {
   _initDecoration() {
     this.setWidth(Ti.UI.FILL);
     this.setHeight(60);
+  }
+
+  /**
+   * 秒数
+   * @return TiLabel
+   */
+  _createTime() {
+    return new TiLabel({
+      text: '3分 6秒 経過',
+      color: DesignParam.COLOR.BLACK,
+      font: {
+        fontSize: 14
+      }
+    });
   }
 
 }
