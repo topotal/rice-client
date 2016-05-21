@@ -1,4 +1,5 @@
 import TiTableViewRow from '../../../tiWrapp/TiTableViewRow';
+import TiView from '../../../tiWrapp/TiView';
 import TiLabel from '../../../tiWrapp/TiLabel';
 import DesignParam from '../../../enum/DesignParam';
 
@@ -21,6 +22,11 @@ export default class CookTimerRow extends TiTableViewRow {
     this._time = this._createTime();
     this._time.setRight(20);
     this.add(this._time);
+
+    // カレントマーク
+    this._currentMark = this._createCurrentMark();
+    this._currentMark.setRight(115);
+    this.add(this._currentMark);
   }
 
   /**
@@ -45,4 +51,16 @@ export default class CookTimerRow extends TiTableViewRow {
     });
   }
 
+  /**
+   * カレントマーク
+   * @return TiView
+   */
+  _createCurrentMark() {
+    return new TiView({
+      width: 10,
+      height: 10,
+      backgroundColor: DesignParam.COLOR.GREEN,
+      borderRadius: 5
+    });
+  }
 }
