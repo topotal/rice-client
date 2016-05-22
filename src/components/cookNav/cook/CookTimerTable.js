@@ -14,6 +14,8 @@ export default class CookTimerTable extends TiTableView {
   constructor() {
     super();
 
+    this._currentRow = null;
+
     // 見栄え処理
     this._initDecoration();
   }
@@ -33,9 +35,18 @@ export default class CookTimerTable extends TiTableView {
    * @param mode
    */
   pushRow(mode) {
+    let oldRow = this._currentRow;
+    if(oldRow) {
+      oldRow.stop();
+    }
+
     var row = new CookTimerRow(mode);
+    row.start();
     this.appendRow(row);
     this.scrollToIndex(this.getData().length-1);
+
+    // 現在Rowを更新
+    this._currentRow = row;
   }
 
 }

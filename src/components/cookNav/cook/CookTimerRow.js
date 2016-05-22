@@ -3,6 +3,7 @@ import TiView from '../../../tiWrapp/TiView';
 import TiLabel from '../../../tiWrapp/TiLabel';
 import DesignParam from '../../../enum/DesignParam';
 import ModeMark from '../../common/ModeMark';
+import moment from 'libs/moment';
 
 /**
  * 炊飯記録のRowクラスです。
@@ -18,6 +19,8 @@ export default class CookTimerRow extends TiTableViewRow {
     super();
 
     this._mode = mode;
+    this._timer = null;
+    this._secounds = 0;
 
     // 見栄え処理
     this._initDecoration();
@@ -34,7 +37,8 @@ export default class CookTimerRow extends TiTableViewRow {
 
     // カレントマーク
     this._currentMark = this._createCurrentMark();
-    this._currentMark.setRight(115);
+    this._currentMark.setRight(184);
+    this._currentMark.setVisible(false);
     this.add(this._currentMark);
   }
 
@@ -53,7 +57,8 @@ export default class CookTimerRow extends TiTableViewRow {
    */
   _createTime() {
     return new TiLabel({
-      text: '3分 6秒 経過',
+      text: '00時間 00分 00秒 経過',
+      textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
       color: DesignParam.COLOR.BLACK,
       font: {
         fontSize: 14
@@ -72,5 +77,31 @@ export default class CookTimerRow extends TiTableViewRow {
       backgroundColor: DesignParam.COLOR.GREEN,
       borderRadius: 5
     });
+  }
+
+  /**
+   * タイマーをスタートさせます。
+   */
+  start() {
+    this._currentMark.setVisible(true);
+    this._timer = setInterval(() => this._increment(), 1000);
+  }
+
+  /**
+   * タイマーをストップします。
+   */
+  stop() {
+    this._currentMark.setVisible(false);
+    clearInterval(this._timer);
+  }
+
+  /**
+   * タイマーのカウントを進めます。
+   */
+  _increment() {
+    this._secounds+=1;
+    let zeroMoment = moment('00:00:00', 'HH:mm:ss');
+    let nowMoment = zeroMoment.seconds(this._secounds);
+    this._time.setText(nowMoment.format('HH時間 mm分 ss秒 経過'));
   }
 }
