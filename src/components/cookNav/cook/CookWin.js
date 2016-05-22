@@ -61,7 +61,8 @@ export default class CookWin extends BaseWindow {
    * モード切り替え時のハンドラーです。
    */
   _onChangeMode() {
-    this._timerTable.pushRow();
+    let mode = this._modeButtons.currentMode;
+    this._timerTable.pushRow(mode);
   }
 
 }

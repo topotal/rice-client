@@ -30,9 +30,10 @@ export default class CookTimerTable extends TiTableView {
 
   /**
    * Rowを追加します。
+   * @param mode
    */
-  pushRow() {
-    var row = new CookTimerRow();
+  pushRow(mode) {
+    var row = new CookTimerRow(mode);
     this.appendRow(row);
     this.scrollToIndex(this.getData().length-1);
   }

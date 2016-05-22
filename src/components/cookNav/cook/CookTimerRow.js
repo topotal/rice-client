@@ -12,15 +12,18 @@ export default class CookTimerRow extends TiTableViewRow {
   /**
    * コンストラクター
    * @constructor
+   * @param mode
    */
-  constructor() {
+  constructor(mode) {
     super();
+
+    this._mode = mode;
 
     // 見栄え処理
     this._initDecoration();
 
     // モードマーク
-    this._modeMark = new ModeMark();
+    this._modeMark = new ModeMark(this._mode);
     this._modeMark.setLeft(36);
     this.add(this._modeMark);
 

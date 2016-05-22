@@ -6,9 +6,12 @@ export default class ModeMark extends TiView {
   /**
    * コンストラクター
    * @constructor
+   * @param mode
    */
-  constructor() {
+  constructor(mode) {
     super();
+
+    this._mode = mode;
 
     // 見栄え処理
     this._initDecoration();
@@ -26,7 +29,7 @@ export default class ModeMark extends TiView {
     this.setHeight(40);
     this.setBorderWidth(5);
     this.setBorderRadius(20);
-    this.setBorderColor('#ff0000');
+    this.setBorderColor(this._mode.color);
   }
 
   /**
@@ -34,8 +37,8 @@ export default class ModeMark extends TiView {
    */
   _createText() {
     return new TiLabel({
-      text: '強',
-      color: '#ff0000',
+      text: this._mode.modeText,
+      color: this._mode.color,
       font: {
         fontSize: 14
       }
