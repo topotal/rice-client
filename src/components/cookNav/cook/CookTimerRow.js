@@ -2,6 +2,7 @@ import TiTableViewRow from '../../../tiWrapp/TiTableViewRow';
 import TiView from '../../../tiWrapp/TiView';
 import TiLabel from '../../../tiWrapp/TiLabel';
 import DesignParam from '../../../enum/DesignParam';
+import ModeMark from '../../common/ModeMark';
 
 /**
  * 炊飯記録のRowクラスです。
@@ -17,6 +18,11 @@ export default class CookTimerRow extends TiTableViewRow {
 
     // 見栄え処理
     this._initDecoration();
+
+    // モードマーク
+    this._modeMark = new ModeMark();
+    this._modeMark.setLeft(36);
+    this.add(this._modeMark);
 
     // 秒数
     this._time = this._createTime();
