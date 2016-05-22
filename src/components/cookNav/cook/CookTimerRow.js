@@ -44,6 +44,7 @@ export default class CookTimerRow extends TiTableViewRow {
   _initDecoration() {
     this.setWidth(Ti.UI.FILL);
     this.setHeight(60);
+    this.setSelectionStyle(Ti.UI.iPhone.TableViewCellSelectionStyle.NONE);
   }
 
   /**
