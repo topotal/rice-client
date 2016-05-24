@@ -29,12 +29,14 @@ export default class CookTimerRow extends TiTableViewRow {
     this._beforeBar = this._createBar();
     this._beforeBar.setTop(0);
     this._beforeBar.setLeft(54);
+    this._beforeBar.setVisible(false);
     this.add(this._beforeBar);
 
     // 次との繋ぎ棒
     this._nextBar = this._createBar();
     this._nextBar.setBottom(0);
     this._nextBar.setLeft(54);
+    this._nextBar.setVisible(false);
     this.add(this._nextBar);
 
     // モードマーク
@@ -117,6 +119,20 @@ export default class CookTimerRow extends TiTableViewRow {
   stop() {
     this._currentMark.setVisible(false);
     clearInterval(this._timer);
+  }
+
+  /**
+   * 前のRowと繋ぎます。
+   */
+  jointBeforeRow() {
+    this._beforeBar.setVisible(true);
+  }
+
+  /**
+   * 次のRowと繋ぎます。
+   */
+  jointNextRow() {
+    this._nextBar.setVisible(true);
   }
 
   /**
