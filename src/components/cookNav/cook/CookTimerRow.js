@@ -25,6 +25,18 @@ export default class CookTimerRow extends TiTableViewRow {
     // 見栄え処理
     this._initDecoration();
 
+    // 前との繋ぎ棒
+    this._beforeBar = this._createBar();
+    this._beforeBar.setTop(0);
+    this._beforeBar.setLeft(54);
+    this.add(this._beforeBar);
+
+    // 次との繋ぎ棒
+    this._nextBar = this._createBar();
+    this._nextBar.setBottom(0);
+    this._nextBar.setLeft(54);
+    this.add(this._nextBar);
+
     // モードマーク
     this._modeMark = new ModeMark(this._mode);
     this._modeMark.setLeft(36);
@@ -76,6 +88,18 @@ export default class CookTimerRow extends TiTableViewRow {
       height: 10,
       backgroundColor: DesignParam.COLOR.GREEN,
       borderRadius: 5
+    });
+  }
+
+  /**
+   * 繋ぎ棒を生成します。
+   * @return TiView
+   */
+  _createBar() {
+    return new TiView({
+      width: 4,
+      height: 30,
+      backgroundColor: DesignParam.COLOR.GRAY
     });
   }
 
