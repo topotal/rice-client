@@ -27,6 +27,7 @@ export default class ModeMark extends TiView {
   _initDecoration() {
     this.setWidth(40);
     this.setHeight(40);
+    this.setBackgroundColor('#FFFFFF');
     this.setBorderWidth(5);
     this.setBorderRadius(20);
     this.setBorderColor(this._mode.color);
