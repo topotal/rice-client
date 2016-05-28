@@ -1,8 +1,9 @@
 import * as DesignParam from '../../../enum/DesignParam';
 import BaseWindow from '../../common/BaseWindow';
-//import CompleteWin from './../CompleteWin';
+import CompleteWin from './../CompleteWin';
 import CookMainTimer from './CookMainTimer';
 import CookTimerTable from './CookTimerTable';
+import CookMode from '../../../models/vo/CookMode';
 import CookModeButtons from './CookModeButtons';
 
 /**
@@ -49,19 +50,26 @@ export default class CookWin extends BaseWindow {
     this.setBackgroundColor(DesignParam.COLOR.LIGHT_YELLOW);
   }
 
-  ///**
-  // * 完了画面を開きます。
-  // */
-  //_openCompleteWin() {
-  //  let completeWin = new CompleteWin();
-  //  app.getNavWin('cook').openWindow(completeWin);
-  //}
+  /**
+  * 完了画面を開きます。
+  */
+  _openCompleteWin() {
+   let completeWin = new CompleteWin();
+   app.getNavWin('cook').openWindow(completeWin);
+  }
 
   /**
    * モード切り替え時のハンドラーです。
    */
   _onChangeMode() {
     let mode = this._modeButtons.currentMode;
+    console.info('^^^^^^^^^^^^^^^');
+    console.info('mode: ', mode);
+    console.info('cook: ', CookMode.COMP);
+    if(mode.id == CookMode.COMP.id) {
+      this._openCompleteWin();
+      return;
+    }
     this._timerTable.pushRow(mode);
   }
 
