@@ -23,7 +23,7 @@ export default class CompleteWin extends TiWindow {
     saveButton.setRight(10);
     saveButton.setBottom(10);
     this.add(saveButton);
-    saveButton.addEventListener('click', () => this._onClickSaveButton());
+    saveButton.addEventListener('wclick', () => this._onClickSaveButton());
   }
 
   /**
