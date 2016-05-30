@@ -1,6 +1,6 @@
-import * as DesignParam from '../../enum/DesignParam';
-import TiWindow from '../../tiWrapp/TiWindow';
-import ColorButton from '../common/ColorButton';
+import * as DesignParam from '../../../enum/DesignParam';
+import TiWindow from '../../../tiWrapp/TiWindow';
+import ColorButton from '../../common/ColorButton';
 
 /**
  * 炊飯完了画面クラスです。

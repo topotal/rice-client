@@ -1,7 +1,7 @@
 import {_} from 'libs/lodash';
 import * as DesignParam from '../../../enum/DesignParam';
 import BaseWindow from '../../common/BaseWindow';
-import CompleteWin from './../CompleteWin';
+import CompleteWin from './../complete/CompleteWin';
 import CookMainTimer from './CookMainTimer';
 import CookTimerTable from './CookTimerTable';
 import CookMode from '../../../models/vo/CookMode';
