@@ -1,3 +1,4 @@
+import {_} from 'libs/lodash';
 import * as DesignParam from '../../../enum/DesignParam';
 import BaseWindow from '../../common/BaseWindow';
 import CompleteWin from './../CompleteWin';
@@ -63,10 +64,7 @@ export default class CookWin extends BaseWindow {
    */
   _onChangeMode() {
     let mode = this._modeButtons.currentMode;
-    console.info('^^^^^^^^^^^^^^^');
-    console.info('mode: ', mode);
-    console.info('cook: ', CookMode.COMP);
-    if(mode.id == CookMode.COMP.id) {
+    if(_.isEqual(mode, CookMode.COMP)) {
       this._openCompleteWin();
       return;
     }
