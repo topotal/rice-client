@@ -49,8 +49,8 @@ export default class CookWin extends BaseWindow {
   }
 
   /**
-  * 完了画面を開きます。
-  */
+   * 完了画面を開きます。
+   */
   _openCompleteWin() {
     let completeWin = new CompleteWin();
     app.getNavWin('cook').openWindow(completeWin);
