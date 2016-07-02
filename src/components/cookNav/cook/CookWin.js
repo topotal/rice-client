@@ -7,6 +7,7 @@ import CookTimerTable from './CookTimerTable';
 import CookMode from '../../../models/vo/CookMode';
 import CookModeButtons from './CookModeButtons';
 import TiButton from '../../../tiWrapp/TiButton';
+import TiAlertDialog from '../../../tiWrapp/TiAlertDialog';
 
 /**
  * 炊飯画面クラスです。
@@ -44,6 +45,16 @@ export default class CookWin extends BaseWindow {
     this.setLeftNavButton(this._cancelButton);
     this._onClickCancel = this._onClickCancel.bind(this);
     this._cancelButton.addEventListener('wclick', this._onClickCancel);
+
+    // 中止ダイアログ
+    this._cancelDialog = new TiAlertDialog({
+      message: '炊飯の記録を中止しても\nよろしいですか？',
+      cancel: 0,
+      buttonNames: ['キャンセル', 'OK'],
+      title: 'Best Rice'
+    });
+    this._onClickDialog = this._onClickDialog.bind(this);
+    this._cancelDialog.addEventListener('wclick', this._onClickDialog);
   }
 
   /**
@@ -85,7 +96,17 @@ export default class CookWin extends BaseWindow {
    * キャンセルボタン押下時のハンドラーです。
    */
   _onClickCancel() {
-    console.info('test');
+    this._cancelDialog.show();
+  }
+
+  /**
+   * キャンセルダイアログのボタンクリック時のハンドラーです。
+   */
+  _onClickDialog(event) {
+    // OKボタンであれば炊飯画面を閉じる
+    if(event.index == 1) {
+      app.getNavWin('cook').close();
+    }
   }
 
 }

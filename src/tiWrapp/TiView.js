@@ -29,7 +29,10 @@ export default class TiView extends EventDispatcher {
   /**
    * イベント
    */
-  _onTiClick() { this.fireEvent('wclick', { target: this }); }
+  _onTiClick(event) {
+    event.target = this;
+    this.fireEvent('wclick', event);
+  }
   _onTiTouchStart() { this.fireEvent('wtouchstart', { target: this }); }
   _onTiTouchEnd() { this.fireEvent('wtouchend', { target: this }); }
 
