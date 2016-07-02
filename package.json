@@ -4,17 +4,11 @@
   "description": "土鍋炊飯支援アプリ ![rice.app](readme.png)",
   "main": "index.js",
   "scripts": {
-    "postinstall": "mkdir appify && npm run tishadow:appify",
-    "start": "npm run watch & npm run tishadow:build & npm run tishadow:server",
+    "start": "npm run watch",
     "build": "babel src -d Resources",
     "ti:build": "ti build -p ios -T simulator --log-level debug --device-id 7A9C4EC5-1757-46FD-BC01-53274BF9DC56",
-    "watch": "npm run watch:js & npm run watch:tishadow",
-    "watch:js": "babel src -d Resources --watch",
-    "watch:tishadow": "watch 'npm run tishadow:run' Resources -d",
-    "tishadow:appify": "tishadow appify -d ./appify",
-    "tishadow:server": "tishadow server",
-    "tishadow:build": "ti build -p ios -T simulator -d ./appify --log-level error --device-id 7A9C4EC5-1757-46FD-BC01-53274BF9DC56",
-    "tishadow:run": "tishadow run"
+    "watch": "npm run watch:js",
+    "watch:js": "babel src -d Resources --watch"
   },
   "repository": {
     "type": "git",
@@ -25,7 +19,6 @@
     "babel": "^6.5.2",
     "babel-cli": "^6.6.5",
     "babel-preset-es2015": "^6.6.0",
-    "tishadow": "^2.8.5",
     "titanium": "^5.0.6",
     "watch": "^0.17.1"
   },
