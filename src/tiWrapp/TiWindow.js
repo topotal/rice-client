@@ -111,6 +111,13 @@ export default class TiWindow extends TiView {
   }
 
   /**
+   * バックボタンタイトルを設定します。
+   */
+  setBackButtonTitle(title) {
+    this.tiObj.setBackButtonTitle(title);
+  }
+
+  /**
    * windowを閉じます。
    */
   close(prop) {
