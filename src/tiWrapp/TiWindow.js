@@ -118,6 +118,13 @@ export default class TiWindow extends TiView {
   }
 
   /**
+   * ナビゲーション左側のボタンを設定します。
+   */
+  setLeftNavButton(button) {
+    this.tiObj.setLeftNavButton(button.tiObj);
+  }
+
+  /**
    * windowを閉じます。
    */
   close(prop) {
