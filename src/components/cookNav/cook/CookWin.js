@@ -37,9 +37,6 @@ export default class CookWin extends BaseWindow {
     this._modeButtons.setBottom(0);
     this._modeButtons.addEventListener('change', () => this._onChangeMode());
     this.add(this._modeButtons);
-
-    // タイマーをスタートさせる
-    this._mainTimer.start();
   }
 
   /**
@@ -55,14 +52,20 @@ export default class CookWin extends BaseWindow {
   * 完了画面を開きます。
   */
   _openCompleteWin() {
-   let completeWin = new CompleteWin();
-   app.getNavWin('cook').openWindow(completeWin);
+    let completeWin = new CompleteWin();
+    app.getNavWin('cook').openWindow(completeWin);
   }
 
   /**
    * モード切り替え時のハンドラーです。
    */
   _onChangeMode() {
+
+    // メインタイマーが動いていなければスタートさせる
+    if(!this._mainTimer.isActive) {
+      this._mainTimer.start();
+    }
+
     let mode = this._modeButtons.currentMode;
     if(_.isEqual(mode, CookMode.COMP)) {
       this._openCompleteWin();

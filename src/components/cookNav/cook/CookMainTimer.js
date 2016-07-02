@@ -29,6 +29,7 @@ export default class CookMainTimer extends TiView {
 
     this._timerId = null;
     this._secounds = 0;
+    this.isActive = false;
 
     // 見栄え処理
     this._initDecoration();
@@ -109,6 +110,7 @@ export default class CookMainTimer extends TiView {
    * タイマーをスタートさせます。
    */
   start() {
+    this.isActive = true;
     this._timer = setInterval(() => this._increment(), 1000);
   }
 
@@ -116,6 +118,7 @@ export default class CookMainTimer extends TiView {
    * タイマーをリセットします。
    */
   reset() {
+    this.isActive = false;
     this._secounds = 0;
     clearInterval(this._timer);
   }
