@@ -8,6 +8,7 @@ import CookMode from '../../../models/vo/CookMode';
 import CookModeButtons from './CookModeButtons';
 import TiButton from '../../../tiWrapp/TiButton';
 import TiAlertDialog from '../../../tiWrapp/TiAlertDialog';
+import CookModel from '../../../models/CookModel';
 
 /**
  * 炊飯画面クラスです。
@@ -23,6 +24,10 @@ export default class CookWin extends BaseWindow {
 
     // 見栄え処理
     this._initDecoration();
+
+    // モデル
+    this._model = CookModel;
+    console.info(this._model.timeline);
 
     // 履歴テーブル
     this._timerTable = new CookTimerTable();
