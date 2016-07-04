@@ -3,6 +3,7 @@ import TiLabel from '../../tiWrapp/TiLabel';
 import InputView from './InputView';
 import * as DesignParam from '../../enum/DesignParam';
 import SelectWindow from './SelectWindow';
+import NavWinModel from '../../models/NavWinModel';
 
 /**
  * セレクトボックスのクラスです。
@@ -135,7 +136,7 @@ export default class SelectInputView extends InputView {
    * クリック時のハンドラーです。
    */
   _onClick() {
-    let navWin = app.getCurrentNavWin();
+    let navWin = NavWinModel.getInstance().getCurrentNavWin();
     navWin.openWindow(this._win);
   }
 
