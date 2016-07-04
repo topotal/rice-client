@@ -6,6 +6,11 @@ import PrepareWin from './prepare/PrepareWin';
  */
 export default class CookNav extends TiNavWin {
 
+  /** ID */
+  get id() {
+    return this._id;
+  }
+
   /**
    * コンストラクター
    * @constructor
@@ -14,6 +19,8 @@ export default class CookNav extends TiNavWin {
     super({
       modal: true
     });
+
+    this._id = 'cook';
 
     // ホーム
     let prepareWin = new PrepareWin();

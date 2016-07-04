@@ -3,6 +3,7 @@ import TiImageView from '../../tiWrapp/TiImageView';
 import * as DesignParam from '../../enum/DesignParam';
 import RecordTable from './record/RecordTable';
 import DetailWin from './DetailWin';
+import NavWinModel from '../../models/NavWinModel';
 
 /**
  * ホーム画面のウィンドウクラス
@@ -71,7 +72,8 @@ export default class HomeWin extends TiWindow {
    */
   _onSelectRow() {
     let win = new DetailWin(1);
-    app.getNavWin('main').openWindow(win);
+    let mainNavWin = NavWinModel.getInstance().getNavWin('main');
+    mainNavWin.openWindow(win);
   }
 
   /**
@@ -92,7 +94,8 @@ export default class HomeWin extends TiWindow {
    */
   _onClickHandler(e) {
     e.cancelBubble = true;
-    app.openNavWin('cook');
+    let navWinModel = NavWinModel.getInstance();
+    navWinModel.openNavWin('cook');
   }
 
   /**

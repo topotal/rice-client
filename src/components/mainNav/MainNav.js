@@ -6,11 +6,18 @@ import HomeWin from './HomeWin';
  */
 export default class MainNav extends TiNavWin {
 
+  /** ID */
+  get id() {
+    return this._id;
+  }
+
   /**
    * コンストラクター
    */
   constructor() {
     super();
+
+    this._id = 'main';
 
     // ホーム
     let homeWin = new HomeWin();
