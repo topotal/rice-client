@@ -8,6 +8,7 @@ import WeatherInfo from './WeatherInfo';
 import SelectInputView from '../../form/SelectInputView';
 import ApiPath from '../../../enum/ApiPath';
 import NavWinModel from '../../../models/NavWinModel';
+import CookModel from '../../../models/CookModel';
 
 /**
  * 炊飯準備ウィンドウクラスです。
@@ -20,6 +21,9 @@ export default class PrepareWin extends TiWindow {
    */
   constructor(prop) {
     super(prop);
+
+    // モデル
+    this._cookModel = CookModel.getInstance();
 
     // 見栄え処理
     this._initDecoration();

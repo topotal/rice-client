@@ -5,6 +5,9 @@ import {_} from 'lodash';
  */
 export default class NavWinModel {
 
+  /**
+   * インスタンス
+   */
   static getInstance() {
     return NavWinModel._instance || new NavWinModel();
   }
@@ -25,7 +28,6 @@ export default class NavWinModel {
    */
   registerNavWin(navWin) {
     this._navWinList.push(navWin);
-    console.info(this._navWinList);
   }
 
   /**

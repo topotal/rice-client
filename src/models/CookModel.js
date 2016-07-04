@@ -3,8 +3,14 @@ import EventDispatcher from '../EventDispatcher';
 /**
  * 炊飯モデル
  */
-let instance;
-class CookModel extends EventDispatcher {
+export default class CookModel extends EventDispatcher {
+
+  /**
+   * インスタンス
+   */
+  static getInstance() {
+    return CookModel._instance || new CookModel();
+  }
 
   /**
    * タイムライン
@@ -25,13 +31,7 @@ class CookModel extends EventDispatcher {
 
     this._timeline = [];
 
-    if(!instance) {
-      instance = this;
-    }
-
-    return instance;
+    CookModel._instance = this;
   }
 
 }
-
-export default new CookModel();
