@@ -1,4 +1,4 @@
-import {_} from 'libs/lodash';
+import {_} from 'lodash';
 import * as DesignParam from '../../../enum/DesignParam';
 import BaseWindow from '../../common/BaseWindow';
 import CompleteWin from './../complete/CompleteWin';

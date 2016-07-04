@@ -1,6 +1,6 @@
-import {_} from 'libs/lodash';
+import {_} from 'lodash';
 import Brand from './Brand';
-import CookRecord from './CookRecoad';
+import CookRecord from './CookRecord';
 
 /**
  * 炊飯記録一覧取得APIのレスポンスデータです。

@@ -1,4 +1,4 @@
-import {_} from 'libs/lodash';
+import {_} from 'lodash';
 import TiTableView from '../../tiWrapp/TiTableView';
 import TiView from '../../tiWrapp/TiView';
 import TiImageView from '../../tiWrapp/TiImageView';

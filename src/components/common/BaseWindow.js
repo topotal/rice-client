@@ -1,4 +1,4 @@
-import {_} from 'libs/lodash';
+import {_} from 'lodash';
 import TiWindow from '../../tiWrapp/TiWindow';
 import DesignParam from '../../enum/DesignParam';
 

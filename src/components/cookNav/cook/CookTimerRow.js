@@ -3,7 +3,7 @@ import TiView from '../../../tiWrapp/TiView';
 import TiLabel from '../../../tiWrapp/TiLabel';
 import DesignParam from '../../../enum/DesignParam';
 import ModeMark from '../../common/ModeMark';
-import moment from 'libs/moment';
+import moment from 'moment';
 
 /**
  * 炊飯記録のRowクラスです。

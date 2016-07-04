@@ -1,4 +1,4 @@
-import {_} from 'libs/lodash';
+import {_} from 'lodash';
 import Brand from './Brand';
 
 /**

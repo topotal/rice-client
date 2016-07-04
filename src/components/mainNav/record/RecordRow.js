@@ -2,7 +2,7 @@ import * as DesignParam from '../../../enum/DesignParam';
 import TiView from '../../../tiWrapp/TiView';
 import TiLabel from '../../../tiWrapp/TiLabel';
 import StarRating from '../../common/StarRating';
-import moment from 'libs/moment';
+import moment from 'moment';
 import PopRow from '../../common/PopRow';
 
 /**

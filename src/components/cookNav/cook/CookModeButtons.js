@@ -1,4 +1,4 @@
-import {_} from 'libs/lodash';
+import {_} from 'lodash';
 import TiView from '../../../tiWrapp/TiView';
 import DesignParam from '../../../enum/DesignParam';
 import DeviceInfo from '../../../enum/DeviceInfo';
