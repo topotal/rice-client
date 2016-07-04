@@ -7,7 +7,7 @@ import CookWin from '../cook/CookWin';
 import WeatherInfo from './WeatherInfo';
 import SelectInputView from '../../form/SelectInputView';
 import ApiPath from '../../../enum/ApiPath';
-import CookModel from '../../../models/CookModel';
+import NavWinModel from '../../../models/NavWinModel';
 
 /**
  * 炊飯準備ウィンドウクラスです。
@@ -20,9 +20,6 @@ export default class PrepareWin extends TiWindow {
    */
   constructor(prop) {
     super(prop);
-
-    CookModel.timeline = {cook: 'asdfa1'};
-    console.info(CookModel.timeline);
 
     // 見栄え処理
     this._initDecoration();
@@ -123,8 +120,8 @@ export default class PrepareWin extends TiWindow {
    * スタートボタン押下時のハンドラーです。
    */
   _onClickStart() {
-    let cookWin = new CookWin();
-    app.getNavWin('cook').openWindow(cookWin);
+    let cookNavWin = NavWinModel.getInstance().getNavWin('cook');
+    cookNavWin.openWindow(new CookWin());
   }
 
 }
