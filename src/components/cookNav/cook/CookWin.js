@@ -8,7 +8,7 @@ import CookMode from '../../../models/vo/CookMode';
 import CookModeButtons from './CookModeButtons';
 import TiButton from '../../../tiWrapp/TiButton';
 import TiAlertDialog from '../../../tiWrapp/TiAlertDialog';
-import CookModel from '../../../models/CookModel';
+import NavWinModel from '../../../models/NavWinModel';
 
 /**
  * 炊飯画面クラスです。
@@ -24,10 +24,6 @@ export default class CookWin extends BaseWindow {
 
     // 見栄え処理
     this._initDecoration();
-
-    // モデル
-    this._model = CookModel;
-    console.info(this._model.timeline);
 
     // 履歴テーブル
     this._timerTable = new CookTimerTable();
@@ -75,15 +71,14 @@ export default class CookWin extends BaseWindow {
    * 完了画面を開きます。
    */
   _openCompleteWin() {
-    let completeWin = new CompleteWin();
-    app.getNavWin('cook').openWindow(completeWin);
+    let cookNavWin = NavWinModel.getInstance().getNavWin('cook');
+    cookNavWin.openWindow(new CompleteWin());
   }
 
   /**
    * モード切り替え時のハンドラーです。
    */
   _onChangeMode() {
-
     // メインタイマーが動いていなければスタートさせる
     if(!this._mainTimer.isActive) {
       this._mainTimer.start();
@@ -110,7 +105,8 @@ export default class CookWin extends BaseWindow {
   _onClickDialog(event) {
     // OKボタンであれば炊飯画面を閉じる
     if(event.index == 1) {
-      app.getNavWin('cook').close();
+      let cookNavWin = NavWinModel.getInstance().getNavWin('cook');
+      cookNavWin.close();
     }
   }
 
