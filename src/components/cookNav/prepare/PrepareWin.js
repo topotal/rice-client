@@ -1,4 +1,3 @@
-import TiWindow from '../../../tiWrapp/TiWindow';
 import TiView from '../../../tiWrapp/TiView';
 import {_} from 'lodash';
 import * as DesignParam from '../../../enum/DesignParam';
@@ -9,11 +8,12 @@ import SelectInputView from '../../form/SelectInputView';
 import ApiPath from '../../../enum/ApiPath';
 import NavWinModel from '../../../models/NavWinModel';
 import CookModel from '../../../models/CookModel';
+import BaseWindow from '../../common/BaseWindow';
 
 /**
  * 炊飯準備ウィンドウクラスです。
  */
-export default class PrepareWin extends TiWindow {
+export default class PrepareWin extends BaseWindow {
 
   /**
    * コンストラクター
@@ -53,13 +53,9 @@ export default class PrepareWin extends TiWindow {
    * 装飾の初期化
    */
   _initDecoration() {
-    this.setTranslucent(false);
     this.setTitleImage('assets/images/cook_title.png');
     this.setBarColor(DesignParam.COLOR.ORANGE);
-    this.setBarImage('assets/images/transparent.png');
-    this.setShadowImage('assets/images/navbar_shadow.png');
     this.setBackgroundColor(DesignParam.COLOR.LIGHT_YELLOW);
-    this.setStatusBarStyle(Ti.UI.iPhone.StatusBar.LIGHT_CONTENT);
   }
 
   /**
