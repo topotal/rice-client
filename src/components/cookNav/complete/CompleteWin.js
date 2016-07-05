@@ -2,6 +2,7 @@ import * as DesignParam from '../../../enum/DesignParam';
 import TiWindow from '../../../tiWrapp/TiWindow';
 import ColorButton from '../../common/ColorButton';
 import NavWinModel from '../../../models/NavWinModel';
+import TiImageView from '../../../tiWrapp/TiImageView';
 
 /**
  * 炊飯完了画面クラスです。
@@ -17,6 +18,15 @@ export default class CompleteWin extends TiWindow {
 
     // 見栄え処理
     this._initDecoration();
+
+    // GoodJob画像
+    let goodJob = new TiImageView({
+      top: 14,
+      width: 199,
+      height: 98,
+      image: DesignParam.IMAGE.GOOD_JOB
+    });
+    this.add(goodJob);
 
     // 記録に残すボタン
     let saveButton = this._createSaveButton();

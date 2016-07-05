@@ -80,7 +80,7 @@ export default class ColorButton extends TiView {
       top: 0,
       left: 0,
       right: 0,
-      borderRadius: 3,
+      borderRadius: 5,
       backgroundColor: this._color,
       viewShadowOffset: {x: 0, y: 2},
       viewShadowRadius: 0
