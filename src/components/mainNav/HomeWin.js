@@ -1,4 +1,4 @@
-import TiWindow from '../../tiWrapp/TiWindow';
+import BaseWindow from '../common/BaseWindow';
 import TiImageView from '../../tiWrapp/TiImageView';
 import * as DesignParam from '../../enum/DesignParam';
 import RecordTable from './record/RecordTable';
@@ -8,7 +8,7 @@ import NavWinModel from '../../models/NavWinModel';
 /**
  * ホーム画面のウィンドウクラス
  */
-export default class HomeWin extends TiWindow {
+export default class HomeWin extends BaseWindow {
 
   /**
    * コンストラクター
