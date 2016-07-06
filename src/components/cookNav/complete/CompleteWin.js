@@ -36,14 +36,13 @@ export default class CompleteWin extends BaseWindow {
     saveButton.setBottom(10);
     this.add(saveButton);
     saveButton.addEventListener('wclick', () => this._onClickSaveButton());
-
   }
 
   /**
    * 装飾の初期化
    */
   _initDecoration() {
-    this.setTitleImage('assets/images/cook_title.png');
+    this.setTitle('炊飯記録');
     this.setBarColor(DesignParam.COLOR.ORANGE);
     this.setBackgroundColor(DesignParam.COLOR.ORANGE);
     this.setLeftNavButton(new TiButton());

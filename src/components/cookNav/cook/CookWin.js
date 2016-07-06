@@ -62,7 +62,7 @@ export default class CookWin extends BaseWindow {
    * 装飾の初期化
    */
   _initDecoration() {
-    this.setTitleImage('assets/images/cook_title.png');
+    this.setTitle('炊飯');
     this.setBarColor(DesignParam.COLOR.ORANGE);
     this.setBackgroundColor(DesignParam.COLOR.LIGHT_YELLOW);
   }

@@ -44,16 +44,24 @@ export default class PrepareWin extends BaseWindow {
     let startButton = this._createStartButton();
     startButton.setLeft(10);
     startButton.setRight(10);
-    startButton.setBottom(10);
+    startButton.setBottom(80);
     this.add(startButton);
     startButton.addEventListener('wclick', _.bind(this._onClickStart, this));
+
+    // キャンセルボタン
+    let cancelButton = this._createCancelButton();
+    cancelButton.setLeft(10);
+    cancelButton.setRight(10);
+    cancelButton.setBottom(10);
+    this.add(cancelButton);
+    cancelButton.addEventListener('wclick', _.bind(this._onClickCancel, this));
   }
 
   /**
    * 装飾の初期化
    */
   _initDecoration() {
-    this.setTitleImage('assets/images/cook_title.png');
+    this.setTitle('炊飯設定');
     this.setBarColor(DesignParam.COLOR.ORANGE);
     this.setBackgroundColor(DesignParam.COLOR.LIGHT_YELLOW);
   }
@@ -66,6 +74,21 @@ export default class PrepareWin extends BaseWindow {
     let button = new ColorButton(
       DesignParam.COLOR.GREEN,
       '炊飯をはじめる',
+      {
+        height: 60
+      }
+    );
+    return button;
+  }
+
+  /**
+   * キャンセルボタンを生成します。
+   * @return ColorButton
+   */
+  _createCancelButton() {
+    let button = new ColorButton(
+      DesignParam.COLOR.GRAY,
+      'キャンセル',
       {
         height: 60
       }
@@ -124,4 +147,11 @@ export default class PrepareWin extends BaseWindow {
     cookNavWin.openWindow(new CookWin());
   }
 
+  /**
+   * キャンセルボタン押下時のハンドラーです。
+   */
+  _onClickCancel() {
+    let cookNavWin = NavWinModel.getInstance().getNavWin('cook');
+    cookNavWin.close();
+  }
 }
