@@ -1,10 +1,10 @@
-import TiWindow from '../../tiWrapp/TiWindow';
+import BaseWindow from '../../components/common/BaseWindow';
 import * as DesignParam from '../../enum/DesignParam';
 
 /**
  * 詳細画面のウィンドウクラス
  */
-export default class DetailWin extends TiWindow {
+export default class DetailWin extends BaseWindow {
 
   /**
    * コンストラクター
@@ -22,10 +22,7 @@ export default class DetailWin extends TiWindow {
   _initDecoration() {
     this.setTranslucent(false);
     this.setBarColor(DesignParam.COLOR.GREEN);
-    this.setBarImage('assets/images/transparent.png');
-    this.setShadowImage('assets/images/navbar_shadow.png');
     this.setBackgroundColor(DesignParam.COLOR.LIGHT_YELLOW);
-    this.setStatusBarStyle(Ti.UI.iPhone.StatusBar.LIGHT_CONTENT);
   }
 
 }
