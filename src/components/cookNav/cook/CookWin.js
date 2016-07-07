@@ -6,9 +6,9 @@ import CookMainTimer from './CookMainTimer';
 import CookTimerTable from './CookTimerTable';
 import CookMode from '../../../models/vo/CookMode';
 import CookModeButtons from './CookModeButtons';
-import TiButton from '../../../tiWrapp/TiButton';
 import TiAlertDialog from '../../../tiWrapp/TiAlertDialog';
 import NavWinModel from '../../../models/NavWinModel';
+import TiImageView from '../../../tiWrapp/TiImageView';
 
 /**
  * 炊飯画面クラスです。
@@ -42,7 +42,9 @@ export default class CookWin extends BaseWindow {
     this.add(this._modeButtons);
 
     // 中止ボタン
-    this._cancelButton = new TiButton({title: '中止'});
+    this._cancelButton = new TiImageView({
+      image: DesignParam.IMAGE.CLOSE
+    });
     this.setLeftNavButton(this._cancelButton);
     this._onClickCancel = this._onClickCancel.bind(this);
     this._cancelButton.addEventListener('wclick', this._onClickCancel);
