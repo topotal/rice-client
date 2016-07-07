@@ -29,6 +29,13 @@ export default class CompleteWin extends BaseWindow {
     });
     this.add(goodJob);
 
+    // カメラボタン
+    let cameraButton = this._createCameraButton();
+    cameraButton.setTop(135);
+    cameraButton.setLeft(10);
+    cameraButton.setRight(10);
+    this.add(cameraButton);
+
     // 記録に残すボタン
     let saveButton = this._createSaveButton();
     saveButton.setLeft(10);
@@ -46,6 +53,21 @@ export default class CompleteWin extends BaseWindow {
     this.setBarColor(DesignParam.COLOR.ORANGE);
     this.setBackgroundColor(DesignParam.COLOR.ORANGE);
     this.setLeftNavButton(new TiButton());
+  }
+
+  /**
+   * カメラボタンを生成します。
+   * @return ColorButton
+   */
+  _createCameraButton() {
+    let button = new ColorButton(
+      DesignParam.COLOR.GRAY,
+      null,
+      {
+        height: 169
+      }
+    );
+    return button;
   }
 
   /**

@@ -95,16 +95,18 @@ export default class ColorButton extends TiView {
     });
     view.add(this._wrapperShadow);
 
-    // テキスト
-    let text = new TiLabel({
-      text: this._text,
-      font: {
-        fontSize: 17,
-        fontWeight: 'bold'
-      },
-      color: DesignParam.COLOR.WHITE
-    });
-    view.add(text);
+    if(this._text) {
+      // テキスト
+      let text = new TiLabel({
+        text: this._text,
+        font: {
+          fontSize: 17,
+          fontWeight: 'bold'
+        },
+        color: DesignParam.COLOR.WHITE
+      });
+      view.add(text);
+    }
 
     return view;
   }
