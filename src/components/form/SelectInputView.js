@@ -64,7 +64,7 @@ export default class SelectInputView extends InputView {
     this.setBorderWidth(2);
     this.setBorderRadius(3);
     this.setBackgroundColor(DesignParam.COLOR.WHITE);
-    this.setBorderColor('rgba(0, 0, 0, 0.14)');
+    this.setBorderColor(DesignParam.COLOR.GRAY);
   }
 
   /**

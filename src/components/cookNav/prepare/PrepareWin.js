@@ -9,6 +9,7 @@ import ApiPath from '../../../enum/ApiPath';
 import NavWinModel from '../../../models/NavWinModel';
 import CookModel from '../../../models/CookModel';
 import BaseWindow from '../../common/BaseWindow';
+import MessageBox from '../../common/MessageBox';
 
 /**
  * 炊飯準備ウィンドウクラスです。
@@ -32,6 +33,13 @@ export default class PrepareWin extends BaseWindow {
     let weatherInfo = new WeatherInfo();
     weatherInfo.setTop(0);
     this.add(weatherInfo);
+
+    // 吹き出し
+    let messageBox = new MessageBox();
+    messageBox.setTop(102);
+    messageBox.setLeft(10);
+    messageBox.setRight(10);
+    this.add(messageBox);
 
     // フォームグループ
     let formGroup = this._createFormGroup();
