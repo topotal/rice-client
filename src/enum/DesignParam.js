@@ -28,5 +28,6 @@ exports.IMAGE = {
   CHECK: pathHead + 'check.png',
   TIMER: pathHead + 'timer.png',
   GOOD_JOB: pathHead + 'good_job.png',
-  CLOSE: pathHead + 'close.png'
+  CLOSE: pathHead + 'close.png',
+  STICK: pathHead + 'stick.png'
 };
