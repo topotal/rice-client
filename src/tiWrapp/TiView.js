@@ -180,4 +180,12 @@ export default class TiView extends EventDispatcher {
     this.tiObj.setViewShadowRadius(radius);
   }
 
+  /**
+   * レイアウトを設定します。
+   * @param layout
+   */
+  setLayout(layout) {
+    this.tiObj.setLayout(layout);
+  }
+
 }

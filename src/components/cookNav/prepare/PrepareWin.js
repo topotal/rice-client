@@ -9,7 +9,7 @@ import ApiPath from '../../../enum/ApiPath';
 import NavWinModel from '../../../models/NavWinModel';
 import CookModel from '../../../models/CookModel';
 import BaseWindow from '../../common/BaseWindow';
-import MessageBox from '../../common/MessageBox';
+import MessageRow from '../../common/MessageRow';
 
 /**
  * 炊飯準備ウィンドウクラスです。
@@ -35,11 +35,12 @@ export default class PrepareWin extends BaseWindow {
     this.add(weatherInfo);
 
     // 吹き出し
-    let messageBox = new MessageBox();
-    messageBox.setTop(102);
-    messageBox.setLeft(10);
-    messageBox.setRight(10);
-    this.add(messageBox);
+    let iconPath = DesignParam.IMAGE.RICE_ICON;
+    let messageRow = new MessageRow(iconPath, 'あああ\nいいい');
+    messageRow.setTop(102);
+    messageRow.setLeft(10);
+    messageRow.setRight(10);
+    this.add(messageRow);
 
     // フォームグループ
     let formGroup = this._createFormGroup();

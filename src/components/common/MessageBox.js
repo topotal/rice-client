@@ -22,14 +22,23 @@ export default class MessageBox extends TiView {
     this._box = this._createBox();
     this._box.setLeft(80);
     this._box.setRight(0);
+    this._box.setLayout('vertical');
     this.add(this._box);
 
     // テキスト
     this._label = this._createText();
+    this._label.setTop(15);
+    this._label.setLeft(20);
+    this._label.setRight(20);
     this._box.add(this._label);
+
+    // テキストマージン
+    let textMargin = new TiView({ height: 15 });
+    this._box.add(textMargin);
 
     // 突起
     this._stick = this._createStick();
+    this._stick.setTop(15);
     this._stick.setLeft(68);
     this.add(this._stick);
   }
@@ -58,11 +67,11 @@ export default class MessageBox extends TiView {
    */
   _createBox() {
     let view = new TiView({
-      height: 60,
+      height: Ti.UI.SIZE,
       backgroundColor: '#FFF',
       borderRadius: 3,
       borderWidth: 2,
-      borderColor: DesignParam.COLOR.GRAY
+      borderColor: 'rgba(0, 0, 0, 0.14)'
     });
     return view;
   }
@@ -73,7 +82,7 @@ export default class MessageBox extends TiView {
    */
   _createText() {
     let label = new TiLabel({
-      text: 'あいいあ',
+      text: '今日の炊飯の設定をして、\n炊飯を始めよう。',
       color: DesignParam.COLOR.BLACK,
       font: {
         fontZise: 14
