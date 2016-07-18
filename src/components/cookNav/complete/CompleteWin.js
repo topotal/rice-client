@@ -4,6 +4,7 @@ import NavWinModel from '../../../models/NavWinModel';
 import TiImageView from '../../../tiWrapp/TiImageView';
 import TiButton from '../../../tiWrapp/TiButton';
 import BaseWindow from '../../common/BaseWindow';
+import StarRating from './StarRating';
 
 /**
  * 炊飯完了画面クラスです。
@@ -35,6 +36,13 @@ export default class CompleteWin extends BaseWindow {
     cameraButton.setLeft(10);
     cameraButton.setRight(10);
     this.add(cameraButton);
+
+    // 5段階評価
+    let startRating = new StarRating();
+    startRating.setTop(314);
+    startRating.setLeft(10);
+    startRating.setRight(10);
+    this.add(startRating);
 
     // 記録に残すボタン
     let saveButton = this._createSaveButton();
