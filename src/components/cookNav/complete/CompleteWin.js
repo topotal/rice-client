@@ -5,6 +5,7 @@ import TiView from '../../../tiWrapp/TiView';
 import TiImageView from '../../../tiWrapp/TiImageView';
 import TiButton from '../../../tiWrapp/TiButton';
 import BaseWindow from '../../common/BaseWindow';
+import StarRating from '../../common/StarRating';
 
 /**
  * 炊飯完了画面クラスです。
@@ -17,6 +18,8 @@ export default class CompleteWin extends BaseWindow {
    */
   constructor(prop) {
     super(prop);
+
+    this._starRating = null;
 
     // 見栄え処理
     this._initDecoration();
@@ -97,6 +100,11 @@ export default class CompleteWin extends BaseWindow {
       viewShadowColor: 'rgba(0, 0, 0, 0.4)',
       backgroundColor: DesignParam.COLOR.LIGHT_YELLOW
     });
+
+    // 5段階評価
+    this._starRating = new StarRating(0, 29);
+    view.add(this._starRating);
+
     return view;
   }
 

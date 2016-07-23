@@ -11,8 +11,12 @@ export default class Star extends TiImageView {
    * @constructor
    * @param value
    */
-  constructor(value) {
+  constructor(value, size) {
     super();
+
+    // サイズ
+    this._size = size;
+
     // 見栄えの処理
     this._initDecoration();
     // 初期値をセット
@@ -23,8 +27,8 @@ export default class Star extends TiImageView {
    * 装飾の初期化
    */
   _initDecoration() {
-    this.setWidth(13);
-    this.setHeight(15);
+    this.setWidth(this._size);
+    this.setHeight(this._size);
   }
 
   /**

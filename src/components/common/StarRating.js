@@ -9,15 +9,17 @@ export default class StarRating extends TiView {
   /**
    * コンストラクター
    */
-  constructor(value) {
+  constructor(value, size) {
     super();
 
     // 評価
     this._value = 0;
     // 5つの星の格納配列
     this._stars = [];
+    // 星のサイズ
+    this._size = size || 12;
     // 星の右側マージン
-    this._marginRight = 3;
+    this._marginRight = this._size * 0.25;
 
     // 見栄え処理
     this._initDecoration();
@@ -33,17 +35,19 @@ export default class StarRating extends TiView {
    * 装飾の初期化
    */
   _initDecoration() {
-    this.setWidth(77);
-    this.setHeight(15);
+    this.setWidth(this._size * 5 + this._marginRight * 4);
+    this.setHeight(this._size);
   }
 
   /**
    * 星のリストを生成します。
    */
   _createStarList() {
+    this._onClickStar = this._onClickStar.bind(this);
     for(let i=0; i<5; i++) {
-      let star = new Star();
-      star.setLeft(i * (star.getWidth() + this._marginRight));
+      let star = new Star(false, this._size);
+      star.addEventListener('wclick', this._onClickStar);
+      star.setLeft(i * (this._size + this._marginRight));
       this.add(star);
       this._stars.push(star);
     }
@@ -62,6 +66,32 @@ export default class StarRating extends TiView {
         this._stars[index].off();
       }
     }
+  }
+
+  /**
+   * 値を取得します。
+   * @return number
+   */
+  getValue() {
+    return this._value;
+  }
+
+  /**
+   * 星をクリックした際のハンドラーです。
+   */
+  _onClickStar(event) {
+    let targetStar = event.target;
+    let length = this._stars.length;
+    let value = 0;
+    for(let i = 0; i < length; i++) {
+      if(targetStar == this._stars[i]) {
+        value = i + 1;
+        break;
+      }
+    }
+
+    // 値をセット
+    this.setValue(value);
   }
 
 }
