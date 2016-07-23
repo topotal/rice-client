@@ -75,6 +75,13 @@ export default class CompleteWin extends BaseWindow {
         height: 169
       }
     );
+
+    // アイコン
+    let icon = new TiImageView({
+      image: DesignParam.IMAGE.CAMERA
+    });
+    button.add(icon);
+
     return button;
   }
 

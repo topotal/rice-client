@@ -30,5 +30,6 @@ exports.IMAGE = {
   GOOD_JOB: pathHead + 'good_job.png',
   CLOSE: pathHead + 'close.png',
   STICK: pathHead + 'stick.png',
-  RICE_ICON: pathHead + 'rice_icon.png'
+  RICE_ICON: pathHead + 'rice_icon.png',
+  CAMERA: pathHead + 'camera.png'
 };
