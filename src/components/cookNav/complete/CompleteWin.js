@@ -1,10 +1,10 @@
 import * as DesignParam from '../../../enum/DesignParam';
 import ColorButton from '../../common/ColorButton';
 import NavWinModel from '../../../models/NavWinModel';
+import TiView from '../../../tiWrapp/TiView';
 import TiImageView from '../../../tiWrapp/TiImageView';
 import TiButton from '../../../tiWrapp/TiButton';
 import BaseWindow from '../../common/BaseWindow';
-import StarRating from './StarRating';
 
 /**
  * 炊飯完了画面クラスです。
@@ -38,7 +38,7 @@ export default class CompleteWin extends BaseWindow {
     this.add(cameraButton);
 
     // 5段階評価
-    let startRating = new StarRating();
+    let startRating = this._createStarRating();
     startRating.setTop(314);
     startRating.setLeft(10);
     startRating.setRight(10);
@@ -83,6 +83,21 @@ export default class CompleteWin extends BaseWindow {
     button.add(icon);
 
     return button;
+  }
+
+  /**
+   * ５段階評価ボックスを生成します。
+   */
+  _createStarRating() {
+    let view = new TiView({
+      height: 89,
+      borderRadius: 5,
+      viewShadowOffset: {x: 0, y: 2},
+      viewShadowRadius: 0,
+      viewShadowColor: 'rgba(0, 0, 0, 0.4)',
+      backgroundColor: DesignParam.COLOR.LIGHT_YELLOW
+    });
+    return view;
   }
 
   /**
