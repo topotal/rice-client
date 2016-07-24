@@ -3,6 +3,7 @@ import ColorButton from '../../common/ColorButton';
 import NavWinModel from '../../../models/NavWinModel';
 import TiView from '../../../tiWrapp/TiView';
 import TiImageView from '../../../tiWrapp/TiImageView';
+import TiLabel from '../../../tiWrapp/TiLabel';
 import TiButton from '../../../tiWrapp/TiButton';
 import BaseWindow from '../../common/BaseWindow';
 import StarRating from '../../common/StarRating';
@@ -101,8 +102,19 @@ export default class CompleteWin extends BaseWindow {
       backgroundColor: DesignParam.COLOR.LIGHT_YELLOW
     });
 
+    let text = new TiLabel({
+      top: 14,
+      text: '今回の炊飯は星いくつ？',
+      color: DesignParam.COLOR.GREEN,
+      font: {
+        fontWeight: 'bold'
+      }
+    });
+    view.add(text);
+
     // 5段階評価
     this._starRating = new StarRating(0, 29);
+    this._starRating.setTop(40);
     view.add(this._starRating);
 
     return view;
