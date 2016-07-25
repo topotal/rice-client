@@ -7,6 +7,7 @@ import TiLabel from '../../../tiWrapp/TiLabel';
 import TiButton from '../../../tiWrapp/TiButton';
 import BaseWindow from '../../common/BaseWindow';
 import StarRating from '../../common/StarRating';
+import TiMedia from '../../../tiWrapp/TiMedia';
 
 /**
  * 炊飯完了画面クラスです。
@@ -35,11 +36,13 @@ export default class CompleteWin extends BaseWindow {
     this.add(goodJob);
 
     // カメラボタン
-    let cameraButton = this._createCameraButton();
-    cameraButton.setTop(135);
-    cameraButton.setLeft(10);
-    cameraButton.setRight(10);
-    this.add(cameraButton);
+    this._cameraButton = this._createCameraButton();
+    this._cameraButton.setTop(135);
+    this._cameraButton.setLeft(10);
+    this._cameraButton.setRight(10);
+    this._onClickCameraButton = this._onClickCameraButton.bind(this);
+    this._cameraButton.addEventListener('wclick', this._onClickCameraButton);
+    this.add(this._cameraButton);
 
     // 5段階評価
     let startRating = this._createStarRating();
@@ -147,6 +150,29 @@ export default class CompleteWin extends BaseWindow {
       }
     );
     return button;
+  }
+
+  /**
+   * カメラボタン押下時のハンドラーです。
+   */
+  _onClickCameraButton() {
+    console.info('camera');
+    TiMedia.showCamera({
+      success: function(){
+      },
+      cancel: function(){
+        //キャンセルの場合の処理
+      },
+      error: function(){
+        // カメラがない場合は、error.code が Ti.Media.NO_CAMERA として返す。
+      },
+      // 撮影データのフォトギャラリーへの保存
+      saveToPhotoGallery: true,
+      // 撮影直後に拡大縮小移動をするか否かのフラグ
+      allowEditing: true,
+      // 撮影可能なメディア種別を配列で指定
+      mediaTypes: [Ti.Media.MEDIA_TYPE_VIDEO,Ti.Media.MEDIA_TYPE_PHOTO]
+    });
   }
 
   /**
