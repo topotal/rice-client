@@ -82,9 +82,22 @@ export default class CompleteWin extends BaseWindow {
 
     // アイコン
     let icon = new TiImageView({
+      top: 41,
       image: DesignParam.IMAGE.CAMERA
     });
     button.add(icon);
+
+    // テキスト
+    let text = new TiLabel({
+      top: 112,
+      text: '写真を追加する',
+      color: DesignParam.COLOR.WHITE,
+      font: {
+        fontWeight: 'bold',
+        fontSize: 14
+      }
+    });
+    button.add(text);
 
     return button;
   }
@@ -107,7 +120,8 @@ export default class CompleteWin extends BaseWindow {
       text: '今回の炊飯は星いくつ？',
       color: DesignParam.COLOR.GREEN,
       font: {
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontSize: 14
       }
     });
     view.add(text);
