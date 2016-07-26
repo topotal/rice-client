@@ -156,7 +156,6 @@ export default class CompleteWin extends BaseWindow {
    * カメラボタン押下時のハンドラーです。
    */
   _onClickCameraButton() {
-    console.info('camera');
     TiMedia.showCamera({
       success: function(){
       },
@@ -166,12 +165,10 @@ export default class CompleteWin extends BaseWindow {
       error: function(){
         // カメラがない場合は、error.code が Ti.Media.NO_CAMERA として返す。
       },
-      // 撮影データのフォトギャラリーへの保存
-      saveToPhotoGallery: true,
       // 撮影直後に拡大縮小移動をするか否かのフラグ
       allowEditing: true,
       // 撮影可能なメディア種別を配列で指定
-      mediaTypes: [Ti.Media.MEDIA_TYPE_VIDEO,Ti.Media.MEDIA_TYPE_PHOTO]
+      mediaTypes: [Ti.Media.MEDIA_TYPE_PHOTO]
     });
   }
 
