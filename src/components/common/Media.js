@@ -1,10 +1,10 @@
-import EventDispatcher from '../EventDispatcher';
-import TiMedia from '../tiWrapp/TiMedia';
+import EventDispatcher from '../../EventDispatcher';
+import TiMedia from '../../tiWrapp/TiMedia';
 
 /**
- * カメラUtilクラスです。
+ * メディアクラスです。
  */
-export default class CameraUtil extends EventDispatcher {
+export default class Media extends EventDispatcher {
 
   /**
    * コンストラクター
@@ -20,7 +20,8 @@ export default class CameraUtil extends EventDispatcher {
    */
   showCamera() {
     TiMedia.showCamera({
-      success: (/* event */) => {
+      success: (event) => {
+        console.log(event);
         this.fireEvent('success');
       },
       cancel: () => {

@@ -7,7 +7,7 @@ import TiLabel from '../../../tiWrapp/TiLabel';
 import TiButton from '../../../tiWrapp/TiButton';
 import BaseWindow from '../../common/BaseWindow';
 import StarRating from '../../common/StarRating';
-import CameraUtil from '../../../util/CameraUtil';
+import Media from '../../common/Media';
 
 /**
  * 炊飯完了画面クラスです。
@@ -44,8 +44,8 @@ export default class CompleteWin extends BaseWindow {
     this._cameraButton.addEventListener('wclick', this._onClickCameraButton);
     this.add(this._cameraButton);
 
-    // カメラ
-    this._cameraUtil = new CameraUtil();
+    // メディア
+    this._media = new Media();
 
     // 5段階評価
     let startRating = this._createStarRating();
@@ -159,7 +159,7 @@ export default class CompleteWin extends BaseWindow {
    * カメラボタン押下時のハンドラーです。
    */
   _onClickCameraButton() {
-    this._cameraUtil.showCamera();
+    this._media.showCamera();
   }
 
   /**
