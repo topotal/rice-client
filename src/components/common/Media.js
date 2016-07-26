@@ -1,5 +1,6 @@
 import EventDispatcher from '../../EventDispatcher';
 import TiMedia from '../../tiWrapp/TiMedia';
+import DeviceInfo from '../../enum/DeviceInfo';
 
 /**
  * メディアクラスです。
@@ -19,6 +20,13 @@ export default class Media extends EventDispatcher {
    * @param option
    */
   showCamera() {
+
+    // シミュレーターの場合はギャラリーから選ぶ
+    if(DeviceInfo.isSimulator()) {
+      this.showGallery();
+      return;
+    }
+
     TiMedia.showCamera({
       success: (event) => {
         console.log(event);
@@ -40,10 +48,18 @@ export default class Media extends EventDispatcher {
   }
 
   /**
-   * フォトライブラリを開きます。
+   * ギャラリーを開きます。
    */
-  showLibrary() {
-
+  showGallery() {
+    TiMedia.openPhotoGallery({
+      success: (event) => {
+        console.info(event);
+      },
+      cancel: () => {},
+      error: (error) => {
+        console.error(error);
+      }
+    });
   }
 
 }

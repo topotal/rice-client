@@ -11,4 +11,12 @@ export default class TiMedia {
     Ti.Media.showCamera(option);
   }
 
+  /**
+   * フォトギャラリーを開きます。
+   * @param option
+   */
+  static openPhotoGallery(option) {
+    Ti.Media.openPhotoGallery(option);
+  }
+
 }

@@ -47,4 +47,12 @@ export default class DeviceInfo {
     return DeviceInfo.STATUS_BAR_HEIGHT + DeviceInfo.NAV_BAR_HEIGHT;
   }
 
+  /**
+   * シミュレーターかどうかを判定します。
+   * @return boolean
+   */
+  static isSimulator() {
+    return Ti.Platform.model == 'google_sdk' || Ti.Platform.model == 'Simulator';
+  }
+
 }
