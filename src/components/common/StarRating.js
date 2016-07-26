@@ -9,7 +9,7 @@ export default class StarRating extends TiView {
   /**
    * コンストラクター
    */
-  constructor(value, size) {
+  constructor(value, size, margin) {
     super();
 
     // 評価
@@ -19,7 +19,7 @@ export default class StarRating extends TiView {
     // 星のサイズ
     this._size = size || 12;
     // 星の右側マージン
-    this._marginRight = this._size * 0.25;
+    this._marginRight = margin || 3;
 
     // 見栄え処理
     this._initDecoration();

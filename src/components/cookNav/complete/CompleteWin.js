@@ -130,7 +130,7 @@ export default class CompleteWin extends BaseWindow {
     view.add(text);
 
     // 5段階評価
-    this._starRating = new StarRating(0, 29);
+    this._starRating = new StarRating(0, 29, 17);
     this._starRating.setTop(40);
     view.add(this._starRating);
 
