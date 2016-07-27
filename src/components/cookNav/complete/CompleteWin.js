@@ -46,6 +46,15 @@ export default class CompleteWin extends BaseWindow {
 
     // メディア
     this._media = new Media();
+    this._onSuccessMedia = this._onSuccessMedia.bind(this);
+    this._media.addEventListener('success', this._onSuccessMedia);
+
+    this._image = new TiImageView({
+      width: 100,
+      height: 100,
+      image: null
+    });
+    this.add(this._image);
 
     // 5段階評価
     let startRating = this._createStarRating();
@@ -168,6 +177,14 @@ export default class CompleteWin extends BaseWindow {
   _onClickSaveButton() {
     let cookNavWin = NavWinModel.getInstance().getNavWin('cook');
     cookNavWin.close();
+  }
+
+  /**
+   * メディアの読み込みが完了した際のハンドラーです。
+   */
+  _onSuccessMedia(media) {
+    console.info(media);
+    this._image.setImage(media);
   }
 
 }

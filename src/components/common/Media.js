@@ -30,7 +30,7 @@ export default class Media extends EventDispatcher {
     TiMedia.showCamera({
       success: (event) => {
         console.log(event);
-        this.fireEvent('success');
+        this.fireEvent('success', event.media);
       },
       cancel: () => {
         //キャンセルの場合の処理
@@ -54,10 +54,14 @@ export default class Media extends EventDispatcher {
     TiMedia.openPhotoGallery({
       success: (event) => {
         console.info(event);
+        this.fireEvent('success', event.media);
       },
-      cancel: () => {},
+      cancel: () => {
+        this.fireEvent('cancel');
+      },
       error: (error) => {
         console.error(error);
+        this.fireEvent('error');
       }
     });
   }
