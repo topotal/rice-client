@@ -4,6 +4,7 @@ import NavWinModel from '../../../models/NavWinModel';
 import TiView from '../../../tiWrapp/TiView';
 import TiImageView from '../../../tiWrapp/TiImageView';
 import TiLabel from '../../../tiWrapp/TiLabel';
+import TiScrollView from '../../../tiWrapp/TiScrollView';
 import TiButton from '../../../tiWrapp/TiButton';
 import BaseWindow from '../../common/BaseWindow';
 import StarRating from '../../common/StarRating';
@@ -26,6 +27,13 @@ export default class CompleteWin extends BaseWindow {
     // 見栄え処理
     this._initDecoration();
 
+    // スクロールビュー
+    let scrollView = new TiScrollView({
+      width: Ti.UI.FILL,
+      height: Ti.UI.FILL
+    });
+    this.add(scrollView);
+
     // GoodJob画像
     let goodJob = new TiImageView({
       top: 14,
@@ -33,7 +41,7 @@ export default class CompleteWin extends BaseWindow {
       height: 98,
       image: DesignParam.IMAGE.GOOD_JOB
     });
-    this.add(goodJob);
+    scrollView.add(goodJob);
 
     // カメラボタン
     this._cameraButton = this._createCameraButton();
@@ -42,33 +50,26 @@ export default class CompleteWin extends BaseWindow {
     this._cameraButton.setRight(10);
     this._onClickCameraButton = this._onClickCameraButton.bind(this);
     this._cameraButton.addEventListener('wclick', this._onClickCameraButton);
-    this.add(this._cameraButton);
+    scrollView.add(this._cameraButton);
 
     // メディア
     this._media = new Media();
     this._onSuccessMedia = this._onSuccessMedia.bind(this);
     this._media.addEventListener('success', this._onSuccessMedia);
 
-    this._image = new TiImageView({
-      width: 100,
-      height: 100,
-      image: null
-    });
-    this.add(this._image);
-
     // 5段階評価
     let startRating = this._createStarRating();
     startRating.setTop(314);
     startRating.setLeft(10);
     startRating.setRight(10);
-    this.add(startRating);
+    scrollView.add(startRating);
 
     // 記録に残すボタン
     let saveButton = this._createSaveButton();
     saveButton.setLeft(10);
     saveButton.setRight(10);
     saveButton.setBottom(10);
-    this.add(saveButton);
+    scrollView.add(saveButton);
     saveButton.addEventListener('wclick', () => this._onClickSaveButton());
   }
 
@@ -77,6 +78,7 @@ export default class CompleteWin extends BaseWindow {
    */
   _initDecoration() {
     this.setTitle('炊飯記録');
+    this.setLayout('vertical');
     this.setBarColor(DesignParam.COLOR.ORANGE);
     this.setBackgroundColor(DesignParam.COLOR.ORANGE);
     this.setLeftNavButton(new TiButton());
@@ -114,6 +116,13 @@ export default class CompleteWin extends BaseWindow {
     });
     button.add(text);
 
+    // 画像
+    this._image = new TiImageView({
+      image: null,
+      height: Ti.UI.SIZE
+    });
+    button.add(this._image);
+
     return button;
   }
 
@@ -124,9 +133,6 @@ export default class CompleteWin extends BaseWindow {
     let view = new TiView({
       height: 89,
       borderRadius: 5,
-      viewShadowOffset: {x: 0, y: 2},
-      viewShadowRadius: 0,
-      viewShadowColor: 'rgba(0, 0, 0, 0.4)',
       backgroundColor: DesignParam.COLOR.LIGHT_YELLOW
     });
 
@@ -183,7 +189,7 @@ export default class CompleteWin extends BaseWindow {
    * メディアの読み込みが完了した際のハンドラーです。
    */
   _onSuccessMedia(media) {
-    console.info(media);
+    this._image.setWidth(this._cameraButton.size.width);
     this._image.setImage(media);
   }
 
