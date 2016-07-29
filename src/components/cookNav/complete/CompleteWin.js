@@ -30,7 +30,8 @@ export default class CompleteWin extends BaseWindow {
     // スクロールビュー
     let scrollView = new TiScrollView({
       width: Ti.UI.FILL,
-      height: Ti.UI.FILL
+      height: Ti.UI.FILL,
+      layout: 'vertical'
     });
     this.add(scrollView);
 
@@ -45,7 +46,7 @@ export default class CompleteWin extends BaseWindow {
 
     // カメラボタン
     this._cameraButton = this._createCameraButton();
-    this._cameraButton.setTop(135);
+    this._cameraButton.setTop(23);
     this._cameraButton.setLeft(10);
     this._cameraButton.setRight(10);
     this._onClickCameraButton = this._onClickCameraButton.bind(this);
@@ -59,13 +60,14 @@ export default class CompleteWin extends BaseWindow {
 
     // 5段階評価
     let startRating = this._createStarRating();
-    startRating.setTop(314);
+    startRating.setTop(10);
     startRating.setLeft(10);
     startRating.setRight(10);
     scrollView.add(startRating);
 
     // 記録に残すボタン
     let saveButton = this._createSaveButton();
+    saveButton.setTop(30);
     saveButton.setLeft(10);
     saveButton.setRight(10);
     saveButton.setBottom(10);
