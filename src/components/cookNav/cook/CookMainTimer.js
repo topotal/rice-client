@@ -64,7 +64,7 @@ export default class CookMainTimer extends TiView {
   _initDecoration() {
     this.setWidth(Ti.UI.FILL);
     this.setHeight(CookMainTimer.HEIGHT);
-    this.setBackgroundColor(DesignParam.COLOR.WHITE);
+    this.setBackgroundColor(DesignParam.COLOR.BLACK);
   }
 
   /**
@@ -87,7 +87,7 @@ export default class CookMainTimer extends TiView {
     return new TiLabel({
       text: '00:00:00',
       textAlign: 'left',
-      color: DesignParam.COLOR.BLACK,
+      color: DesignParam.COLOR.LIGHT_YELLOW,
       font: {
         fontSize: 24
       }

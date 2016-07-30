@@ -3,7 +3,7 @@ import * as DesignParam from '../../../enum/DesignParam';
 import BaseWindow from '../../common/BaseWindow';
 import CompleteWin from './../complete/CompleteWin';
 import CookMainTimer from './CookMainTimer';
-import CookTimerTable from './CookTimerTable';
+import TimelineTable from '../../common/TimelineTable';
 import CookMode from '../../../models/vo/CookMode';
 import CookModeButtons from './CookModeButtons';
 import TiAlertDialog from '../../../tiWrapp/TiAlertDialog';
@@ -26,9 +26,9 @@ export default class CookWin extends BaseWindow {
     this._initDecoration();
 
     // 履歴テーブル
-    this._timerTable = new CookTimerTable();
-    this._timerTable.setBottom(CookMainTimer.HEIGHT + 220);
-    this.add(this._timerTable);
+    this._timelineTable = new TimelineTable();
+    this._timelineTable.setBottom(CookMainTimer.HEIGHT + 220);
+    this.add(this._timelineTable);
 
     // メインタイマー
     this._mainTimer = new CookMainTimer();
@@ -91,7 +91,7 @@ export default class CookWin extends BaseWindow {
       this._openCompleteWin();
       return;
     }
-    this._timerTable.pushRow(mode);
+    this._timelineTable.pushRow(mode);
   }
 
   /**

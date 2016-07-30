@@ -1,14 +1,14 @@
-import TiTableViewRow from '../../../tiWrapp/TiTableViewRow';
-import TiView from '../../../tiWrapp/TiView';
-import TiLabel from '../../../tiWrapp/TiLabel';
-import DesignParam from '../../../enum/DesignParam';
-import ModeMark from '../../common/ModeMark';
+import TiTableViewRow from '../../tiWrapp/TiTableViewRow';
+import TiView from '../../tiWrapp/TiView';
+import TiLabel from '../../tiWrapp/TiLabel';
+import DesignParam from '../../enum/DesignParam';
+import ModeMark from '../common/ModeMark';
 import moment from 'moment';
 
 /**
  * 炊飯記録のRowクラスです。
  */
-export default class CookTimerRow extends TiTableViewRow {
+export default class TimelineRow extends TiTableViewRow {
 
   /**
    * コンストラクター

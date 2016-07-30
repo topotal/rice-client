@@ -1,11 +1,11 @@
-import TiTableView from '../../../tiWrapp/TiTableView';
-import DesignParam from '../../../enum/DesignParam';
-import CookTimerRow from './CookTimerRow';
+import TiTableView from '../../tiWrapp/TiTableView';
+import DesignParam from '../../enum/DesignParam';
+import TimelineRow from './TimelineRow';
 
 /**
  * 炊飯記録のテーブルクラスです。
  */
-export default class CookTimerTable extends TiTableView {
+export default class TimelineTable extends TiTableView {
 
   /**
    * コンストラクター
@@ -44,7 +44,7 @@ export default class CookTimerTable extends TiTableView {
     }
 
     // rowを生成
-    var row = new CookTimerRow(mode);
+    var row = new TimelineRow(mode);
     row.start();
     this.appendRow(row);
     this.scrollToIndex(this.getData().length-1);
@@ -56,6 +56,14 @@ export default class CookTimerTable extends TiTableView {
 
     // 現在Rowを更新
     this._currentRow = row;
+  }
+
+  /**
+   * Rowをセットします。
+   * @param timelineData
+   */
+  setRow(timelineData) {
+    console.info(timelineData);
   }
 
 }
