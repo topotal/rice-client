@@ -26,8 +26,9 @@ export default class TimelineTable extends TiTableView {
   _initDecoration() {
     this.setWidth(Ti.UI.FILL);
     this.setHeight(Ti.UI.FILL);
+    this.setBorderRadius(3);
     this.setRowHeight(60);
-    this.setBackgroundColor(DesignParam.COLOR.WHITE);
+    this.setBackgroundColor(DesignParam.COLOR.LIGHT_YELLOW);
   }
 
   /**

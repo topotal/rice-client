@@ -37,11 +37,6 @@ export default class CookMainTimer extends TiView {
     let textWidth = 140;
     let textLeft = (DeviceInfo.WIDTH - textWidth) / 2;
 
-    // 上ボーダー
-    let topBorder = this._createBorder();
-    topBorder.setTop(0);
-    this.add(topBorder);
-
     // タイマーアイコン
     let icon = this._createTimerIcon();
     icon.setLeft(textLeft);
@@ -51,11 +46,6 @@ export default class CookMainTimer extends TiView {
     this._timerText = this._createMainText();
     this._timerText.setLeft(textLeft + 32);
     this.add(this._timerText);
-
-    // 下ボーダー
-    let bottomBorder = this._createBorder();
-    bottomBorder.setBottom(0);
-    this.add(bottomBorder);
   }
 
   /**
@@ -91,18 +81,6 @@ export default class CookMainTimer extends TiView {
       font: {
         fontSize: 24
       }
-    });
-  }
-
-  /**
-   * ボーダーを作成します。
-   * @return TiView
-   */
-  _createBorder() {
-    return new TiView({
-      width: Ti.UI.FILL,
-      height: 1,
-      backgroundColor: DesignParam.COLOR.GRAY
     });
   }
 

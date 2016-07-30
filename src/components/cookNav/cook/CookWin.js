@@ -27,7 +27,10 @@ export default class CookWin extends BaseWindow {
 
     // 履歴テーブル
     this._timelineTable = new TimelineTable();
-    this._timelineTable.setBottom(CookMainTimer.HEIGHT + 220);
+    this._timelineTable.setTop(10);
+    this._timelineTable.setLeft(10);
+    this._timelineTable.setRight(10);
+    this._timelineTable.setBottom(CookMainTimer.HEIGHT + 220 + 10);
     this.add(this._timelineTable);
 
     // メインタイマー
@@ -66,7 +69,7 @@ export default class CookWin extends BaseWindow {
   _initDecoration() {
     this.setTitle('炊飯');
     this.setBarColor(DesignParam.COLOR.ORANGE);
-    this.setBackgroundColor(DesignParam.COLOR.LIGHT_YELLOW);
+    this.setBackgroundColor(DesignParam.COLOR.ORANGE);
   }
 
   /**

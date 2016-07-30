@@ -57,6 +57,7 @@ export default class CookModeButtons extends TiView {
   _initDecoration() {
     this.setWidth(DeviceInfo.WIDTH);
     this.setHeight(CookModeButtons.HEIGHT);
+    this.setBackgroundColor(DesignParam.COLOR.LIGHT_YELLOW);
   }
 
   /**
