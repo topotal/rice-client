@@ -9,6 +9,7 @@ import TiButton from '../../../tiWrapp/TiButton';
 import BaseWindow from '../../common/BaseWindow';
 import StarRating from '../../common/StarRating';
 import Media from '../../common/Media';
+import TimelineTable from '../../common/TimelineTable';
 
 /**
  * 炊飯完了画面クラスです。
@@ -49,9 +50,18 @@ export default class CompleteWin extends BaseWindow {
     this._cameraButton.setTop(23);
     this._cameraButton.setLeft(10);
     this._cameraButton.setRight(10);
+    this._cameraButton.setBottom(10);
     this._onClickCameraButton = this._onClickCameraButton.bind(this);
     this._cameraButton.addEventListener('wclick', this._onClickCameraButton);
     scrollView.add(this._cameraButton);
+
+    // タイムライン
+    this._timelineTable = new TimelineTable();
+    this._timelineTable.setHeight(500);
+    this._timelineTable.setLeft(10);
+    this._timelineTable.setRight(10);
+    this._timelineTable.setBottom(30);
+    scrollView.add(this._timelineTable);
 
     // メディア
     this._media = new Media();
