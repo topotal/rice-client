@@ -35,6 +35,15 @@ export default class CookMode {
     ];
   }
 
+  /** 火加減のみのリスト **/
+  static get FIRE_LEVEL() {
+    return [
+      CookMode.LOW,
+      CookMode.MIDDLE,
+      CookMode.HIGH
+    ];
+  }
+
   get id() {
     return this._id;
   }

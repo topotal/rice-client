@@ -10,7 +10,7 @@ import DesignParam from '../../../enum/DesignParam';
 export default class CookMainTimer extends TiView {
 
   /** 高さ */
-  static get HEIGHT() { return 60; }
+  static get HEIGHT() { return 88; }
 
   /**
    * 経過秒数を返却します。
@@ -39,11 +39,13 @@ export default class CookMainTimer extends TiView {
 
     // タイマーアイコン
     let icon = this._createTimerIcon();
+    icon.setTop(14);
     icon.setLeft(textLeft);
     this.add(icon);
 
     // タイマーの数字
     this._timerText = this._createMainText();
+    this._timerText.setTop(10);
     this._timerText.setLeft(textLeft + 32);
     this.add(this._timerText);
   }

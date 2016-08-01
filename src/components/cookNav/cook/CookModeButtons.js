@@ -13,7 +13,7 @@ export default class CookModeButtons extends TiView {
 
   /** 高さ */
   static get HEIGHT() {
-    return 220;
+    return 150;
   }
 
   /**
@@ -64,7 +64,7 @@ export default class CookModeButtons extends TiView {
    * モードボタンをセットします。
    */
   _setButtons() {
-    _.each(CookMode.MODE_LIST, (mode, index) => {
+    _.each(CookMode.FIRE_LEVEL, (mode, index) => {
       let margin = 10;
       let buttonWidth = (DeviceInfo.WIDTH - (margin * 4)) / 3;
       let buttonHeight = 60;
@@ -72,7 +72,7 @@ export default class CookModeButtons extends TiView {
       button.setWidth(buttonWidth);
       button.setHeight(buttonHeight);
       button.setLeft((index % 3) * (buttonWidth + margin) + margin);
-      button.setTop((Math.floor(index / 3) * (buttonHeight + margin)) + margin);
+      button.setTop(margin);
       this.add(button);
       this._modeButtons.push(button);
     });

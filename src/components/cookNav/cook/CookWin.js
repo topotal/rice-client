@@ -30,12 +30,12 @@ export default class CookWin extends BaseWindow {
     this._timelineTable.setTop(10);
     this._timelineTable.setLeft(10);
     this._timelineTable.setRight(10);
-    this._timelineTable.setBottom(CookMainTimer.HEIGHT + 220 + 10);
+    this._timelineTable.setBottom(CookMainTimer.HEIGHT + CookModeButtons.HEIGHT + 10);
     this.add(this._timelineTable);
 
     // メインタイマー
     this._mainTimer = new CookMainTimer();
-    this._mainTimer.setBottom(220);
+    this._mainTimer.setBottom(CookModeButtons.HEIGHT);
     this.add(this._mainTimer);
 
     // 炊飯モード切り替えボタン群
