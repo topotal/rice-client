@@ -1,10 +1,8 @@
-import {_} from 'lodash';
 import * as DesignParam from '../../../enum/DesignParam';
 import BaseWindow from '../../common/BaseWindow';
 import CompleteWin from './../complete/CompleteWin';
 import CookMainTimer from './CookMainTimer';
 import TimelineTable from '../../common/TimelineTable';
-import CookMode from '../../../models/vo/CookMode';
 import CookModeButtons from './CookModeButtons';
 import TiAlertDialog from '../../../tiWrapp/TiAlertDialog';
 import NavWinModel from '../../../models/NavWinModel';
@@ -36,6 +34,8 @@ export default class CookWin extends BaseWindow {
     // メインタイマー
     this._mainTimer = new CookMainTimer();
     this._mainTimer.setBottom(CookModeButtons.HEIGHT);
+    this._onClickComp = this._onClickComp.bind(this);
+    this._mainTimer.addEventListener('clickComp', this._onClickComp);
     this.add(this._mainTimer);
 
     // 炊飯モード切り替えボタン群
@@ -90,10 +90,6 @@ export default class CookWin extends BaseWindow {
     }
 
     let mode = this._modeButtons.currentMode;
-    if(_.isEqual(mode, CookMode.COMP)) {
-      this._openCompleteWin();
-      return;
-    }
     this._timelineTable.pushRow(mode);
   }
 
@@ -115,4 +111,10 @@ export default class CookWin extends BaseWindow {
     }
   }
 
+  /**
+   * 完成ボタン押下時のハンドラーです。
+   */
+  _onClickComp() {
+    this._openCompleteWin();
+  }
 }

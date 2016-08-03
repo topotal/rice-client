@@ -3,6 +3,7 @@ import TiLabel from '../../../tiWrapp/TiLabel';
 import moment from 'moment';
 import DeviceInfo from '../../../enum/DeviceInfo';
 import DesignParam from '../../../enum/DesignParam';
+import ColorButton from '../../common/ColorButton';
 
 /**
  * タイマーのメイン部分
@@ -48,6 +49,30 @@ export default class CookMainTimer extends TiView {
     this._timerText.setTop(10);
     this._timerText.setLeft(textLeft + 32);
     this.add(this._timerText);
+
+    // ボタンのラッパー
+    let buttonsWrap = new TiView({
+      width: 256,
+      height: 32,
+      bottom: 10
+    });
+    this.add(buttonsWrap);
+
+    // 停止ボタン
+    this._stopButton = new ColorButton(DesignParam.COLOR.DEEP_BLUE, '停止');
+    this._stopButton.setWidth(123);
+    this._stopButton.setHeight(32);
+    this._stopButton.setLeft(0);
+    buttonsWrap.add(this._stopButton);
+
+    // 完成ボタン
+    this._compButton = new ColorButton(DesignParam.COLOR.GREEN, '完成');
+    this._compButton.setWidth(123);
+    this._compButton.setHeight(32);
+    this._compButton.setRight(0);
+    this._onClickComp = this._onClickComp.bind(this);
+    this._compButton.addEventListener('wclick', this._onClickComp);
+    buttonsWrap.add(this._compButton);
   }
 
   /**
@@ -113,4 +138,12 @@ export default class CookMainTimer extends TiView {
     this._timerText.setText(nowMoment.format('HH:mm:ss'));
   }
 
+  /**
+   * 完成ボタン押下時のハンドラーです。
+   * @param event
+   */
+  _onClickComp() {
+    // 完成ボタンクリックイベント発火
+    this.fireEvent('clickComp');
+  }
 }
