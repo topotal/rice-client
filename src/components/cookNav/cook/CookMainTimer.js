@@ -63,6 +63,8 @@ export default class CookMainTimer extends TiView {
     this._stopButton.setWidth(123);
     this._stopButton.setHeight(32);
     this._stopButton.setLeft(0);
+    this._onClickStop = this._onClickStop.bind(this);
+    this._stopButton.addEventListener('wclick', this._onClickStop);
     buttonsWrap.add(this._stopButton);
 
     // 完成ボタン
@@ -139,8 +141,15 @@ export default class CookMainTimer extends TiView {
   }
 
   /**
+   * 停止ボタン押下時のハンドラーです。
+   */
+  _onClickStop() {
+    // 停止ボタンクリックイベントを発火
+    this.fireEvent('clickStop');
+  }
+
+  /**
    * 完成ボタン押下時のハンドラーです。
-   * @param event
    */
   _onClickComp() {
     // 完成ボタンクリックイベント発火

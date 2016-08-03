@@ -34,7 +34,9 @@ export default class CookWin extends BaseWindow {
     // メインタイマー
     this._mainTimer = new CookMainTimer();
     this._mainTimer.setBottom(CookModeButtons.HEIGHT);
+    this._onClickStop = this._onClickStop.bind(this);
     this._onClickComp = this._onClickComp.bind(this);
+    this._mainTimer.addEventListener('clickStop', this._onClickStop);
     this._mainTimer.addEventListener('clickComp', this._onClickComp);
     this.add(this._mainTimer);
 
@@ -61,6 +63,16 @@ export default class CookWin extends BaseWindow {
     });
     this._onClickDialog = this._onClickDialog.bind(this);
     this._cancelDialog.addEventListener('wclick', this._onClickDialog);
+
+    // 完成確認ダイアログ
+    this._compDialog = new TiAlertDialog({
+      message: '炊飯の記録を終了しても\nよろしいですか？',
+      cancel: 0,
+      buttonNames: ['キャンセル', 'OK'],
+      title: 'Best Rice'
+    });
+    this._onClickCompDialog = this._onClickCompDialog.bind(this);
+    this._compDialog.addEventListener('wclick', this._onClickCompDialog);
   }
 
   /**
@@ -115,6 +127,23 @@ export default class CookWin extends BaseWindow {
    * 完成ボタン押下時のハンドラーです。
    */
   _onClickComp() {
-    this._openCompleteWin();
+    this._compDialog.show();
+  }
+
+  /**
+   * 停止ボタン押下時のハンドラーです。
+   */
+  _onClickStop() {
+    console.info('停止');
+  }
+
+  /**
+   * 完成確認ダイアログクリック時のハンドラーです。
+   */
+  _onClickCompDialog(event) {
+    // OKボタンであれば炊飯画面を閉じる
+    if(event.index == 1) {
+      this._openCompleteWin();
+    }
   }
 }
