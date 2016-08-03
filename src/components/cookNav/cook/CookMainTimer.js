@@ -155,4 +155,13 @@ export default class CookMainTimer extends TiView {
     // 完成ボタンクリックイベント発火
     this.fireEvent('clickComp');
   }
+
+  /**
+   * タイマーを一時停止させます。
+   */
+  stop() {
+    this.isActive = false;
+    clearInterval(this._timer);
+  }
+
 }

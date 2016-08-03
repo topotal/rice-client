@@ -135,6 +135,7 @@ export default class CookWin extends BaseWindow {
    */
   _onClickStop() {
     console.info('停止');
+    this.stopTimer();
   }
 
   /**
@@ -145,5 +146,12 @@ export default class CookWin extends BaseWindow {
     if(event.index == 1) {
       this._openCompleteWin();
     }
+  }
+
+  /**
+   * タイマーをストップさせます。
+   */
+  stopTimer() {
+    this._mainTimer.stop();
   }
 }
