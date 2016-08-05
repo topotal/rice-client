@@ -197,4 +197,11 @@ export default class TiView extends EventDispatcher {
     this.tiObj.setLayout(layout);
   }
 
+  /**
+   * zIndexを設定します。
+   */
+  setZIndex(index) {
+    this.tiObj.setZIndex(index);
+  }
+
 }
