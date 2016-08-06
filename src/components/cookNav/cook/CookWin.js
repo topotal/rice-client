@@ -7,6 +7,7 @@ import CookModeButtons from './CookModeButtons';
 import TiAlertDialog from '../../../tiWrapp/TiAlertDialog';
 import NavWinModel from '../../../models/NavWinModel';
 import TiImageView from '../../../tiWrapp/TiImageView';
+import TiOptionDialog from '../../../tiWrapp/TiOptionDialog';
 
 /**
  * 炊飯画面クラスです。
@@ -35,8 +36,10 @@ export default class CookWin extends BaseWindow {
     this._mainTimer = new CookMainTimer();
     this._mainTimer.setBottom(CookModeButtons.HEIGHT);
     this._onClickStop = this._onClickStop.bind(this);
+    this._onClickResume = this._onClickResume.bind(this);
     this._onClickComp = this._onClickComp.bind(this);
     this._mainTimer.addEventListener('clickStop', this._onClickStop);
+    this._mainTimer.addEventListener('clickResume', this._onClickResume);
     this._mainTimer.addEventListener('clickComp', this._onClickComp);
     this.add(this._mainTimer);
 
@@ -65,11 +68,10 @@ export default class CookWin extends BaseWindow {
     this._cancelDialog.addEventListener('wclick', this._onClickDialog);
 
     // 完成確認ダイアログ
-    this._compDialog = new TiAlertDialog({
-      message: '炊飯の記録を終了しても\nよろしいですか？',
-      cancel: 0,
-      buttonNames: ['キャンセル', 'OK'],
-      title: 'Best Rice'
+    this._compDialog = new TiOptionDialog({
+      cancel: 2,
+      options: ['完成', '蒸らしに入る', 'キャンセル'],
+      title: '炊飯を終えますか？それとも蒸らしますか？'
     });
     this._onClickCompDialog = this._onClickCompDialog.bind(this);
     this._compDialog.addEventListener('wclick', this._onClickCompDialog);
@@ -139,13 +141,29 @@ export default class CookWin extends BaseWindow {
   }
 
   /**
+   * 再開ボタン押下時のハンドラーです。
+   */
+  _onClickResume() {
+    console.info('再開');
+    this.startTimer();
+  }
+
+  /**
    * 完成確認ダイアログクリック時のハンドラーです。
    */
   _onClickCompDialog(event) {
-    // OKボタンであれば炊飯画面を閉じる
-    if(event.index == 1) {
+    console.info(event);
+    // 完成であれば完成画面を閉じる
+    if(event.index == 0) {
       this._openCompleteWin();
     }
+  }
+
+  /**
+   * タイマーを開始させます。
+   */
+  startTimer() {
+    this._mainTimer.start();
   }
 
   /**

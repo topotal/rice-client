@@ -4,6 +4,7 @@ import moment from 'moment';
 import DeviceInfo from '../../../enum/DeviceInfo';
 import DesignParam from '../../../enum/DesignParam';
 import ColorButton from '../../common/ColorButton';
+import StopWindow from './StopWindow';
 
 /**
  * タイマーのメイン部分
@@ -67,16 +68,6 @@ export default class CookMainTimer extends TiView {
     this._stopButton.addEventListener('wclick', this._onClickStop);
     buttonsWrap.add(this._stopButton);
 
-    // 再開ボタン
-    this._resumeButton = new ColorButton(DesignParam.COLOR.RED, '再開');
-    this._resumeButton.setWidth(123);
-    this._resumeButton.setHeight(32);
-    this._resumeButton.setLeft(0);
-    this._resumeButton.setVisible(false);
-    this._onClickResume = this._onClickResume.bind(this);
-    this._resumeButton.addEventListener('wclick', this._onClickResume);
-    buttonsWrap.add(this._resumeButton);
-
     // 完成ボタン
     this._compButton = new ColorButton(DesignParam.COLOR.GREEN, '完成');
     this._compButton.setWidth(123);
@@ -128,8 +119,6 @@ export default class CookMainTimer extends TiView {
    */
   start() {
     this.isActive = true;
-    this._stopButton.setVisible(true);
-    this._resumeButton.setVisible(false);
     this._timer = setInterval(() => this._increment(), 1000);
   }
 
@@ -164,17 +153,22 @@ export default class CookMainTimer extends TiView {
    * 停止ボタン押下時のハンドラーです。
    */
   _onClickStop() {
-    this._stopButton.setVisible(false);
-    this._resumeButton.setVisible(true);
     // 停止ボタンクリックイベントを発火
     this.fireEvent('clickStop');
+    let win = new StopWindow();
+    win.open({
+      modal: true,
+      modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_CROSS_DISSOLVE,
+      modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_CURRENT_CONTEXT
+    });
   }
 
   /**
    * 再開ボタン押下時のハンドラーです。
    */
   _onClickResume() {
-    this.start();
+    // 再開ボタンクリックイベント発火
+    this.fireEvent('clickResume');
   }
 
   /**
