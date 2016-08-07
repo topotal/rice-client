@@ -70,14 +70,13 @@ export default class CompleteWin extends BaseWindow {
 
     // 5段階評価
     let startRating = this._createStarRating();
-    startRating.setTop(10);
     startRating.setLeft(10);
     startRating.setRight(10);
+    startRating.setBottom(10);
     scrollView.add(startRating);
 
     // 記録に残すボタン
     let saveButton = this._createSaveButton();
-    saveButton.setTop(30);
     saveButton.setLeft(10);
     saveButton.setRight(10);
     saveButton.setBottom(10);
