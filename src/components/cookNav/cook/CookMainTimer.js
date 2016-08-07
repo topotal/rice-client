@@ -4,7 +4,6 @@ import moment from 'moment';
 import DeviceInfo from '../../../enum/DeviceInfo';
 import DesignParam from '../../../enum/DesignParam';
 import ColorButton from '../../common/ColorButton';
-import StopWindow from './StopWindow';
 
 /**
  * タイマーのメイン部分
@@ -155,12 +154,6 @@ export default class CookMainTimer extends TiView {
   _onClickStop() {
     // 停止ボタンクリックイベントを発火
     this.fireEvent('clickStop');
-    let win = new StopWindow();
-    win.open({
-      modal: true,
-      modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_CROSS_DISSOLVE,
-      modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_CURRENT_CONTEXT
-    });
   }
 
   /**

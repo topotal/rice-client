@@ -8,6 +8,7 @@ import TiAlertDialog from '../../../tiWrapp/TiAlertDialog';
 import NavWinModel from '../../../models/NavWinModel';
 import TiImageView from '../../../tiWrapp/TiImageView';
 import TiOptionDialog from '../../../tiWrapp/TiOptionDialog';
+import StopWindow from './StopWindow';
 
 /**
  * 炊飯画面クラスです。
@@ -75,6 +76,9 @@ export default class CookWin extends BaseWindow {
     });
     this._onClickCompDialog = this._onClickCompDialog.bind(this);
     this._compDialog.addEventListener('wclick', this._onClickCompDialog);
+
+    // ポーズ画面
+    this._stopWin = new StopWindow();
   }
 
   /**
@@ -136,15 +140,19 @@ export default class CookWin extends BaseWindow {
    * 停止ボタン押下時のハンドラーです。
    */
   _onClickStop() {
-    console.info('停止');
     this.stopTimer();
+    // ポーズ画面を開く
+    this._stopWin.open({
+      modal: true,
+      modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_CROSS_DISSOLVE,
+      modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_CURRENT_CONTEXT
+    });
   }
 
   /**
    * 再開ボタン押下時のハンドラーです。
    */
   _onClickResume() {
-    console.info('再開');
     this.startTimer();
   }
 
