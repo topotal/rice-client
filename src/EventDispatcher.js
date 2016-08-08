@@ -40,6 +40,13 @@ export default class EventDispatcher {
   }
 
   /**
+   * 全てのリスナーを削除します。
+   */
+  removeAllEventListeners() {
+    this._listeners = {};
+  }
+
+  /**
    * イベントを発火させます。
    * @param type
    * @param param
@@ -53,5 +60,4 @@ export default class EventDispatcher {
       }));
     }
   }
-
 }
