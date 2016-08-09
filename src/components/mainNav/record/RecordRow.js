@@ -26,19 +26,24 @@ export default class RecordRow extends PopRow {
     // 日付
     let date = this._createDate();
     date.setLeft(10);
+    date.setTouchEnabled(false);
     this.wrapper.add(date);
 
     // 5段階評価
     let starRating = new StarRating(this.getRowData().getRate());
     starRating.setTop(12);
     starRating.setLeft(70);
+    starRating.setTouchEnabled(false);
     this.wrapper.add(starRating);
 
     // ブランド
     let brand = this._createBrand();
     brand.setLeft(70);
     brand.setBottom(10);
+    brand.setTouchEnabled(false);
     this.wrapper.add(brand);
+
+    this.wrapper.setTouchEnabled(false);
   }
 
   /**

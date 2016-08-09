@@ -36,7 +36,8 @@ export default class HomeWin extends BaseWindow {
     this.add(this._cookButton);
 
     // 炊飯ボタンのクリックイベント
-    this._cookButton.addEventListener('wclick', (e) => this._onClickHandler(e));
+    this._onClickHandler = this._onClickHandler.bind(this);
+    this._cookButton.addEventListener('wclick', this._onClickHandler);
 
     // ウィンドウを開いた時のイベントを監視
     this.addEventListener('wopen', () => this._onOpen());

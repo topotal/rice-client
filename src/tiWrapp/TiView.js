@@ -227,4 +227,12 @@ export default class TiView {
     this.tiObj.setZIndex(index);
   }
 
+  /**
+   * タップの許可、禁止を設定します。
+   * @param boolean
+   */
+  setTouchEnabled(boolean) {
+    this.tiObj.setTouchEnabled(boolean);
+  }
+
 }
