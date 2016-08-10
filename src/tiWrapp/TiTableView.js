@@ -29,7 +29,10 @@ export default class TiTableView extends TiView {
   /**
    * イベント
    */
-  _onTiScroll(event) { this.fireEvent('wscroll', event); }
+  _onTiScroll(event) {
+    event.target = this;
+    this.fireEvent('wScroll', event);
+  }
 
   /**
    * Rowをセットします。

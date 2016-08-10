@@ -32,7 +32,7 @@ export default class RecordTable extends TiTableView {
     this._refreshControl = new TiRefreshControl({
       tintColor: DesignParam.COLOR.LIGHT_YELLOW
     });
-    this._refreshControl.addEventListener('wrefreshstart', () => this._onRefresh());
+    this._refreshControl.addEventListener('wRefreshstart', () => this._onRefresh());
     this.setRefreshControl(this._refreshControl);
 
     // サービス
@@ -113,7 +113,8 @@ export default class RecordTable extends TiTableView {
    */
   _createRow(index, data) {
     var row = new RecordRow(data);
-    row.addEventListener('wclick', () => this._onClickRow());
+    this._onClickRow = this._onClickRow.bind(this);
+    row.addEventListener('wClick', this._onClickRow);
     // すでに選択している値があればレ点をつける
     if(this._value && this._value.getId() === data.getId()) {
       row.check();
@@ -123,8 +124,10 @@ export default class RecordTable extends TiTableView {
 
   /**
    * Rowのクリック時のハンドラーです。
+   * @param event
    */
-  _onClickRow() {
+  _onClickRow(event) {
+    event.cancelBubble = true;
     // 選択イベントを発火
     this.fireEvent('select');
   }

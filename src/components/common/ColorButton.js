@@ -67,8 +67,8 @@ export default class ColorButton extends TiView {
     this.pull();
 
     // タップを監視
-    this.addEventListener('wtouchstart', (event) => this._onTouchStart(event));
-    this.addEventListener('wtouchend', (event) => this._onTouchEnd(event));
+    this.addEventListener('wTouchstart', (event) => this._onTouchStart(event));
+    this.addEventListener('wTouchend', (event) => this._onTouchEnd(event));
   }
 
   /**

@@ -26,8 +26,10 @@ export default class HomeWin extends BaseWindow {
 
     // 炊飯記録一覧
     this._record = new RecordTable();
-    this._record.addEventListener('select', () => this._onSelectRow());
-    this._record.addEventListener('wscroll', (e) => this._onScroll(e));
+    this._onSelectRow = this._onSelectRow.bind(this);
+    this._record.addEventListener('select', this._onSelectRow);
+    this._onScroll = this._onScroll.bind(this);
+    this._record.addEventListener('wScroll', this._onScroll);
     this.add(this._record);
 
     // 炊飯ボタン
@@ -37,10 +39,11 @@ export default class HomeWin extends BaseWindow {
 
     // 炊飯ボタンのクリックイベント
     this._onClickHandler = this._onClickHandler.bind(this);
-    this._cookButton.addEventListener('wclick', this._onClickHandler);
+    this._cookButton.addEventListener('wClick', this._onClickHandler);
 
     // ウィンドウを開いた時のイベントを監視
-    this.addEventListener('wopen', () => this._onOpen());
+    this._onOpen = this._onOpen.bind(this);
+    this.addEventListener('wOpen', this._onOpen);
   }
 
   /**

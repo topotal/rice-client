@@ -52,7 +52,7 @@ export default class CompleteWin extends BaseWindow {
     this._cameraButton.setRight(10);
     this._cameraButton.setBottom(10);
     this._onClickCameraButton = this._onClickCameraButton.bind(this);
-    this._cameraButton.addEventListener('wclick', this._onClickCameraButton);
+    this._cameraButton.addEventListener('wClick', this._onClickCameraButton);
     scrollView.add(this._cameraButton);
 
     // タイムライン
@@ -81,7 +81,7 @@ export default class CompleteWin extends BaseWindow {
     saveButton.setRight(10);
     saveButton.setBottom(10);
     scrollView.add(saveButton);
-    saveButton.addEventListener('wclick', () => this._onClickSaveButton());
+    saveButton.addEventListener('wClick', () => this._onClickSaveButton());
   }
 
   /**

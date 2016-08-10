@@ -46,7 +46,7 @@ export default class StarRating extends TiView {
     this._onClickStar = this._onClickStar.bind(this);
     for(let i=0; i<5; i++) {
       let star = new Star(false, this._size);
-      star.addEventListener('wclick', this._onClickStar);
+      star.addEventListener('wClick', this._onClickStar);
       star.setLeft(i * (this._size + this._marginRight));
       this.add(star);
       this._stars.push(star);

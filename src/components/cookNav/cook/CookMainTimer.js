@@ -64,7 +64,7 @@ export default class CookMainTimer extends TiView {
     this._stopButton.setHeight(32);
     this._stopButton.setLeft(0);
     this._onClickStop = this._onClickStop.bind(this);
-    this._stopButton.addEventListener('wclick', this._onClickStop);
+    this._stopButton.addEventListener('wClick', this._onClickStop);
     buttonsWrap.add(this._stopButton);
 
     // 完成ボタン
@@ -73,7 +73,7 @@ export default class CookMainTimer extends TiView {
     this._compButton.setHeight(32);
     this._compButton.setRight(0);
     this._onClickComp = this._onClickComp.bind(this);
-    this._compButton.addEventListener('wclick', this._onClickComp);
+    this._compButton.addEventListener('wClick', this._onClickComp);
     buttonsWrap.add(this._compButton);
   }
 

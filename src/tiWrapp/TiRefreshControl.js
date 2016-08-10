@@ -12,7 +12,8 @@ export default class TiRefreshControl extends EventDispatcher {
   constructor(prop) {
     super();
     this.setTiObj(prop);
-    this.tiObj.addEventListener('refreshstart', (event) => this._onTiRefreshStart(event));
+    this._onTiRefreshStart = this._onTiRefreshStart.bind(this);
+    this.tiObj.addEventListener('refreshstart', this._onTiRefreshStart);
   }
 
   /**
@@ -26,7 +27,10 @@ export default class TiRefreshControl extends EventDispatcher {
   /**
    * イベント
    */
-  _onTiRefreshStart() { this.fireEvent('wrefreshstart', { target: this }); }
+  _onTiRefreshStart(event) {
+    event.target = this;
+    this.fireEvent('wRefreshstart', event);
+  }
 
   /**
    * リフレッシュを終わらせます。

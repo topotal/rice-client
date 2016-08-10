@@ -107,7 +107,7 @@ export default class SelectTable extends TiTableView {
    */
   _createRow(index, data) {
     var row = new SelectTableRow(index, data);
-    row.addEventListener('wclick', () => this._onClickRow({
+    row.addEventListener('wClick', () => this._onClickRow({
       data: data
     }));
 

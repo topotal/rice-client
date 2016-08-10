@@ -21,7 +21,7 @@ export default class StopWindow extends TiWindow {
     this._resumeButton.setWidth(200);
     this._resumeButton.setHeight(60);
     this._onClickResume = this._onClickResume.bind(this);
-    this._resumeButton.addEventListener('wclick', this._onClickResume);
+    this._resumeButton.addEventListener('wClick', this._onClickResume);
     this.add(this._resumeButton);
   }
 

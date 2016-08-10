@@ -13,10 +13,14 @@ export default class TiView {
 
     this.size = this.tiObj.size;
 
-    this.tiObj.addEventListener('click', (event) => this._onTiClick(event));
-    this.tiObj.addEventListener('touchstart', (event) => this._onTiTouchStart(event));
-    this.tiObj.addEventListener('touchend', (event) => this._onTiTouchEnd(event));
-    this.tiObj.addEventListener('postlayout', (event) => this._onTiPostLayout(event));
+    this._onTiClick = this._onTiClick.bind(this);
+    this.tiObj.addEventListener('click', this._onTiClick);
+    this._onTiTouchStart = this._onTiTouchStart.bind(this);
+    this.tiObj.addEventListener('touchstart', this._onTiTouchStart);
+    this._onTiTouchEnd = this._onTiTouchEnd.bind(this);
+    this.tiObj.addEventListener('touchend', this._onTiTouchEnd);
+    this._onTiPostLayout = this._onTiPostLayout.bind(this);
+    this.tiObj.addEventListener('postlayout', this._onTiPostLayout);
   }
 
   /**
@@ -59,13 +63,20 @@ export default class TiView {
    */
   _onTiClick(event) {
     event.target = this;
-    this.fireEvent('wclick', event);
+    this.fireEvent('wClick', event);
   }
-  _onTiTouchStart() { this.fireEvent('wtouchstart', { target: this }); }
-  _onTiTouchEnd() { this.fireEvent('wtouchend', { target: this }); }
-  _onTiPostLayout() {
+  _onTiTouchStart(event) {
+    event.target = this;
+    this.fireEvent('wTouchstart', event);
+  }
+  _onTiTouchEnd(event) {
+    event.target = this;
+    this.fireEvent('wTouchend', event);
+  }
+  _onTiPostLayout(event) {
+    event.target = this;
     this.size = this.tiObj.size;
-    this.fireEvent('wpostlayout', { target: this });
+    this.fireEvent('wPostlayout', event);
   }
 
   /**

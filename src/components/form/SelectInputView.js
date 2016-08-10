@@ -50,7 +50,7 @@ export default class SelectInputView extends InputView {
     this._win.addEventListener('select', () => this._onSelect());
 
     // クリックを監視
-    this.addEventListener('wclick', () => this._onClick());
+    this.addEventListener('wClick', () => this._onClick());
 
     // 初期値のセット
     this.setValue(this._value);

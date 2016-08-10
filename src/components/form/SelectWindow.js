@@ -33,7 +33,7 @@ export default class SelectWindow extends BaseWindow {
     this.add(this._table);
 
     // ウィンドウオープンを監視
-    this.addEventListener('open', () => this._onOpen());
+    this.addEventListener('wOpen', () => this._onOpen());
   }
 
   /**

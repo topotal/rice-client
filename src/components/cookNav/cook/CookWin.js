@@ -56,7 +56,7 @@ export default class CookWin extends BaseWindow {
     });
     this.setLeftNavButton(this._cancelButton);
     this._onClickCancel = this._onClickCancel.bind(this);
-    this._cancelButton.addEventListener('wclick', this._onClickCancel);
+    this._cancelButton.addEventListener('wClick', this._onClickCancel);
 
     // 中止ダイアログ
     this._cancelDialog = new TiAlertDialog({
@@ -66,7 +66,7 @@ export default class CookWin extends BaseWindow {
       title: 'Best Rice'
     });
     this._onClickDialog = this._onClickDialog.bind(this);
-    this._cancelDialog.addEventListener('wclick', this._onClickDialog);
+    this._cancelDialog.addEventListener('wClick', this._onClickDialog);
 
     // 完成確認ダイアログ
     this._compDialog = new TiOptionDialog({
@@ -75,7 +75,7 @@ export default class CookWin extends BaseWindow {
       title: '炊飯を終えますか？それとも蒸らしますか？'
     });
     this._onClickCompDialog = this._onClickCompDialog.bind(this);
-    this._compDialog.addEventListener('wclick', this._onClickCompDialog);
+    this._compDialog.addEventListener('wClick', this._onClickCompDialog);
 
     // ポーズ画面
     this._stopWin = new StopWindow();

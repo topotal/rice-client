@@ -55,7 +55,7 @@ export default class PrepareWin extends BaseWindow {
     startButton.setRight(10);
     startButton.setBottom(80);
     this.add(startButton);
-    startButton.addEventListener('wclick', _.bind(this._onClickStart, this));
+    startButton.addEventListener('wClick', _.bind(this._onClickStart, this));
 
     // キャンセルボタン
     let cancelButton = this._createCancelButton();
@@ -63,7 +63,7 @@ export default class PrepareWin extends BaseWindow {
     cancelButton.setRight(10);
     cancelButton.setBottom(10);
     this.add(cancelButton);
-    cancelButton.addEventListener('wclick', _.bind(this._onClickCancel, this));
+    cancelButton.addEventListener('wClick', _.bind(this._onClickCancel, this));
   }
 
   /**
