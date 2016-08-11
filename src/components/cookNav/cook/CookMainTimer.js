@@ -63,6 +63,7 @@ export default class CookMainTimer extends TiView {
     this._stopButton.setWidth(123);
     this._stopButton.setHeight(32);
     this._stopButton.setLeft(0);
+    this._stopButton.setTouchEnabled(false);
     this._onClickStop = this._onClickStop.bind(this);
     this._stopButton.addEventListener('wClick', this._onClickStop);
     buttonsWrap.add(this._stopButton);
@@ -72,6 +73,7 @@ export default class CookMainTimer extends TiView {
     this._compButton.setWidth(123);
     this._compButton.setHeight(32);
     this._compButton.setRight(0);
+    this._compButton.setTouchEnabled(false);
     this._onClickComp = this._onClickComp.bind(this);
     this._compButton.addEventListener('wClick', this._onClickComp);
     buttonsWrap.add(this._compButton);
@@ -117,6 +119,8 @@ export default class CookMainTimer extends TiView {
    * タイマーをスタートさせます。
    */
   start() {
+    this._stopButton.setTouchEnabled(true);
+    this._compButton.setTouchEnabled(true);
     this.isActive = true;
     this._timer = setInterval(() => this._increment(), 1000);
   }
