@@ -8,13 +8,6 @@ import * as DesignParam from '../../enum/DesignParam';
 export default class ColorButton extends TiView {
 
   /**
-   * タッチ可能かどうかの真偽値
-   */
-  get touchEnabled() {
-    return this._touchEnabled;
-  }
-
-  /**
    * 自動で押し込むかどうかの真偽値
    */
   get autoPush() {
@@ -34,15 +27,6 @@ export default class ColorButton extends TiView {
     this._autoPull = bool;
   }
 
-  set touchEnabled(bool) {
-    this._touchEnabled = bool;
-    if(this._touchEnabled) {
-      this.setOpacity(1);
-    } else {
-      this.setOpacity(0.3);
-    }
-  }
-
   /**
    * コンストラクター
    * @constructor
@@ -55,7 +39,6 @@ export default class ColorButton extends TiView {
 
     this._color = color;
     this._text = text;
-    this._touchEnabled = true;
     this._autoPush = true;
     this._autoPull = true;
 
@@ -131,6 +114,19 @@ export default class ColorButton extends TiView {
     this._wrapper.setBottom(2);
     this._wrapper.setViewShadowColor('rgba(0, 0, 0, 0.4)');
     this._wrapperShadow.setVisible(false);
+  }
+
+  /**
+   * タップを可能にするかどうか設定します。
+   * @override
+   */
+  setTouchEnabled(bool) {
+    super.setTouchEnabled(bool);
+    if(bool) {
+      this.setOpacity(1);
+    } else {
+      this.setOpacity(0.3);
+    }
   }
 
   /**

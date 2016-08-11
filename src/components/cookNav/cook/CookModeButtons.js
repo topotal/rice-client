@@ -42,11 +42,12 @@ export default class CookModeButtons extends TiView {
     this._setButtons();
 
     // 切り替えボタン
-    this._changeButton = new ColorButton(DesignParam.COLOR.GRAY, '切り替える');
+    this._changeButton = new ColorButton(DesignParam.COLOR.BLUE, '切り替える');
     this._changeButton.setHeight(60);
     this._changeButton.setLeft(10);
     this._changeButton.setRight(10);
     this._changeButton.setBottom(10);
+    this._changeButton.setTouchEnabled(false);
     this._onClickChangeButton = this._onClickChangeButton.bind(this);
     this._changeButton.addEventListener('wClick', this._onClickChangeButton);
     this.add(this._changeButton);
@@ -97,8 +98,20 @@ export default class CookModeButtons extends TiView {
    */
   _onClickModeButton(event) {
     var target = event.target;
+
+    // 選択済みのボタンであれば処理しない
+    if(target.mode == this._selectMode) {
+      return;
+    }
+
+    // 切り替えボタンをタップできるように
+    this._changeButton.setTouchEnabled(true);
+
     // 選択モードを更新
     this._selectMode = target.mode;
+    // 選択中のボタンを更新
+    this._selectButton = target;
+
     _.each(this._modeButtons, (modeButton) => {
       if(target == modeButton) {
         modeButton.push();
@@ -116,8 +129,21 @@ export default class CookModeButtons extends TiView {
     if(this._currentMode == this._selectMode) {
       return;
     }
+
+    // 前に選択していたボタンがあればタップを解除
+    if(this._currentButton) {
+      this._currentButton.setTouchEnabled(true);
+    }
+
     // カレントを更新
     this._currentMode = this._selectMode;
+    // カレントボタンを更新
+    this._currentButton = this._selectButton;
+    // 切り替えボタンをタップできなくする
+    this._changeButton.setTouchEnabled(false);
+    // 選択したボタンを押せなくする
+    this._currentButton.setTouchEnabled(false);
+    this._currentButton.pull();
     // 変更イベントを発火
     this.fireEvent('change');
   }
