@@ -47,7 +47,8 @@ export default class CookModeButtons extends TiView {
     this._changeButton.setLeft(10);
     this._changeButton.setRight(10);
     this._changeButton.setBottom(10);
-    this._changeButton.addEventListener('wClick', () => this._onClickChangeButton());
+    this._onClickChangeButton = this._onClickChangeButton.bind(this);
+    this._changeButton.addEventListener('wClick', this._onClickChangeButton);
     this.add(this._changeButton);
   }
 
@@ -85,7 +86,8 @@ export default class CookModeButtons extends TiView {
    */
   _createButton(mode) {
     let button = new CookModeButton(mode);
-    button.addEventListener('wTouchstart', (event) => this._onClickModeButton(event));
+    this._onClickModeButton = this._onClickModeButton.bind(this);
+    button.addEventListener('wTouchstart', this._onClickModeButton);
     return button;
   }
 
@@ -98,7 +100,7 @@ export default class CookModeButtons extends TiView {
     // 選択モードを更新
     this._selectMode = target.mode;
     _.each(this._modeButtons, (modeButton) => {
-      if(target._mode == modeButton.mode) {
+      if(target == modeButton) {
         modeButton.push();
       } else {
         modeButton.pull();

@@ -47,7 +47,8 @@ export default class CookWin extends BaseWindow {
     // 炊飯モード切り替えボタン群
     this._modeButtons = new CookModeButtons();
     this._modeButtons.setBottom(0);
-    this._modeButtons.addEventListener('change', () => this._onChangeMode());
+    this._onChangeMode = this._onChangeMode.bind(this);
+    this._modeButtons.addEventListener('change', this._onChangeMode);
     this.add(this._modeButtons);
 
     // 中止ボタン
@@ -160,7 +161,6 @@ export default class CookWin extends BaseWindow {
    * 完成確認ダイアログクリック時のハンドラーです。
    */
   _onClickCompDialog(event) {
-    console.info(event);
     // 完成であれば完成画面を閉じる
     if(event.index == 0) {
       this._openCompleteWin();

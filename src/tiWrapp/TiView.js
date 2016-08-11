@@ -1,7 +1,9 @@
+import EventDispatcher from '../EventDispatcher';
+
 /**
  * Viewクラスのラップ
  */
-export default class TiView {
+export default class TiView extends EventDispatcher{
 
   /**
    * コンストラクター
@@ -9,6 +11,8 @@ export default class TiView {
    * @param prop
    */
   constructor(prop) {
+    super();
+
     this.setTiObj(prop);
 
     this.size = this.tiObj.size;
@@ -29,33 +33,6 @@ export default class TiView {
    */
   setTiObj(prop) {
     this.tiObj = Ti.UI.createView(prop);
-  }
-
-  /**
-   * イベントリスナーを追加します。
-   * @param type
-   * @param callback
-   */
-  addEventListener(type, callback) {
-    this.tiObj.addEventListener(type, callback);
-  }
-
-  /**
-   * イベントリスナーを削除します。
-   * @param type
-   * @param callback
-   */
-  removeEventListener(type, callback) {
-    this.tiObj.removeEventListener(type, callback);
-  }
-
-  /**
-   * イベントを発火させます。
-   * @param type
-   * @param option
-   */
-  fireEvent(type, option) {
-    this.tiObj.fireEvent(type, option);
   }
 
   /**

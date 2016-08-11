@@ -92,6 +92,7 @@ export default class ColorButton extends TiView {
       height: Ti.UI.FILL,
       borderRadius: 3,
       backgroundColor: 'rgba(0, 0, 0, 0.2)',
+      touchEnabled: false,
       visible: false
     });
     view.add(this._wrapperShadow);
