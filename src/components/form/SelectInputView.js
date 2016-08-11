@@ -75,7 +75,8 @@ export default class SelectInputView extends InputView {
     let view = new TiImageView({
       width: 30,
       height: 30,
-      image: this._iconPath
+      image: this._iconPath,
+      touchEnabled: false
     });
     return view;
   }
@@ -91,7 +92,8 @@ export default class SelectInputView extends InputView {
       font: {
         fontSize: 14,
         fontWeight: 'bold'
-      }
+      },
+      touchEnabled: false
     });
     return label;
   }
@@ -104,7 +106,8 @@ export default class SelectInputView extends InputView {
     let view = new TiImageView({
       width: 11,
       height: 17,
-      image: DesignParam.IMAGE.ROW_ARROW
+      image: DesignParam.IMAGE.ROW_ARROW,
+      touchEnabled: false
     });
     return view;
   }
@@ -120,7 +123,8 @@ export default class SelectInputView extends InputView {
       font: {
         fontSize: 14,
         fontWeight: 'bold'
-      }
+      },
+      touchEnabled: false
     });
     return label;
   }
