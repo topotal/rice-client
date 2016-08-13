@@ -122,7 +122,8 @@ export default class CookMainTimer extends TiView {
     this._stopButton.setTouchEnabled(true);
     this._compButton.setTouchEnabled(true);
     this.isActive = true;
-    this._timer = setInterval(() => this._increment(), 1000);
+    this._increment = this._increment.bind(this);
+    this._timer = setInterval(this._increment, 1000);
   }
 
   /**

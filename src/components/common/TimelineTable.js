@@ -46,7 +46,6 @@ export default class TimelineTable extends TiTableView {
 
     // rowを生成
     var row = new TimelineRow(mode);
-    row.start();
     this.appendRow(row);
     this.scrollToIndex(this.getData().length-1);
 
@@ -57,6 +56,9 @@ export default class TimelineTable extends TiTableView {
 
     // 現在Rowを更新
     this._currentRow = row;
+
+    // タイマーをスタート
+    this.start();
   }
 
   /**
@@ -65,6 +67,20 @@ export default class TimelineTable extends TiTableView {
    */
   setRow(timelineData) {
     console.info(timelineData);
+  }
+
+  /**
+   * タイマーをスタートさせます。
+   */
+  start() {
+    this._currentRow.start();
+  }
+
+  /**
+   * タイマーをストップさせます。
+   */
+  stop() {
+    this._currentRow.stop();
   }
 
 }

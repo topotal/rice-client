@@ -105,13 +105,13 @@ export default class CookWin extends BaseWindow {
    * モード切り替え時のハンドラーです。
    */
   _onChangeMode() {
+    let mode = this._modeButtons.currentMode;
+    this._timelineTable.pushRow(mode);
+
     // メインタイマーが動いていなければスタートさせる
     if(!this._mainTimer.isActive) {
       this._mainTimer.start();
     }
-
-    let mode = this._modeButtons.currentMode;
-    this._timelineTable.pushRow(mode);
   }
 
   /**
@@ -181,6 +181,7 @@ export default class CookWin extends BaseWindow {
    */
   startTimer() {
     this._mainTimer.start();
+    this._timelineTable.start();
   }
 
   /**
@@ -188,5 +189,6 @@ export default class CookWin extends BaseWindow {
    */
   stopTimer() {
     this._mainTimer.stop();
+    this._timelineTable.stop();
   }
 }
