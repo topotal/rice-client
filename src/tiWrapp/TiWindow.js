@@ -10,8 +10,10 @@ export default class TiWindow extends TiView {
    */
   constructor(prop) {
     super(prop);
-    this._onOpen = this._onOpen.bind(this);
-    this.tiObj.addEventListener('open', this._onOpen);
+    this._onTiOpen = this._onTiOpen.bind(this);
+    this.tiObj.addEventListener('open', this._onTiOpen);
+    this._onTiClose = this._onTiClose.bind(this);
+    this.tiObj.addEventListener('close', this._onTiClose);
   }
 
   /**
@@ -26,9 +28,13 @@ export default class TiWindow extends TiView {
   /**
    * イベント
    */
-  _onOpen(event) {
+  _onTiOpen(event) {
     event.target = this;
     this.fireEvent('wOpen', event);
+  }
+  _onTiClose(event) {
+    event.target = this;
+    this.fireEvent('wClose', event);
   }
 
   /**

@@ -80,6 +80,8 @@ export default class CookWin extends BaseWindow {
 
     // ポーズ画面
     this._stopWin = new StopWindow();
+    this._onCloseStopWin = this._onCloseStopWin.bind(this);
+    this._stopWin.addEventListener('wClose', this._onCloseStopWin);
   }
 
   /**
@@ -148,6 +150,13 @@ export default class CookWin extends BaseWindow {
       modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_CROSS_DISSOLVE,
       modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_CURRENT_CONTEXT
     });
+  }
+
+  /**
+   * ストップウィンドウが閉じた際のハンドラーです。
+   */
+  _onCloseStopWin() {
+    this.startTimer();
   }
 
   /**
