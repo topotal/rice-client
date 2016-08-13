@@ -29,5 +29,13 @@ export default class TiLabel extends TiView {
     this.tiObj.setText(text);
   }
 
+  /**
+   * フォントを設定します。
+   * @param font
+   */
+  setFont(font) {
+    this.tiObj.setFont(font);
+  }
+
 }
 

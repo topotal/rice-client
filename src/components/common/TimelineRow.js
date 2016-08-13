@@ -110,6 +110,9 @@ export default class TimelineRow extends TiTableViewRow {
    */
   start() {
     this._currentMark.setVisible(true);
+    this._time.setFont({
+      fontWeight: 'bold'
+    });
     this._timer = setInterval(() => this._increment(), 1000);
   }
 
@@ -118,6 +121,9 @@ export default class TimelineRow extends TiTableViewRow {
    */
   stop() {
     this._currentMark.setVisible(false);
+    this._time.setFont({
+      fontWeight: 'normal'
+    });
     clearInterval(this._timer);
   }
 
