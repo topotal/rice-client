@@ -71,7 +71,7 @@ export default class TimelineRow extends TiTableViewRow {
    */
   _createTime() {
     return new TiLabel({
-      text: '00時間 00分 00秒 経過',
+      text: '0秒 経過',
       textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
       color: DesignParam.COLOR.BLACK,
       font: {
@@ -148,6 +148,23 @@ export default class TimelineRow extends TiTableViewRow {
     this._secounds+=1;
     let zeroMoment = moment('00:00:00', 'HH:mm:ss');
     let nowMoment = zeroMoment.seconds(this._secounds);
-    this._time.setText(nowMoment.format('HH時間 mm分 ss秒 経過'));
+    let second = nowMoment.second();
+    let minute = nowMoment.minute();
+    let hour = nowMoment.hour();
+    let text = '';
+
+    console.info(second, minute, hour);
+
+    if(hour) {
+      text = hour + '時間 ' + minute + '分 ' + second + '秒 ';
+    } else if(minute) {
+      text = minute + '分 ' + second + '秒 ';
+    } else {
+      text = second + '秒 ';
+    }
+
+    text = text + '経過';
+
+    this._time.setText(text);
   }
 }
