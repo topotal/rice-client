@@ -10,6 +10,16 @@ import moment from 'moment';
  */
 export default class TimelineRow extends TiTableViewRow {
 
+  get CURRENT_RIGHT_S() {
+    return 102;
+  }
+  get CURRENT_RIGHT_M() {
+    return 132;
+  }
+  get CURRENT_RIGHT_L() {
+    return 164;
+  }
+
   /**
    * コンストラクター
    * @constructor
@@ -51,7 +61,7 @@ export default class TimelineRow extends TiTableViewRow {
 
     // カレントマーク
     this._currentMark = this._createCurrentMark();
-    this._currentMark.setRight(184);
+    this._currentMark.setRight(this.CURRENT_RIGHT_S);
     this._currentMark.setVisible(false);
     this.add(this._currentMark);
   }
@@ -153,14 +163,15 @@ export default class TimelineRow extends TiTableViewRow {
     let hour = nowMoment.hour();
     let text = '';
 
-    console.info(second, minute, hour);
-
     if(hour) {
       text = hour + '時間 ' + minute + '分 ' + second + '秒 ';
+      this._currentMark.setRight(this.CURRENT_RIGHT_L);
     } else if(minute) {
       text = minute + '分 ' + second + '秒 ';
+      this._currentMark.setRight(this.CURRENT_RIGHT_M);
     } else {
       text = second + '秒 ';
+      this._currentMark.setRight(this.CURRENT_RIGHT_S);
     }
 
     text = text + '経過';
