@@ -31,5 +31,6 @@ exports.IMAGE = {
   CLOSE: pathHead + 'close.png',
   STICK: pathHead + 'stick.png',
   RICE_ICON: pathHead + 'rice_icon.png',
-  CAMERA: pathHead + 'camera.png'
+  CAMERA: pathHead + 'camera.png',
+  STOP_ICON: pathHead + 'stop_icon.png'
 };

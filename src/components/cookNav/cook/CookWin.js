@@ -9,6 +9,7 @@ import NavWinModel from '../../../models/NavWinModel';
 import TiImageView from '../../../tiWrapp/TiImageView';
 import TiOptionDialog from '../../../tiWrapp/TiOptionDialog';
 import StopWindow from './StopWindow';
+import CookModel from '../../../models/CookModel';
 
 /**
  * 炊飯画面クラスです。
@@ -24,6 +25,9 @@ export default class CookWin extends BaseWindow {
 
     // 見栄え処理
     this._initDecoration();
+
+    // モデル
+    this._model = CookModel.getInstance();
 
     // 履歴テーブル
     this._timelineTable = new TimelineTable();
