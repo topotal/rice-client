@@ -39,7 +39,8 @@ export default class GetCookRecordsResponse {
         new Brand(record.brand.id, record.brand.title),
         record.rate,
         record.created_at,
-        record.updated_at
+        record.updated_at,
+        record.timeline
       ));
     });
   }

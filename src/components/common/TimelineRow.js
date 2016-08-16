@@ -4,6 +4,7 @@ import TiLabel from '../../tiWrapp/TiLabel';
 import DesignParam from '../../enum/DesignParam';
 import ModeMark from '../common/ModeMark';
 import moment from 'moment';
+import CookStep from '../../models/vo/CookStep';
 
 /**
  * 炊飯記録のRowクラスです。
@@ -20,6 +21,10 @@ export default class TimelineRow extends TiTableViewRow {
     return 164;
   }
 
+  get data() {
+    return new CookStep(this._mode, this._seconds);
+  }
+
   /**
    * コンストラクター
    * @constructor
@@ -30,7 +35,7 @@ export default class TimelineRow extends TiTableViewRow {
 
     this._mode = mode;
     this._timer = null;
-    this._secounds = 0;
+    this._seconds = 0;
 
     // 見栄え処理
     this._initDecoration();
@@ -155,9 +160,9 @@ export default class TimelineRow extends TiTableViewRow {
    * タイマーのカウントを進めます。
    */
   _increment() {
-    this._secounds+=1;
+    this._seconds+=1;
     let zeroMoment = moment('00:00:00', 'HH:mm:ss');
-    let nowMoment = zeroMoment.seconds(this._secounds);
+    let nowMoment = zeroMoment.seconds(this._seconds);
     let second = nowMoment.second();
     let minute = nowMoment.minute();
     let hour = nowMoment.hour();

@@ -8,18 +8,18 @@ export default class CookStep {
     return this._mode;
   }
 
-  /** タイム */
-  get time() {
-    return this._time;
+  /** 秒数 */
+  get seconds() {
+    return this._seconds;
   }
 
   /**
    * コンストラクター
    * @constructor
    */
-  constructor(mode, time) {
+  constructor(mode, seconds) {
     this._mode = mode;
-    this._time = time;
+    this._seconds = seconds;
   }
 
 }

@@ -7,6 +7,16 @@ import TimelineRow from './TimelineRow';
  */
 export default class TimelineTable extends TiTableView {
 
+  get timelineData() {
+    let data = [];
+    let rows = this.getData();
+    rows.forEach((row) => {
+      data.push(row.data);
+    });
+
+    return data;
+  }
+
   /**
    * コンストラクター
    * @constructor

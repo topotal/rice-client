@@ -39,15 +39,23 @@ export default class CookRecord {
   }
 
   /**
+   * タイムライン
+   */
+  getTimeline() {
+    return this._timeline;
+  }
+
+  /**
    * コンストラクター
    * @constructor
    */
-  constructor(id, brand, rate, createdAt, updatedAt) {
+  constructor(id, brand, rate, createdAt, updatedAt, timeline) {
     this._id = id;
     this._brand = brand;
     this._rate = rate;
     this._createdAt = createdAt;
     this._updatedAt = updatedAt;
+    this._timeline = timeline;
   }
 
 }
