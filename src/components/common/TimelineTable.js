@@ -82,8 +82,14 @@ export default class TimelineTable extends TiTableView {
     timelineData = timelineData || [];
     let rows = [];
 
-    timelineData.forEach((data) => {
+    timelineData.forEach((data, index) => {
       var row = new TimelineRow(data);
+      if(index != 0) {
+        row.jointBeforeRow();
+      }
+      if(index != timelineData.length - 1) {
+        row.jointNextRow();
+      }
       rows.push(row);
     });
 
