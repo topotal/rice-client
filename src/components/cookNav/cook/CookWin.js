@@ -101,6 +101,9 @@ export default class CookWin extends BaseWindow {
    * 完了画面を開きます。
    */
   _openCompleteWin() {
+    // モデルにデータをセット
+    this._model.timeline = this._timelineTable.timelineData;
+
     let cookNavWin = NavWinModel.getInstance().getNavWin('cook');
     cookNavWin.openWindow(new CompleteWin());
   }

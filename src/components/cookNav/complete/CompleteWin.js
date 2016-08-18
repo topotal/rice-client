@@ -10,6 +10,7 @@ import BaseWindow from '../../common/BaseWindow';
 import StarRating from '../../common/StarRating';
 import Media from '../../common/Media';
 import TimelineTable from '../../common/TimelineTable';
+import CookModel from '../../../models/CookModel';
 
 /**
  * 炊飯完了画面クラスです。
@@ -24,6 +25,9 @@ export default class CompleteWin extends BaseWindow {
     super(prop);
 
     this._starRating = null;
+
+    // モデル
+    this._model = CookModel.getInstance();
 
     // 見栄え処理
     this._initDecoration();
@@ -57,10 +61,11 @@ export default class CompleteWin extends BaseWindow {
 
     // タイムライン
     this._timelineTable = new TimelineTable();
-    this._timelineTable.setHeight(500);
+    this._timelineTable.setHeight(Ti.UI.SIZE);
     this._timelineTable.setLeft(10);
     this._timelineTable.setRight(10);
     this._timelineTable.setBottom(30);
+    this._timelineTable.setTimelineData(this._model.timeline);
     scrollView.add(this._timelineTable);
 
     // メディア

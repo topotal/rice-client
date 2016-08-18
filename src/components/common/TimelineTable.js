@@ -75,8 +75,16 @@ export default class TimelineTable extends TiTableView {
    * Rowをセットします。
    * @param timelineData
    */
-  setRow(timelineData) {
-    console.info(timelineData);
+  setTimelineData(timelineData) {
+    timelineData = timelineData || [];
+    let rows = [];
+
+    timelineData.forEach((data) => {
+      var row = new TimelineRow(data.mode);
+      rows.push(row);
+    });
+
+    this.setData(rows);
   }
 
   /**
