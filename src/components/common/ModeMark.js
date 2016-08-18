@@ -41,7 +41,8 @@ export default class ModeMark extends TiView {
       text: this._mode.modeText,
       color: this._mode.color,
       font: {
-        fontSize: 14
+        fontSize: 14,
+        fontWeight: 'bold'
       }
     });
   }
