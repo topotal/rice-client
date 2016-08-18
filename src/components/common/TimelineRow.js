@@ -12,13 +12,13 @@ import CookStep from '../../models/vo/CookStep';
 export default class TimelineRow extends TiTableViewRow {
 
   get CURRENT_RIGHT_S() {
-    return 102;
+    return 72;
   }
   get CURRENT_RIGHT_M() {
-    return 132;
+    return 102;
   }
   get CURRENT_RIGHT_L() {
-    return 164;
+    return 134;
   }
 
   get data() {
@@ -30,12 +30,13 @@ export default class TimelineRow extends TiTableViewRow {
    * @constructor
    * @param mode
    */
-  constructor(mode) {
+  constructor(data) {
     super();
 
-    this._mode = mode;
+    this._mode = data.mode;
+    this._seconds = data.seconds;
+
     this._timer = null;
-    this._seconds = 0;
 
     // 見栄え処理
     this._initDecoration();
@@ -59,16 +60,16 @@ export default class TimelineRow extends TiTableViewRow {
     this._modeMark.setLeft(36);
     this.add(this._modeMark);
 
-    // 秒数
-    this._time = this._createTime();
-    this._time.setRight(20);
-    this.add(this._time);
-
     // カレントマーク
     this._currentMark = this._createCurrentMark();
     this._currentMark.setRight(this.CURRENT_RIGHT_S);
     this._currentMark.setVisible(false);
     this.add(this._currentMark);
+
+    // 秒数
+    this._time = this._createTime();
+    this._time.setRight(20);
+    this.add(this._time);
   }
 
   /**
@@ -86,7 +87,7 @@ export default class TimelineRow extends TiTableViewRow {
    */
   _createTime() {
     return new TiLabel({
-      text: '0秒 経過',
+      text: this._createTimerText(this._seconds),
       textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT,
       color: DesignParam.COLOR.BLACK,
       font: {
@@ -161,8 +162,17 @@ export default class TimelineRow extends TiTableViewRow {
    */
   _increment() {
     this._seconds+=1;
+    let text = this._createTimerText(this._seconds);
+    this._time.setText(text);
+  }
+
+  /**
+   * タイマーのカウントテキストを生成します。
+   * @param seconds
+   */
+  _createTimerText(seconds) {
     let zeroMoment = moment('00:00:00', 'HH:mm:ss');
-    let nowMoment = zeroMoment.seconds(this._seconds);
+    let nowMoment = zeroMoment.seconds(seconds);
     let second = nowMoment.second();
     let minute = nowMoment.minute();
     let hour = nowMoment.hour();
@@ -179,8 +189,6 @@ export default class TimelineRow extends TiTableViewRow {
       this._currentMark.setRight(this.CURRENT_RIGHT_S);
     }
 
-    text = text + '経過';
-
-    this._time.setText(text);
+    return text;
   }
 }

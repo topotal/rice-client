@@ -1,6 +1,7 @@
 import TiTableView from '../../tiWrapp/TiTableView';
 import DesignParam from '../../enum/DesignParam';
 import TimelineRow from './TimelineRow';
+import CookStep from '../../models/vo/CookStep';
 
 /**
  * 炊飯記録のテーブルクラスです。
@@ -55,7 +56,8 @@ export default class TimelineTable extends TiTableView {
     }
 
     // rowを生成
-    var row = new TimelineRow(mode);
+    let data = new CookStep(mode, 0);
+    let row = new TimelineRow(data);
     this.appendRow(row);
     this.scrollToIndex(this.getData().length-1);
 
@@ -80,7 +82,7 @@ export default class TimelineTable extends TiTableView {
     let rows = [];
 
     timelineData.forEach((data) => {
-      var row = new TimelineRow(data.mode);
+      var row = new TimelineRow(data);
       rows.push(row);
     });
 
