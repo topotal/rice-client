@@ -104,6 +104,14 @@ export default class TiTableView extends TiView {
   }
 
   /**
+   * セパレータのスタイルを設定します。
+   * @param style
+   */
+  setSeparatorStyle(style) {
+    this.tiObj.setSeparatorStyle(style);
+  }
+
+  /**
    * rowを追加します。
    * @param row
    * @param animation

@@ -66,6 +66,12 @@ export default class TimelineRow extends TiTableViewRow {
     this._currentMark.setVisible(false);
     this.add(this._currentMark);
 
+    // セパレーター
+    this._separator = this._createSeparator();
+    this._separator.setBottom(0);
+    this._separator.setVisible(false);
+    this.add(this._separator);
+
     // 秒数
     this._time = this._createTime();
     this._time.setRight(20);
@@ -122,6 +128,18 @@ export default class TimelineRow extends TiTableViewRow {
   }
 
   /**
+   * セパレーターを生成します。
+   */
+  _createSeparator() {
+    return new TiView({
+      left: 112,
+      right: 0,
+      height: 1,
+      backgroundColor: DesignParam.COLOR.GRAY
+    });
+  }
+
+  /**
    * タイマーをスタートさせます。
    */
   start() {
@@ -155,6 +173,7 @@ export default class TimelineRow extends TiTableViewRow {
    */
   jointNextRow() {
     this._nextBar.setVisible(true);
+    this._separator.setVisible(true);
   }
 
   /**
