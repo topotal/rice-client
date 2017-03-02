@@ -1,21 +1,9 @@
 {
-  "name": "rice-client",
-  "version": "1.0.0",
-  "description": "土鍋炊飯支援アプリ ![rice.app](readme.png)",
-  "main": "index.js",
   "scripts": {
     "start": "npm run watch",
     "build": "browserify -d src/app.js -t babelify -o ./Resources/app.js -v",
     "watch": "watchify -d src/app.js -t babelify -o ./Resources/app.js -v",
-    "ti:build": "ti build -p ios -T simulator --log-level debug --device-id 7A9C4EC5-1757-46FD-BC01-53274BF9DC56"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/topotal/rice-client.git"
-  },
-  "dependencies": {
-    "lodash": "^4.13.1",
-    "moment": "^2.13.0"
+    "ti:build": "ti build -p ios -T simulator --log-level debug"
   },
   "devDependencies": {
     "babel": "^6.5.2",
@@ -25,12 +13,8 @@
     "browserify": "^13.0.1",
     "titanium": "^5.0.6",
     "watch": "^0.17.1",
-    "watchify": "^3.7.0"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/topotal/rice-client/issues"
-  },
-  "homepage": "https://github.com/topotal/rice-client#readme"
+    "watchify": "^3.7.0",
+    "lodash": "^4.13.1",
+    "moment": "^2.13.0"
+  }
 }
