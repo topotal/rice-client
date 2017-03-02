@@ -4,5 +4,6 @@ npm-debug.log
 Resources/**/*.js
 !Resources/libs/*.js
 appify/
-!.gitkeep
 dist/
+plugins/
+!.gitkeep
