@@ -11,7 +11,7 @@
 	<fullscreen>false</fullscreen>
 	<navbar-hidden>false</navbar-hidden>
 	<analytics>true</analytics>
-	<guid>12508a33-9612-4e1c-b12c-f2f415efdf73</guid>
+	<guid>8bc4cab8-7ec3-45f0-9eee-5d8f4f575042</guid>
 	<property name="ti.ui.defaultunit" type="string">dp</property>
 	<ios>
 		<plist>
@@ -58,5 +58,5 @@
 		<target device="mobileweb">false</target>
 		<target device="windows">false</target>
 	</deployment-targets>
-	<sdk-version>5.1.2.GA</sdk-version>
+	<sdk-version>6.0.2.GA</sdk-version>
 </ti:app>
