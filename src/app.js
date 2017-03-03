@@ -7,22 +7,12 @@ import NavWinModel from './models/NavWinModel';
  */
 class App {
 
-  hoge = 'hoge';
-
   /**
    * コンストラクター
    */
   constructor() {
-    // navWinのリスト
-    this._navWinList = [];
-    // 開いているnavWinのスタック
-    this._stackOpenNavWin = [];
     // 初期navWindowの準備
-    this._init();
-
-    console.info('====================================');
-    console.info(this.hoge);
-
+    this._init()
     // メインNavWinを開く
     NavWinModel.getInstance().openNavWin('main');
   }
@@ -35,7 +25,5 @@ class App {
     navWinModel.registerNavWin(new MainNav());
     navWinModel.registerNavWin(new CookNav());
   }
-
-
 }
 new App();
