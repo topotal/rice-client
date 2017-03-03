@@ -1,38 +1,19 @@
 {
+  "parser": "babel-eslint",
   "env": {
-    "es6": true,
-    "browser": true
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module"
   },
   "ecmaFeatures": {
-    "modules": true
+    "classes": true,
+    "jsx": true
   },
   "rules": {
-    "semi" : [2 , "always"], // 自動セミコロンを禁止
-    "strict" : 2, // strictモード絶対
-    "camelcase": 2, // 変数はcamelcaseで
-    "no-unused-vars": [2, {"vars" : "all", "args" : "after-used"} ], // 未使用変数は禁止
-    "key-spacing" : [2, {
-      "afterColon" : true // コロンの後は必ずスペース一つ空ける
-    }],
-    "quotes": [2, "single"],
-    "no-console": 0,
-    "no-underscore-dangle": 0,
-    "no-use-before-define": 0,
-    "new-cap": [2, {
-      "capIsNewExceptions": [
-        "Container_constructor",
-        "Bitmap_constructor"
-      ]
-    }]
-  },
-  "globals": {
-    "_": true,
-    "$": true,
-    "Ti": true,
-    "Titanium": true,
-    "Alloy": true,
-    "exports": true,
-    "OS_IOS": true,
-    "OS_ANDROID": true
+    "quotes": 0,
+    "no-underscore-dangle": 0
   }
 }
