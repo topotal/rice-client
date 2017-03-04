@@ -5,13 +5,14 @@ import {_} from 'lodash';
  */
 export default class EventDispatcher {
 
+  /** リスナー */
+  _listeners = {};
+
   /**
    * コンストラクター
    * @constructor
    */
-  constructor() {
-    this._listeners = {};
-  }
+  constructor() {}
 
   /**
    * リスナーを追加します。
