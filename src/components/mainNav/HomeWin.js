@@ -10,25 +10,34 @@ import NavWinModel from '../../models/NavWinModel';
  */
 export default class HomeWin extends BaseWindow {
 
+  /** スクロール値 */
+  _scrollNum = 0;
+  /** 炊飯ボタンが表示されているかどうか */
+  _cookButtonIsShow = false;
+  /** 炊飯記録一覧 */
+  _record = null;
+  /** 炊飯ボタン */
+  _cookButton = null;
+
   /**
    * コンストラクター
    */
   constructor(prop) {
     super(prop);
 
-    // スクロール値
-    this._scrollNum = 0;
-    // 炊飯ボタンが表示されているかどうか
-    this._cookButtonIsShow = false;
+    this._onOpen = this._onOpen.bind(this);
+    this._onScroll = this._onScroll.bind(this);
+    this._onSelectRow = this._onSelectRow.bind(this);
+    this._onClickHandler = this._onClickHandler.bind(this);
 
     // 見栄え処理
     this._initDecoration();
+    // ウィンドウを開いた時のイベントを監視
+    this.addEventListener('wOpen', this._onOpen);
 
     // 炊飯記録一覧
     this._record = new RecordTable();
-    this._onSelectRow = this._onSelectRow.bind(this);
     this._record.addEventListener('select', this._onSelectRow);
-    this._onScroll = this._onScroll.bind(this);
     this._record.addEventListener('wScroll', this._onScroll);
     this.add(this._record);
 
@@ -36,14 +45,7 @@ export default class HomeWin extends BaseWindow {
     this._cookButton = this._createButton();
     this._cookButton.setBottom(-80);
     this.add(this._cookButton);
-
-    // 炊飯ボタンのクリックイベント
-    this._onClickHandler = this._onClickHandler.bind(this);
     this._cookButton.addEventListener('wClick', this._onClickHandler);
-
-    // ウィンドウを開いた時のイベントを監視
-    this._onOpen = this._onOpen.bind(this);
-    this.addEventListener('wOpen', this._onOpen);
   }
 
   /**
@@ -137,5 +139,4 @@ export default class HomeWin extends BaseWindow {
     this._showCookButton();
     this._record.initLoad();
   }
-
 }
