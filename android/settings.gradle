@@ -1,0 +1,3 @@
+rootProject.name = 'rice'
+
+include ':app'
