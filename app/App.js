@@ -1,55 +1,40 @@
 import React, { Component } from 'react';
 import { Navigator, StyleSheet } from 'react-native';
 import HomeScene from './views/home/HomeScene';
+import SceneManager from './utils/SceneManager';
 
 export default class App extends Component {
 
   constructor(props) {
     super(props);
 
+    this._onForwardScene = this._onForwardScene.bind(this);
+    this._onBackScene = this._onBackScene.bind(this);
     this._renderScene = this._renderScene.bind(this);
-    this._onForward = this._onForward.bind(this);
-    this._onBack = this._onBack.bind(this);
 
-    this._initialRoute = {
-      title: 'hoge',
-      index: 0
-    };
+    this._manager = SceneManager.instance;
+    this._manager.on('forward', this._onForwardScene);
+    this._manager.on('back', this._onBackScene);
+
+    this._initialRoute = { index: 0 };
   }
 
   render() {
     return (
-      <Navigator
-        initialRoute={this._initialRoute}
-        renderScene={this._renderScene}
-      />
+      <Navigator ref="nav" initialRoute={this._initialRoute} renderScene={this._renderScene} />
     );
   }
 
   _renderScene(route, navigator) {
-    this._route = route;
-    this._navigator = navigator;
-
-    return (
-      <HomeScene title={route.title}
-        onForward={this._onForward}
-        onBack={this._onBack}
-      />
-    );
+    return (<HomeScene {...route.passProps} />)
   }
 
-  _onForward() {
-    const nextIndex = this._route.index + 1;
-    this._navigator.push({
-      title: 'Scene ' + nextIndex,
-      index: nextIndex
-    });
+  _onForwardScene(event) {
+    this.refs.nav.push({});
   }
 
-  _onBack() {
-    if (this._route.index > 0) {
-      this._navigator.pop();
-    }
+  _onBackScene() {
+    this.refs.nav.pop();
   }
 }
 
