@@ -25,7 +25,12 @@ export default class HomeScene extends Component {
   }
 
   _onPressForward() {
-    SceneManager.instance.to();
+    SceneManager.instance.to({
+      component: HomeScene,
+      passProps: {
+        name: 'hoge'
+      }
+    });
   }
 
   _onPressBack() {

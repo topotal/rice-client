@@ -16,7 +16,12 @@ export default class App extends Component {
     this._manager.on('forward', this._onForwardScene);
     this._manager.on('back', this._onBackScene);
 
-    this._initialRoute = { index: 0 };
+    this._initialRoute = {
+      component: HomeScene,
+      passProps: {
+        name: 'huga'
+      }
+    };
   }
 
   render() {
@@ -26,11 +31,11 @@ export default class App extends Component {
   }
 
   _renderScene(route, navigator) {
-    return (<HomeScene {...route.passProps} />)
+    return <route.component navigator={navigator} {...route.passProps} />
   }
 
   _onForwardScene(event) {
-    this.refs.nav.push({});
+    this.refs.nav.push(event.route);
   }
 
   _onBackScene() {

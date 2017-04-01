@@ -12,11 +12,8 @@ export default class SceneManager extends EventEmitter {
     SceneManager._instance = this;
   }
 
-  to(sceneName, props) {
-    this.emit('forward', {
-      sceneName: sceneName,
-      props: props || {}
-    });
+  to(route) {
+    this.emit('forward', { route: route });
   }
 
   back() {
