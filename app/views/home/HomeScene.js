@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 import SceneManager from '../../utils/SceneManager';
+import Navbar from '../common/Navbar';
 
 export default class HomeScene extends Component {
 
@@ -14,6 +15,7 @@ export default class HomeScene extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Navbar title="Home"/>
         <TouchableHighlight onPress={this._onPressForward}>
           <Text>進む</Text>
         </TouchableHighlight>
@@ -40,7 +42,6 @@ export default class HomeScene extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 100,
     flex: 1
   }
 });
