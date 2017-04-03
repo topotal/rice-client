@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 
 /**
  * ボタンクラスです。
@@ -21,16 +21,19 @@ export default class Button extends Component {
    */
   render() {
     return (
-      <View onPress={this._onPress}>
-        {this.props.children}
-      </View>
+      <TouchableWithoutFeedback onPress={this._onPress}>
+        <View>
+          {this.props.children}
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 
   /**
    * プレス時のハンドラーです。
    */
-  onPress() {
+  _onPress() {
+    console.info('onPress');
     // プレスイベントを発火
     this.props.onPress();
   }
