@@ -4,7 +4,7 @@ import Window from '../common/Window';
 import SceneManager from '../../utils/SceneManager';
 import ColorButton from '../common/ColorButton';
 import RecipeScene from '../recipe/RecipeScene';
-import CookScene from '../cook/CookScene';
+import CookSettingScene from '../cookSetting/CookSettingScene';
 
 /**
  * ホーム画面シーンです。
@@ -56,7 +56,7 @@ export default class HomeScene extends Component {
    */
   _onPressCook() {
     // レシピページへ遷移
-    SceneManager.instance.to(CookScene, {
+    SceneManager.instance.to(CookSettingScene, {
       isModal: true
     });
   }
