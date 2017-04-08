@@ -20,8 +20,12 @@ export default class ColorButton extends Component {
    * 描画します。
    */
   render() {
+    let style = _.extend(
+      _.clone(styles.wrapper),
+      this.props.style || {}
+    );
     return (
-      <Button style={styles.wrapper} onPress={this.props.onPress}>
+      <Button style={style} onPress={this.props.onPress}>
         <Text style={styles.text}>{this.props.text}</Text>
       </Button>
     );
