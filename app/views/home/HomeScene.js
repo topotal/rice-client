@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
+import Window from '../common/Window';
 import SceneManager from '../../utils/SceneManager';
-import Navbar from '../common/Navbar';
 import Button from '../common/Button';
 import RecipeScene from '../recipe/RecipeScene';
 import CookScene from '../cook/CookScene';
@@ -27,15 +27,14 @@ export default class HomeScene extends Component {
    */
   render() {
     return (
-      <View style={styles.container}>
-        <Navbar title="Home"/>
+      <Window title="Home">
         <Button onPress={this._onPressRecipe}>
           <Text>レシピ</Text>
         </Button>
         <Button onPress={this._onPressCook}>
           <Text>炊飯</Text>
         </Button>
-      </View>
+      </Window>
     );
   }
 
