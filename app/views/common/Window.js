@@ -35,6 +35,7 @@ export default class Window extends Component {
 
 const styles = {
   wrapper: {
-    flex: 1
+    flex: 1,
+    backgroundColor: '#FDFFF6'
   }
 };
