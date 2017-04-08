@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import { View, Text, TouchableHighlight } from 'react-native';
-import Navbar from '../common/Navbar';
+import Window from '../common/Window';
 
 /**
  * 炊飯画面クラスです。
@@ -20,15 +19,8 @@ export default class CookScene extends Component {
    */
   render() {
     return (
-      <View style={styles.container}>
-        <Navbar title="炊飯"/>
-      </View>
+      <Window title="炊飯">
+      </Window>
     );
   }
 }
-
-const styles = {
-  container: {
-    flex: 1
-  }
-};
