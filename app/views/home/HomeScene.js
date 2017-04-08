@@ -52,7 +52,9 @@ export default class HomeScene extends Component {
    */
   _onPressCook() {
     // レシピページへ遷移
-    SceneManager.instance.to(CookScene);
+    SceneManager.instance.to(CookScene, {
+      isModal: true
+    });
   }
 }
 

@@ -19,15 +19,15 @@ export default class App extends Component {
     this._onBackScene = this._onBackScene.bind(this);
     this._renderScene = this._renderScene.bind(this);
 
+    // シーン管理
     this._manager = SceneManager.instance;
     this._manager.on('forward', this._onForwardScene);
     this._manager.on('back', this._onBackScene);
 
+    // 初期ルートを設定
     this._initialRoute = {
       component: HomeScene,
-      passProps: {
-        name: 'huga'
-      }
+      passProps: {}
     };
   }
 
@@ -36,8 +36,22 @@ export default class App extends Component {
    */
   render() {
     return (
-      <Navigator ref="nav" initialRoute={this._initialRoute} renderScene={this._renderScene} />
+      <Navigator
+        ref="nav"
+        initialRoute={this._initialRoute}
+        renderScene={this._renderScene}
+        configureScene={this._configureScene}/>
     );
+  }
+
+  /**
+   * シーンの設定をします。
+   */
+  _configureScene(route, routeStack) {
+    if(route.passProps.isModal) {
+      return Navigator.SceneConfigs.FloatFromBottom;
+    }
+    return Navigator.SceneConfigs.PushFromRight;
   }
 
   /**
@@ -62,7 +76,7 @@ export default class App extends Component {
   }
 }
 
-const styles = StyleSheet.create({
+let styles = StyleSheet.create({
   wrapper: {
     flex: 1
   }
