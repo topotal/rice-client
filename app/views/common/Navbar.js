@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, StatusBar, Text, TouchableHighlight, StyleSheet } from 'react-native';
+import {_} from 'lodash';
 
 export default class Navbar extends Component {
 
@@ -15,12 +16,13 @@ export default class Navbar extends Component {
           barStyle="light-content"
         />
         {title}
+        {this.props.children}
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
+const styles = {
   wrapper: {
     height: 64,
     backgroundColor: '#BCCC14'
@@ -32,4 +34,4 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontSize: 18
   }
-});
+};
