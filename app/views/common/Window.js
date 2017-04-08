@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, StatusBar } from 'react-native';
+import {_} from 'lodash';
 import Navbar from '../common/Navbar';
 
 /**
@@ -25,7 +26,7 @@ export default class Window extends Component {
           barStyle="light-content"
         />
         <Navbar title={this.props.title} backButtonEnable={this.props.backButtonEnable}/>
-        <View>
+        <View style={this.props.style}>
           {this.props.children}
         </View>
       </View>
