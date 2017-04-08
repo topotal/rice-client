@@ -4,6 +4,7 @@ import SceneManager from '../../utils/SceneManager';
 import Navbar from '../common/Navbar';
 import Button from '../common/Button';
 import RecipeScene from '../recipe/RecipeScene';
+import CookScene from '../cook/CookScene';
 
 /**
  * ホーム画面シーンです。
@@ -53,12 +54,11 @@ export default class HomeScene extends Component {
    * 炊飯押下時のハンドラーです。
    */
   _onPressCook() {
-    console.info('cook');
-    // // レシピページへ遷移
-    // SceneManager.instance.to({
-    //   component: RecipeScene,
-    //   passProps: {}
-    // });
+    // レシピページへ遷移
+    SceneManager.instance.to({
+      component: CookScene,
+      passProps: {}
+    });
   }
 }
 
