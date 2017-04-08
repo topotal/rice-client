@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Window from '../common/Window';
 
 /**
  * レシピ詳細クラス
