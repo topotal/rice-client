@@ -43,10 +43,7 @@ export default class HomeScene extends Component {
    */
   _onPressRecipe() {
     // レシピページへ遷移
-    SceneManager.instance.to({
-      component: RecipeScene,
-      passProps: {}
-    });
+    SceneManager.instance.to(RecipeScene);
   }
 
   /**
@@ -54,15 +51,6 @@ export default class HomeScene extends Component {
    */
   _onPressCook() {
     // レシピページへ遷移
-    SceneManager.instance.to({
-      component: CookScene,
-      passProps: {}
-    });
+    SceneManager.instance.to(CookScene);
   }
 }
-
-const styles = {
-  container: {
-    flex: 1
-  }
-};

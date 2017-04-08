@@ -19,7 +19,7 @@ export default class RecipeScene extends Component {
    */
   render() {
     return (
-      <Window title="レシピ詳細">
+      <Window title="レシピ詳細" backButtonEnable={this.props.backButton}>
       </Window>
     );
   }

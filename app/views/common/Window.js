@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, StatusBar } from 'react-native';
 import Navbar from '../common/Navbar';
 
 /**
@@ -21,7 +21,10 @@ export default class Window extends Component {
   render() {
     return (
       <View style={styles.wrapper}>
-        <Navbar title={this.props.title}/>
+        <StatusBar
+          barStyle="light-content"
+        />
+        <Navbar title={this.props.title} backButtonEnable={this.props.backButtonEnable}/>
         <View>
           {this.props.children}
         </View>
