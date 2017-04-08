@@ -19,7 +19,10 @@ export default class CookScene extends Component {
    */
   render() {
     return (
-      <Window title="炊飯" backButtonEnable={this.props.backButton}>
+      <Window
+        title="炊飯"
+        color="#FF9B00"
+        backButtonEnable={this.props.backButton}>
       </Window>
     );
   }

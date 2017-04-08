@@ -23,8 +23,12 @@ export default class Navbar extends Component {
    * 描画します。
    */
   render() {
+    let style = _.clone(styles.wrapper);
+    style.backgroundColor = this.props.color;
+    console.info(this.props.color);
+
     return (
-      <View style={styles.wrapper}>
+      <View style={style}>
         {this._createTitle()}
         {this._createBackButton()}
         {this.props.children}
@@ -67,7 +71,7 @@ export default class Navbar extends Component {
   }
 }
 
-const styles = {
+let styles = {
   wrapper: {
     height: 64,
     backgroundColor: '#BCCC14',

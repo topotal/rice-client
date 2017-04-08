@@ -25,7 +25,10 @@ export default class Window extends Component {
         <StatusBar
           barStyle="light-content"
         />
-        <Navbar title={this.props.title} backButtonEnable={this.props.backButtonEnable}/>
+        <Navbar
+          color={this.props.color}
+          title={this.props.title}
+          backButtonEnable={this.props.backButtonEnable}/>
         <View style={this.props.style}>
           {this.props.children}
         </View>

@@ -27,13 +27,17 @@ export default class HomeScene extends Component {
    */
   render() {
     return (
-      <Window title="Home" style={styles.wrapper}>
+      <Window
+        title="Home"
+        style={styles.wrapper}
+        color="#BCCC14">
         <ColorButton
-          style={styles.recipeButton}
           text="レシピ詳細"
+          style={styles.recipeButton}
           onPress={this._onPressRecipe} />
         <ColorButton
           text="炊飯"
+          style={styles.cookButton}
           onPress={this._onPressCook} />
       </Window>
     );
@@ -63,7 +67,9 @@ let styles = {
     padding: 10
   },
   recipeButton: {
-    marginBottom: 10,
+    marginBottom: 10
+  },
+  cookButton: {
     backgroundColor: '#FF9B00'
   }
 };
