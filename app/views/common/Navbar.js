@@ -25,7 +25,6 @@ export default class Navbar extends Component {
   render() {
     let style = _.clone(styles.wrapper);
     style.backgroundColor = this.props.color;
-    console.info(this.props.color);
 
     return (
       <View style={style}>
