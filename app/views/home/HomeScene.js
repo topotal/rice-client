@@ -2,46 +2,68 @@ import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 import SceneManager from '../../utils/SceneManager';
 import Navbar from '../common/Navbar';
+import Button from '../common/Button';
+import RecipeScene from '../recipe/RecipeScene';
 
+/**
+ * ホーム画面シーンです。
+ */
 export default class HomeScene extends Component {
 
+  /**
+   * コンストラクター
+   * @constructor
+   */
   constructor(props) {
     super(props);
 
-    this._onPressForward = this._onPressForward.bind(this);
-    this._onPressBack = this._onPressBack.bind(this);
+    this._onPressRecipe = this._onPressRecipe.bind(this);
+    this._onPressCook   = this._onPressCook.bind(this);
   }
 
+  /**
+   * 描画します。
+   */
   render() {
     return (
       <View style={styles.container}>
         <Navbar title="Home"/>
-        <TouchableHighlight onPress={this._onPressForward}>
-          <Text>進む</Text>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={this._onPressBack}>
-          <Text>戻る</Text>
-        </TouchableHighlight>
+        <Button onPress={this._onPressRecipe}>
+          <Text>レシピ</Text>
+        </Button>
+        <Button onPress={this._onPressCook}>
+          <Text>炊飯</Text>
+        </Button>
       </View>
     );
   }
 
-  _onPressForward() {
+  /**
+   * レシピ押下時のハンドラーです。
+   */
+  _onPressRecipe() {
+    // レシピページへ遷移
     SceneManager.instance.to({
-      component: HomeScene,
-      passProps: {
-        name: 'hoge'
-      }
+      component: RecipeScene,
+      passProps: {}
     });
   }
 
-  _onPressBack() {
-    SceneManager.instance.back();
+  /**
+   * 炊飯押下時のハンドラーです。
+   */
+  _onPressCook() {
+    console.info('cook');
+    // // レシピページへ遷移
+    // SceneManager.instance.to({
+    //   component: RecipeScene,
+    //   passProps: {}
+    // });
   }
 }
 
-const styles = StyleSheet.create({
+const styles = {
   container: {
     flex: 1
   }
-});
+};
