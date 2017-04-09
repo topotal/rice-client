@@ -2,12 +2,11 @@ import React, {Component} from 'react';
 import Window from '../common/Window';
 import ColorButton from '../common/ColorButton';
 import SceneManager from '../../utils/SceneManager';
-import CookCompleteScene from '../cookComplete/CookCompleteScene';
 
 /**
- * 炊飯画面クラスです。
+ * 炊飯完了シーンクラスです。
  */
-export default class CookScene extends Component {
+export default class CookCompleteScene extends Component {
 
   /**
    * コンストラクター
@@ -16,7 +15,7 @@ export default class CookScene extends Component {
   constructor(props) {
     super(props);
 
-    this._onPressComplete = this._onPressComplete.bind(this);
+    this._onPressSubmit = this._onPressSubmit.bind(this);
   }
 
   /**
@@ -25,23 +24,23 @@ export default class CookScene extends Component {
   render() {
     return (
       <Window
-        title="炊飯"
+        title="炊飯完了"
         color="#FF9B00"
         style={styles.wrapper}
         backButtonEnable={this.props.backButton}>
         <ColorButton
-          text="完成"
-          style={styles.completeButton}
-          onPress={this._onPressComplete}/>
+          text="記録に残す"
+          style={styles.cookButton}
+          onPress={this._onPressSubmit}/>
       </Window>
     );
   }
 
   /**
-   * 完了ボタン押下時のハンドラーです。
+   * 記録に残すボタン押下時のハンドラーです。
    */
-  _onPressComplete() {
-    SceneManager.instance.to(CookCompleteScene);
+  _onPressSubmit() {
+    console.info('submit');
   }
 }
 
@@ -49,7 +48,7 @@ let styles = {
   wrapper: {
     padding: 10
   },
-  completeButton: {
+  cookButton: {
     backgroundColor: '#BCCC14'
   }
 };
