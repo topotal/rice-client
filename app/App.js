@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Navigator, StyleSheet } from 'react-native';
-import HomeScene from './views/home/HomeScene';
-import SceneManager from './utils/SceneManager';
+import MainNav from './views/mainNav/MainNav';
 
 /**
  * メインクラスです。
@@ -19,14 +18,9 @@ export default class App extends Component {
     this._onBackScene = this._onBackScene.bind(this);
     this._renderScene = this._renderScene.bind(this);
 
-    // シーン管理
-    this._manager = SceneManager.instance;
-    this._manager.on('forward', this._onForwardScene);
-    this._manager.on('back', this._onBackScene);
-
     // 初期ルートを設定
     this._initialRoute = {
-      component: HomeScene,
+      component: MainNav,
       passProps: {}
     };
   }

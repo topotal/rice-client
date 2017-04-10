@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 import {_} from 'lodash';
-import SceneManager from '../../utils/SceneManager';
 import Button from '../common/Button';
 
 /**
@@ -66,7 +65,6 @@ export default class Navbar extends Component {
    */
   _onPressBack() {
     // レシピページへ遷移
-    SceneManager.instance.back();
   }
 }
 

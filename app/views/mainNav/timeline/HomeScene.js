@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
-import Window from '../common/Window';
-import SceneManager from '../../utils/SceneManager';
-import ColorButton from '../common/ColorButton';
-import RecipeScene from '../recipe/RecipeScene';
-import CookSettingScene from '../cookSetting/CookSettingScene';
+import Window from '../../common/Window';
+import ColorButton from '../../common/ColorButton';
+// import RecipeScene from '../../recipe/RecipeScene';
+// import CookSettingScene from '../cookSetting/CookSettingScene';
 
 /**
  * ホーム画面シーンです。
@@ -48,7 +47,6 @@ export default class HomeScene extends Component {
    */
   _onPressRecipe() {
     // レシピページへ遷移
-    SceneManager.instance.to(RecipeScene);
   }
 
   /**
@@ -56,9 +54,6 @@ export default class HomeScene extends Component {
    */
   _onPressCook() {
     // レシピページへ遷移
-    SceneManager.instance.to(CookSettingScene, {
-      isModal: true
-    });
   }
 }
 
