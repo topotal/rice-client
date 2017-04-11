@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
+import { View, Text, TouchableHighlight, StyleSheet, Platform } from 'react-native';
 import {_} from 'lodash';
 import Button from '../common/Button';
 
@@ -25,9 +25,11 @@ export default class Navbar extends Component {
 
     return (
       <View style={style}>
-        {this._createTitle()}
-        {this._createBackButton()}
-        {this.props.children}
+        <View style={styles.body}>
+          {this._createTitle()}
+          {this._createBackButton()}
+          {this.props.children}
+        </View>
       </View>
     );
   }
@@ -61,20 +63,26 @@ export default class Navbar extends Component {
 
 let styles = {
   wrapper: {
-    height: 64,
+    height: Platform.OS === 'android' ? 44 : 64,
     backgroundColor: '#BCCC14',
     overflow: 'hidden'
   },
+  body: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 44
+  },
   title: {
     textAlign: 'center',
-    marginTop: 20,
-    lineHeight: 44,
     color: '#FFF',
     fontSize: 18
   },
   backButton: {
     position: 'absolute',
-    top: 35,
     left: 10
   },
   backButtonText: {

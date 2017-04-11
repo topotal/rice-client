@@ -1,11 +1,17 @@
 import React, {Component} from 'react';
+import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 import Window from '../../common/Window';
 import ColorButton from '../../common/ColorButton';
 
 /**
  * 炊飯画面クラスです。
  */
-export default class CookScene extends Component {
+export default class CookScene extends Window {
+
+  /** タイトル */
+  _title = '炊飯';
+  /** navbarの色 */
+  _navbarColor = '#FF9B00';
 
   /**
    * コンストラクター
@@ -18,20 +24,16 @@ export default class CookScene extends Component {
   }
 
   /**
-   * 描画します。
+   * コンテンツを描画します。
    */
-  render() {
+  _renderContent() {
     return (
-      <Window
-        title="炊飯"
-        color="#FF9B00"
-        style={styles.wrapper}
-        backButtonEnable={this.props.backButton}>
+      <View style={styles.wrapper}>
         <ColorButton
           text="完成"
           style={styles.completeButton}
           onPress={this._onPressComplete}/>
-      </Window>
+      </View>
     );
   }
 
@@ -39,6 +41,7 @@ export default class CookScene extends Component {
    * 完了ボタン押下時のハンドラーです。
    */
   _onPressComplete() {
+    this.props.onSelectBackNav();
   }
 }
 

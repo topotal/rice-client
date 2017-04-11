@@ -43,14 +43,15 @@ let styles = {
       height: 3
     },
     shadowOpacity: 0.14,
-    shadowRadius: 0
+    shadowRadius: 0,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   text: {
     fontSize: 14,
     color: '#FFF',
     fontWeight: 'bold',
     backgroundColor: 'transparent',
-    textAlign: 'center',
-    lineHeight: 60
+    textAlign: 'center'
   }
 };

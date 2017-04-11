@@ -24,6 +24,7 @@ export default class CookSettingScene extends Window {
     super(props);
 
     this._onPressCook = this._onPressCook.bind(this);
+    this._onPressCancel = this._onPressCancel.bind(this);
   }
 
   /**
@@ -38,8 +39,8 @@ export default class CookSettingScene extends Window {
           onPress={this._onPressCook}/>
         <ColorButton
           text="キャンセル"
-          style={styles.cookButton}
-          onPress={this._onPressCook}/>
+          style={styles.cancelButton}
+          onPress={this._onPressCancel}/>
       </View>
     );
   }
@@ -48,6 +49,15 @@ export default class CookSettingScene extends Window {
    * 炊飯開始ボタン押下時のハンドラーです。
    */
   _onPressCook() {
+    this.props.onSelectForward({
+      component: CookScene
+    });
+  }
+
+  /**
+   * キャンセルボタン押下時のハンドラーです。
+   */
+  _onPressCancel() {
     this.props.onSelectBackNav();
   }
 }
@@ -57,6 +67,10 @@ let styles = {
     padding: 10
   },
   cookButton: {
-    backgroundColor: '#BCCC14'
+    backgroundColor: '#BCCC14',
+    marginBottom: 10
+  },
+  cancelButton: {
+    backgroundColor: '#CCCCCC'
   }
 };
