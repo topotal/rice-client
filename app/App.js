@@ -14,8 +14,8 @@ export default class App extends Component {
   constructor(props) {
     super(props);
 
-    this._onForwardScene = this._onForwardScene.bind(this);
-    this._onBackScene = this._onBackScene.bind(this);
+    this._onSelectBack = this._onSelectBack.bind(this);
+    this._onSelectForward = this._onSelectForward.bind(this);
     this._renderScene = this._renderScene.bind(this);
 
     // 初期ルートを設定
@@ -42,30 +42,32 @@ export default class App extends Component {
    * シーンの設定をします。
    */
   _configureScene(route, routeStack) {
-    if(route.passProps.isModal) {
-      return Navigator.SceneConfigs.FloatFromBottom;
-    }
-    return Navigator.SceneConfigs.PushFromRight;
+    return Navigator.SceneConfigs.FloatFromBottom;
   }
 
   /**
    * シーンを描画します。
    */
   _renderScene(route, navigator) {
-    return <route.component navigator={navigator} {...route.passProps} />
+    return (
+      <route.component
+        onSelectBack={this._onSelectBack}
+        onSelectForward={this._onSelectForward}
+        {...route.passProps} />
+    );
   }
 
   /**
    * シーンが進行した際のハンドラーです。
    */
-  _onForwardScene(event) {
-    this.refs.nav.push(event.route);
+  _onSelectForward(route) {
+    this.refs.nav.push(route);
   }
 
   /**
    * シーンがバックした際のハンドラーです。
    */
-  _onBackScene() {
+  _onSelectBack() {
     this.refs.nav.pop();
   }
 }

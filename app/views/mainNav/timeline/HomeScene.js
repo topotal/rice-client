@@ -2,13 +2,20 @@ import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 import Window from '../../common/Window';
 import ColorButton from '../../common/ColorButton';
-// import RecipeScene from '../../recipe/RecipeScene';
-// import CookSettingScene from '../cookSetting/CookSettingScene';
+import RecipeScene from '../recipe/RecipeScene';
+import CookNav from '../../cookNav/CookNav';
 
 /**
  * ホーム画面シーンです。
  */
-export default class HomeScene extends Component {
+export default class HomeScene extends Window {
+
+  /** タイトル */
+  _title = 'タイムライン';
+  /** navbarの色 */
+  _navbarColor = '#BCCC14';
+  /** 戻るボタンの有無 */
+  _backButtonDisabled = true;
 
   /**
    * コンストラクター
@@ -22,14 +29,11 @@ export default class HomeScene extends Component {
   }
 
   /**
-   * 描画します。
+   * コンテンツを描画します。
    */
-  render() {
+  _renderContent() {
     return (
-      <Window
-        title="Home"
-        style={styles.wrapper}
-        color="#BCCC14">
+      <View style={styles.wrapper}>
         <ColorButton
           text="レシピ詳細"
           style={styles.recipeButton}
@@ -38,7 +42,7 @@ export default class HomeScene extends Component {
           text="炊飯"
           style={styles.cookButton}
           onPress={this._onPressCook} />
-      </Window>
+      </View>
     );
   }
 
@@ -47,6 +51,9 @@ export default class HomeScene extends Component {
    */
   _onPressRecipe() {
     // レシピページへ遷移
+    this.props.onSelectForward({
+      component: RecipeScene
+    });
   }
 
   /**
@@ -54,11 +61,15 @@ export default class HomeScene extends Component {
    */
   _onPressCook() {
     // レシピページへ遷移
+    this.props.onSelectForwardNav({
+      component: CookNav
+    });
   }
 }
 
 let styles = {
   wrapper: {
+    flex: 1,
     padding: 10
   },
   recipeButton: {

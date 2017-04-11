@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Window from '../common/Window';
+import Window from '../../common/Window';
 
 /**
  * レシピ詳細クラス
  */
-export default class RecipeScene extends Component {
+export default class RecipeScene extends Window {
 
   /**
    * コンストラクター
@@ -12,18 +12,5 @@ export default class RecipeScene extends Component {
    */
   constructor(props) {
     super(props);
-  }
-
-  /**
-   * 描画します。
-   */
-  render() {
-    return (
-      <Window
-        title="レシピ詳細"
-        color="#BCCC14"
-        backButtonEnable={this.props.backButton}>
-      </Window>
-    );
   }
 }

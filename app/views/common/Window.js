@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StatusBar } from 'react-native';
+import { View, Text, StatusBar } from 'react-native';
 import {_} from 'lodash';
 import Navbar from '../common/Navbar';
 
@@ -7,6 +7,13 @@ import Navbar from '../common/Navbar';
  * ウィンドウクラス
  */
 export default class Window extends Component {
+
+  /** タイトル */
+  _title = 'タイトル';
+  /** navbarの色 */
+  _navbarColor = '#BCCC14';
+  /** 戻るボタンの禁止 */
+  _backButtonDisabled = false;
 
   /**
    * コンストラクター
@@ -26,12 +33,24 @@ export default class Window extends Component {
           barStyle="light-content"
         />
         <Navbar
-          color={this.props.color}
-          title={this.props.title}
-          backButtonEnable={this.props.backButtonEnable}/>
-        <View style={this.props.style}>
-          {this.props.children}
+          color={this._navbarColor}
+          title={this._title}
+          backButtonDisabled={this._backButtonDisabled}
+          onPressBack={this.props.onSelectBack}/>
+        <View style={styles.content}>
+          {this._renderContent()}
         </View>
+      </View>
+    );
+  }
+
+  /**
+   * コンテンツを生成します。
+   */
+  _renderContent() {
+    return (
+      <View>
+        <Text>コンテンツです</Text>
       </View>
     );
   }

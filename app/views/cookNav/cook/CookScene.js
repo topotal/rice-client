@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import Window from '../common/Window';
-import ColorButton from '../common/ColorButton';
-import SceneManager from '../../utils/SceneManager';
-import CookCompleteScene from '../cookComplete/CookCompleteScene';
+import Window from '../../common/Window';
+import ColorButton from '../../common/ColorButton';
 
 /**
  * 炊飯画面クラスです。
@@ -41,7 +39,6 @@ export default class CookScene extends Component {
    * 完了ボタン押下時のハンドラーです。
    */
   _onPressComplete() {
-    SceneManager.instance.to(CookCompleteScene);
   }
 }
 

@@ -14,8 +14,6 @@ export default class Navbar extends Component {
    */
   constructor(props) {
     super(props);
-
-    this._onPressBack = this._onPressBack.bind(this);
   }
 
   /**
@@ -39,9 +37,9 @@ export default class Navbar extends Component {
    */
   _createBackButton() {
     let backButton = null;
-    if(this.props.backButtonEnable) {
+    if(!this.props.backButtonDisabled) {
       backButton = (
-        <Button style={styles.backButton} onPress={this._onPressBack}>
+        <Button style={styles.backButton} onPress={this.props.onPressBack}>
           <Text style={styles.backButtonText}>戻る</Text>
         </Button>
       );
@@ -58,13 +56,6 @@ export default class Navbar extends Component {
       title = (<Text style={styles.title}>{this.props.title}</Text>);
     }
     return title;
-  }
-
-  /**
-   * 戻るボタン押下時のハンドラーです。
-   */
-  _onPressBack() {
-    // レシピページへ遷移
   }
 }
 

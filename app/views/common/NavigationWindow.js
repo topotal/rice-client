@@ -25,7 +25,7 @@ export default class NavigationWindow extends Component {
     return (
       <Navigator
         ref="nav"
-        initialRoute={this.props.initialRoute}
+        initialRoute={this._initialRoute}
         renderScene={this._renderScene} />
     );
   }
@@ -36,8 +36,10 @@ export default class NavigationWindow extends Component {
   _renderScene(route, navigator) {
     return (
       <route.component
-        onSelectBack={this._onSelect}
+        onSelectBack={this._onSelectBack}
         onSelectForward={this._onSelectForward}
+        onSelectBackNav={this.props.onSelectBack}
+        onSelectForwardNav={this.props.onSelectForward}
         {...route.passProps}
         />
     )
@@ -46,9 +48,9 @@ export default class NavigationWindow extends Component {
   /**
    * 次のシーンを選択された際のハンドラーです。
    */
-  _onSelectForward(event) {
+  _onSelectForward(route) {
     // 新しいシーンを追加
-    this.refs.nav.push(event.route);
+    this.refs.nav.push(route);
   }
 
   /**

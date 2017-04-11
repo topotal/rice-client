@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Navigator, StyleSheet } from 'react-native';
 import NavigationWindow from '../common/NavigationWindow';
-import HomeScene from './timeline/HomeScene';
+import CookSettingScene from './cookSetting/CookSettingScene';
 
 /**
  * メインナビゲーションウィンドウクラスです。
  */
-export default class MainNav extends NavigationWindow {
+export default class CookNav extends NavigationWindow {
 
   /**
    * コンストラクター
@@ -16,7 +16,7 @@ export default class MainNav extends NavigationWindow {
     super(props);
 
     this._initialRoute = {
-      component: HomeScene
+      component: CookSettingScene
     }
   }
 }

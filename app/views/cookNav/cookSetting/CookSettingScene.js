@@ -1,13 +1,20 @@
 import React, {Component} from 'react';
-import Window from '../common/Window';
-import ColorButton from '../common/ColorButton';
-import SceneManager from '../../utils/SceneManager';
+import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
+import Window from '../../common/Window';
+import ColorButton from '../../common/ColorButton';
 import CookScene from '../cook/CookScene';
 
 /**
  * 炊飯設定画面クラスです。
  */
-export default class CookSettingScene extends Component {
+export default class CookSettingScene extends Window {
+
+  /** タイトル */
+  _title = '炊飯設定';
+  /** navbarの色 */
+  _navbarColor = '#FF9B00';
+  /** 戻るボタンの有無 */
+  _backButtonDisabled = true;
 
   /**
    * コンストラクター
@@ -20,20 +27,20 @@ export default class CookSettingScene extends Component {
   }
 
   /**
-   * 描画します。
+   * コンテンツを描画します。
    */
-  render() {
+  _renderContent() {
     return (
-      <Window
-        title="炊飯設定"
-        color="#FF9B00"
-        style={styles.wrapper}
-        backButtonEnable={this.props.backButton}>
+      <View style={styles.wrapper}>
         <ColorButton
           text="炊飯開始"
           style={styles.cookButton}
           onPress={this._onPressCook}/>
-      </Window>
+        <ColorButton
+          text="キャンセル"
+          style={styles.cookButton}
+          onPress={this._onPressCook}/>
+      </View>
     );
   }
 
@@ -41,7 +48,7 @@ export default class CookSettingScene extends Component {
    * 炊飯開始ボタン押下時のハンドラーです。
    */
   _onPressCook() {
-    SceneManager.instance.to(CookScene);
+    this.props.onSelectBackNav();
   }
 }
 
