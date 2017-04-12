@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 import Window from '../../common/Window';
 import ColorButton from '../../common/ColorButton';
+import CookCompleteScene from '../cookComplete/CookCompleteScene';
 
 /**
  * 炊飯画面クラスです。
@@ -41,7 +42,9 @@ export default class CookScene extends Window {
    * 完了ボタン押下時のハンドラーです。
    */
   _onPressComplete() {
-    this.props.onSelectBackNav();
+    this.props.onSelectForward({
+      component: CookCompleteScene
+    });
   }
 }
 

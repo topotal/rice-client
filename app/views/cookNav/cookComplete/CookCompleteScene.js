@@ -1,12 +1,19 @@
 import React, {Component} from 'react';
-import Window from '../common/Window';
-import ColorButton from '../common/ColorButton';
-import SceneManager from '../../utils/SceneManager';
+import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
+import Window from '../../common/Window';
+import ColorButton from '../../common/ColorButton';
 
 /**
  * 炊飯完了シーンクラスです。
  */
-export default class CookCompleteScene extends Component {
+export default class CookCompleteScene extends Window {
+
+  /** タイトル */
+  _title = 'おつかれさまでした！';
+  /** navbarの色 */
+  _navbarColor = '#FF9B00';
+  /** 戻るボタンの有無 */
+  _backButtonDisabled = true;
 
   /**
    * コンストラクター
@@ -19,20 +26,16 @@ export default class CookCompleteScene extends Component {
   }
 
   /**
-   * 描画します。
+   * コンテンツを描画します。
    */
-  render() {
+  _renderContent() {
     return (
-      <Window
-        title="炊飯完了"
-        color="#FF9B00"
-        style={styles.wrapper}
-        backButtonEnable={this.props.backButton}>
+      <View style={styles.wrapper}>
         <ColorButton
           text="記録に残す"
           style={styles.cookButton}
           onPress={this._onPressSubmit}/>
-      </Window>
+      </View>
     );
   }
 
@@ -40,7 +43,8 @@ export default class CookCompleteScene extends Component {
    * 記録に残すボタン押下時のハンドラーです。
    */
   _onPressSubmit() {
-    console.info('submit');
+    // navWinの戻るイベントを発火
+    this.props.onSelectBackNav();
   }
 }
 
