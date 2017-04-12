@@ -6,9 +6,9 @@ import RecipeScene from '../recipe/RecipeScene';
 import CookNav from '../../cookNav/CookNav';
 
 /**
- * ホーム画面シーンです。
+ * タイムライン画面シーンです。
  */
-export default class HomeScene extends Window {
+export default class TimelineScene extends Window {
 
   /** タイトル */
   _title = 'タイムライン';
