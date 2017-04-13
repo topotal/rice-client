@@ -7,7 +7,7 @@ import CookScene from '../cook/CookScene';
 /**
  * 炊飯設定画面クラスです。
  */
-export default class CookSettingScene extends Window {
+export default class SettingWindow extends Window {
 
   /** タイトル */
   _title = '炊飯設定';
