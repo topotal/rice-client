@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Window from '../../common/Window';
 
 /**
- * レシピ詳細クラス
+ * レシピ詳細ウィンドウクラス
  */
-export default class RecipeScene extends Window {
+export default class RecipeWindow extends Window {
 
   /**
    * コンストラクター

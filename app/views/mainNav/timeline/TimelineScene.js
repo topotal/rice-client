@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 import Window from '../../common/Window';
 import ColorButton from '../../common/ColorButton';
-import RecipeScene from '../recipe/RecipeScene';
+import RecipeWindow from '../recipe/RecipeWindow';
 import CookNav from '../../cookNav/CookNav';
 
 /**
@@ -52,7 +52,7 @@ export default class TimelineScene extends Window {
   _onPressRecipe() {
     // レシピページへ遷移
     this.props.onSelectForward({
-      component: RecipeScene
+      component: RecipeWindow
     });
   }
 
