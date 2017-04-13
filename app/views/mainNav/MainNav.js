@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Navigator, StyleSheet } from 'react-native';
 import NavigationWindow from '../common/NavigationWindow';
-import TimelineScene from './timeline/TimelineScene';
+import TimelineWindow from './timeline/TimelineWindow';
 
 /**
  * メインナビゲーションウィンドウクラスです。
@@ -16,7 +16,7 @@ export default class MainNav extends NavigationWindow {
     super(props);
 
     this._initialRoute = {
-      component: TimelineScene
+      component: TimelineWindow
     }
   }
 }

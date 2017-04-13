@@ -6,9 +6,9 @@ import RecipeWindow from '../recipe/RecipeWindow';
 import CookNav from '../../cookNav/CookNav';
 
 /**
- * タイムライン画面シーンです。
+ * タイムライン画面クラスです。
  */
-export default class TimelineScene extends Window {
+export default class TimelineWindow extends Window {
 
   /** タイトル */
   _title = 'タイムライン';
