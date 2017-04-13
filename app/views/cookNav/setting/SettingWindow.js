@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 import Window from '../../common/Window';
 import ColorButton from '../../common/ColorButton';
-import CookScene from '../cook/CookScene';
+import FireUpWindow from '../fireUp/FireUpWindow';
 
 /**
  * 炊飯設定画面クラスです。
@@ -50,7 +50,7 @@ export default class SettingWindow extends Window {
    */
   _onPressCook() {
     this.props.onSelectForward({
-      component: CookScene
+      component: FireUpWindow
     });
   }
 

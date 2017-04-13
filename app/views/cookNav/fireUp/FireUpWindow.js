@@ -5,9 +5,9 @@ import ColorButton from '../../common/ColorButton';
 import CookCompleteScene from '../cookComplete/CookCompleteScene';
 
 /**
- * 炊飯画面クラスです。
+ * 着火画面クラスです。
  */
-export default class CookScene extends Window {
+export default class FireUpWindow extends Window {
 
   /** タイトル */
   _title = '炊飯';
