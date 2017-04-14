@@ -6,7 +6,7 @@ import ColorButton from '../../common/ColorButton';
 /**
  * 炊飯完了シーンクラスです。
  */
-export default class CookCompleteScene extends Window {
+export default class CompleteWindow extends Window {
 
   /** タイトル */
   _title = 'おつかれさまでした！';

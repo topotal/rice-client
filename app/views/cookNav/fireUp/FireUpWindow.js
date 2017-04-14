@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 import Window from '../../common/Window';
 import ColorButton from '../../common/ColorButton';
-import CookCompleteScene from '../cookComplete/CookCompleteScene';
+import CompleteWindow from '../complete/CompleteWindow';
 
 /**
  * 着火画面クラスです。
@@ -43,7 +43,7 @@ export default class FireUpWindow extends Window {
    */
   _onPressComplete() {
     this.props.onSelectForward({
-      component: CookCompleteScene
+      component: CompleteWindow
     });
   }
 }
