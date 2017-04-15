@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Navigator, StyleSheet } from 'react-native';
+import { Navigator } from 'react-native';
 import MainNav from './views/mainNav/MainNav';
+import styles from './styles/AppStyle';
 
 /**
  * メインクラスです。
@@ -34,6 +35,7 @@ export default class App extends Component {
         ref="nav"
         initialRoute={this._initialRoute}
         renderScene={this._renderScene}
+        style={styles.wrapper}
         configureScene={this._configureScene}/>
     );
   }
@@ -71,9 +73,3 @@ export default class App extends Component {
     this.refs.nav.pop();
   }
 }
-
-let styles = StyleSheet.create({
-  wrapper: {
-    flex: 1
-  }
-});
