@@ -4,6 +4,8 @@ import Window from '../../common/Window';
 import ColorButton from '../../common/ColorButton';
 import RecipeWindow from '../recipe/RecipeWindow';
 import CookNav from '../../cookNav/CookNav';
+import Const from '../../../styles/Const';
+import styles from '../../../styles/mainNav/timeline/TimelineWindowStyle';
 
 /**
  * タイムライン画面クラスです。
@@ -13,7 +15,7 @@ export default class TimelineWindow extends Window {
   /** タイトル */
   _title = 'タイムライン';
   /** navbarの色 */
-  _navbarColor = '#BCCC14';
+  _navbarColor = Const.GREEN;
   /** 戻るボタンの有無 */
   _backButtonDisabled = true;
 
@@ -66,16 +68,3 @@ export default class TimelineWindow extends Window {
     });
   }
 }
-
-let styles = {
-  wrapper: {
-    flex: 1,
-    padding: 10
-  },
-  recipeButton: {
-    marginBottom: 10
-  },
-  cookButton: {
-    backgroundColor: '#FF9B00'
-  }
-};
