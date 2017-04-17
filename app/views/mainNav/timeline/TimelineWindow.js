@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import Window from '../../common/Window';
 import ColorButton from '../../common/ColorButton';
 import RecipeWindow from '../recipe/RecipeWindow';
