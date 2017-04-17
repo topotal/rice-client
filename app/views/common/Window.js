@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StatusBar } from 'react-native';
 import {_} from 'lodash';
 import Navbar from '../common/Navbar';
+import styles from '../../styles/common/WindowStyle';
 
 /**
  * ウィンドウクラス
@@ -55,10 +56,3 @@ export default class Window extends Component {
     );
   }
 }
-
-const styles = {
-  wrapper: {
-    flex: 1,
-    backgroundColor: '#FDFFF6'
-  }
-};
