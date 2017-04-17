@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight, StyleSheet, Platform } from 'react-native';
+import { View, Text } from 'react-native';
 import {_} from 'lodash';
 import Button from '../common/Button';
+import styles from '../../styles/common/NavBarStyle';
 
 /**
  * ナビゲーションバークラスです。
@@ -60,32 +61,3 @@ export default class Navbar extends Component {
     return title;
   }
 }
-
-let styles = {
-  wrapper: {
-    height: Platform.OS === 'android' ? 44 : 64,
-    backgroundColor: '#BCCC14',
-    overflow: 'hidden'
-  },
-  body: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 44
-  },
-  title: {
-    textAlign: 'center',
-    color: '#FFF',
-    fontSize: 18
-  },
-  backButton: {
-    position: 'absolute',
-    left: 10
-  },
-  backButtonText: {
-    color: '#FFF'
-  }
-};
