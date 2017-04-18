@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import {_} from 'lodash';
 import Button from '../common/Button';
+import styles from '../../styles/common/ColorButtonStyle';
 
 /**
  * カラーボタンクラスです。
@@ -20,38 +21,15 @@ export default class ColorButton extends Component {
    * 描画します。
    */
   render() {
-    let style = _.extend(
-      _.clone(styles.wrapper),
-      this.props.style || {}
-    );
+    let wrapperStyle = StyleSheet.flatten([
+      styles.wrapper,
+      this.props.style
+    ]);
+
     return (
-      <Button style={style} onPress={this.props.onPress}>
+      <Button style={wrapperStyle} onPress={this.props.onPress}>
         <Text style={styles.text}>{this.props.text}</Text>
       </Button>
     );
   }
 }
-
-let styles = {
-  wrapper: {
-    backgroundColor: '#BCCC14',
-    height: 60,
-    borderRadius: 5,
-    shadowColor: '#000000',
-    shadowOffset: {
-      width: 0,
-      height: 3
-    },
-    shadowOpacity: 0.14,
-    shadowRadius: 0,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  text: {
-    fontSize: 14,
-    color: '#FFF',
-    fontWeight: 'bold',
-    backgroundColor: 'transparent',
-    textAlign: 'center'
-  }
-};
