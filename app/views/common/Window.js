@@ -22,6 +22,10 @@ export default class Window extends Component {
    */
   constructor(props) {
     super(props);
+
+    this._title = props.title || this._title;
+    this._navbarColor = props.navBarColor || this._navbarColor;
+    this._backButtonDisabled = !!props._backButtonDisabled;
   }
 
   /**
@@ -46,19 +50,8 @@ export default class Window extends Component {
           backButtonDisabled={this._backButtonDisabled}
           onPressBack={this.props.onSelectBack}/>
         <View style={styles.content}>
-          {this._renderContent()}
+          {this.children}
         </View>
-      </View>
-    );
-  }
-
-  /**
-   * コンテンツを生成します。
-   */
-  _renderContent() {
-    return (
-      <View>
-        <Text>コンテンツです</Text>
       </View>
     );
   }
