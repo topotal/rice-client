@@ -25,7 +25,7 @@ export default class Window extends Component {
 
     this._title = props.title || this._title;
     this._navbarColor = props.navBarColor || this._navbarColor;
-    this._backButtonDisabled = !!props._backButtonDisabled;
+    this._backButtonDisabled = !!props.backButtonDisabled;
   }
 
   /**
@@ -50,7 +50,7 @@ export default class Window extends Component {
           backButtonDisabled={this._backButtonDisabled}
           onPressBack={this.props.onSelectBack}/>
         <View style={styles.content}>
-          {this.children}
+          {this.props.children}
         </View>
       </View>
     );
