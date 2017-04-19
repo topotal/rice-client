@@ -29,7 +29,6 @@ export default class TimelineWindow extends Component {
   render() {
     return (
       <Window {...this.props}
-        style={styles.wrapper}
         title="タイムライン"
         backButtonDisabled={true}>
         <ColorButton
