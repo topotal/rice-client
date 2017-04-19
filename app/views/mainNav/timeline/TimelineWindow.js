@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Image } from 'react-native';
 import Window from '../../common/Window';
 import ColorButton from '../../common/ColorButton';
+import Button from '../../common/Button';
 import RecipeWindow from '../recipe/RecipeWindow';
 import CookNav from '../../cookNav/CookNav';
 import Const from '../../../styles/Const';
@@ -35,10 +36,11 @@ export default class TimelineWindow extends Component {
           text="レシピ詳細"
           style={styles.recipeButton}
           onPress={this._onPressRecipe} />
-        <ColorButton
-          text="炊飯"
-          style={styles.cookButton}
-          onPress={this._onPressCook} />
+        <Button style={styles.cookButton}
+          onPress={this._onPressCook}>
+          <Image style={styles.cookButtonImg}
+            source={require('../../../imgs/mainNav/timeline/cook_button.png')} />
+        </Button>
       </Window>
     );
   }

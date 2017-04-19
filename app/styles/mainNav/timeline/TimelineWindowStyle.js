@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import Const from '../../Const';
 
 /**
@@ -12,9 +12,14 @@ export default StyleSheet.create({
     marginBottom: 10
   },
   cookButton: {
-    marginLeft: 10,
-    marginRight: 10,
-    marginBottom: 10,
-    backgroundColor: Const.ORANGE
+    position: 'absolute',
+    left: (Dimensions.get('window').width / 2) - 30,
+    bottom: 20,
+    width: 60,
+    height: 62
+  },
+  cookButtonImg: {
+    width: 60,
+    height: 62
   }
 });
