@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import {_} from 'lodash';
+import { View, Text, StyleSheet } from 'react-native';
 import Button from '../common/Button';
 import styles from '../../styles/common/NavBarStyle';
 
@@ -21,11 +20,13 @@ export default class Navbar extends Component {
    * 描画します。
    */
   render() {
-    let style = _.clone(styles.wrapper);
-    style.backgroundColor = this.props.color;
+    let wrapperStyle = StyleSheet.flatten([
+      styles.wrapper,
+      this.props.style
+    ]);
 
     return (
-      <View style={style}>
+      <View style={wrapperStyle}>
         <View style={styles.body}>
           {this._createTitle()}
           {this._createBackButton()}
