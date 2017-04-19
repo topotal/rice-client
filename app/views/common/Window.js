@@ -33,7 +33,7 @@ export default class Window extends Component {
    */
   render() {
     // navBarのスタイルを生成
-    let navBarstyle = StyleSheet.create({
+    let navBarStyle = StyleSheet.create({
       wrapper: {
         backgroundColor: this._navbarColor
       }
@@ -41,12 +41,10 @@ export default class Window extends Component {
 
     return (
       <View style={styles.wrapper}>
-        <StatusBar
-          barStyle="light-content"
-        />
+        <StatusBar barStyle="light-content" />
         <Navbar
           title={this._title}
-          style={navBarstyle.wrapper}
+          style={navBarStyle.wrapper}
           backButtonDisabled={this._backButtonDisabled}
           onPressBack={this.props.onSelectBack}/>
         <View style={styles.content}>

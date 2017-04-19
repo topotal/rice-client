@@ -29,18 +29,17 @@ export default class TimelineWindow extends Component {
   render() {
     return (
       <Window {...this.props}
+        style={styles.wrapper}
         title="タイムライン"
         backButtonDisabled={true}>
-        <View style={styles.wrapper}>
-          <ColorButton
-            text="レシピ詳細"
-            style={styles.recipeButton}
-            onPress={this._onPressRecipe} />
-          <ColorButton
-            text="炊飯"
-            style={styles.cookButton}
-            onPress={this._onPressCook} />
-        </View>
+        <ColorButton
+          text="レシピ詳細"
+          style={styles.recipeButton}
+          onPress={this._onPressRecipe} />
+        <ColorButton
+          text="炊飯"
+          style={styles.cookButton}
+          onPress={this._onPressCook} />
       </Window>
     );
   }
