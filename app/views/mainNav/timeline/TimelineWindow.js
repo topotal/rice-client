@@ -10,14 +10,7 @@ import styles from '../../../styles/mainNav/timeline/TimelineWindowStyle';
 /**
  * タイムライン画面クラスです。
  */
-export default class TimelineWindow extends Window {
-
-  /** タイトル */
-  _title = 'タイムライン';
-  /** navbarの色 */
-  _navbarColor = Const.GREEN;
-  /** 戻るボタンの有無 */
-  _backButtonDisabled = true;
+export default class TimelineWindow extends Component {
 
   /**
    * コンストラクター
@@ -31,20 +24,24 @@ export default class TimelineWindow extends Window {
   }
 
   /**
-   * コンテンツを描画します。
+   * 描画します。
    */
-  _renderContent() {
+  render() {
     return (
-      <View style={styles.wrapper}>
-        <ColorButton
-          text="レシピ詳細"
-          style={styles.recipeButton}
-          onPress={this._onPressRecipe} />
-        <ColorButton
-          text="炊飯"
-          style={styles.cookButton}
-          onPress={this._onPressCook} />
-      </View>
+      <Window {...this.props}
+        title="タイムライン"
+        backButtonDisabled={true}>
+        <View style={styles.wrapper}>
+          <ColorButton
+            text="レシピ詳細"
+            style={styles.recipeButton}
+            onPress={this._onPressRecipe} />
+          <ColorButton
+            text="炊飯"
+            style={styles.cookButton}
+            onPress={this._onPressCook} />
+        </View>
+      </Window>
     );
   }
 
