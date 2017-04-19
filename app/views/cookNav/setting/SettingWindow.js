@@ -3,11 +3,12 @@ import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 import Window from '../../common/Window';
 import ColorButton from '../../common/ColorButton';
 import FireUpWindow from '../fireUp/FireUpWindow';
+import Const from '../../../styles/Const';
 
 /**
  * 炊飯設定画面クラスです。
  */
-export default class SettingWindow extends Window {
+export default class SettingWindow extends Component {
 
   /** タイトル */
   _title = '炊飯設定';
@@ -28,11 +29,13 @@ export default class SettingWindow extends Window {
   }
 
   /**
-   * コンテンツを描画します。
+   * 描画します。
    */
-  _renderContent() {
+  render() {
     return (
-      <View style={styles.wrapper}>
+      <Window {...this.props}
+        title="炊飯設定"
+        navBarColor={Const.ORANGE}>
         <ColorButton
           text="炊飯開始"
           style={styles.cookButton}
@@ -41,7 +44,7 @@ export default class SettingWindow extends Window {
           text="キャンセル"
           style={styles.cancelButton}
           onPress={this._onPressCancel}/>
-      </View>
+      </Window>
     );
   }
 
