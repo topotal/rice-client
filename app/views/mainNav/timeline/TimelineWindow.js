@@ -6,6 +6,7 @@ import Button from '../../common/Button';
 import RecipeWindow from '../recipe/RecipeWindow';
 import CookNav from '../../cookNav/CookNav';
 import Const from '../../../styles/Const';
+import TimelineList from './TimelineList';
 import styles from '../../../styles/mainNav/timeline/TimelineWindowStyle';
 
 /**
@@ -32,10 +33,8 @@ export default class TimelineWindow extends Component {
       <Window {...this.props}
         title="タイムライン"
         backButtonDisabled={true}>
-        <ColorButton
-          text="レシピ詳細"
-          style={styles.recipeButton}
-          onPress={this._onPressRecipe} />
+        <TimelineList
+          style={styles.timelineList}/>
         <Button style={styles.cookButton}
           onPress={this._onPressCook}>
           <Image style={styles.cookButtonImg}
