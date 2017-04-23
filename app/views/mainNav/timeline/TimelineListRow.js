@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import TimelineListRow from './TimelineListRow';
+import styles from '../../../styles/mainNav/timeline/TimelineListRowStyle';
 
 /**
  * タイムラインリストクラスです。
@@ -20,8 +21,9 @@ export default class TimelineList extends Component {
    */
   render() {
     return (
-      <View>
-        <Text>テストテキスト</Text>
+      <View style={styles.wrapper}>
+        <View style={styles.content}>
+        </View>
       </View>
     );
   }
