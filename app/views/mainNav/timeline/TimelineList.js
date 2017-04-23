@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { ListView, Text } from 'react-native';
+import { ListView, Text, Image } from 'react-native';
 import TimelineListRow from './TimelineListRow';
+import styles from '../../../styles/mainNav/timeline/TimelineListStyle';
 
 /**
  * タイムラインリストクラスです。
@@ -17,7 +18,7 @@ export default class TimelineList extends Component {
     this._renderRow = this._renderRow.bind(this);
     var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
-      dataSource: ds.cloneWithRows(['a', 'a'])
+      dataSource: ds.cloneWithRows(['a', 'a', 'a', 'a', 'a', 'a',])
     };
   }
 
@@ -26,10 +27,15 @@ export default class TimelineList extends Component {
    */
   render() {
     return (
-      <ListView
-        enableEmptySections={true}
-        dataSource={this.state.dataSource}
-        renderRow={this._renderRow}/>
+      <Image
+        source={require('../../../imgs/mainNav/timeline/background.png')}
+        style={styles.backgroundImage}>
+        <ListView
+          style={{paddingTop: 10}}
+          enableEmptySections={true}
+          dataSource={this.state.dataSource}
+          renderRow={this._renderRow}/>
+      </Image>
     );
   }
 
