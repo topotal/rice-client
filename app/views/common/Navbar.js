@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Button from '../common/Button';
 import styles from '../../styles/common/NavBarStyle';
+import SceneModel from '../../models/SceneModel';
 
 /**
  * ナビゲーションバークラスです。
@@ -14,6 +15,8 @@ export default class Navbar extends Component {
    */
   constructor(props) {
     super(props);
+
+    this._onPressBack = this._onPressBack.bind(this);
   }
 
   /**
@@ -43,7 +46,7 @@ export default class Navbar extends Component {
     let backButton = null;
     if(!this.props.backButtonDisabled) {
       backButton = (
-        <Button style={styles.backButton} onPress={this.props.onPressBack}>
+        <Button style={styles.backButton} onPress={this._onPressBack}>
           <Text style={styles.backButtonText}>戻る</Text>
         </Button>
       );
@@ -60,5 +63,12 @@ export default class Navbar extends Component {
       title = (<Text style={styles.title}>{this.props.title}</Text>);
     }
     return title;
+  }
+
+  /**
+   * 戻るボタン押下時のハンドラーです。
+   */
+  _onPressBack() {
+    SceneModel.instance.popWindow();
   }
 }
