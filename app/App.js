@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Navigator } from 'react-native';
 import MainNav from './views/mainNav/MainNav';
 import styles from './styles/AppStyle';
+import SceneModel from './models/SceneModel';
 
 /**
  * メインクラスです。
@@ -24,6 +25,14 @@ export default class App extends Component {
       component: MainNav,
       passProps: {}
     };
+  }
+
+  /**
+   * コンポーネントがマウントされた際のハンドラーです。
+   */
+  componentDidMount() {
+    // シーンモデルにNavigatorをセット
+    SceneModel.instance.mainNav = this.refs.nav;
   }
 
   /**

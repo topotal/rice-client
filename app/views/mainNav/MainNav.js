@@ -6,7 +6,7 @@ import TimelineWindow from './timeline/TimelineWindow';
 /**
  * メインナビゲーションウィンドウクラスです。
  */
-export default class MainNav extends NavigationWindow {
+export default class MainNav extends Component {
 
   /**
    * コンストラクター
@@ -18,5 +18,16 @@ export default class MainNav extends NavigationWindow {
     this._initialRoute = {
       component: TimelineWindow
     }
+  }
+
+  /**
+   * 描画します。
+   */
+  render() {
+    return (
+      <NavigationWindow
+        initialRoute={this._initialRoute}
+        />
+    );
   }
 }
