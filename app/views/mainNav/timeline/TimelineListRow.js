@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
 import TimelineListRow from './TimelineListRow';
 import styles from '../../../styles/mainNav/timeline/TimelineListRowStyle';
+import SceneModel from '../../../models/SceneModel';
+import RecipeWindow from '../recipe/RecipeWindow';
 
 /**
  * タイムラインリストクラスです。
@@ -14,6 +16,8 @@ export default class TimelineList extends Component {
    */
   constructor(props) {
     super(props);
+
+    this._onPress = this._onPress.bind(this);
   }
 
   /**
@@ -22,9 +26,20 @@ export default class TimelineList extends Component {
   render() {
     return (
       <View style={styles.wrapper}>
-        <View style={styles.content}>
-        </View>
+        <TouchableWithoutFeedback onPress={this._onPress}>
+          <View style={styles.content}>
+          </View>
+        </TouchableWithoutFeedback>
       </View>
     );
+  }
+
+  /**
+   * タップ時のハンドラーです。
+   */
+  _onPress() {
+    SceneModel.instance.pushWindow({
+      component: RecipeWindow
+    });
   }
 }
