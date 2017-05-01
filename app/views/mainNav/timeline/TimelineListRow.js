@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
 import TimelineListRow from './TimelineListRow';
 import styles from '../../../styles/mainNav/timeline/TimelineListRowStyle';
-import SceneModel from '../../../models/SceneModel';
-import RecipeWindow from '../recipe/RecipeWindow';
 
 /**
  * タイムラインリストクラスです。
@@ -35,11 +33,10 @@ export default class TimelineList extends Component {
   }
 
   /**
-   * タップ時のハンドラーです。
+   * プレス時のハンドラーです。
    */
   _onPress() {
-    SceneModel.instance.pushWindow({
-      component: RecipeWindow
-    });
+    // プレスイベントを発火
+    this.props.onPress();
   }
 }
