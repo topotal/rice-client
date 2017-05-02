@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Button from '../common/Button';
 import styles from '../../styles/common/NavBarStyle';
-import SceneModel from '../../models/SceneModel';
 
 /**
  * ナビゲーションバークラスです。
@@ -69,6 +68,7 @@ export default class Navbar extends Component {
    * 戻るボタン押下時のハンドラーです。
    */
   _onPressBack() {
-    SceneModel.instance.popWindow();
+    // 戻るボタン押下イベントを発火
+    this.props.onPressBack();
   }
 }
