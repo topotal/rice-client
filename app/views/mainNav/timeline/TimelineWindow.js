@@ -8,7 +8,6 @@ import CookNav from '../../cookNav/CookNav';
 import Const from '../../../styles/Const';
 import TimelineList from './TimelineList';
 import styles from '../../../styles/mainNav/timeline/TimelineWindowStyle';
-import SceneModel from '../../../models/SceneModel';
 
 /**
  * タイムライン画面クラスです。
@@ -35,7 +34,8 @@ export default class TimelineWindow extends Component {
         title="タイムライン"
         backButtonDisabled={true}>
         <TimelineList
-          style={styles.timelineList}/>
+          style={styles.timelineList}
+          onPressRecipe={this._onPressRecipe}/>
         <Button style={styles.cookButton}
           onPress={this._onPressCook}>
           <Image style={styles.cookButtonImg}
@@ -49,10 +49,11 @@ export default class TimelineWindow extends Component {
    * レシピ押下時のハンドラーです。
    */
   _onPressRecipe() {
-    // // レシピページへ遷移
-    // this.props.onSelectForward({
-    //   component: RecipeWindow
-    // });
+    // レシピページへ遷移
+    this.props.onSelectNext({
+      component: RecipeWindow,
+      passProps: {}
+    });
   }
 
   /**
@@ -60,8 +61,5 @@ export default class TimelineWindow extends Component {
    */
   _onPressCook() {
     // レシピページへ遷移
-    SceneModel.instance.pushNavWindow({
-      component: CookNav
-    });
   }
 }
