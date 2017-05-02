@@ -15,6 +15,8 @@ export default class TimelineList extends Component {
   constructor(props) {
     super(props);
 
+    this._onPressRow = this._onPressRow.bind(this);
+
     this._renderRow = this._renderRow.bind(this);
     var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
@@ -44,7 +46,17 @@ export default class TimelineList extends Component {
    */
   _renderRow(recipeData) {
     return (
-      <TimelineListRow recipeData={recipeData}/>
+      <TimelineListRow
+        recipeData={recipeData}
+        onPress={this._onPressRow}/>
     );
+  }
+
+  /**
+   * Rowのプレス時のハンドラーです。
+   */
+  _onPressRow() {
+    // レシピプレスイベントを発火
+    this.props.onPressRecipe();
   }
 }
