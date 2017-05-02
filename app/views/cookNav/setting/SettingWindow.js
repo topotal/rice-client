@@ -5,7 +5,6 @@ import ColorButton from '../../common/ColorButton';
 import FireUpWindow from '../fireUp/FireUpWindow';
 import Const from '../../../styles/Const';
 import styles from '../../../styles/cookNav/setting/SettingWindowStyle';
-import SceneModel from '../../../models/SceneModel';
 
 /**
  * 炊飯設定画面クラスです。
@@ -48,9 +47,7 @@ export default class SettingWindow extends Component {
    * 炊飯開始ボタン押下時のハンドラーです。
    */
   _onPressCook() {
-    // this.props.onSelectForward({
-    //   component: FireUpWindow
-    // });
+    // レシピページへ遷移
   }
 
   /**
@@ -58,6 +55,5 @@ export default class SettingWindow extends Component {
    */
   _onPressCancel() {
     // レシピページへ遷移
-    SceneModel.instance.popNavWindow();
   }
 }
