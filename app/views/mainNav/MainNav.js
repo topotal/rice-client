@@ -27,7 +27,7 @@ export default class MainNav extends Component {
     return (
       <NavigationWindow
         initialRoute={this._initialRoute}
-        />
+        {...this.props}/>
     );
   }
 }
