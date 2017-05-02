@@ -46,7 +46,7 @@ export default class Window extends Component {
           title={this._title}
           style={navBarStyle.wrapper}
           backButtonDisabled={this._backButtonDisabled}
-          onPressBack={this.props.onSelectBack}/>
+          onPressBack={this.props.onSelectPrev}/>
         <View style={styles.content}>
           {this.props.children}
         </View>
