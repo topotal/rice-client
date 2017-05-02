@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import { Navigator } from 'react-native';
 import MainNav from './views/mainNav/MainNav';
 import styles from './styles/AppStyle';
-import SceneModel from './models/SceneModel';
 
 /**
  * メインクラスです。
  */
 export default class App extends Component {
+
+  /** 初期ルート */
+  _initialRoute = {
+    component: MainNav,
+    passProps: {}
+  }
 
   /**
    * コンストラクター
@@ -16,23 +21,9 @@ export default class App extends Component {
   constructor(props) {
     super(props);
 
-    this._onSelectBack = this._onSelectBack.bind(this);
-    this._onSelectForward = this._onSelectForward.bind(this);
     this._renderScene = this._renderScene.bind(this);
-
-    // 初期ルートを設定
-    this._initialRoute = {
-      component: MainNav,
-      passProps: {}
-    };
-  }
-
-  /**
-   * コンポーネントがマウントされた際のハンドラーです。
-   */
-  componentDidMount() {
-    // シーンモデルにNavigatorをセット
-    SceneModel.instance.mainNav = this.refs.nav;
+    this._onSelectNext = this._onSelectNext.bind(this);
+    this._onSelectPrev = this._onSelectPrev.bind(this);
   }
 
   /**
@@ -60,25 +51,32 @@ export default class App extends Component {
    * シーンを描画します。
    */
   _renderScene(route, navigator) {
+    // ルートデータ無ければ処理しない
+    if(!route) {
+      return;
+    }
+
     return (
       <route.component
-        onSelectBack={this._onSelectBack}
-        onSelectForward={this._onSelectForward}
-        {...route.passProps} />
+        onSelectNext={this._onSelectNext}
+        onSelectPrev={this._onSelectPrev}
+        {...route.passProps}/>
     );
   }
 
   /**
-   * シーンが進行した際のハンドラーです。
+   * 次のNavWin選択時のハンドラーです。
    */
-  _onSelectForward(route) {
+  _onSelectNext(route) {
+    // ルートを追加
     this.refs.nav.push(route);
   }
 
   /**
-   * シーンがバックした際のハンドラーです。
+   * 前のNavWin選択時のハンドラーです。
    */
-  _onSelectBack() {
+  _onSelectPrev() {
+    // ルートを削除
     this.refs.nav.pop();
   }
 }

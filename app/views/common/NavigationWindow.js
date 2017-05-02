@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Navigator } from 'react-native';
-import SceneModel from '../../models/SceneModel';
 
 /**
  * ナビゲーションウィンドウクラスです。
@@ -18,17 +17,11 @@ export default class NavigationWindow extends Component {
     super(props);
 
     this._renderScene = this._renderScene.bind(this);
+    this._onSelectNext = this._onSelectNext.bind(this);
+    this._onSelectPrev = this._onSelectPrev.bind(this);
 
     // 初期ルート
     this._initialRoute = this.props.initialRoute;
-  }
-
-  /**
-   * コンポーネントがマウントされた際のハンドラーです。
-   */
-  componentDidMount() {
-    // シーンモデルにNavWindowをセット
-    SceneModel.instance.currentNavWindow = this.refs.nav;
   }
 
   /**
@@ -48,7 +41,26 @@ export default class NavigationWindow extends Component {
    */
   _renderScene(route, navigator) {
     return (
-      <route.component {...route.passProps} />
+      <route.component
+        onSelectNext={this._onSelectNext}
+        onSelectPrev={this._onSelectPrev}
+        {...route.passProps} />
     )
+  }
+
+  /**
+   * 次のWindow選択時のハンドラーです。
+   */
+  _onSelectNext(route) {
+    // ルートを追加
+    this.refs.nav.push(route);
+  }
+
+  /**
+   * 前のWindow選択時のハンドラーです。
+   */
+  _onSelectPrev() {
+    // ルートを削除
+    this.refs.nav.pop();
   }
 }
