@@ -61,5 +61,9 @@ export default class TimelineWindow extends Component {
    */
   _onPressCook() {
     // レシピページへ遷移
+    this.props.onSelectNextNav({
+      component: CookNav,
+      passProps: {}
+    });
   }
 }
