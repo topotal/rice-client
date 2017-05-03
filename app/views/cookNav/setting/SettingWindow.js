@@ -48,12 +48,17 @@ export default class SettingWindow extends Component {
    */
   _onPressCook() {
     // レシピページへ遷移
+    this.props.onSelectNext({
+      component: FireUpWindow,
+      passProps: {}
+    });
   }
 
   /**
    * キャンセルボタン押下時のハンドラーです。
    */
   _onPressCancel() {
-    // レシピページへ遷移
+    // NavWinを閉じる
+    this.props.onSelectPrevNav();
   }
 }
