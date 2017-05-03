@@ -27,7 +27,7 @@ export default class CookNav extends Component {
     return (
       <NavigationWindow
         initialRoute={this._initialRoute}
-        />
+        {...this.props}/>
     );
   }
 }
