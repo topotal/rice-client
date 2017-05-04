@@ -4,7 +4,7 @@ import NavigationWindow from '../common/NavigationWindow';
 import SettingWindow from './setting/SettingWindow';
 
 /**
- * メインナビゲーションウィンドウクラスです。
+ * 炊飯用ナビゲーションウィンドウクラスです。
  */
 export default class CookNav extends Component {
 

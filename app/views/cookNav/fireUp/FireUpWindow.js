@@ -7,12 +7,7 @@ import CompleteWindow from '../complete/CompleteWindow';
 /**
  * 着火画面クラスです。
  */
-export default class FireUpWindow extends Window {
-
-  /** タイトル */
-  _title = '炊飯';
-  /** navbarの色 */
-  _navbarColor = '#FF9B00';
+export default class FireUpWindow extends Component {
 
   /**
    * コンストラクター
@@ -27,14 +22,17 @@ export default class FireUpWindow extends Window {
   /**
    * コンテンツを描画します。
    */
-  _renderContent() {
+  render() {
     return (
-      <View style={styles.wrapper}>
-        <ColorButton
-          text="完成"
-          style={styles.completeButton}
-          onPress={this._onPressComplete}/>
-      </View>
+      <Window {...this.props}
+        title="炊飯">
+        <View style={styles.wrapper}>
+          <ColorButton
+            text="完成"
+            style={styles.completeButton}
+            onPress={this._onPressComplete}/>
+        </View>
+      </Window>
     );
   }
 
@@ -42,8 +40,9 @@ export default class FireUpWindow extends Window {
    * 完了ボタン押下時のハンドラーです。
    */
   _onPressComplete() {
-    this.props.onSelectForward({
-      component: CompleteWindow
+    this.props.onSelectNext({
+      component: CompleteWindow,
+      passProps: {}
     });
   }
 }
