@@ -3,6 +3,8 @@ import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 import Window from '../../common/Window';
 import ColorButton from '../../common/ColorButton';
 import CompleteWindow from '../complete/CompleteWindow';
+import Const from '../../../styles/Const';
+import styles from '../../../styles/cookNav/fireUp/FireUpWindowStyle';
 
 /**
  * 着火画面クラスです。
@@ -25,6 +27,7 @@ export default class FireUpWindow extends Component {
   render() {
     return (
       <Window {...this.props}
+        navBarColor={Const.ORANGE}
         title="炊飯">
         <View style={styles.wrapper}>
           <ColorButton
@@ -46,12 +49,3 @@ export default class FireUpWindow extends Component {
     });
   }
 }
-
-let styles = {
-  wrapper: {
-    padding: 10
-  },
-  completeButton: {
-    backgroundColor: '#BCCC14'
-  }
-};
