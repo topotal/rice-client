@@ -3,6 +3,7 @@ import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 import Window from '../../common/Window';
 import ColorButton from '../../common/ColorButton';
 import Const from '../../../styles/Const';
+import styles from '../../../styles/cookNav/complete/CompleteWindowStyle';
 
 /**
  * 炊飯完了シーンクラスです。
@@ -46,12 +47,3 @@ export default class CompleteWindow extends Component {
     this.props.onSelectPrevNav();
   }
 }
-
-let styles = {
-  wrapper: {
-    padding: 10
-  },
-  cookButton: {
-    backgroundColor: '#BCCC14'
-  }
-};
