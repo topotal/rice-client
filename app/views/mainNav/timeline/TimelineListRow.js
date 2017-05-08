@@ -26,6 +26,14 @@ export default class TimelineList extends Component {
       <View style={styles.wrapper}>
         <TouchableWithoutFeedback onPress={this._onPress}>
           <View style={styles.content}>
+            <View style={styles.icon}>
+            </View>
+            <View style={styles.rate}>
+            </View>
+            <Text style={styles.date}>2017/05/08</Text>
+            <Text style={styles.rice}>コシヒカリ</Text>
+            <View style={styles.thumbnail}>
+            </View>
           </View>
         </TouchableWithoutFeedback>
       </View>
