@@ -6,20 +6,13 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   wrapper: {
     backgroundColor: '#BCCC14',
-    height: 60,
-    borderRadius: 5,
-    shadowColor: '#000000',
-    shadowOffset: {
-      width: 0,
-      height: 3
-    },
-    shadowOpacity: 0.14,
-    shadowRadius: 0,
+    height: 50,
+    borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center'
   },
   text: {
-    fontSize: 14,
+    fontSize: 16,
     color: '#FFF',
     fontWeight: 'bold',
     backgroundColor: 'transparent',
