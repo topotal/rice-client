@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Text, StyleSheet } from 'react-native';
-import {_} from 'lodash';
 import Button from '../common/Button';
 import styles from '../../styles/common/ColorButtonStyle';
 
