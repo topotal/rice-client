@@ -6,4 +6,5 @@ export default class Const {
   static ORANGE = '#FF9B00';
   static WHITE = '#FDFFF6';
   static GRAY = '#CCCCCC';
+  static BLACK = '#626262';
 }
