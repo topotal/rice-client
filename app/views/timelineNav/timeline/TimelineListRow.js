@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
 import TimelineListRow from './TimelineListRow';
-import styles from '../../../styles/mainNav/timeline/TimelineListRowStyle';
+import styles from '../../../styles/timelineNav/timeline/TimelineListRowStyle';
 
 /**
  * タイムラインリストクラスです。

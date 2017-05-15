@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import Window from '../../common/Window';
-import styles from '../../../styles/mainNav/recipe/RecipeWindowStyle';
+import styles from '../../../styles/timelineNav/recipe/RecipeWindowStyle';
 import Const from '../../../styles/Const';
 
 /**

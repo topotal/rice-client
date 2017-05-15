@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { ListView, Text, Image } from 'react-native';
+import { ListView, RefreshControl, Text, Image } from 'react-native';
 import TimelineListRow from './TimelineListRow';
-import styles from '../../../styles/mainNav/timeline/TimelineListStyle';
+import styles from '../../../styles/timelineNav/timeline/TimelineListStyle';
 
 /**
  * タイムラインリストクラスです。
@@ -35,6 +35,11 @@ export default class TimelineList extends Component {
         <ListView
           style={{paddingTop: 10}}
           enableEmptySections={true}
+          refreshControl={
+            <RefreshControl
+              refreshing={false}
+            />
+          }
           dataSource={this.state.dataSource}
           renderRow={this._renderRow}/>
       </Image>
