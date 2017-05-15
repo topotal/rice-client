@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import styles from '../../styles/mainNav/TabBarItemStyle';
+import styles from '../../../styles/mainNav/tabWindow/TabBarItemStyle';
+import Button from '../../common/Button';
 
 /**
  * タブバーアイテムクラスです。
@@ -25,10 +26,12 @@ export default class TabBar extends Component {
    */
   render() {
     return (
-      <View style={this.wrapperStyle}>
-        <View style={styles.icon}></View>
-        <Text style={styles.title}>タイトル</Text>
-      </View>
+      <Button
+        onPress={this.props.onPress}
+        style={this.wrapperStyle}>
+        <View style={styles.icon} />
+        <Text style={styles.title}>{this.props.itemData.title}</Text>
+      </Button>
     );
   }
 }

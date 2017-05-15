@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import Const from '../Const';
+import Const from '../../Const';
 
 /**
  * タブバーアイテムのスタイルです。
@@ -13,9 +13,10 @@ export default StyleSheet.create({
     marginTop: 3,
     width: 33,
     height: 33,
-    backgroundColor: '#00F'
+    backgroundColor: Const.BLACK
   },
   title: {
-    fontSize: 9
+    fontSize: 9,
+    color: Const.BLACK
   }
 });

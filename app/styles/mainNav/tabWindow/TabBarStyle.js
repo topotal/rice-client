@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import Const from '../Const';
+import Const from '../../Const';
 
 /**
  * タブバーのスタイルです。

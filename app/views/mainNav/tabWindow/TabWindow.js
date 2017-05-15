@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Window from '../common/Window';
 import TabBar from './TabBar';
+import styles from '../../../styles/mainNav/tabWindow/TabWindowStyle';
+import TimelineNav from '../../timelineNav/TimelineNav';
 
 /**
  * タブウィンドウクラスです。
@@ -21,7 +22,10 @@ export default class TabWindow extends Component {
    */
   render() {
     return (
-      <View style={{flex: 1}} {...this.props}>
+      <View style={styles.wrapper} {...this.props}>
+        <View style={styles.content}>
+          <TimelineNav />
+        </View>
         <TabBar />
       </View>
     );
