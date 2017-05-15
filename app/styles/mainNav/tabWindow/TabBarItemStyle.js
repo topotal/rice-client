@@ -7,7 +7,11 @@ import Const from '../../Const';
 export default StyleSheet.create({
   wrapper: {
     height: 49,
-    alignItems: 'center'
+    alignItems: 'center',
+    opacity: 0.5
+  },
+  active: {
+    opacity: 1
   },
   icon: {
     marginTop: 3,

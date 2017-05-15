@@ -15,6 +15,8 @@ export default class TabWindow extends Component {
    */
   constructor(props) {
     super(props);
+
+    this._onChangeTabBar = this._onChangeTabBarFocus.bind(this);
   }
 
   /**
@@ -26,8 +28,15 @@ export default class TabWindow extends Component {
         <View style={styles.content}>
           <TimelineNav />
         </View>
-        <TabBar />
+        <TabBar onChangeFocus={this._onChangeTabBarFocus}/>
       </View>
     );
+  }
+
+  /**
+   * タブバーのフォーカスが変更された際のハンドラーです。
+   */
+  _onChangeTabBarFocus() {
+    console.info('change focus');
   }
 }

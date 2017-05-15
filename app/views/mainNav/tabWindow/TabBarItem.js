@@ -15,10 +15,7 @@ export default class TabBar extends Component {
   constructor(props) {
     super(props);
 
-    this.wrapperStyle = StyleSheet.flatten([
-      styles.wrapper,
-      this.props.style
-    ]);
+    this._onPress = this._onPress.bind(this);
   }
 
   /**
@@ -27,11 +24,19 @@ export default class TabBar extends Component {
   render() {
     return (
       <Button
-        onPress={this.props.onPress}
-        style={this.wrapperStyle}>
+        onPress={this._onPress}
+        style={[styles.wrapper, this.props.active && styles.active, this.props.style]}>
         <View style={styles.icon} />
         <Text style={styles.title}>{this.props.itemData.title}</Text>
       </Button>
     );
+  }
+
+  /**
+   * プレス時のハンドラーです。
+   */
+  _onPress() {
+    // プレスイベントを発火
+    this.props.onPress(this.props.itemData);
   }
 }

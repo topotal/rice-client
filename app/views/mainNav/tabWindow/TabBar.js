@@ -23,6 +23,10 @@ export default class TabBar extends Component {
       { id: 'cook', title: '炊飯' },
       { id: 'profile', title: 'プロフィール' }
     ];
+
+    this.state = {
+      currentItemID: 'home'
+    };
   }
 
   /**
@@ -46,6 +50,7 @@ export default class TabBar extends Component {
           style={styles.item}
           itemData={data}
           onPress={this._onPressItem}
+          active={data.id == this.state.currentItemID}
           key={i}/>
       );
     });
@@ -54,6 +59,13 @@ export default class TabBar extends Component {
   /**
    * アイテム押下時のハンドラーです。
    */
-  _onPressItem() {
+  _onPressItem(data) {
+    console.info(data);
+    // カレントを更新
+    this.setState({
+      currentItemID: data.id
+    });
+    // フォーカス変更イベントを発火
+    this.props.onChangeFocus(data.id);
   }
 }
