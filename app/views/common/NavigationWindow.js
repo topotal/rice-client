@@ -32,6 +32,7 @@ export default class NavigationWindow extends Component {
   render() {
     return (
       <Navigator
+        style={this.props.style}
         ref="nav"
         initialRoute={this._initialRoute}
         renderScene={this._renderScene} />
