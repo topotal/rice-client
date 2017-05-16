@@ -25,7 +25,7 @@ export default class TabBar extends Component {
     ];
 
     this.state = {
-      currentItemID: 'home'
+      currentItemId: 'home'
     };
   }
 
@@ -50,7 +50,7 @@ export default class TabBar extends Component {
           style={styles.item}
           itemData={data}
           onPress={this._onPressItem}
-          active={data.id == this.state.currentItemID}
+          active={data.id == this.state.currentItemId}
           key={i}/>
       );
     });
@@ -60,10 +60,9 @@ export default class TabBar extends Component {
    * アイテム押下時のハンドラーです。
    */
   _onPressItem(data) {
-    console.info(data);
     // カレントを更新
     this.setState({
-      currentItemID: data.id
+      currentItemId: data.id
     });
     // フォーカス変更イベントを発火
     this.props.onChangeFocus(data.id);
