@@ -16,7 +16,11 @@ export default class TabWindow extends Component {
   constructor(props) {
     super(props);
 
-    this._onChangeTabBar = this._onChangeTabBarFocus.bind(this);
+    this._onChangeTabBarFocus = this._onChangeTabBarFocus.bind(this);
+
+    this.state = {
+      currentPageId: 'home'
+    }
   }
 
   /**
@@ -26,7 +30,7 @@ export default class TabWindow extends Component {
     return (
       <View style={styles.wrapper} {...this.props}>
         <View style={styles.content}>
-          <TimelineNav />
+          <TimelineNav style={[styles.page, this.state.currentPageId == 'home' && styles.pageActive]} />
         </View>
         <TabBar onChangeFocus={this._onChangeTabBarFocus}/>
       </View>
@@ -36,7 +40,8 @@ export default class TabWindow extends Component {
   /**
    * タブバーのフォーカスが変更された際のハンドラーです。
    */
-  _onChangeTabBarFocus() {
-    console.info('change focus');
+  _onChangeTabBarFocus(pageId) {
+    // カレントページIDを更新
+    this.setState({ currentPageId: pageId });
   }
 }

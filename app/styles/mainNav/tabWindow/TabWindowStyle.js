@@ -9,11 +9,15 @@ export default StyleSheet.create({
   },
   content: {
     flex: 1,
-    backgroundColor: '#FF0',
     marginBottom: 49
   },
   tabBar: {
     flex: 1
+  },
+  page: {
+    opacity: 0
+  },
+  pageActive: {
+    opacity: 1
   }
 });
-
