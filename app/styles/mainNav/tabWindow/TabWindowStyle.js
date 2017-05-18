@@ -15,9 +15,13 @@ export default StyleSheet.create({
     flex: 1
   },
   page: {
-    opacity: 0
+    opacity: 0,
+    position: 'absolute',
+    width: '100%',
+    height: 0
   },
   pageActive: {
-    opacity: 1
+    opacity: 1,
+    height: '100%'
   }
 });

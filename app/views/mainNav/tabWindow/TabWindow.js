@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import TabBar from './TabBar';
 import styles from '../../../styles/mainNav/tabWindow/TabWindowStyle';
 import TimelineNav from '../../timelineNav/TimelineNav';
+import ProfileNav from '../../profileNav/ProfileNav';
 
 /**
  * タブウィンドウクラスです。
@@ -31,6 +32,7 @@ export default class TabWindow extends Component {
       <View style={styles.wrapper} {...this.props}>
         <View style={styles.content}>
           <TimelineNav style={[styles.page, this.state.currentPageId == 'home' && styles.pageActive]} />
+          <ProfileNav style={[styles.page, this.state.currentPageId == 'profile' && styles.pageActive]} />
         </View>
         <TabBar onChangeFocus={this._onChangeTabBarFocus}/>
       </View>
