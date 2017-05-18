@@ -60,6 +60,12 @@ export default class TabBar extends Component {
    * アイテム押下時のハンドラーです。
    */
   _onPressItem(data) {
+    // 炊飯ボタンを押した時は専用イベントを発火
+    if(data.id == 'cook') {
+      this.props.onSelectCook();
+      return;
+    }
+
     // カレントを更新
     this.setState({
       currentItemId: data.id

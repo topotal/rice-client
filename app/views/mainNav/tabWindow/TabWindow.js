@@ -4,6 +4,7 @@ import TabBar from './TabBar';
 import styles from '../../../styles/mainNav/tabWindow/TabWindowStyle';
 import TimelineNav from '../../timelineNav/TimelineNav';
 import ProfileNav from '../../profileNav/ProfileNav';
+import CookNav from '../../cookNav/CookNav';
 
 /**
  * タブウィンドウクラスです。
@@ -17,6 +18,7 @@ export default class TabWindow extends Component {
   constructor(props) {
     super(props);
 
+    this._onSelectCook = this._onSelectCook.bind(this);
     this._onChangeTabBarFocus = this._onChangeTabBarFocus.bind(this);
 
     this.state = {
@@ -34,9 +36,20 @@ export default class TabWindow extends Component {
           <TimelineNav style={[styles.page, this.state.currentPageId == 'home' && styles.pageActive]} />
           <ProfileNav style={[styles.page, this.state.currentPageId == 'profile' && styles.pageActive]} />
         </View>
-        <TabBar onChangeFocus={this._onChangeTabBarFocus}/>
+        <TabBar
+          onSelectCook={this._onSelectCook}
+          onChangeFocus={this._onChangeTabBarFocus}/>
       </View>
     );
+  }
+
+  /**
+   * 炊飯が選択された際のハンドラーです。
+   */
+  _onSelectCook() {
+    this.props.onSelectNextNav({
+      component: CookNav
+    });
   }
 
   /**
